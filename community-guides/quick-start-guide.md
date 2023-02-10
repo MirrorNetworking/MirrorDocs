@@ -63,6 +63,8 @@ Creating the player
 * Attached a NetworkTransform component, this will auto add a Network Identity
 * Tick Client Authority on the NetworkTransform
 
+(Note: Newer Mirror versions use "Sync Direction" set this to "Client To Server".)
+
 ![](../.gitbook/assets/QS-image--003.jpg)
 
 * Rename that object Player
