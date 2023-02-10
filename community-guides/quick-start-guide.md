@@ -62,6 +62,7 @@ Creating the player
 * Create a capsule using the menus as shown in the image
 * Attached a NetworkTransform component, this will auto add a Network Identity
 * Tick Client Authority on the NetworkTransform
+
 (Note: Newer Mirror versions use "Sync Direction" set this to "Client To Server".)
 
 ![](../.gitbook/assets/QS-image--003.jpg)
