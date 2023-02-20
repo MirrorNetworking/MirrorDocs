@@ -6,7 +6,7 @@ Add it to NetworkManager, **wrap** it around your regular Transport, drag it int
 
 It can simulate:
 
-* Latency in seconds
+* Latency in milliseconds
 * Packet loss in %
 * Packet scramble / reorder
 
