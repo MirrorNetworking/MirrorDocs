@@ -8,6 +8,28 @@ Mirror is published to the [Asset Store](https://assetstore.unity.com/packages/t
 Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.
 {% endhint %}
 
+## v77.0.0 -- In Progress
+
+* Added: Writer / Reader support for DateTime data type.
+* Added: NetworkRoomManager - ReadyStatusChange is now a virtual method.
+* Added: NetworkTransform interpolation can now be disabled for pos / rot / scale.
+* Fixed: `NetworkBehaviour` SyncVar uses `netId` lookup.
+* Fixed: No longer use custom `NetworkBehaviour` writers for SyncVars.
+* Fixed: Writer for non-spawned `NetworkBehaviour` only writes 0 for `netId`.
+* Fixed: KCP updated to version 1.31.
+* Fixed: NetworkTime - PingWindowSize shortened to 6 from 10 and use it in ExponentialMovingAverage.
+* Fixed: NetworkLoop no longer adds functions twice when Domain Reload is disabled.
+* Fixed: NetworkLoop no longer runs in edit mode.
+* Fixed: Network Messages now uses a static NetworkMessageId class and static ushort Id.
+* Fixed: Weaver now weaves in pre-computed function hash for RPCs.
+* Changed: Interest Management now derives from an abstract base class.
+* Changed: NetworkWriter - MaxStringLength changed to ushort.MaxValue.
+* **Breaking Changes:**
+  * Removed obsolete OnServerError / OnClientError.
+  * Removed old Unity 2018 / 2019\_3 compiler defines.
+  * Remove NetworkClient.serverIp.
+  * AsmDef files updated and simplified.
+
 ## v73.0.0 -- 2023-Feb-09
 
 * Added: `NetworkClient.OnGUI` now includes BTM for `bufferTimeMultiplier`.
