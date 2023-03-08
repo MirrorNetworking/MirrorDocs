@@ -155,7 +155,7 @@ public class Player : NetworkBehaviour
     }
 
     [TargetRpc]
-    public void TargetDoMagic(NetworkConnection target, int damage)
+    public void TargetDoMagic(NetworkConnectionToClient target, int damage)
     {
         // This will appear on the opponent's client, not the attacking player's
         Debug.Log($"Magic Damage = {damage}");
