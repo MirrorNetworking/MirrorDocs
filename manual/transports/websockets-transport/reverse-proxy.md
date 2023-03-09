@@ -57,10 +57,10 @@ Deploy your server build to a folder under `c:\` and start it on port `27777`. M
 
 * Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files.
 * If there's already a `web.config` file in that folder, open it in Notepad, otherwise create an empty one and open it.
-* Merge [the XML below](reverse-proxy.md#web.config-for-iis) into whatever might already be there, save and close it.
+* Merge the XML below into whatever might already be there, save and close it.
 * Go back to IIS, select the server itself, and click Restart in the right panel.
 
-The file below assumes several things:
+The web.config file below assumes several things:
 
 * You've built your server to listen on port `27777` and the WebGL client to connect to `7777`.
 * You've built your WebGL client using brotli (preferred) or gzip compression.
