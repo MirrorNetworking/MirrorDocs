@@ -30,7 +30,8 @@
 * [Transports](manual/transports/README.md)
   * [KCP Transport](manual/transports/kcp-transport.md)
   * [Telepathy Transport](manual/transports/telepathy-transport.md)
-  * [WebSockets Transport](manual/transports/websockets-transport.md)
+  * [WebSockets Transport](manual/transports/websockets-transport/README.md)
+    * [Reverse Proxy](manual/transports/websockets-transport/reverse-proxy.md)
   * [Multiplex Transport](manual/transports/multiplex-transport.md)
   * [Latency Simulaton Transport](manual/transports/latency-simulaton-transport.md)
   * [Ignorance](manual/transports/ignorance.md)
@@ -112,7 +113,6 @@
   * [AWS](hosting/server-hosting/aws.md)
   * [Google Cloud](hosting/server-hosting/google-cloud.md)
   * [Oracle Free Tier](hosting/server-hosting/oracle-free-tier.md)
-  * [Reverse Proxy](hosting/server-hosting/reverse-proxy.md)
 
 ## Security
 

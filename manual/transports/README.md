@@ -6,7 +6,7 @@ These transports are included with Mirror.
 
 * [KCP ](kcp-transport.md)UDP transport based on kcp.c, line-by-line translation to C#
 * [Telepathy](telepathy-transport.md) - Simple, message based, MMO Scale TCP networking in C#. And no magic.
-* [Simple Web Sockets](websockets-transport.md) - WebGL transport layer for Mirror that target browser clients.
+* [Simple Web Sockets](websockets-transport/) - WebGL transport layer for Mirror that target browser clients.
 * [Multiplexer](multiplex-transport.md) - Bridging transport to allow a server to handle clients on different transports concurrently, for example desktop clients using Telepathy together with WebGL clients using Websockets.
 * [Latency Simulation](latency-simulaton-transport.md) - Middleman transport to test non-ideal network conditions
 

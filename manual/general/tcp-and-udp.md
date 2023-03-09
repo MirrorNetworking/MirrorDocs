@@ -21,7 +21,7 @@ In a game environment, TCP is better for slower paced games where latency isn't 
 ### Transports using the TCP protocol <a href="#transports" id="transports"></a>
 
 * [Telepathy](../transports/telepathy-transport.md)
-* [WebSockets](../transports/websockets-transport.md)
+* [WebSockets](../transports/websockets-transport/)
 
 ## [UDP (User Datagram Protocol)](https://en.wikipedia.org/wiki/User\_Datagram\_Protocol) <a href="#udp-user-datagram-protocol" id="udp-user-datagram-protocol"></a>
 
@@ -43,6 +43,6 @@ In a game environment, the raw power of UDP can be harnessed to allow for a grea
 
 ## The choice is yours <a href="#the-choice-is-yours" id="the-choice-is-yours"></a>
 
-Mirror is transport independent, they can simply by added to your NetworkManager GameObject. Mirror comes with a [KCP](../transports/kcp-transport.md) transport _(all platforms except WebGL)_ and a [Websocket](../transports/websockets-transport.md) _(WebGL)_ transport by default. See the [Transports](../transports/) page for more about transports.
+Mirror is transport independent, they can simply by added to your NetworkManager GameObject. Mirror comes with a [KCP](../transports/kcp-transport.md) transport _(all platforms except WebGL)_ and a [Websocket](../transports/websockets-transport/) _(WebGL)_ transport by default. See the [Transports](../transports/) page for more about transports.
 
 Pick whatever transport works best for you and your game. We recommend you profile your game's networking and collect real world numbers before you make a final decision.

@@ -2,7 +2,7 @@
 
 Transport that uses the websocket protocol. This allows this transport to be used in WebGL builds of unity.
 
-![Simple Web Transport Inspector](<../../.gitbook/assets/image (1).png>)
+![Simple Web Transport Inspector](<../../../.gitbook/assets/image (1).png>)
 
 ## Logging <a href="#logging" id="logging"></a>
 
@@ -29,7 +29,7 @@ See the [Unity docs](https://docs.unity3d.com/Manual/PlatformDependentCompilatio
 NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally easier to set up and maintain than using cert.json and PFX files.
 
 \
-Go to the [Reverse Proxy](../../hosting/server-hosting/reverse-proxy.md) page for instructions.
+Go to the [Reverse Proxy](reverse-proxy.md) page for instructions.
 {% endhint %}
 
 If you host your webgl build on a https domain you will need to use wss which will require a ssl cert.

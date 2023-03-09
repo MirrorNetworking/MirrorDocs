@@ -2,7 +2,7 @@
 
 The Multiplex Transport is not a transport itself, but it allows you to combine other transports so that your clients can connect to your servers via either one of them.
 
-A common use case for the Multiplex Transport is a server listening for both WebGL and mobile  / desktop clients. Your WebGL clients can connect to the server using a [Websocket Transport](websockets-transport.md) and your mobile or desktop clients can connect to the same server via TCP or UDP transports. You can configure any number of transports in the Multiplex Transport.
+A common use case for the Multiplex Transport is a server listening for both WebGL and mobile  / desktop clients. Your WebGL clients can connect to the server using a [Websocket Transport](websockets-transport/) and your mobile or desktop clients can connect to the same server via TCP or UDP transports. You can configure any number of transports in the Multiplex Transport.
 
 To use the Multiplex Transport follow these steps:
 

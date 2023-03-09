@@ -12,7 +12,7 @@ In IIS Control Panel, select the IIS Server, and open Configuration Editor (near
 
 Change the Section selector to `system.webServer/proxy` as shown in this image and set Enabled to True and click Apply (top right).
 
-<figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption><p>Configuration Editor to enable Proxy in IIS</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption><p>Configuration Editor to enable Proxy in IIS</p></figcaption></figure>
 
 ### SSL Certificate
 
@@ -22,7 +22,7 @@ You'll need an SSL certificate for your domain.
 * Run WACS.exe and follow the prompts to create a Certificate using default settings for the Default site in IIS.  You'll update the bindings after this step for the game client and proxy.
 * WinAcme creates a scheduled task to update the SSL periodically before it expires.
 
-<figure><img src="../../.gitbook/assets/image (37).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
 
 ### Setup Bindings
 
@@ -30,7 +30,7 @@ Under the IIS server, expand Sites, select the Default site, and click Bindings 
 
 Set up IIS Bindings as shown below using your domain:
 
-<figure><img src="../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
 Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files.
 
@@ -49,7 +49,7 @@ Deploy your WebGL build to the site folder.  Make sure Simple Web Transport is s
 * Ssl Enabled **not** checked
 * Ssl Protocol set to Tls 13.
 
-<figure><img src="../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
 
 Deploy your server build to a folder under `c:\` and start it on port `27777`. Make sure you set that correctly in Simple Web Transport when building the server, or add code to your Network Manager to force that when running headless mode.
 
