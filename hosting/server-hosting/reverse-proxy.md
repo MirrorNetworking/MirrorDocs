@@ -6,7 +6,7 @@ Use nginx - Details coming soon
 
 ## Windows / IIS
 
-Uses Application Request Routing (ARR)...download ARR [here](https://www.microsoft.com/en-us/download/details.aspx?id=47333).
+Uses Application Request Routing (ARR)...download ARR [here](https://www.microsoft.com/en-us/download/details.aspx?id=47333) and install it.
 
 In IIS Control Panel, select the IIS Server, and open Configuration Editor (near the bottom)
 
