@@ -20,7 +20,7 @@ Set up IIS Bindings as shown below using your domain:
 
 <figure><img src="../../.gitbook/assets/image (37).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
-Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files (don't make a subfolder for the build...put them right here).
+Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files.
 
 If there's already a `web.config` file in that folder, open it in Notepad, otherwise create an empty one and open it.
 
