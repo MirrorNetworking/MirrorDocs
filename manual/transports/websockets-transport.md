@@ -32,14 +32,12 @@ NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally eas
 Go to the [Reverse Proxy](../../hosting/server-hosting/reverse-proxy.md) page for instructions.
 {% endhint %}
 
-
-
 If you host your webgl build on a https domain you will need to use wss which will require a ssl cert.
 
-### pre-setup
+### Pre-Setup
 
 * You need a domain name
-  * With dns record pointing at cloud server
+  * With DNS record pointing at cloud server
 * Set up cloud server: [How to set up google cloud server](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/index.html)
 
 > note: You may need to open port 80 for certbot
