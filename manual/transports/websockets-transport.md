@@ -25,6 +25,15 @@ See the [Unity docs](https://docs.unity3d.com/Manual/PlatformDependentCompilatio
 
 ## Setting Up SSL
 
+{% hint style="info" %}
+NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally easier to set up and maintain than using cert.json and PFX files.
+
+\
+Go to the [Reverse Proxy](../../hosting/server-hosting/reverse-proxy.md) page for instructions.
+{% endhint %}
+
+
+
 If you host your webgl build on a https domain you will need to use wss which will require a ssl cert.
 
 ### pre-setup
