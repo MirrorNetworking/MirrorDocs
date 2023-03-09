@@ -10,7 +10,7 @@ description: 'Deprecated: Use Spatial Hash or Distance Interest Management inste
 
 The Network Proximity Checker component controls the visibility of game objects for network clients, based on proximity to players.
 
-![](<../../../.gitbook/assets/image (38).png>)
+![](<../../../.gitbook/assets/image (38) (1).png>)
 
 * **Vis Range**\
   &#x20;Define the range that the game object should be visible to observers.
