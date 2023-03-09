@@ -53,6 +53,8 @@ Deploy your WebGL build to the site folder.  Make sure Simple Web Transport is s
 
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
 
+### WebGL Server
+
 Deploy your server build to a folder under `c:\` and start it on port `27777`. Make sure you set that correctly in Simple Web Transport when building the server or add code to your Network Manager to force that when running headless mode.
 
 ### web.config for IIS
