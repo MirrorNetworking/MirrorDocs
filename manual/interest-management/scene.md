@@ -28,7 +28,7 @@ In each subscene, add an empty game object, and add a **Physics Simulator** comp
 
 Also in each subscene, create an empty game object called **Environment** with a **Network Identity** and make all static non-networked content to be children of this object.  Typically this would include scenery, such as buildings, road meshes and other non-interactive content.
 
-![](<../../.gitbook/assets/image (37).png>)
+![](<../../.gitbook/assets/image (37) (1).png>)
 
 {% hint style="warning" %}
 Do not put anything under the Environment object that will be networked and/or may be interactive by players, e.g. doors, pickups, kiosks, etc.

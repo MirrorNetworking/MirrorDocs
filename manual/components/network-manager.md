@@ -14,7 +14,7 @@ The Network Manager features include:
 
 The Network Manager is the core controlling component of a multiplayer game. To get started, create your new Network Manager from the [Script Template](../general/script-templates.md) included with Mirror, create an empty game object in your starting Scene, and add the newly created Network Manager component. The newly added Network Manager component looks like this:
 
-<figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (43) (1).png" alt=""><figcaption></figcaption></figure>
 
 The Inspector for the Network Manager in the Editor allows you to configure and control many things related to networking.
 

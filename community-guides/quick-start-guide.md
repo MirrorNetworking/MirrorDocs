@@ -77,7 +77,7 @@ Creating the player
 * Drag your player prefab into Network manager,
 * Set spawn method to Round Robin.
 
-![](../.gitbook/assets/QS-image--005.jpg)
+![](../.gitbook/assets/image--005.jpg)
 
 ### Part 5 <a href="#part-5" id="part-5"></a>
 
@@ -304,13 +304,13 @@ namespace QuickStart
   * ignore SceneScript’s, playerScript variable, it automatically sets this!
 * Attach a NetworkIdentity component to the SceneScript gameobject, if it has not automatically done so.
 
-![](https://mirror-networking.com/docs/Articles/CommunityGuides/MirrorQuickStartGuide/image--012.jpg) <img src="../.gitbook/assets/QS-image--012.jpg" alt="" data-size="original">   <img src="../.gitbook/assets/QS-image--013.jpg" alt="" data-size="original">
+![](https://mirror-networking.com/docs/Articles/CommunityGuides/MirrorQuickStartGuide/image--012.jpg) ![](../.gitbook/assets/QS-image--012.jpg) ![](../.gitbook/assets/image--013.jpg)
 
 Now if you build and run, host and join, you can send messages, and have a text log for actions!
 
 Wahooo!
 
-![](../.gitbook/assets/QS-image--014.jpg) ![](../.gitbook/assets/QS-image--015.jpg)
+![](../.gitbook/assets/image--014.jpg) ![](../.gitbook/assets/image--015.jpg)
 
 Experiment and adjust, have fun!
 

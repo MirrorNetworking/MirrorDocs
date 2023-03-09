@@ -112,6 +112,7 @@
   * [AWS](hosting/server-hosting/aws.md)
   * [Google Cloud](hosting/server-hosting/google-cloud.md)
   * [Oracle Free Tier](hosting/server-hosting/oracle-free-tier.md)
+  * [Reverse Proxy](hosting/server-hosting/reverse-proxy.md)
 
 ## Security
 
