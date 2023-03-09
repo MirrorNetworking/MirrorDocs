@@ -19,7 +19,7 @@ Change the Section selector to `system.webServer/proxy` as shown in this image a
 You'll need an SSL certificate for your domain.
 
 * Download WinAcme from [here](https://www.win-acme.com/) and unzip it.
-* Run WACS.exe and follow the prompts to create a Certificate using default settings for the Default site in IIS.  You'll updating the bindings after this step for the game client and proxy.
+* Run WACS.exe and follow the prompts to create a Certificate using default settings for the Default site in IIS.  You'll update the bindings after this step for the game client and proxy.
 * WinAcme creates a scheduled task to update the SSL periodically before it expires.
 
 <figure><img src="../../.gitbook/assets/image (37).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
