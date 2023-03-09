@@ -1,14 +1,22 @@
 # Reverse Proxy
 
+Using a reverse proxy performs better than doing SSL encryption within Unity as part of the game server process:
+
+* Unity is single-threaded, while the reverse proxy is a separate process that's generally engineered to enterprise class performance and is multi-threaded.
+* Encryption is computationally expensive, so better to not bog down Unity with that workload.
+* Unity / mono may not be up to date on TLS version or be able to read the latest certificates.
+
+This page has instructions for both [Linux](reverse-proxy.md#linux-apache) and [Windows](reverse-proxy.md#windows-iis).
+
 ## Linux / Apache
 
-Use nginx - Details coming soon
+Use nginx - Details coming soon.
 
 ## Windows / IIS
 
 Uses Application Request Routing (ARR)...download ARR [here](https://www.microsoft.com/en-us/download/details.aspx?id=47333) and install it.
 
-In IIS Control Panel, select the IIS Server, and open Configuration Editor (near the bottom)
+In IIS Control Panel, select the IIS Server, and open Configuration Editor (near the bottom).
 
 Change the Section selector to `system.webServer/proxy` as shown in this image and set Enabled to True and click Apply (top right).
 
@@ -32,14 +40,6 @@ Set up IIS Bindings as shown below using your domain:
 
 <figure><img src="../../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
-Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files.
-
-If there's already a `web.config` file in that folder, open it in Notepad, otherwise create an empty one and open it.
-
-Merge [the XML below](reverse-proxy.md#web.config-for-iis) into whatever might already be there, save and close it.
-
-Go back to IIS, select the server itself, and click Restart in the right panel.
-
 ### WebGL Client
 
 Deploy your WebGL build to the site folder.  Make sure Simple Web Transport is set up like this:
@@ -51,9 +51,14 @@ Deploy your WebGL build to the site folder.  Make sure Simple Web Transport is s
 
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
 
-Deploy your server build to a folder under `c:\` and start it on port `27777`. Make sure you set that correctly in Simple Web Transport when building the server, or add code to your Network Manager to force that when running headless mode.
+Deploy your server build to a folder under `c:\` and start it on port `27777`. Make sure you set that correctly in Simple Web Transport when building the server or add code to your Network Manager to force that when running headless mode.
 
 ### web.config for IIS
+
+* Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files.
+* If there's already a `web.config` file in that folder, open it in Notepad, otherwise create an empty one and open it.
+* Merge [the XML below](reverse-proxy.md#web.config-for-iis) into whatever might already be there, save and close it.
+* Go back to IIS, select the server itself, and click Restart in the right panel.
 
 The file below assumes several things:
 
