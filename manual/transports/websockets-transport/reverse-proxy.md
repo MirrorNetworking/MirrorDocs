@@ -75,25 +75,30 @@ The web.config file below assumes several things:
         The following line disables static server compression.
         -->
         <urlCompression doStaticCompression="false" doDynamicCompression="false" />
-
+ 
         <!-- To host compressed Unity builds, the correct mimeType should be set for the compressed build files. -->
         <staticContent>
             <!--
             NOTE: IIS will throw an exception if a mimeType is specified multiple times for the same extension.
-            To avoid possible conflicts with configurations that are already on the server, you should remove the mimeType for the corresponding extension using the <remove> element,
-            before adding mimeType using the <mimeMap> element.
+            To avoid possible conflicts with configurations that are already on the server, we remove the mimeType for
+            the corresponding extension using the <remove> element, before adding mimeType using the <mimeMap> element.
+ 
+            The following lines are required for builds compressed with gzip, which don't include decompression fallback.
+            The correct MIME type here would be application/octet-stream, but due to Safari bug
+            https://bugs.webkit.org/show_bug.cgi?id=247421, it's preferable to use MIME Type application/gzip instead.
             -->
-            <!-- The following lines are required for builds compressed with gzip, which don't include decompression fallback. -->
             <remove fileExtension=".data.gz" />
             <mimeMap fileExtension=".data.gz" mimeType="application/gzip" />
-            <!-- The correct MIME type here would be application/octet-stream, but due to Safari bug https://bugs.webkit.org/show_bug.cgi?id=247421, it's preferable to use MIME Type application/gzip instead. -->
             <remove fileExtension=".wasm.gz" />
             <mimeMap fileExtension=".wasm.gz" mimeType="application/wasm" />
             <remove fileExtension=".js.gz" />
             <mimeMap fileExtension=".js.gz" mimeType="application/javascript" />
             <remove fileExtension=".symbols.json.gz" />
             <mimeMap fileExtension=".symbols.json.gz" mimeType="application/octet-stream" />
-            <!-- The following lines are required for builds compressed with Brotli, which don't include decompression fallback. -->
+ 
+            <!--
+            The following lines are required for builds compressed with Brotli, which don't include decompression fallback.
+            -->
             <remove fileExtension=".data.br" />
             <mimeMap fileExtension=".data.br" mimeType="application/octet-stream" />
             <remove fileExtension=".wasm.br" />
@@ -105,8 +110,6 @@ The web.config file below assumes several things:
         </staticContent>
  
         <!--
-        Hosting compressed Unity builds without decompression fallback relies on native browser decompression,
-        therefore a proper "Content-Encoding" response header should be added for the compressed build files.
         NOTE: IIS will throw an exception if the following section is used without the "URL Rewrite" module installed.
         Download the "URL Rewrite" module from https://www.iis.net/downloads/microsoft/url-rewrite
         -->
@@ -136,14 +139,18 @@ The web.config file below assumes several things:
                 </rule>
             </rules>
         </rewrite>
-
+ 
         <outboundRules>
             <!--
+            Hosting compressed Unity builds without decompression fallback relies on native browser decompression,
+            therefore a proper "Content-Encoding" response header should be added for the compressed build files.
+ 
             NOTE: IIS will throw an exception if the same rule name is used multiple times.
-            To avoid possible conflicts with configurations that are already on the server, you should remove the mimeType for the corresponding extension using the <remove> element,
+            To avoid possible conflicts with configurations that are already on the server,
+            you should remove the mimeType for the corresponding extension using the <remove> element,
             before adding mimeType using the <mimeMap> element.
             -->
-
+ 
             <!-- The following section is required for builds compressed with gzip, which don't include decompression fallback. -->
             <remove name="Append gzip Content-Encoding header" />
             <rule name="Append gzip Content-Encoding header">
