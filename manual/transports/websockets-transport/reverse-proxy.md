@@ -8,7 +8,7 @@ Using a reverse proxy performs better than doing SSL encryption within Unity as 
 * Encryption is computationally expensive, so better to not bog down Unity with that workload.
 * Unity / mono may not be up to date on TLS version or be able to read the latest certificates.
 
-This page has instructions for both [Linux](reverse-proxy.md#linux-apache) and [Windows](reverse-proxy.md#windows-iis).
+This page has instructions for both [Linux](reverse-proxy.md#linux) and [Windows](reverse-proxy.md#windows-iis).
 
 ## Linux
 
