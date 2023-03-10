@@ -4,7 +4,7 @@ The network system has ways to perform actions across the network. These type of
 
 The diagram below shows the directions that remote actions take:
 
-![](<../../../.gitbook/assets/image (6).png>)
+![](<../../../.gitbook/assets/image (75).png>)
 
 ## Commands <a href="#commands" id="commands"></a>
 

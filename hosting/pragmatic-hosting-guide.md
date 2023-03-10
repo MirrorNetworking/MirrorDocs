@@ -38,7 +38,7 @@ _... except for LAN parties, if you still remember those._&#x20;
 
 ### **2.) Player Hosted + Relay / NAT Punchthrough**
 
-<img src="../.gitbook/assets/image (52).png" alt="" data-size="original">
+<img src="../.gitbook/assets/image (40).png" alt="" data-size="original">
 
 Still, letting players host their own games can be useful. You will save money on server hosting costs and players will create their servers on demand. We just need to solve the connectivity issue. For that, we can combine two tools:
 
