@@ -31,48 +31,48 @@ The following config defines a reverse proxy listening on port 7777 to proxy to 
 ```
 # helper map to support connection upgrading, only define this once
 map $http_upgrade $connection_upgrade {
-	default upgrade;
-	''      close;
+    default upgrade;
+    ''      close;
 }
 # the actual reverse proxy server block
 server {
-	# the server will listen on port 7777 for both ipv4 and ipv6 
-	listen 7777 ssl http2;
-	listen [::]:7777 ssl http2;
-	# here we set the domain
-	server_name example.org;
+    # the server will listen on port 7777 for both ipv4 and ipv6 
+    listen 7777 ssl http2;
+    listen [::]:7777 ssl http2;
+    # here we set the domain
+    server_name example.org;
 
-	ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
 
-	location / {
-		proxy_pass 'http://127.0.0.1:8777';
-		
-		proxy_redirect off;
-		# very long timeouts to make sure long-running connections aren't interrupted
-		# you might be able to reduce these based on your use-case
-		proxy_read_timeout 7d;
-		proxy_send_timeout 7d;
-		
-		# The following headers are general settings, not directly used by SWT
-		# Tell upstream the host
-		proxy_set_header Host $host;
-		# Tell upstream real ip & forwarded for header
-		proxy_set_header X-Real-IP  $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		# tell upstream this was served via https
-		proxy_set_header X-Forwarded-Proto https;
-		
-		proxy_buffer_size 2k;
-		proxy_buffering off;
-		
-		# websocket support
-		proxy_set_header Upgrade $http_upgrade;
-		proxy_set_header Connection $connection_upgrade;
+    location / {
+        proxy_pass 'http://127.0.0.1:8777';
+        
+        proxy_redirect off;
+        # very long timeouts to make sure long-running connections aren't interrupted
+        # you might be able to reduce these based on your use-case
+        proxy_read_timeout 7d;
+        proxy_send_timeout 7d;
+        
+        # The following headers are general settings, not directly used by SWT
+        # Tell upstream the host
+        proxy_set_header Host $host;
+        # Tell upstream real ip & forwarded for header
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # tell upstream this was served via https
+        proxy_set_header X-Forwarded-Proto https;
+        
+        proxy_buffer_size 2k;
+        proxy_buffering off;
+        
+        # websocket support
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
 
-		# 10s connect timeout
-		proxy_connect_timeout 10;
-	}
+        # 10s connect timeout
+        proxy_connect_timeout 10;
+    }
 }
 ```
 
@@ -82,31 +82,31 @@ If you want to define many reverse proxies, you can, instead of repeating the pr
 
 ```
 map $http_upgrade $connection_upgrade {
-	default upgrade;
-	''      close;
+    default upgrade;
+    ''      close;
 }
 # server 7777 -> 27777
 server {
-	listen 7777 ssl http2;
-	listen [::]:7777 ssl http2;
-	set $gs_port 27777;
-	include /etc/nginx/reverse_proxy.conf;
+    listen 7777 ssl http2;
+    listen [::]:7777 ssl http2;
+    set $gs_port 27777;
+    include /etc/nginx/reverse_proxy.conf;
 }
 
 # server 7778 -> 27778
 server {
-	listen 7778 ssl http2;
-	listen [::]:7778 ssl http2;
-	set $gs_port 27778;
-	include /etc/nginx/reverse_proxy.conf;
+    listen 7778 ssl http2;
+    listen [::]:7778 ssl http2;
+    set $gs_port 27778;
+    include /etc/nginx/reverse_proxy.conf;
 }
 
 # server 7779 -> 27779
 server {
-	listen 7779 ssl http2;
-	listen [::]:7779 ssl http2;
-	set $gs_port 27779;
-	include /etc/nginx/reverse_proxy.conf;
+    listen 7779 ssl http2;
+    listen [::]:7779 ssl http2;
+    set $gs_port 27779;
+    include /etc/nginx/reverse_proxy.conf;
 }
 ```
 
@@ -120,32 +120,32 @@ ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
 
 location / {
-	proxy_pass 'http://127.0.0.1:${gs_port}';
-	
-	proxy_redirect off;
-	# very long timeouts to make sure long-running connections aren't interrupted
-	# you might be able to reduce these based on your use-case
-	proxy_read_timeout 7d;
-	proxy_send_timeout 7d;
-	
-	# The following headers are general settings, not directly used by SWT
-	# Tell upstream the host
-	proxy_set_header Host $host;
-	# Tell upstream real ip & forwarded for header
-	proxy_set_header X-Real-IP  $remote_addr;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	# tell upstream this was served via https
-	proxy_set_header X-Forwarded-Proto https;
-	
-	proxy_buffer_size 2k;
-	proxy_buffering off;
-	
-	# websocket support
-	proxy_set_header Upgrade $http_upgrade;
-	proxy_set_header Connection $connection_upgrade;
+    proxy_pass 'http://127.0.0.1:${gs_port}';
+    
+    proxy_redirect off;
+    # very long timeouts to make sure long-running connections aren't interrupted
+    # you might be able to reduce these based on your use-case
+    proxy_read_timeout 7d;
+    proxy_send_timeout 7d;
+    
+    # The following headers are general settings, not directly used by SWT
+    # Tell upstream the host
+    proxy_set_header Host $host;
+    # Tell upstream real ip & forwarded for header
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    # tell upstream this was served via https
+    proxy_set_header X-Forwarded-Proto https;
+    
+    proxy_buffer_size 2k;
+    proxy_buffering off;
+    
+    # websocket support
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
 
-	# 10s connect timeout
-	proxy_connect_timeout 10;
+    # 10s connect timeout
+    proxy_connect_timeout 10;
 }
 ```
 
