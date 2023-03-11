@@ -12,9 +12,9 @@ This page has instructions for both [Linux](reverse-proxy.md#linux) and [Windows
 
 ## Linux
 
-On linux, you have a wide variety of choices in what software you can use as the reverse proxy. Common options may include [Nginx](https://nginx.org/en/), [Caddy](https://caddyserver.com), [Apache](https://httpd.apache.org/), [HAProxy](https://www.haproxy.org/) and more.&#x20;
+On linux, you have a wide variety of choices in what software you can use as the reverse proxy. Common options may include [Nginx](https://nginx.org/en/), [Caddy](https://caddyserver.com), [Apache](https://httpd.apache.org/), [HAProxy](https://www.haproxy.org/) and more.
 
-We'll go into detail for a few of the common choices here, generally you likely just want to stick with whatever software you're familiar with or already using.&#x20;
+We'll go into detail for a few of the common choices here, generally you likely just want to stick with whatever software you're familiar with or already using.
 
 The following guides (aside from caddy) will assume you have already set up certbot and gotten certs issued. They're also written for debian, but should be very similar (if not identical) on other distros.
 
@@ -76,7 +76,7 @@ server {
 }
 ```
 
-If you want to define many reverse proxies, you can, instead of repeating the proxy definitions for every server block, extract it into an separate file and include it, like so:&#x20;
+If you want to define many reverse proxies, you can, instead of repeating the proxy definitions for every server block, extract it into an separate file and include it, like so:
 
 `/etc/nginx/sites-enabled/game.conf`:
 
@@ -110,7 +110,7 @@ server {
 }
 ```
 
-&#x20;`/etc/nginx/reverse_proxy.conf`:
+`/etc/nginx/reverse_proxy.conf`:
 
 ```
 # here we set the domain
@@ -167,9 +167,16 @@ caddy reverse-proxy --from example.com:7777 --to :27777
 
 ## Windows / IIS
 
-Uses Application Request Routing (ARR)...download ARR [here](https://www.microsoft.com/en-us/download/details.aspx?id=47333) and install it.
+Once you have your Windows Web Server up and running and RDP access to it, you'll probably need to install a couple optional modules:
 
-In IIS Control Panel, select the IIS Server, and open Configuration Editor (near the bottom).
+* URL Rewrite Module - Download [here](https://iis-umbraco-dr.azurewebsites.net/downloads/microsoft/url-rewrite) and install it.
+* Application Request Routing (ARR) - download [here](https://www.microsoft.com/en-us/download/details.aspx?id=47333) and install it.
+
+From the Start menu, type IIS and you'll be able to select Internet Information Services (IIS) Manager.
+
+In IIS Manager, select the server just below Start Page in the left panel, and open Configuration Editor in the Management section near the bottom of the main window.
+
+<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
 
 Change the Section selector to `system.webServer/proxy` as shown in this image and set Enabled to True and click Apply (top right).
 
@@ -180,7 +187,7 @@ Change the Section selector to `system.webServer/proxy` as shown in this image a
 You'll need an SSL certificate for your domain.
 
 * Download WinAcme from [here](https://www.win-acme.com/) and unzip it.
-* Run WACS.exe and follow the prompts to create a Certificate using default settings for the Default site in IIS.  You'll update the bindings after this step for the game client and proxy.
+* Run WACS.exe and follow the prompts to create a Certificate using default settings for the Default site in IIS. You'll update the bindings after this step for the game client and proxy.
 * WinAcme creates a scheduled task to update the SSL periodically before it expires.
 
 <figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
@@ -195,7 +202,7 @@ Set up IIS Bindings as shown below using your domain:
 
 ### WebGL Client
 
-Deploy your WebGL build to the site folder.  Make sure Simple Web Transport is set up like this:
+Deploy your WebGL build to the site folder. Make sure Simple Web Transport is set up like this:
 
 * Port `7777`
 * Client Use Wss checked
