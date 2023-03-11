@@ -193,6 +193,10 @@ Now in the left panel of IIS Manager, expand the server and Sites and select the
 
 <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Edit Site Bindings - Type your FQDN and click OK</p></figcaption></figure>
 
+This is what it should look like when you're done:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
+
 ### SSL Certificate
 
 You'll need an SSL certificate for your domain.
