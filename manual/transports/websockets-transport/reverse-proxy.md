@@ -176,11 +176,11 @@ From the Start menu, type IIS and you'll be able to select Internet Information 
 
 In IIS Manager, select the server just below Start Page in the left panel, and open Configuration Editor in the Management section near the bottom of the main window.
 
-<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (45) (2).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
 
 Change the Section selector to `system.webServer/proxy` as shown in this image and set Enabled to True and click Apply (top right).
 
-<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption><p>Configuration Editor to enable Proxy in IIS</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
 ### SSL Certificate
 
