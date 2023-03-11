@@ -182,21 +182,36 @@ Change the Section selector to `system.webServer/proxy` as shown in this image a
 
 <figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
+### Initial Site Bindings
+
+Now in the left panel of IIS Manager, expand the server and Sites and select the Default Web Site.
+
+* In the right panel, click Bindings.
+* In the Bindings window, double-click the single entry that will be there for port 80.
+* In the Host name field, type the Fully Qualified Domain Name (FQDN) that you want clients to connect to, and click OK, and then Close the Site Bindings window.
+* This will be your domain that you've registered and set up DNS pointing to this web server.
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Edit Site Bindings - Type your FQDN and click OK</p></figcaption></figure>
+
 ### SSL Certificate
 
 You'll need an SSL certificate for your domain.
 
-* Download WinAcme from [here](https://www.win-acme.com/) and unzip it.
+* Download WinAcme and save it to its own folder from [here](https://www.win-acme.com/) and unzip it to that same folder (makes updating it convenient later as you can safely overwrite with newer versions).
 * Run WACS.exe and follow the prompts to create a Certificate using default settings for the Default site in IIS. You'll update the bindings after this step for the game client and proxy.
 * WinAcme creates a scheduled task to update the SSL periodically before it expires.
 
 <figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
 
-### Setup Bindings
+### Additional Site Bindings
 
-Under the IIS server, expand Sites, select the Default site, and click Bindings in the right panel.
+After successfully installing the SSL with WinAcme, return to IIS Manager, select the Default site, and click Bindings again as you did before.
 
-Set up IIS Bindings as shown below using your domain:
+You'll see that WinAcme has added a binding for port 443 with the same host name you used for port 80.
+
+You can double click the port 443 binding to see how it is set up with the SSL certificate selected.
+
+Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443.  This will be for the client to connect to the Reverse Proxy that will be set up in later in this document.
 
 <figure><img src="../../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
