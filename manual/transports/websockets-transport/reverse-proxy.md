@@ -199,6 +199,10 @@ This is what it should look like when you're done:
 
 ### SSL Certificate
 
+{% hint style="warning" %}
+NOTE: DNS records pointing to this server need to be done before this step, and propagated to the world DNS servers.  If you can't reach this site with a browser, setting up SSL using WinAcme won't work.
+{% endhint %}
+
 You'll need an SSL certificate for your domain.
 
 * Download WinAcme and save it to its own folder from [here](https://www.win-acme.com/) and unzip it to that same folder (makes updating it convenient later as you can safely overwrite with newer versions).
