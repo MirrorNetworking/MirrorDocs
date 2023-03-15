@@ -15,3 +15,5 @@ Reliable messages are ordered and guaranteed delivery by definition. Packet loss
 {% endhint %}
 
 ![](../../.gitbook/assets/2021-03-14\_21-32-23@2x.png)
+
+![NMLatencySim](https://user-images.githubusercontent.com/57072365/225437999-0667da1b-abf7-49c5-8c1d-d1a2fec36b12.jpg)
