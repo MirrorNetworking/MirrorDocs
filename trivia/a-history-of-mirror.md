@@ -66,7 +66,7 @@ UNET wasn't very stable during the beta, but the productivity gain was massive a
 
 Around September I also started talking to Damon Slye, the guy who made [Red Baron](https://store.steampowered.com/app/263940/Red\_Baron\_Pack/) in 1990, published by Sierra.
 
-![Red Baron](<../.gitbook/assets/image (1).png>)
+![Red Baron](<../.gitbook/assets/image (1) (1).png>)
 
 Damon and his new team Mad Otter Games actually made their own indie MMO, just like I planned to do. They didn't use Unity, but considered it for their next project. We've talked a lot about MMO tech, lessons learned and they even licensed me a couple of their models for my unnamed MMO project.
 

@@ -16,7 +16,7 @@ Here we will maintain a list of assets known to be compatible with Mirror. If yo
 
 ### [Noble Connect Free](https://assetstore.unity.com/packages/tools/network/noble-connect-free-141599) <a href="#noble-connect-free" id="noble-connect-free"></a>
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 ### [Weather Maker](https://assetstore.unity.com/packages/tools/particles-effects/weather-maker-unity-weather-system-sky-water-volumetric-clouds-a-60955) <a href="#weather-maker" id="weather-maker"></a>
 

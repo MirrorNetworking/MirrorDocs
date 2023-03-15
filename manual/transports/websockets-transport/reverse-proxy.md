@@ -195,7 +195,17 @@ Now in the left panel of IIS Manager, expand the server and Sites and select the
 
 This is what it should look like when you're done:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
+
+### App Pool Recycling
+
+Since all clients will be connected through IIS, which uses a "worker process" that will self-recycle by default at a time interval, we need to disable recycling because that would disconnect all clients.
+
+* With the Default Web Site still selected, click Basic Settings in the right panel, and make note of the name of the Application Pool name shown in that window, then close that window.
+* In the left panel, click Application Pools and in the main panel select the one that was assigned in Basic Settings above, and click Recycling in the right panel.
+* In the Edit Application Pool Recycling Settings, make sure nothing is checked (as shown below), then click Next, and then Finish.
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
 
 ### SSL Certificate
 
