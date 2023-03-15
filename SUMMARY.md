@@ -125,6 +125,7 @@
 * [Video Tutorials](community-guides/video-tutorials.md)
 * [Resources](community-guides/resources.md)
 * [Mirror Quick Start Project](community-guides/quick-start-guide.md)
+* [Unity for MMORPGs](community-guides/unity-for-mmorpgs.md)
 * [Unity Canvas HUD](community-guides/unity-canvas-hud-guide.md)
 * [Ready Up And Die!](community-guides/ready-up-and-die.md)
 * [iOS AppStore UDP](community-guides/ios-appstore-udp.md)
