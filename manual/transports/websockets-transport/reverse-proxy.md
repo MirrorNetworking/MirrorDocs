@@ -46,7 +46,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
 
     location / {
-        proxy_pass 'http://127.0.0.1:8777';
+        proxy_pass 'http://127.0.0.1:27777';
         
         proxy_redirect off;
         # very long timeouts to make sure long-running connections aren't interrupted

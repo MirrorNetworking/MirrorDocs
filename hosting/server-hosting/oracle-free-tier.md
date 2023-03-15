@@ -12,7 +12,7 @@ Access [Oracle](https://oracle.com) website. Click on **View accounts**, after c
 
 Click on **Start for free**, fill the form and create your account. Sign in with your Oracle account, if your account is under validation, wait a few minutes to follow steps. Click on **Set up a network with a wizard**. Select **Create VCN with internet Connectitivity**, and click on **Start VCN Wizard**.
 
-![](../../.gitbook/assets/image\_02.png)
+![](<../../.gitbook/assets/image\_02 (1).png>)
 
 Fill **VCN name** and disable option **Use DNS hostname in this VCN**, click on **Next**, and wait.
 
@@ -86,7 +86,7 @@ Download Fillezila, and follow steps bellow to connect into your cloud machine, 
 
 In Unity, access **File** > **Build Settings** > **Select Linux** > **Mark Server Build**. Wait for build, and then upload your files with Fillezila.
 
-![](../../.gitbook/assets/image\_11.png)
+![](<../../.gitbook/assets/image\_11 (1).png>)
 
 This tutorial use a server folder, but this is optional, use the follow commands:
 

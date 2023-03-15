@@ -6,4 +6,4 @@ description: Graphs courtesy from @ray in Discord.
 
 ![](<../../.gitbook/assets/image (8).png>)
 
-![](<../../.gitbook/assets/image (59).png>)
+![](<../../.gitbook/assets/image (42).png>)

@@ -43,7 +43,7 @@ Network Behaviour scripts have the following features:
 * Client RPC calls
 * Networked events
 
-![](<../../.gitbook/assets/image (75).png>)
+![](<../../.gitbook/assets/image (6) (1).png>)
 
 ## Network Callbacks <a href="#network-callbacks" id="network-callbacks"></a>
 

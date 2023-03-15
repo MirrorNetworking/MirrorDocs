@@ -82,7 +82,7 @@ Since I was working on my own MMO code anyway, I figured might as well put it on
 
 [uMMORPG](https://assetstore.unity.com/packages/templates/systems/ummorpg-remastered-159401) **** was released on the Asset Store at December 23rd, 2015. One day before christmas.
 
-![An early version of uMMORPG](../.gitbook/assets/2017-01-11\_10-42-44.png)
+![An early version of uMMORPG](<../.gitbook/assets/2017-01-11\_10-42-44 (1).png>)
 
 As it turns out, a lot of people had the same dream, but not enough money to license a AAA engine.
 
@@ -102,7 +102,7 @@ Every single day our users/customers came in with new UNET bugs. Bad reviews. Ra
 
 Worst of all, UNET didn't scale. 30-70 CCU and a dozen monsters were all it could do.
 
-![An early UNET community test with 57 connections and lots of bugs.](../.gitbook/assets/57.png)
+![An early UNET community test with 57 connections and lots of bugs.](<../.gitbook/assets/57 (1).png>)
 
 At one point, I used reflection to fix the serialization bug in UNET. At the time, it was the highest rated networking bug on the Unity issue tracker. I've made detailed forum posts on why the bug happens and how to fix it. I reached out to Alexey, Erik, Larus, the Asset Store team, and QA.
 

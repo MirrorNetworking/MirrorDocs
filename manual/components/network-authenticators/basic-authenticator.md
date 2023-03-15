@@ -7,7 +7,7 @@ Mirror includes a Basic Authenticator in the Mirror / Authenticators folder whic
 
 When you're done, it should look like this:
 
-![Network Manager with Basic Authenticator assigned](<../../../.gitbook/assets/image (28).png>)
+![Network Manager with Basic Authenticator assigned](<../../../.gitbook/assets/image (31).png>)
 
 ![Basic Authenticator](<../../../.gitbook/assets/image (105).png>)
 
