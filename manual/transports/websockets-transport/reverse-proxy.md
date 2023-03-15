@@ -240,7 +240,7 @@ Deploy your WebGL build to the site folder. Make sure Simple Web Transport is se
 * Port `7777`
 * Client Use Wss checked
 * Ssl Enabled **not** checked
-* Ssl Protocol set to Tls 13.
+* Ssl Protocols set to Tls 13.
 
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
 
