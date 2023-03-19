@@ -229,7 +229,7 @@ You'll see that WinAcme has added a binding for port 443 with the same host name
 
 You can double click the port 443 binding to see how it is set up with the SSL certificate selected.
 
-Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443.  This will be for the client to connect to the Reverse Proxy that will be set up in later in this document.
+Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443.  This will be for the client to connect to the Reverse Proxy that will be set up later in this document.
 
 <figure><img src="../../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
