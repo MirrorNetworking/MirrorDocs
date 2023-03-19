@@ -233,9 +233,13 @@ Click Add to create one more binding for port 7777 as shown below, using the sam
 
 <figure><img src="../../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
+### WebGL Server
+
+Deploy your server build to a folder under `c:\` and start it on port `27777`. Make sure you set that correctly in Simple Web Transport when building the server or add code to your Network Manager to force that when running headless mode.
+
 ### WebGL Client
 
-Deploy your WebGL build to the site folder. Make sure Simple Web Transport is set up like this:
+Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files. Make sure Simple Web Transport is set up like this:
 
 * Port `7777`
 * Client Use Wss checked
@@ -244,13 +248,8 @@ Deploy your WebGL build to the site folder. Make sure Simple Web Transport is se
 
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
 
-### WebGL Server
-
-Deploy your server build to a folder under `c:\` and start it on port `27777`. Make sure you set that correctly in Simple Web Transport when building the server or add code to your Network Manager to force that when running headless mode.
-
 ### web.config for IIS
 
-* Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files.
 * If there's already a `web.config` file in that folder, open it in Notepad, otherwise create an empty one and open it.
 * Merge the XML below into whatever might already be there, save and close it.
 * Go back to IIS, select the server itself, and click Restart in the right panel.
