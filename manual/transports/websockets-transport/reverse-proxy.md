@@ -239,7 +239,7 @@ Deploy your server build to a folder under `c:\` and start it on port `27777`. M
 
 ### WebGL Client
 
-Right-click the Default site and choose Explore. This is the folder where you'll deploy your WebGL build files. Make sure Simple Web Transport is set up like this:
+In IIS Manager, right-click the Default site that you configured earlier and choose Explore. This is the folder where you'll deploy your WebGL build files. Make sure Simple Web Transport is set up like this:
 
 * Port `7777`
 * Client Use Wss checked
