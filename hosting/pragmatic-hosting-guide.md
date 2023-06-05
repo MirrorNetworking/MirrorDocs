@@ -48,8 +48,8 @@ Still, letting players host their own games can be useful. You will save money o
 Note that **Uptime, Security and Latency** are still not solved here. However, a decent Relay may reduce your latency to be good enough.
 
 {% hint style="success" %}
-While the C# API isn't great, we still recommend Mirror's **Epic** transport.\
-Epic Games' Relay is free of charge at the moment, thanks to their success with Fortnite.
+**Edgegap**'s [Distributed Relay](https://edgegap.com/en/platform/distributed-relay) will give you the best latency (paid).\
+[**Epic Relay**](https://github.com/FakeByte/EpicOnlineTransport) is free, but with higher latency and a pretty bad C# API.
 {% endhint %}
 
 ### **3.) Dedicated Servers**
@@ -73,7 +73,7 @@ It's cumbersome to sign & cancel contracts for every extra server. And you still
 
 ### **4.) Cloud Hosting**
 
-****![](../.gitbook/assets/google.png)****
+![](../.gitbook/assets/google.png)
 
 You may have heard about Amazon AWS, Google Cloud, Microsoft Azure, etc. They offer virtual servers, which you can spin up and remove with just a few clicks without manually signing contracts & canceling them every time.
 
@@ -108,11 +108,11 @@ If your game suddenly becomes popular, you may need hundreds or thousands of ser
 
 Well, good news: orchestration is the future of multiplayer game hosting. In simple terms:
 
-1. You **create a lightweight Docker** image: includes the choice of Linux Distribution, setup, open ports, binary, etc. If you aren't familiar with Docker, fear not. It makes your life a **lot** easier. Just learn it once, you'll wind up using it for all your hosting afterwards. No more manually setting up linux servers, no more apt-get, no more maintenance etc.
+1. You **create a lightweight Docker** image: configure a text file (".Dockerfile") with your Linux distribution, packages, open ports, etc. and then compile your whole project into a "Docker Image". If you aren't familiar with Docker, fear not. It makes your life a **lot** easier. Just learn it once, you'll wind up using it for all your hosting afterwards. No more manually setting up Linux servers, no more apt-get, no more maintenance etc.
 2. **Upload your image** to the Orchestration Service.
 3. **Configure** your orchestration in a web UI. They will ask you how many servers you want to spawn, when to spawn more, when to remove old servers, etc.
 
-This is the new, modern way to host game servers. Docker & Orchestration may sound complicated at first, but I wouldn't mention here if it wouldn't make our life easier.&#x20;
+This is the new, modern way to host game servers. Docker & Orchestration may sound complicated at first, but we wouldn't mention it here if it wouldn't make our life easier.&#x20;
 
 Again, I don't want to worry about hosting. I want to upload my server image, and let the orchestration service worry about all the scaling, maintenance, etc. **Convenience is key.**
 
