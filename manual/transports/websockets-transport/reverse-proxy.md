@@ -1,6 +1,10 @@
 # Reverse Proxy
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>WebGL with Reverse Proxy - 500 CCU</p></figcaption></figure>
+
+</div>
 
 Using a reverse proxy performs better than doing SSL encryption within Unity as part of the game server process:
 
@@ -18,11 +22,11 @@ We'll go into detail for a few of the common choices here, generally you likely 
 
 The following guides (aside from caddy) will assume you have already set up certbot and gotten certs issued. They're also written for debian, but should be very similar (if not identical) on other distros.
 
-### Nginx
+### NGINX
 
-Nginx is a fast and lightweight web server that can also function as a reverse proxy. It is commonly used for high traffic websites and applications.
+NGINX is a fast and lightweight web server that can also function as a reverse proxy. It is commonly used for high traffic websites and applications.
 
-Adding a reverse proxy to nginx is as simple as defining another server in your config. On debian/ubuntu this is usually done by creating a file under `/etc/nginx/sites-enabled/`, for this example we'll use `game.conf`
+Adding a reverse proxy to NGINX is as simple as defining another server in your config. On Debian / Ubuntu this is usually done by creating a file under `/etc/nginx/sites-enabled/`, for this example we'll use `game.conf`
 
 The following config defines a reverse proxy listening on port 7777 to proxy to 127.0.0.1:27777. You will also want to change the `example.com` domain to the actual domain you're using, as well as the path to the ssl certificates.
 
@@ -176,11 +180,19 @@ From the Start menu, type IIS and you'll be able to select Internet Information 
 
 In IIS Manager, select the server just below Start Page in the left panel, and open Configuration Editor in the Management section near the bottom of the main window.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (45) (2).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
+
+</div>
 
 Change the Section selector to `system.webServer/proxy` as shown in this image and set Enabled to True and click Apply (top right).
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 ### Initial Site Bindings
 
@@ -191,11 +203,19 @@ Now in the left panel of IIS Manager, expand the server and Sites and select the
 * In the Host name field, type the Fully Qualified Domain Name (FQDN) that you want clients to connect to, and click OK, and then Close the Site Bindings window.
 * This will be your domain that you've registered and set up DNS pointing to this web server.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Edit Site Bindings - Type your FQDN and click OK</p></figcaption></figure>
+
+</div>
 
 This is what it should look like when you're done:
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
+
+</div>
 
 ### App Pool Recycling
 
@@ -205,7 +225,11 @@ Since all clients will be connected through IIS, which uses a "worker process" t
 * In the left panel, click Application Pools and in the main panel select the one that was assigned in Basic Settings above, and click Recycling in the right panel.
 * In the Edit Application Pool Recycling Settings, make sure nothing is checked (as shown below), then click Next, and then Finish.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
+
+</div>
 
 ### SSL Certificate
 
@@ -219,7 +243,11 @@ You'll need an SSL certificate for your domain.
 * Run WACS.exe and follow the prompts to create a Certificate using default settings for the Default site in IIS. You'll update the bindings after this step for the game client and proxy.
 * WinAcme creates a scheduled task to update the SSL periodically before it expires.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
+
+</div>
 
 ### Additional Site Bindings
 
@@ -231,7 +259,11 @@ You can double click the port 443 binding to see how it is set up with the SSL c
 
 Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443.  This will be for the client to connect to the Reverse Proxy that will be set up later in this document.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
+
+</div>
 
 ### WebGL Server
 
@@ -246,7 +278,11 @@ In IIS Manager, right-click the Default site that you configured earlier and cho
 * Ssl Enabled **not** checked
 * Ssl Protocols set to Tls 13.
 
+<div align="left">
+
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
+
+</div>
 
 ### web.config for IIS
 
