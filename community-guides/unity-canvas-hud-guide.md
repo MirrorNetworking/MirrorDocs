@@ -212,7 +212,8 @@ And this is it, you have now made your own Unity Canvas HUD UI, or upgraded the 
             // server / client status message
             if (NetworkServer.active)
             {
-                serverText.text = "Server: active. Transport: " + Transport.activeTransport;
+                serverText.text = "Server: active. Transport: " + Transport.active;
+                // Note, older mirror versions use: Transport.activeTransport
             }
             if (NetworkClient.isConnected)
             {

@@ -117,3 +117,7 @@ public class NewNetworkDiscovery: NetworkDiscoveryBase
     #endregion
 }
 ```
+
+{% hint style="info" %}
+Note: Take into account any anti virus/firewall blocking, along with additional settings for your particular platform (broadcast address iOS, Network Discovery sharing settings to on in Windows etc).
+{% endhint %}
