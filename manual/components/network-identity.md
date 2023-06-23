@@ -1,7 +1,7 @@
 # Network Identity
 
 {% hint style="info" %}
-See also [NetworkIdentity](https://mirror-networking.com/docs/api/Mirror.NetworkIdentity.html) in the API Reference.
+See also [NetworkIdentity](https://storage.googleapis.com/mirror-api-docs/html/d3/d88/class\_mirror\_1\_1\_network\_identity.html) in the API Reference.
 {% endhint %}
 
 The Network Identity component is at the heart of the Unity networking high-level API. It controls a game object’s unique identity on the network, and it uses that identity to make the networking system aware of the game object. It offers two different options for configuration and they are mutually exclusive, which means either one of the options or none can be checked.
