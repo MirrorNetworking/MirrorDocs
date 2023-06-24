@@ -53,39 +53,33 @@ There are two types of player objects with the Network Room Manager:
 ### Server Virtual Methods <a href="#server-virtual-methods" id="server-virtual-methods"></a>
 
 ```csharp
-public virtual void OnRoomStartHost() {}
-public virtual void OnRoomStopHost() {}
-public virtual void OnRoomStartServer() {}
-public virtual void OnRoomServerConnect(NetworkConnection conn) {}
-public virtual void OnRoomServerDisconnect(NetworkConnection conn) {}
-public virtual void OnRoomServerSceneChanged(string sceneName) {}
-public virtual GameObject OnRoomServerCreateRoomPlayer(NetworkConnection conn)
-{
-    return null;
-}
-public virtual GameObject OnRoomServerCreateGamePlayer(NetworkConnection conn)
-{
-    return null;
-}
-public virtual bool OnRoomServerSceneLoadedForPlayer(GameObject roomPlayer, GameObject gamePlayer)
-{
-    return true;
-}
-public virtual void OnRoomServerPlayersReady()
-{
-    ServerChangeScene(GameplayScene);
-}
+public virtual void OnRoomStartHost() { }
+public virtual void OnRoomStopHost() { }
+public virtual void OnRoomStartServer() { }
+public virtual void OnRoomStopServer() { }
+public virtual void OnRoomServerConnect(NetworkConnectionToClient conn) { }
+public virtual void OnRoomServerDisconnect(NetworkConnectionToClient conn) { }
+public virtual void OnRoomServerSceneChanged(string sceneName) { }
+public virtual GameObject OnRoomServerCreateRoomPlayer(NetworkConnectionToClient conn) { return null; }
+public virtual GameObject OnRoomServerCreateGamePlayer(NetworkConnectionToClient conn, GameObject roomPlayer) { return null; }
+public virtual void OnRoomServerAddPlayer(NetworkConnectionToClient conn) { }
+public virtual bool OnRoomServerSceneLoadedForPlayer(NetworkConnectionToClient conn, GameObject roomPlayer, GameObject gamePlayer) { return true; }
+public virtual void OnRoomServerPlayersReady() { }
+public virtual void OnRoomServerPlayersNotReady() { }
+public virtual void ReadyStatusChanged() { }
 ```
 
 ### Client Virtual Methods <a href="#client-virtual-methods" id="client-virtual-methods"></a>
 
 ```csharp
-public virtual void OnRoomClientEnter() {}
-public virtual void OnRoomClientExit() {}
-public virtual void OnRoomClientConnect(NetworkConnection conn) {}
-public virtual void OnRoomClientDisconnect(NetworkConnection conn) {}
-public virtual void OnRoomStartClient() {}
-public virtual void OnRoomStopClient() {}
-public virtual void OnRoomClientSceneChanged(NetworkConnection conn) {}
+public virtual void OnRoomClientEnter() { }
+public virtual void OnRoomClientExit() { }
+public virtual void OnRoomClientConnect() { }
+public virtual void OnRoomClientDisconnect() { }
+public virtual void OnRoomStartClient() { }
+public virtual void OnRoomStopClient() { }
+public virtual void OnRoomClientSceneChanged() { }
+[Obsolete("OnRoomClientReady is obsolete, use OnRoomClientDisconnect or OnRoomStopClient.")]
 public virtual void OnRoomClientAddPlayerFailed() {}
+public virtual void OnGUI() { }
 ```
