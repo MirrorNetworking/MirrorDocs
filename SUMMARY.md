@@ -24,6 +24,7 @@
   * [TCP and UDP](manual/general/tcp-and-udp.md)
   * [CCU](manual/general/ccu.md)
   * [SyncDirection](manual/general/syncdirection.md)
+  * [Connection Quality](manual/general/connection-quality.md)
   * [Tests](manual/general/tests.md)
 * [FAQ](manual/faq/README.md)
   * [Execution Order](manual/faq/execution-order.md)
