@@ -2,35 +2,19 @@
 
 The Basic Example illustrates how to manage UI objects from the Player object using locally instantiated `PlayerUI` prefabs with [SyncVars](../guides/synchronization/syncvars.md) and Events
 
-<div align="left">
-
-<img src="../../.gitbook/assets/image (103).png" alt="">
-
-</div>
+![](<../../.gitbook/assets/image (103).png>)
 
 The scene Canvas has a `CanvasUI` script with references to its children:
 
-<div align="left">
-
-<img src="../../.gitbook/assets/image (12).png" alt="Scene Canvas">
-
-</div>
+![Scene Canvas](<../../.gitbook/assets/image (12).png>)
 
 The `PlayerUI` prefab is a UI fragment that has a `PlayerUI` script with references to its own children:
 
-<div align="left">
-
-<img src="../../.gitbook/assets/image (109).png" alt="PlayerUI Prefab">
-
-</div>
+![PlayerUI Prefab](<../../.gitbook/assets/image (109).png>)
 
 The Player script on the Player object has a reference to the `PlayerUI` prefab and three `SyncVars`:
 
-<div align="left">
-
-<img src="../../.gitbook/assets/image (119).png" alt="Player Object">
-
-</div>
+![Player Object](<../../.gitbook/assets/image (119).png>)
 
 The Player script also has three events that are invoked by the [SyncVar hooks](../guides/synchronization/syncvar-hooks.md):
 

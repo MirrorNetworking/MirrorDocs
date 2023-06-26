@@ -8,7 +8,7 @@ description: >-
 
 **Source:** [https://forum.unity.com/threads/help-me-choose-networking-solution-for-formation-tactics-game.1340309/](https://forum.unity.com/threads/help-me-choose-networking-solution-for-formation-tactics-game.1340309/)
 
-
+****
 
 \[Cheat Protection] is a broad topic, with different stages of protections that you should be aware of.
 

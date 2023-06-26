@@ -8,7 +8,7 @@ coverY: 0
 
 {% hint style="success" %}
 **Stop worrying about networking because we do.**\
-We needed a networking library that allows us to [**launch our games**](https://mirror-networking.com/showcase/) and **survive the next decade**.
+****We needed a networking library that allows us to [**launch our games**](https://mirror-networking.com/showcase/) and **survive the next decade**.
 {% endhint %}
 
 [**Mirror**](https://assetstore.unity.com/packages/tools/network/mirror-129321) is a **high level** Networking library for Unity, optimized for **ease of use** & **probability of success**.

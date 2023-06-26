@@ -2,11 +2,7 @@
 
 The Network Transform component synchronizes the position, rotation, and scale of networked game objects across the network.
 
-<div align="center">
-
 <figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption><p>Network Transform Component</p></figcaption></figure>
-
-</div>
 
 {% hint style="info" %}
 Mirror currently provides **two** NetworkTransform variations:

@@ -25,7 +25,7 @@ Mirror includes a [**Script Template**](../general/script-templates.md) for cust
 
 ### **Distance** Example
 
-Distance Interest Management is the easiest, straight forward implementation. Let's walk through it to see how to inherit from the abstract `InterestManagement` class.
+Distance Interest Management is the easiest, straight forward implementation. Let's walk through it to see how to inherit from the abstract `InterestManagement` **** class.
 
 ```csharp
 public class DistanceInterestManagement : InterestManagement
