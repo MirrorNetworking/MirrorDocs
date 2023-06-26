@@ -110,11 +110,11 @@
 ## Server Hosting <a href="#hosting" id="hosting"></a>
 
 * [The Pragmatic Hosting Guide](hosting/pragmatic-hosting-guide.md)
-* [Remote Desktop Hosting Guide](hosting/remote-desktop-hosting-guide.md)
 * [Cloud Hosting Guides](hosting/server-hosting/README.md)
   * [AWS](hosting/server-hosting/aws.md)
   * [Google Cloud](hosting/server-hosting/google-cloud.md)
   * [Oracle Free Tier](hosting/server-hosting/oracle-free-tier.md)
+* [Hosting with a Remote Desktop](hosting/hosting-with-a-remote-desktop.md)
 
 ## Security
 
