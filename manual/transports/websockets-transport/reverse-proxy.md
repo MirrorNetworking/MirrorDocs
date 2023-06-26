@@ -213,7 +213,7 @@ This is what it should look like when you're done:
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
 
 </div>
 

@@ -26,7 +26,7 @@ Here we will maintain a list of assets known to be compatible with Mirror. If yo
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (2) (1).png" alt="">
+<img src="../../.gitbook/assets/image (2) (1) (1).png" alt="">
 
 </div>
 

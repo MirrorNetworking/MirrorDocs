@@ -14,9 +14,9 @@ However, it is very easy to use :smile:.
 
 Here is a preview of the final result, this is a Google Cloud VM instance, running Debian with a Desktop Environment, which I log into via Google Remote Desktop from my Browser:
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption><p>A Google Cloud VM instance running with a desktop environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>A Google Cloud VM instance running with a desktop environment.</p></figcaption></figure>
 
-This allows me to easily navigate the file system, check resource usage, check on long running tasks etc. without worrying about terminal commands.
+This allows for the same workflow as my local machine. I can easily navigate the file system, check resource usage, check on long running tasks, download files with Firefox etc. without worrying about terminal commands.
 
 Ease of use & convenience are more important to me than a few hundred megabytes of storage.\
 But again, this is not best practice.
