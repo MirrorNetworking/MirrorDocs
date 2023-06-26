@@ -2,15 +2,13 @@
 
 Mirror does a lot of work to smooth out poor network connections.
 
-However, there's only so much we can do on a poor connection.
+However, there's only so much we can do on.
 
-Best practice for poor connections is to simply display a 'poor connection' indicator.
+{% hint style="warning" %}
+For poor connections, it's best practice to display a '**Poor Connection**' warning.
+{% endhint %}
 
-\=> This removes the magic and makes it very obvious why a player might be lagging.
-
-
-
-Mirror's Connection Quality comes in three parts.
+Mirror's ConnectionQuality consists of three parts to make this very easy for your game.
 
 ### **ConnectionQuality.cs**
 
