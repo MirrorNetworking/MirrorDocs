@@ -126,7 +126,7 @@ Once you've done this, you should be able to continue using the same RDP file.
 
 > **Copy the Password for later**
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (1).png>)
 
 Now click on **"Download Remote Desktop File"**. The RDP file will be downloaded.
 

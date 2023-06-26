@@ -36,7 +36,7 @@ Currently it offers two heuristics:&#x20;
 
 This component can be added to the NetworkManager to display a Ping & Connection Quality indicator on the bottom right of the screen. Feel free to modify this to your needs, or create your own.
 
-![](<../../.gitbook/assets/2023-06-25 - connection quality, gui, callback.png>)
+<figure><img src="../../.gitbook/assets/2023-06-25 - connection quality, gui, callback.png" alt=""><figcaption></figcaption></figure>
 
 ### **NetworkManager Callbacks**
 

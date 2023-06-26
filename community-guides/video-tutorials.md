@@ -8,11 +8,11 @@
 * [**Mirror Multiplayer by Dapper Dino**](https://www.youtube.com/playlist?list=PLS6sInD7ThM1aUDj8lZrF4b4lpvejB2uB) **-** Tutorials that explain how to implement different features using Mirror.
 * [**Unity + Mirror Networking Tutorials by Shrine Wars**](https://www.youtube.com/playlist?list=PLXEG2omgKgCapAmGe20XBgd87rmxFdKhK) **-** Explains the basics about Networking with Unity and Mirror.
 * [**Mirror Networking Tutorials by Jared Brandjes**](https://www.youtube.com/playlist?list=PLDI3FQoanpm1X-HQI-SVkPqJEgcRwtu7M) **-** Long tutorials explaining how to set up lobbies and matchmaking with Mirror.
-* ****[**Unity/Mirror 2D Tabletop Card Game**](https://www.youtube.com/watch?v=Agw2kPINMdU\&list=PLCbP9KGntfcFTL19eDZsWSkVMfXANF7-U\&index=1) - by M.S. Farzan
+* [**Unity/Mirror 2D Tabletop Card Game**](https://www.youtube.com/watch?v=Agw2kPINMdU\&list=PLCbP9KGntfcFTL19eDZsWSkVMfXANF7-U\&index=1) - by M.S. Farzan
 
 ### German
 
-* ****[**Multiplayer Anwendung in Unity erstellen - Mirror Networking**](https://www.youtube.com/watch?v=p-PW6FZtgV4\&feature=youtu.be)****
+* [**Multiplayer Anwendung in Unity erstellen - Mirror Networking**](https://www.youtube.com/watch?v=p-PW6FZtgV4\&feature=youtu.be)
 
 ### French
 

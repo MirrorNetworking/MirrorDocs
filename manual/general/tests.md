@@ -19,7 +19,7 @@ As far as we know, **Mirror** has the highest test coverage of any `MonoBehaviou
 
 In other words, 80% of our code is **covered with tests** making sure that for the given input, it always produces the correct output. Here is what this means in practice:
 
-*   If you **report a bug**, we usually fix it and add a test to guarantee that it **never** happens **** again.&#x20;
+*   If you **report a bug**, we usually fix it and add a test to guarantee that it **never** happens again.&#x20;
 
     If we **accidentally** introduce a bug, odds are our tests will catch it immediately before you ever encounter it in our game.
 * We can **improve** existing functions with confidence. If a rewrite doesn't produce exactly the same output as the previous version, then our tests will catch it.

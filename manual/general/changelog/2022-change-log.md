@@ -87,7 +87,7 @@ This version was published to the Asset Store as 2022-09.
 * Added: `NetworkManager.GetStartPosition` is now virtual so it can be overridden.
 * Added: Network Manager now has an Auto Connect option for headless clients / CCU testing.
 * Added: `NetworkConnection` now maintains `owned` HashSet on both server and client.
-* Added: `NetworkBehaviour` now has `SyncDirection` **** to make client authority components easier.
+* Added: `NetworkBehaviour` now has `SyncDirection` to make client authority components easier.
   * Note: This feature will continue to evolve and may change in future releases.
 * Fixed: Benchmark, Chat and Tanks examples were improved.
 * Fixed: Network Manager script template was updated.
@@ -208,7 +208,7 @@ This version was published to the Asset Store as 2022-09.
 * Changed: Chat example updated...overhauled really.
 * Changed: Network Reader / Writer now use blittable serialization where possible (4-6x performance improvement).
 * **Breaking**: Removed obsolete `ConfigureServerFrameRate`\
-  ``Use `ConfigureHeadlessFrameRate` instead.
+  Use `ConfigureHeadlessFrameRate` instead.
 * **Breaking**: Removed obsolete `PersistNetworkManagerToOfflineScene`.
 * **Breaking**: `NetworkAuthenticator` `OnClientAuthenticated` event no longer needs a NetworkConnection parameter.
 * **Obsolete**: OnClient\* virtual methods in Network Manager no longer take a `NetworkConnection` parameter.

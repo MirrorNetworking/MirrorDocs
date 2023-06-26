@@ -20,4 +20,8 @@ If you build your game as a WebGL game, the KCP Transport will be skipped and yo
 
 Here is what the configuration should look like:
 
-![](<../../.gitbook/assets/image (30).png>)
+<div align="left">
+
+<img src="../../.gitbook/assets/image (30).png" alt="">
+
+</div>
