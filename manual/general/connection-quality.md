@@ -14,7 +14,22 @@ Mirror's Connection Quality comes in three parts.
 
 ### **ConnectionQuality.cs**
 
-Standalone connection quality heuristics, which can be used outside of Unity if needed. Currently it offers two heuristics:&#x20;
+Standalone connection quality enum & heuristics, which can be used outside of Unity if needed.
+
+Mirror provides the following connection quality levels:
+
+```csharp
+public enum ConnectionQuality : byte
+{
+    EXCELLENT,  // ideal experience for high level competitors
+    GOOD,       // very playable for everyone but high level competitors
+    FAIR,       // very noticeable latency, not very enjoyable anymore
+    POOR,       // unplayable
+    ESTIMATING, // still estimating
+}
+```
+
+Currently it offers two heuristics:&#x20;
 
 * **Simple** (based on Ping & Jitter)&#x20;
 * **Pragmatic** (based on Snapshot Interpolation).
