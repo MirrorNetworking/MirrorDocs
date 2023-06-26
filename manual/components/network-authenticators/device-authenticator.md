@@ -13,9 +13,17 @@ NOTE: deviceUniqueIdentifier can be spoofed, so there's no guarantee of security
 
 When you're done, it should look like this:
 
-![Network Manager with Device Authenticator assigned](<../../../.gitbook/assets/image (100).png>)
+<div align="left">
 
-![Device Authenticator](<../../../.gitbook/assets/image (101).png>)
+<img src="../../../.gitbook/assets/image (100).png" alt="Network Manager with Device Authenticator assigned">
+
+</div>
+
+<div align="left">
+
+<img src="../../../.gitbook/assets/image (101).png" alt="Device Authenticator">
+
+</div>
 
 {% hint style="info" %}
 You don't need to assign anything to the event lists unless you want to subscribe to the events in your own code for your own purposes. Mirror has internal listeners for both events.

@@ -12,12 +12,20 @@ Best practice for poor connections is to simply display a 'poor connection' indi
 
 Mirror's Connection Quality comes in three parts.
 
-**ConnectionQuality.cs**: standalone connection quality heuristics, which can be used outside of Unity if needed. Currently it offers two heuristics:&#x20;
+### **ConnectionQuality.cs**
+
+Standalone connection quality heuristics, which can be used outside of Unity if needed. Currently it offers two heuristics:&#x20;
 
 * **Simple** (based on Ping & Jitter)&#x20;
 * **Pragmatic** (based on Snapshot Interpolation).
 
-**NetworkManager Callbacks**
+### NetworkPingDisplay
+
+This component can be added to the NetworkManager to display a Ping & Connection Quality indicator on the bottom right of the screen. Feel free to modify this to your needs, or create your own.
+
+![](<../../.gitbook/assets/2023-06-25 - connection quality, gui, callback.png>)
+
+### **NetworkManager Callbacks**
 
 *   **CalculateConnectionQuality()** can be overwritten to inject your own heuristic. By default, it uses the **Simple** heuristic from above. This is called every **connectionQualityInterval** seconds, which can also be configured in the NetworkManager.
 

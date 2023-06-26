@@ -12,7 +12,11 @@ For this example to work correctly, some setup is required.
 
 First, add all the scenes to Build Settings:
 
-![Build Settings](<../../.gitbook/assets/image (79).png>)
+<div align="left">
+
+<img src="../../.gitbook/assets/image (79).png" alt="Build Settings">
+
+</div>
 
 Next, add a Player and Portal Layer to Project Settings under Tags and Layers:
 

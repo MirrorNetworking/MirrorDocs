@@ -80,7 +80,7 @@ In 2015, there wasn't any type of MMO toolkit available as far as I could tell. 
 
 Since I was working on my own MMO code anyway, I figured might as well put it on the Asset Store and see what happens. Maybe it sells for $50/month and I can treat myself to a pizza every week or so.
 
-[uMMORPG](https://assetstore.unity.com/packages/templates/systems/ummorpg-remastered-159401) **** was released on the Asset Store at December 23rd, 2015. One day before christmas.
+[uMMORPG](https://assetstore.unity.com/packages/templates/systems/ummorpg-remastered-159401) was released on the Asset Store at December 23rd, 2015. One day before christmas.
 
 ![An early version of uMMORPG](<../.gitbook/assets/2017-01-11\_10-42-44 (1).png>)
 
