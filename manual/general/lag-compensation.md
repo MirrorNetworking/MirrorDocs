@@ -67,6 +67,12 @@ Here is a basic overview on how to use it:
   * Then call `LagCompensation.Sample(buffer, time)` to get the capture at that time. Note that your estimated time is most certainly between two captures. That's why it always returns '`before`' and '`after`', which you can then use to interpolate between to find the player's position at that exact time.
   * Now that you have the interpolated capture, you can check if it was where the player fired at. For example, you may want to use simplified raycasts, or rollback the physics engine.
 
+{% hint style="info" %}
+Traditionally, Lag Compensation algorithms would pick either the '**before**' or '**after**' result from the Sample() function.\
+\
+With faster hardware, we can **Interpolate(before, after, t)** to get a more precise result to test against. This is called "**sub-tick"** interpolation. If your performance budget allows for this, then try our demo to see how to do it.
+{% endhint %}
+
 To summarize, you need to: `Capture`, `Insert`, `EstimateTime`, `Sample`.
 
 We intentionally kept the implementation as simple as possible, while giving you full freedom about the details about what you capture, how you interpolate, and how you check the sample's collision.
