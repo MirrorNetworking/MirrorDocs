@@ -68,9 +68,7 @@ Here is a basic overview on how to use it:
   * Now that you have the interpolated capture, you can check if it was where the player fired at. For example, you may want to use simplified raycasts, or rollback the physics engine.
 
 {% hint style="info" %}
-Traditionally, Lag Compensation algorithms would pick either the '**before**' or '**after**' result from the Sample() function.\
-\
-With faster hardware, we can **Interpolate(before, after, t)** to get a more precise result to test against. This is called "**sub-tick"** interpolation. If your performance budget allows for this, then try our demo to see how to do it.
+Traditionally, Lag Compensation algorithms would pick either the '**before**' or '**after**' result from the Sample() function. If your performance budget allows for it, feel free to **Interpolate(before, after, t)** to get a more precise capture to test against. This is commonly referred to as "**sub-tick**" interpolation (see our demo).
 {% endhint %}
 
 To summarize, you need to: `Capture`, `Insert`, `EstimateTime`, `Sample`.
