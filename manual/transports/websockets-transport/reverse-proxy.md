@@ -227,7 +227,7 @@ Since all clients will be connected through IIS, which uses a "worker process" t
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
 
 </div>
 
