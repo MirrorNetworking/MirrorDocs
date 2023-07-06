@@ -63,7 +63,7 @@ Here is a basic overview on how to use it:
 * Define a `Queue<KeyValuePair<time, capture>>`.
 * Every capture interval, call `LagCompensation.Insert<T>()` to insert a new capture. The Insert function automatically removes older captures beyond the size limit, and takes care of all the edge cases for you.
 * In your `CmdFire()` function, you need to:
-  * Estimate how far behind the client is. We don't want to trust the client to tell us that time. Instead, use `LagCompensation.EstimateTime(NetworkTime.localTime, connectionToClient.deliveryEMA.Value, NetworkClient.bufferTime)` for a server authoritative estimation.
+  * Estimate how far behind the client is. We don't want to trust the client to tell us that time. Instead, use `LagCompensation.EstimateTime()` for a server authoritative estimation.
   * Then call `LagCompensation.Sample(buffer, time)` to get the capture at that time. Note that your estimated time is most certainly between two captures. That's why it always returns '`before`' and '`after`', which you can then use to interpolate between to find the player's position at that exact time.
   * Now that you have the interpolated capture, you can check if it was where the player fired at. For example, you may want to use simplified raycasts, or rollback the physics engine.
 
