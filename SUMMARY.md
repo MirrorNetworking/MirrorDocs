@@ -24,6 +24,7 @@
   * [TCP and UDP](manual/general/tcp-and-udp.md)
   * [CCU](manual/general/ccu.md)
   * [SyncDirection](manual/general/syncdirection.md)
+  * [Round Trip Time (RTT)](manual/general/round-trip-time-rtt.md)
   * [Connection Quality](manual/general/connection-quality.md)
   * [Lag Compensation](manual/general/lag-compensation.md)
   * [Tests](manual/general/tests.md)
