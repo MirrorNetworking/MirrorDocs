@@ -135,4 +135,5 @@
 * [iOS AppStore UDP](community-guides/ios-appstore-udp.md)
 * [Mirror Docker Guide](community-guides/mirror-docker-guide.md)
 * [Gitbook Guide](community-guides/gitbook-guide.md)
+* [Mirror Branding](community-guides/mirror-branding.md)
 * [Contributors Agreement](community-guides/contributors-agreement.md)
