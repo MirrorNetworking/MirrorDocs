@@ -27,6 +27,7 @@
   * [Round Trip Time (RTT)](manual/general/round-trip-time-rtt.md)
   * [Connection Quality](manual/general/connection-quality.md)
   * [Lag Compensation](manual/general/lag-compensation.md)
+  * [History Bounds](manual/general/history-bounds.md)
   * [Tests](manual/general/tests.md)
 * [FAQ](manual/faq/README.md)
   * [Execution Order](manual/faq/execution-order.md)
