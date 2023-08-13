@@ -105,6 +105,7 @@
   * [Basic](manual/examples/basic.md)
   * [Tanks](manual/examples/tanks.md)
   * [Pong](manual/examples/pong.md)
+  * [Billiards](manual/examples/billiards.md)
   * [Additive Levels](manual/examples/additive-levels.md)
   * [Additive Scenes](manual/examples/additive-scenes.md)
   * [Multiple Additive Scenes](manual/examples/multiple-additive-scenes.md)
