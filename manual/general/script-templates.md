@@ -1,5 +1,9 @@
 # Script Templates
 
+{% hint style="danger" %}
+As of August 2023, Unity Asset Store does not allow us to upload ScriptTemplates anymore. If you want to use them, please download Mirror from GitHub instead.
+{% endhint %}
+
 We've added Script Templates to make it easier to create derived class scripts that inherit from our base classes.
 
 * All possible overrides are already made for you and organized.
