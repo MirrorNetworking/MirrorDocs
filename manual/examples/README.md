@@ -26,7 +26,7 @@ Only a select few have documentation pages, check the Mirror/Examples directory 
 * Chat\
   &#x20;A simple text chat example, send messages between players that login via Network Authenticator.
 * Common\
-  &#x20;Conains miscellaneous features that are not full examples.
+  &#x20;Contains miscellaneous features that are not full examples.
 * Couch Co-Op\
   &#x20;Add additional local players to your game, they all share same screen, different controls.\
   Remote joining clients can do the same, allows for a combination of local players vs remote players, such as 2 vs 4, or 1 vs 4 vs 99 (granted you would have to setup 99 different controller/keyboard inputs for this).
