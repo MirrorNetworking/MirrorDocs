@@ -102,14 +102,14 @@
     * [Scene GameObjects](manual/guides/gameobjects/scene-gameobjects.md)
     * [Pickups, Drops, and Child Objects](manual/guides/gameobjects/pickups-drops-and-child-objects.md)
 * [Examples](manual/examples/README.md)
-  * [Basic](manual/examples/basic.md)
-  * [Tanks](manual/examples/tanks.md)
-  * [Pong](manual/examples/pong.md)
-  * [Billiards](manual/examples/billiards.md)
   * [Additive Levels](manual/examples/additive-levels.md)
   * [Additive Scenes](manual/examples/additive-scenes.md)
+  * [Basic](manual/examples/basic.md)
+  * [Billiards](manual/examples/billiards.md)
   * [Multiple Additive Scenes](manual/examples/multiple-additive-scenes.md)
+  * [Pong](manual/examples/pong.md)
   * [Room](manual/examples/room.md)
+  * [Tanks](manual/examples/tanks.md)
 
 ## Server Hosting <a href="#hosting" id="hosting"></a>
 
