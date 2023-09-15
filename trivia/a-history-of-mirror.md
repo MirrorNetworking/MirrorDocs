@@ -21,7 +21,7 @@ Back in summer 2015 Unity released a public beta of **UNET**. The idea of Unity 
 * **Server & Client in one project**. Most of the code is shared. Some is marked as \[Server] or \[Client] only.
   * This allows for a major gain productivity since terrain, models, assets and code are all shared between server & client.
 * **\[SyncVars]** for automated serialization of selected variables.&#x20;
-  * This was significant when coming from hand built Serialize/Deserialize functions. Simply adding a \[SyncVar] in front of Player.level was so much easier.
+  * This was significant when coming from hand built Serialize/Deserialize functions. Simply adding a \[SyncVar] in front of Player. level was so much easier.
 * **\[Commands/Rpcs]** - wrapping a function with a \[Command] tag to automatically call it on the server was another huge gain productivity
   * Compared to manually sending a message, deserializing all parameters and calling a function manually.&#x20;
 
