@@ -4,8 +4,6 @@ description: Written by JesusLuvsYooh / StephenAllenGames.co.uk
 
 # Unity Canvas HUD
 
-##
-
 {% hint style="info" %}
 Note: A pre-made UI Canvas prefab is now available in Mirror/Examples/Common/CanvasNetworkManagerHUD.
 {% endhint %}
