@@ -4,6 +4,12 @@ description: Written by JesusLuvsYooh / StephenAllenGames.co.uk
 
 # Unity Canvas HUD
 
+##
+
+{% hint style="info" %}
+Note: A pre-made UI Canvas prefab is now available in Mirror/Examples/Common/CanvasNetworkManagerHUD.
+{% endhint %}
+
 ## End Result:
 
 ![A Unity Canvas that covers the majority of the OnGUI NetworkManagerHUDD component features.](../.gitbook/assets/Canvas0.jpg)
