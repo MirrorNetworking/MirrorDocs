@@ -45,10 +45,10 @@ public class ExamplePlayer : NetworkBehaviour
     {
         // Equipment is already populated with anything the server set up
         // but we can subscribe to the callback in case it is updated later on
-        equipment.Callback += OnEquipmentChange;
+        Equipment.Callback += OnEquipmentChange;
 
         // Process initial SyncDictionary payload
-        foreach (KeyValuePair<string, Item> kvp in equipment)
+        foreach (KeyValuePair<string, Item> kvp in Equipment)
             OnEquipmentChange(SyncDictionary<string, Item>.Operation.OP_ADD, kvp.Key, kvp.Value);
     }
 
