@@ -128,6 +128,7 @@
 
 ## Community Guides
 
+* [Mirror Docs (Translations)](community-guides/mirror-docs-translations.md)
 * [Video Tutorials](community-guides/video-tutorials.md)
 * [Resources](community-guides/resources.md)
 * [Mirror Quick Start Project](community-guides/quick-start-guide.md)
