@@ -13,7 +13,7 @@ It's not obvious to us why that is, but here are a few workarounds that people s
 
 **iOS AppStore LAN Broadcasting**
 
-Followed the XCode instructions to get the multicast networking permission from Apple.
+Follow the Xcode instructions to get the multicast networking permission from Apple.
 
 Add it to the app provisioning, then add the capability to the app itself, making sure you've properly added the entitlement to your app in Xcode.
 
