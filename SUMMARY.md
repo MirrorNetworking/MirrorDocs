@@ -135,7 +135,7 @@
 * [Unity for MMORPGs](community-guides/unity-for-mmorpgs.md)
 * [Unity Canvas HUD](community-guides/unity-canvas-hud-guide.md)
 * [Ready Up And Die!](community-guides/ready-up-and-die.md)
-* [iOS AppStore UDP](community-guides/ios-appstore-udp.md)
+* [iOS AppStore](community-guides/ios-appstore-udp.md)
 * [Mirror Docker Guide](community-guides/mirror-docker-guide.md)
 * [Gitbook Guide](community-guides/gitbook-guide.md)
 * [Mirror Branding](community-guides/mirror-branding.md)
