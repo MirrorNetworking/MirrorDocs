@@ -4,7 +4,7 @@ description: Mirror's Inofficial Edgegap Hosting Plugin documentation.
 
 # Edgegap Hosting Plugin Guide
 
-[https://app.edgegap.com/user-settings?tab=tokens](https://app.edgegap.com/user-settings?tab=tokens)Thanks to Edgegap's hosting plugin for Unity, Mirror users get 0.5 vCPU cloud hosting for free!
+Thanks to Edgegap's hosting plugin for Unity, Mirror users get 0.5 vCPU cloud hosting for free!
 
 You can build & launch a game server into the cloud directly from your Unity Editor, without any Linux or Cloud usage whatsoever.
 
@@ -179,6 +179,17 @@ Alright, back to Unity. Let's punch in all the data in our Plugin. As mentioned,
 * **API Environment**: use **Console**. I don't know why. Staging doesn't work.
 * **App Name:** your-game, or whatever you entered in your Application before.
 * **App version**: v1 as we entered in our Application.
+
+Next press **Connect**. This generally works if you have the correct token. You should see 'Connected' now:
+
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+
+Next, enter the other details from our Application:
+
+* **Container Registry**: harbor.edgegap.net
+* **Image Repository**: your-company/your-game or whatever you entered in your Application before
+* **Tag**: 0.0.1 for now.&#x20;
+* **Increment tag on build**: enable this. You always want to increase the tag for each new build to avoid caching issues. Seriously, don't push a new server build with an old tag, it's probably gonna launch the old build again due to caching.
 
 
 
