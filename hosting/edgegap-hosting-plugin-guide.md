@@ -182,14 +182,110 @@ Alright, back to Unity. Let's punch in all the data in our Plugin. As mentioned,
 
 Next press **Connect**. This generally works if you have the correct token. You should see 'Connected' now:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
 Next, enter the other details from our Application:
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 18-50-31@2x.png" alt=""><figcaption></figcaption></figure>
 
 * **Container Registry**: harbor.edgegap.net
 * **Image Repository**: your-company/your-game or whatever you entered in your Application before
 * **Tag**: 0.0.1 for now.&#x20;
 * **Increment tag on build**: enable this. You always want to increase the tag for each new build to avoid caching issues. Seriously, don't push a new server build with an old tag, it's probably gonna launch the old build again due to caching.
+
+## Build and Push
+
+Next, we are going to build our project as Linux game server, and create a Docker build, then push it to Edgegap. This is actually pretty easy, just need to install a few things really quick.
+
+### Install Unity Linux Build Support
+
+In your **Unity Hub**, select **Installs**, press the Configuration icon next to your Unity version and click **Add Modules**:
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 18-52-53@2x.png" alt=""><figcaption></figcaption></figure>
+
+Find and install **ALL** Linux Support options. I don't know which one Edgegap requires, so we install all of them:
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 18-54-28@2x.png" alt=""><figcaption></figcaption></figure>
+
+Press Continue, wait, restart Unity once, done.
+
+### Install Docker Desktop
+
+Edgegap works with containers, which means we need to install Docker. We don't need to worry about it ever, we just need to install it once.
+
+The easiest way is to simply install **Docker Desktop**:
+
+{% embed url="https://www.docker.com/products/docker-desktop/" %}
+
+Download it, install it, open it and leave it running. You can pretty much auto start it with your operating system each time.
+
+{% hint style="info" %}
+Quick explanation about Docker if you care. You don't need to know this, so feel free to skip.
+
+Basically Docker is a super easy way to configure a virtual machine for your game server build. Previously you would manually create a VM in say Google Cloud, configure a hard disk, open ports, install a Linux version, run apt-update, install dependencies, ...
+
+With docker, we just have a text file. It says 'install ubuntu, copy our build into the VM, navigate to the folder, run unity. Again, you DO NOT need to worry about this. The plugin creates this automatically, something like this (again, don't worry about it):
+
+```
+FROM ubuntu:bionic
+ARG DEBIAN_FRONTEND=noninteractive
+COPY Builds/EdgegapServer /root/build/
+WORKDIR /root/
+RUN chmod +x /root/build/ServerBuild
+ENTRYPOINT [ "/root/build/ServerBuild", "-batchmode", "-nographics"]
+
+```
+{% endhint %}
+
+Next, we need to log into Edgegap's docker registry that we previously requested access to.
+
+We are working with Edgegap to automate this. For now you need to open a Terminal / Console:
+
+* On Windows, hit CTRL+R, enter CMD, hit enter to open it
+* On Mac, open Finder, go to Applications -> Utilities -> Terminal
+* On Linux, you'll figure it out
+
+{% hint style="info" %}
+Don't be scared of the Terminal. It's just black background and white text where we'll enter exactly one command. This will be automated soon.
+{% endhint %}
+
+Now enter this simple terminal command. There won't be any others, promised!
+
+```
+docker login harbor.edgegap.net
+```
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 19-07-02@2x.png" alt=""><figcaption></figcaption></figure>
+
+It'll ask you for the Username and Token that we see on Edgegap.com -> Container Registry. Punch it in there, done. Docker desktop seems to remember this, so you won't need to do this again after restarting next time.
+
+Alright, that's it for Docker.
+
+## Back to the Unity Plugin
+
+Next, go back to the Unity plugin and press **Build and Push**:&#x20;
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 19-09-37@2x.png" alt=""><figcaption></figcaption></figure>
+
+You'll see a progress bar for a while. Unity will create a Linux build, then create a Docker build, then upload the whole thing to Edgegap. Note that uploading will take a while depending on your internet connection. The progress bar halts while uploading, but you can check your operating system's bandwidth usage to see if it works.
+
+If this all worked, then it'll simply finish without telling you.
+
+If this failed, it'll show you errors.
+
+Here are a few common issues and workarounds:
+
+* **Missing Linux Build Support**: install it in your Unity hub. Make sure you do it for the Unity version that you are using in your project. This generally works once you have the Linux Build Support installed.
+* **Incremental Build Failed**: delete your previous Unity Linux build, restart Unity, just try again. Delete your Library/ folder if you need to. This is a Unity bug that happens sometimes.
+* **Docker authorization Failed**: make sure Docker Desktop is running and make sure that you are logged in with the above Terminal command. Then this generally works.
+
+If you encounter other issues, talk in our #edgegap Discord channel. We want to find solutions for any possible issue and explain this here!
+
+{% hint style="info" %}
+If building failed, then the progress bar may get stuck forever. You'll have to force kill Unity with your task manager. You can complain to Edgegap about this :)
+{% endhint %}
+
+## Start Server
+
+Once we finished building, simply press the **Start Server** button. It'll be **Deploying** for a while, until you see a green status:
 
 
 
