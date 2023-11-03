@@ -121,3 +121,9 @@ Again, I don't want to worry about hosting. I want to upload my server image, an
 We use EdgeGap because it's the [easiest to use](https://docs.edgegap.com/docs/sample-projects/mirror-on-edgegap) with the most [advanced network](https://en.wikipedia.org/wiki/Edge\_computing).
 {% endhint %}
 
+## Update: Edgegap Unity Plugin 🇨🇦
+
+Great news, Mirror now has Edgegap's Hosting / Orchestration plugin built in!
+
+Check out our step by step guide to get started: [edgegap-hosting-plugin-guide.md](edgegap-hosting-plugin-guide.md "mention")
+
