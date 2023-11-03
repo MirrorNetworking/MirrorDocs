@@ -1,5 +1,5 @@
 ---
-description: Mirror's Inofficial Edgegap Hosting Plugin documentation.
+description: Mirror's inofficial Edgegap Hosting Plugin documentation.
 ---
 
 # Edgegap Hosting Plugin Guide
@@ -267,6 +267,8 @@ Next, go back to the Unity plugin and press **Build and Push**:&#x20;
 
 You'll see a progress bar for a while. Unity will create a Linux build, then create a Docker build, then upload the whole thing to Edgegap. Note that uploading will take a while depending on your internet connection. The progress bar halts while uploading, but you can check your operating system's bandwidth usage to see if it works.
 
+<figure><img src="../.gitbook/assets/2023-11-03 - 19-17-10@2x.png" alt=""><figcaption></figcaption></figure>
+
 If this all worked, then it'll simply finish without telling you.
 
 If this failed, it'll show you errors.
@@ -285,7 +287,62 @@ If building failed, then the progress bar may get stuck forever. You'll have to 
 
 ## Start Server
 
-Once we finished building, simply press the **Start Server** button. It'll be **Deploying** for a while, until you see a green status:
+Once we finished building, simply press the **Start Server** button. It'll be **Deploying** for a while:
 
+<figure><img src="../.gitbook/assets/2023-11-03 - 19-21-14@2x.png" alt=""><figcaption></figcaption></figure>
 
+Eventually it'll be started:
 
+<figure><img src="../.gitbook/assets/2023-11-03 - 19-21-59@2x.png" alt=""><figcaption></figcaption></figure>
+
+This screenshot is from my other test application which uses TCP port 5000.
+
+For you it should show you UDP port 7777, just as we configured in the Application.
+
+Edgegap will assign you a random **External Port** that maps to your configured Port.
+
+That is because they may have multiple deployments asking for the same port 7777.
+
+But there's only one port 7777.
+
+That's why they have External ports that are random.
+
+Long story short, you may now connect your game!
+
+## Connect your Game Client
+
+Press **Play** in Unity, enter the **Server DNS** from the hosting plugin (there's a **Copy**) button to copy it to your Clipboard. Don't connect yet!
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 19-24-48@2x.png" alt=""><figcaption></figcaption></figure>
+
+Find your **NetworkManager**, find the Transport component, enter the **External Port** from above. In this case, 32392:
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 19-26-31@2x.png" alt=""><figcaption></figcaption></figure>
+
+We are working towards making this easier. For now, just assign it there at runtime. Don't save it.
+
+Next, press **Client** to connect to the server on that port.
+
+If it works, great!
+
+If it doesn't:
+
+* On the Edgegap website, go to Deployments -> select your Deployment -> select **Container Logs**, check the log files to see if your game server actually launched or if there are issues.
+  * If it says "exec user process caused: no such file or directory": this can happen if you are trying to build from Apple Silicon (or any other ARM machine), because Edgegap's infrastructure runs on x86. Docker supposedly supports cross compilation now, so we are working with Edgegap to fix this asap.
+* If everything seems fine but you still can't connect, please talk to an Edgegap employee  in the Mirror Discord's **#edgegap** channel.&#x20;
+
+{% hint style="warning" %}
+As mentioned, this is cutting edge technology, with the Unity plugin essentially in beta state. You'll most certainly encounter errors and headaches for now. Please report any issues so Edgegap can fix them.
+{% endhint %}
+
+{% hint style="info" %}
+We are aware that this guide was quite long.\
+There are a lot of steps which we think can be automated.\
+We are working on making this easier as we go.\
+Long term this should be a super easy solution for hosting, so you'll never have to worry about hosting dedicated servers or in dealing with cloud providers.
+{% endhint %}
+
+{% hint style="info" %}
+Big thanks to our Candian 🇨🇦 friends at Edgegap for giving Mirror users 0.5 vCPU for free!\
+While we hope for a larger free tier in the future, please keep in mind that they are the ones who are paying for the infrastructure. If you have the means, please pay them for more vCPUs!
+{% endhint %}
