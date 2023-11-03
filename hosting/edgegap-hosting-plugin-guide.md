@@ -19,7 +19,7 @@ This is **cutting edge**, **next gen**, **black magic** technology with a **lot*
 
 If you encounter issues (you will), report them in our Discord's **#edgegap** channel.
 
-\=> Today, the plugin requires \~30 clicks and has lots of issues.
+\=> Today, the plugin requires \~30 clicks and has a few issues.
 
 \=> Long term, more and more steps will be automated until it's only 1 click!
 
