@@ -129,8 +129,8 @@ Do request, and then it'll look like this:
 Now we have to wait for an Edgegap employee to accept. We recommend to ask someone from the Edgegap team in the Mirror discord's #edgegap channel directly to speed this up.
 
 {% hint style="warning" %}
-Obviously this step does not spark joy.\
-We are working with Edgegap to make this easier :/
+Obviously waiting for manual acceptance does not spark joy.\
+We are working with Edgegap to make this easier.
 
 For now, just hang in there.
 {% endhint %}
@@ -148,10 +148,8 @@ Then click **Edit** to enter your **Private Registry** username and token from t
 <figure><img src="../.gitbook/assets/2023-11-03 - 18-32-01@2x.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-If saving doesn't work, delete the Application and create it again with the Private Registry credentials directly. Edgegap is aware of the bug, feel free to complain in their Discord if it bothers you :)
+If saving doesn't work, delete the Application and create it again with the Private Registry credentials directly. Edgegap is aware of the bug, this should be solved soon!
 {% endhint %}
-
-
 
 ## Create a Token
 
@@ -176,7 +174,7 @@ Alright, back to Unity. Let's punch in all the data in our Plugin. As mentioned,
 <figure><img src="../.gitbook/assets/2023-11-03 - 18-36-14@2x.png" alt=""><figcaption></figcaption></figure>
 
 * **Token**: that's the one we just copied. Put it in there. It looks like "token abcd-efgh-ijkl....". Make sure to include the "token " part. If you just paste it, then it's fine as is.
-* **API Environment**: use **Console**. I don't know why. Staging doesn't work.
+* **API Environment**: use **Console**. We don't know why 'Staging' didn't work.
 * **App Name:** your-game, or whatever you entered in your Application before.
 * **App version**: v1 as we entered in our Application.
 
@@ -282,7 +280,7 @@ Here are a few common issues and workarounds:
 If you encounter other issues, talk in our #edgegap Discord channel. We want to find solutions for any possible issue and explain this here!
 
 {% hint style="info" %}
-If building failed, then the progress bar may get stuck forever. You'll have to force kill Unity with your task manager. You can complain to Edgegap about this :)
+If building failed, then the progress bar may get stuck forever. You'll have to force kill Unity with your task manager. This will be fixed very soon.
 {% endhint %}
 
 ## Start Server
@@ -332,7 +330,7 @@ If it doesn't:
 * If everything seems fine but you still can't connect, please talk to an Edgegap employee  in the Mirror Discord's **#edgegap** channel.&#x20;
 
 {% hint style="warning" %}
-As mentioned, this is cutting edge technology, with the Unity plugin essentially in beta state. You'll most certainly encounter errors and headaches for now. Please report any issues so Edgegap can fix them.
+As mentioned, this is cutting edge technology, with lots of rough edges. You'll most certainly encounter errors and headaches for now. Please report any issues so Edgegap can fix them.
 {% endhint %}
 
 {% hint style="info" %}
