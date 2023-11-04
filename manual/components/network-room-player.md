@@ -17,10 +17,19 @@ A game object with a Network Room Player component must also have a Network Iden
 
 ## Methods <a href="#methods" id="methods"></a>
 
+### Client Virtual SyncVar Hook Methods <a href="#client-virtual-syncvar-methods" id="client-virtual-syncvar-methods"></a>
+
+```csharp
+public virtual void IndexChanged(int oldIndex, int newIndex) { }
+public virtual void ReadyStateChanged(bool oldReadyState, bool newReadyState) { }
+
+```
+
 ### Client Virtual Methods <a href="#client-virtual-methods" id="client-virtual-methods"></a>
 
 ```csharp
-public virtual void OnClientEnterRoom() {}
-public virtual void OnClientExitRoom() {}
+public virtual void OnClientEnterRoom() { }
+public virtual void OnClientExitRoom() { }
+[Obsolete("OnClientReady is deprecated, use the SyncVar ReadyStateChanged hook instead.")]
 public virtual void OnClientReady(bool readyState) {}
 ```
