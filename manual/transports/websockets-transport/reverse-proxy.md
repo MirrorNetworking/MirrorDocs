@@ -257,11 +257,11 @@ You'll see that WinAcme has added a binding for port 443 with the same host name
 
 You can double click the port 443 binding to see how it is set up with the SSL certificate selected.
 
-Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443.  This will be for the client to connect to the Reverse Proxy that will be set up later in this document.
+Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443.  This will be for the client to connect to the Reverse Proxy that will be set up later in this document. If you're running multiple game server instances on the same server, just add a binding for each port you're using. Make sure your firewall has all of the ports open.
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (37) (2).png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/IIS Bindings.png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
 </div>
 
@@ -271,20 +271,22 @@ Deploy your server build to a folder under `c:\` and start it on port `27777`. M
 
 ### WebGL Client
 
-In IIS Manager, right-click the Default site that you configured earlier and choose Explore. This is the folder where you'll deploy your WebGL build files. Make sure Simple Web Transport is set up like this:
+Make sure Simple Web Transport is set up like this:
 
 * Port `7777`
 * Client Use Wss checked
 * Ssl Enabled **not** checked
-* Ssl Protocols set to Tls 13.
+* Ssl Protocols set to Tls 12.
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SWT.png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
 
 </div>
 
 ### web.config for IIS
+
+In IIS Manager, right-click the Default site that you configured earlier and choose Explore. This is the folder where you'll deploy your WebGL build files.&#x20;
 
 * If there's already a `web.config` file in that folder, open it in Notepad, otherwise create an empty one and open it.
 * Merge the XML below into whatever might already be there, save and close it.
@@ -295,6 +297,7 @@ The web.config file below assumes several things:
 * You've built your server to listen on port `27777` and the WebGL client to connect to `7777`.
 * You've built your WebGL client using brotli (preferred) or gzip compression.
 * You've set up the bindings as shown above.
+* If you made bindings for more servers, you'll need to add additional Reverse Proxy rules to the rules section below, by copy/paste and changing the port in the pattern and action.
 
 ```
 <configuration>
