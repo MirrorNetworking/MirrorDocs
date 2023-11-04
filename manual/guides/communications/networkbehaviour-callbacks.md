@@ -3,7 +3,7 @@
 ## NetworkBehaviour Callbacks <a href="#networkbehaviour-callbacks" id="networkbehaviour-callbacks"></a>
 
 {% hint style="info" %}
-See also [NetworkBehaviour](https://mirror-networking.com/docs/api/Mirror.NetworkBehaviour.html) in the API Reference.
+See also [NetworkBehaviour](https://storage.googleapis.com/mirror-api-docs/html/db/d21/class\_mirror\_1\_1\_network\_behaviour.html) in the API Reference.
 {% endhint %}
 
 There are a number of events relating to network behaviours that can occur over the course of a normal multiplayer game. These include events such as the host starting up, a player joining, or a player leaving. Each of these possible events has an associated callback that you can implement in your own code to take action when the event occurs.
