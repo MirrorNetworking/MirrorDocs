@@ -1,7 +1,7 @@
 # NetworkManager Callbacks
 
 {% hint style="info" %}
-See also [NetworkManager](https://mirror-networking.com/docs/api/Mirror.NetworkManager.html) in the API Reference.
+See also [NetworkManager](https://storage.googleapis.com/mirror-api-docs/html/d7/d5a/class\_mirror\_1\_1\_network\_manager.html) in the API Reference.
 {% endhint %}
 
 There are a number of events that can occur over the course of the normal operation of a multiplayer game, such as the host starting up, a player joining, or a player leaving. Each of these possible events has an associated callback that you can implement in your own code to take action when the event occurs.
