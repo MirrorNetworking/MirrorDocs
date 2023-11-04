@@ -9,3 +9,11 @@ Only the player game object that is “yours” (from your point of view as the 
 Player game objects represent the player (that is, the person playing the game) on the server, and have the ability to run commands from the player’s client. These commands are secure client-to-server remote procedure calls. In this server-authoritative system, other non-player server-side game objects cannot receive commands directly from client-side game objects. This is both for security, and to reduce the complexity of building your game. By routing all incoming commands from users through the player game object, you can ensure that these messages come from the right place, the right client, and can be handled in a central location.
 
 The Network Manager adds a player every time a client connects to the server. In some situations, though, you might not want to add players until an input event happens - such as a user pressing a “start” button on the controller. To disable automatic player creation, navigate to the Network Manager component’s Inspector and untick the Auto Create Player checkbox.
+
+The diagram below shows two clients and their local players:
+
+<div align="left" data-full-width="false">
+
+<figure><img src="../../../.gitbook/assets/NetworkLocalPlayers.png" alt=""><figcaption><p>Network Players and Clients</p></figcaption></figure>
+
+</div>
