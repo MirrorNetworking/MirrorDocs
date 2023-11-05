@@ -246,15 +246,21 @@ Don't be scared of the Terminal. It's just black background and white text where
 Grab your Username + Token from the **Container Registry** page once more.\
 Now enter this simple terminal command. There won't be any others, promised!
 
+
+
 ```
-docker login -u YOUR_REGISTRY_USERNAME registry.edgegap.com
+docker login registry.edgegap.com
 ```
 
+Then enter your Username and Token (as password) that you see on the Edgegap.com -> **Container Registry** page.
 
+If you can't seem to login, you can also try this command instead:
 
-<figure><img src="../.gitbook/assets/2023-11-05 - 12-18-52@2x.png" alt=""><figcaption></figcaption></figure>
+```
+docker login -u "YOUR_USERNAME" registry.edgegap.com
+```
 
-It'll ask you for the Password (=Token) that we see on Edgegap.com -> Container Registry. Punch it in there, done. Docker desktop seems to remember this, so you won't need to do this again after restarting next time.
+Docker Desktop remembers your login, so you won't have to do this again next time.
 
 Alright, that's it for Docker.
 
