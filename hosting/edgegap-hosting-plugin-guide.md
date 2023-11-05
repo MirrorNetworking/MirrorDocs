@@ -4,40 +4,37 @@ description: Mirror's inofficial Edgegap Hosting Plugin documentation.
 
 # Edgegap Hosting Plugin Guide
 
-Thanks to Edgegap's hosting plugin for Unity, Mirror users get 0.5 vCPU cloud hosting for free!
+Thanks to **Edgegap**'s hosting plugin for Unity, Mirror users get 0.5 vCPU cloud hosting for free!
 
 You can build & launch a game server into the cloud directly from your Unity Editor, without any Linux or Cloud usage whatsoever.
-
-{% hint style="warning" %}
-Edgegap provides an official Asset Store plugin and Documentation. Avoid those for now.
-{% endhint %}
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 17-31-21@2x.png" alt=""><figcaption><p>Edgegap Hosting Plugin</p></figcaption></figure>
 
 {% hint style="danger" %}
 This is **cutting edge**, **next gen**, **black magic** technology with a **lot** of rough edges!
 
-If you encounter issues (you will), report them in our Discord's **#edgegap** channel.
+If you encounter issues, please report them in our Discord's **#edgegap** channel.
 
 \=> Today, the plugin requires \~30 clicks and has a few issues.
 
 \=> Long term, more and more steps will be automated until it's only 1 click!
 
 \
-Enjoy a preview of the future, and please be patient with our 🇨🇦 Canadian friends!\
-We promise to make this super easy for you as we go.
+Enjoy a preview of the future, and please be patient with our 🇨🇦 Canadian friends!
 {% endhint %}
 
 ## Open the Plugin in Unity / Mirror
 
-As of November 2023, Mirror now has the plugin included by default.\
-Originally it comes from the Unity Asset Store, but we already fixed some of the issues.
+As of November 2023, Mirror now has Edgegap's hosting plugin included by default.\
+Originally it comes from the Unity Asset Store, but we forked it to apply a few fixes on top!
 
 {% embed url="https://assetstore.unity.com/packages/tools/network/edgegap-cloud-server-212563" %}
 
-We do not recommend to use the Asset Store version. Instead, download latest Mirror from Github, or simply download the Assets/Mirror/Hosting folder from Github and drop it into your Mirror project.
+{% hint style="info" %}
+We do not recommend to use the plugin's Asset Store version. Instead, download latest Mirror from Github, or simply download the Assets/Mirror/Hosting folder from Github and drop it into your Mirror project.
+{% endhint %}
 
-Once you have, check for "Edgegap -> Edgegap Hosting" in Unity's top menu:
+Once you have, check for "**Edgegap** -> **Edgegap** Hosting" in Unity's top menu:
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 17-49-38@2x.png" alt=""><figcaption></figcaption></figure>
 
@@ -50,6 +47,33 @@ Of course, you can always have more vCPUs if you send them money.
 For now, let's start by creating an account on the Edgegap website. It's free.
 
 {% embed url="https://app.edgegap.com/auth/register" %}
+
+## Get Registry Access
+
+First, we need access to Edgegap's Docker registry in order to push our server builds there.
+
+If you aren't familiar with Docker, don't worry about it.
+
+For now, let's just get access to the registry.
+
+Click Container Registry in the left menu, or follow this link:
+
+{% embed url="https://app.edgegap.com/registry-management/repositories/list" %}
+
+You'll probably see a screen where you can request access.&#x20;
+
+Do request, and then it'll look like this:
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 18-23-42@2x.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+It may help to join our Discord's #edgegap channel and ask an Edgegap employee directly to speed up the manual approval.\
+This step is supposedly **going to be automated** on around November 7th.
+{% endhint %}
+
+Once you have registry access, grab your **Username** and **Token** from the **Container Registry** page. We'll need those in a minute:
+
+<figure><img src="../.gitbook/assets/2023-11-03 - 18-29-23@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## Create an Application
 
@@ -65,18 +89,18 @@ The image doesn't matter. Just click **Create Application**.
 
 Make sure to replace 'your-game' with your game name, and do that in all the following steps where it says 'your-game' as well. Continuing, fill out the application details exactly like this:
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-02-46@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 12-01-04@2x.png" alt=""><figcaption></figcaption></figure>
 
 * **Version name**: just use exactly **v1**, don't worry about this. (**lowercase!)**
-* **Registry**: use exactly **harbor.edgegap.net** (**lowercase!)**. You can enter a custom docker registry here, but you probably don't have one or don't know what this even means. That's fine.
+* **Registry**: use exactly **registry.edgegap.com** (**lowercase!)**. You can enter a custom docker registry here, but you probably don't have one or don't know what this even means. That's fine.
 * **Image repository**: pick something. For example: valve/counter-strike if you are Valve and your game is Counter-strike. (**lowercase!)**. If you don't have a company, make something up.
 * **Tag**: 0.0.1 - use exactly this. Every new server build will automatically increase this to 0.0.2 etc.
-* **vCPU**: 0.5vCPU is free.
+* **vCPU**: 0.5 vCPU is free.
 * **Memory**: 0.5 GB is free.
-* **Private Registry User**: we need to enter our credentials for **harbor.edgegap.net** here. We'll get them later.&#x20;
+* **Private Registry User**: enter the Username and Token from the previous **Container Registry** page here. Otherwise we won't have access to push our server builds there later.
 
 {% hint style="warning" %}
-As of November 3, 2023, modifying an Application's **Private Registry User** is broken. You may need to create a new application once you have the credentials later. In order to keep the natural flow of the tutorial, we still create the Application first and hope that Edgegap will fix this soon.
+Note that as of November 3, 2023, modifying an Application's **Private Registry User** after creating an Application is broken. If you accidentally entered the wrong data, please create a new Application. Edgegap is aware of this bug and working on a fix.
 {% endhint %}
 
 Next, click **Create Version**. Note it says 'Version'. You have different Versions of your game, kind of like 'Counter-Strike 1.6, Counter-Strike GO, Counter-Strike 2' etc. For now, don't worry about versions. One is enough.
@@ -104,58 +128,15 @@ Finally, press **Submit**. There you go, your first application.&#x20;
 
 It doesn't do anything yet, but we'll get there.
 
-To compare, this is what it looks like now. Note there's a red **!** sign without telling you why. That's fine, I guess:
+To compare, this is what it looks like now. The red "!" icon is still there because validation still fails, this is fine for now.
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-20-12@2x.png" alt=""><figcaption></figcaption></figure>
-
-## Get Registry Access
-
-Next, we need access to Edgegap's Docker registry in order to push our server builds there.
-
-If you aren't familiar with Docker, don't worry about it.
-
-For now, let's just get access to the registry.
-
-Click Container Registry in the left menu, or follow this link:
-
-{% embed url="https://app.edgegap.com/registry-management/repositories/list" %}
-
-You'll probably see a screen where you can request access.&#x20;
-
-Do request, and then it'll look like this:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-23-42@2x.png" alt=""><figcaption></figcaption></figure>
-
-Now we have to wait for an Edgegap employee to accept. We recommend to ask someone from the Edgegap team in the Mirror discord's #edgegap channel directly to speed this up.
-
-{% hint style="warning" %}
-Obviously waiting for manual acceptance does not spark joy.\
-We are working with Edgegap to make this easier.
-
-For now, just hang in there.
-{% endhint %}
-
-Once you have registry access, grab your **Username** and **Token** from the **Container Registry** page:&#x20;
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-29-23@2x.png" alt=""><figcaption></figcaption></figure>
-
-Go back to Applications, select your previously created Application, then select v1:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-31-39@2x.png" alt=""><figcaption></figcaption></figure>
-
-Then click **Edit** to enter your **Private Registry** username and token from the **Container Registry** page above:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-32-01@2x.png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-If saving doesn't work, delete the Application and create it again with the Private Registry credentials directly. Edgegap is aware of the bug, this should be solved soon!
-{% endhint %}
+<figure><img src="../.gitbook/assets/2023-11-05 - 12-05-09@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## Create a Token
 
 Last step on the website, we need a **Token** for the Unity plugin later. Since we are here, let's just create it now.
 
-On the Edgegap website, click your Organization on the bottom left (the head icon), click Tokens or follow this link [https://app.edgegap.com/user-settings?tab=tokens](https://app.edgegap.com/user-settings?tab=tokens) and then click **Create API Token**:
+On the **Edgegap** website, click your Organization on the bottom left (the head icon), click Tokens or follow this link [https://app.edgegap.com/user-settings?tab=tokens](https://app.edgegap.com/user-settings?tab=tokens) and then click **Create API Token**:
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 18-38-00@2x.png" alt=""><figcaption></figcaption></figure>
 
