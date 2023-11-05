@@ -80,7 +80,7 @@ It may help to join our Discord's #edgegap channel and ask an Edgegap employee d
 This step is supposedly **going to be automated** on around November 7th.
 {% endhint %}
 
-Once you have registry access, grab your **Username** and **Token** from the **Container Registry** page. We'll need those in a minute:
+Once you have registry access, grab your **Project**, **Username** and **Token** from the **Container Registry** page. We'll need those in a minute:
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 18-29-23@2x.png" alt=""><figcaption></figcaption></figure>
 
@@ -98,11 +98,11 @@ The image doesn't matter. Just click **Create Application**.
 
 Make sure to replace 'your-game' with your game name, and do that in all the following steps where it says 'your-game' as well. Continuing, fill out the application details exactly like this:
 
-<figure><img src="../.gitbook/assets/2023-11-05 - 12-01-04@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 12-34-33@2x.png" alt=""><figcaption></figcaption></figure>
 
 * **Version name**: just use exactly **v1**, don't worry about this. (**lowercase!)**
-* **Registry**: use exactly **registry.edgegap.com** (**lowercase!)**. You can enter a custom docker registry here, but you probably don't have one or don't know what this even means. That's fine.
-* **Image repository**: pick something. For example: valve/counter-strike if you are Valve and your game is Counter-strike. (**lowercase!)**. If you don't have a company, make something up.
+* **Registry**: use exactly **registry.edgegap.com** (**lowercase!)**, this is from the **Container Registry** page. You can enter a custom docker registry here, but you probably don't have one or don't even know what this even means. That's fine :)
+* **Image repository**: first enter the **Project** part from the Container Registry page, and then add "/game". For example, it may look something like: "some\_username-v23r8h5472/your-game".
 * **Tag**: 0.0.1 - use exactly this. Every new server build will automatically increase this to 0.0.2 etc.
 * **vCPU**: 0.5 vCPU is free.
 * **Memory**: 0.5 GB is free.
@@ -159,7 +159,7 @@ Afterwards click the Clipboard icon to copy it to your clipboard:
 
 ## Configuring the Edgegap Unity Plugin
 
-Alright, back to Unity. Let's punch in all the data in our Plugin. As mentioned, you can find it under Edgegap -> Edgegap Hosting in Unity's top menu. Let's configure it:
+Alright, back to Unity. Let's punch in all the data in our Plugin. As mentioned, you can find it under **Edgegap** -> **Edgegap Hosting** in Unity's top menu. Let's configure it:
 
 <figure><img src="../.gitbook/assets/2023-11-05 - 12-10-55@2x.png" alt=""><figcaption></figcaption></figure>
 
@@ -174,10 +174,14 @@ Next, enter the other details from our Application:
 
 <figure><img src="../.gitbook/assets/2023-11-05 - 12-13-08@2x.png" alt=""><figcaption></figcaption></figure>
 
-* **Container Registry**: registry.edgegap.com
-* **Image Repository**: your-company/your-game or whatever you entered in your Application before
+* **Container Registry**: registry.edgegap.com from the **Container Registry** page.
+* **Image Repository**: your-project/your-game or whatever you entered in your Application before. Remember that "your-project" is from the **Container Registry** page as well.
 * **Tag**: 0.0.1 for now.&#x20;
 * **Increment tag on build**: enable this. You always want to increase the tag for each new build to avoid caching issues. Seriously, don't push a new server build with an old tag, it's probably gonna launch the old build again due to caching.
+
+{% hint style="info" %}
+Note that Edgegap is working on a new plugin version which will automatically grab all the settings from your Application. This will be easier soon!
+{% endhint %}
 
 ## Build and Push
 
@@ -272,9 +276,9 @@ Here are a few common issues and workarounds:
 
 * **Missing Linux Build Support**: install it in your Unity hub. Make sure you do it for the Unity version that you are using in your project. This generally works once you have the Linux Build Support installed.
 * **Incremental Build Failed**: delete your previous Unity Linux build in the /Builds folder next to the /Assets folder, restart Unity try again. Delete your Library/ folder if you need to. This is a Unity bug that happens sometimes.
-* **Docker authorization Failed**: make sure Docker Desktop is running and make sure that you are logged in with the above Terminal command. Then this generally works.
+* **Docker authorization Failed**: make sure Docker Desktop is running and make sure that you are logged in with the above Terminal command. Also make sure that image registry consists of the **Container Registry**'s 'Project' + "/" + "your-game".
 
-If you encounter other issues, talk in our #edgegap Discord channel. We want to find solutions for any possible issue and explain this here!
+If you encounter other issues, talk in our **#edgegap** Discord channel. We want to find solutions for any possible issue and explain this here!
 
 {% hint style="info" %}
 If building failed, then the progress bar may get stuck forever. You'll have to force kill Unity with your task manager. This will be fixed very soon.
