@@ -298,7 +298,7 @@ Once we finished building, simply press the **Start Server** button. It'll be **
 
 Eventually it'll be started:
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 19-21-59@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 13-01-05@2x.png" alt=""><figcaption></figcaption></figure>
 
 This screenshot is from my other test application which uses TCP port 5000.
 
@@ -318,19 +318,21 @@ Long story short, you may now connect your game!
 
 Press **Play** in Unity, enter the **Server DNS** from the hosting plugin (there's a **Copy**) button to copy it to your Clipboard. Don't connect yet!
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 19-24-48@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 13-02-21@2x.png" alt=""><figcaption></figcaption></figure>
 
-Find your **NetworkManager**, find the Transport component, enter the **External Port** from above. In this case, 32392:
+Find your **NetworkManager**, find the Transport component, enter the **External Port** from above. In this case, 31248:
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 19-26-31@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 13-02-51@2x.png" alt=""><figcaption></figcaption></figure>
 
 We are working towards making this easier. For now, just assign it there at runtime. Don't save it.
 
 Next, press **Client** to connect to the server on that port.
 
-If it works, great!
+**If it works, great! 🚀**
 
-If it doesn't:
+* You can now keep testing your game this way. And once you scale, simply allocate thousands of servers on Edgegap's website!
+
+**If it doesn't:**
 
 * On the Edgegap website, go to Deployments -> select your Deployment -> select **Container Logs**, check the log files to see if your game server actually launched or if there are issues.
   * If it says "exec user process caused: no such file or directory": this can happen if you are trying to build from Apple Silicon (or any other ARM machine), because Edgegap's infrastructure runs on x86. Docker supposedly supports cross compilation now, so we are working with Edgegap to fix this asap.
@@ -342,12 +344,12 @@ As mentioned, this is cutting edge technology, with lots of rough edges. You'll 
 
 {% hint style="info" %}
 We are aware that this guide was quite long.\
-There are a lot of steps which we think can be automated.\
-We are working on making this easier as we go.\
-Long term this should be a super easy solution for hosting, so you'll never have to worry about hosting dedicated servers or in dealing with cloud providers.
+A lot of these steps will be automated over time.
+
+Long term this will be a super easy way to host and scale your multiplayer game!
 {% endhint %}
 
 {% hint style="info" %}
-Big thanks to our Candian 🇨🇦 friends at Edgegap for giving Mirror users 0.5 vCPU for free!\
+Big thanks to our Canadian 🇨🇦 friends at **Edgegap** for giving Mirror users 0.5 vCPU for free!\
 While we hope for a larger free tier in the future, please keep in mind that they are the ones who are paying for the infrastructure. If you have the means, please pay them for more vCPUs!
 {% endhint %}
