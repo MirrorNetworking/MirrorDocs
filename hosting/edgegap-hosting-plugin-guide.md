@@ -39,6 +39,18 @@ Originally it comes from the Unity Asset Store, but we forked it to apply a few 
 
 {% embed url="https://assetstore.unity.com/packages/tools/network/edgegap-cloud-server-212563" %}
 
+If you are on an older Mirror version, you can also download the Assets/Mirror/Hosting folder from our Github repository manually. If you see errors about missing 'Newtonsoft Json', add this package to your Package Manager:
+
+<figure><img src="../.gitbook/assets/2023-11-05 - 13-14-02@2x.png" alt=""><figcaption></figcaption></figure>
+
+You can also open Packages/manifest.json and add this line manually:
+
+```json
+"com.unity.nuget.newtonsoft-json": "3.2.1"
+```
+
+By default, this should work out of the box though.
+
 {% hint style="info" %}
 We do not recommend to use the plugin's Asset Store version. Instead, download latest Mirror from Github, or simply download the Assets/Mirror/Hosting folder from Github and drop it into your Mirror project.
 {% endhint %}
