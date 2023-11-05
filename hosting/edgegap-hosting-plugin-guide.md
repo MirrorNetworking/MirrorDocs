@@ -11,7 +11,7 @@ You can build & launch a game server into the cloud directly from your Unity Edi
 <figure><img src="../.gitbook/assets/2023-11-03 - 17-31-21@2x.png" alt=""><figcaption><p>Edgegap Hosting Plugin</p></figcaption></figure>
 
 {% hint style="danger" %}
-This is **cutting edge**, **next gen**, **black magic** technology with a **lot** of rough edges!
+This is **cutting edge**, **next gen**, **black magic** technology with a few rough edges!
 
 If you encounter issues, please report them in our Discord's **#edgegap** channel.
 
@@ -22,6 +22,15 @@ If you encounter issues, please report them in our Discord's **#edgegap** channe
 \
 Enjoy a preview of the future, and please be patient with our 🇨🇦 Canadian friends!
 {% endhint %}
+
+## Overview
+
+Setup will take only a few minutes, with 4 basic steps:
+
+1. **Edgegap.com** Account + Application setup
+2. Installing Unity **Linux** Build Support & **Docker** Desktop
+3. Configuring the Unity **Plugin**
+4. **Building & Pushing** our server to Edgegap
 
 ## Open the Plugin in Unity / Mirror
 
@@ -152,20 +161,20 @@ Afterwards click the Clipboard icon to copy it to your clipboard:
 
 Alright, back to Unity. Let's punch in all the data in our Plugin. As mentioned, you can find it under Edgegap -> Edgegap Hosting in Unity's top menu. Let's configure it:
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-36-14@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 12-10-55@2x.png" alt=""><figcaption></figcaption></figure>
 
 * **Token**: that's the one we just copied. Put it in there. It looks like "token abcd-efgh-ijkl....". Make sure to include the "token " part. If you just paste it, then it's fine as is.
 * **API Environment**: use **Console**. We don't know why 'Staging' didn't work.
 * **App Name:** your-game, or whatever you entered in your Application before.
 * **App version**: v1 as we entered in our Application.
 
-Next press **Connect**. This generally works if you have the correct token. You should see 'Connected' now:
+Don't worry about the grayed out data yet. Press **Connect** - you should see 'Connected' now.
 
 Next, enter the other details from our Application:
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-50-31@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 12-13-08@2x.png" alt=""><figcaption></figcaption></figure>
 
-* **Container Registry**: harbor.edgegap.net
+* **Container Registry**: registry.edgegap.com
 * **Image Repository**: your-company/your-game or whatever you entered in your Application before
 * **Tag**: 0.0.1 for now.&#x20;
 * **Increment tag on build**: enable this. You always want to increase the tag for each new build to avoid caching issues. Seriously, don't push a new server build with an old tag, it's probably gonna launch the old build again due to caching.
@@ -196,6 +205,10 @@ The easiest way is to simply install **Docker Desktop**:
 
 Download it, install it, open it and leave it running. You can pretty much auto start it with your operating system each time.
 
+{% hint style="warning" %}
+Some users reported that they had to restart their computer once before they could use Docker. To be safe, consider restarting once!
+{% endhint %}
+
 {% hint style="info" %}
 Quick explanation about Docker if you care. You don't need to know this, so feel free to skip.
 
@@ -218,23 +231,26 @@ Next, we need to log into Edgegap's docker registry that we previously requested
 
 We are working with Edgegap to automate this. For now you need to open a Terminal / Console:
 
-* On Windows, hit CTRL+R, enter CMD, hit enter to open it
-* On Mac, open Finder, go to Applications -> Utilities -> Terminal
-* On Linux, you'll figure it out
+* On Windows, hit CTRL+R, enter CMD, hit enter to open it.
+* On Mac, open Finder, go to Applications -> Utilities -> Terminal.
+* On Linux, you probably know how to do it.
 
 {% hint style="info" %}
 Don't be scared of the Terminal. It's just black background and white text where we'll enter exactly one command. This will be automated soon.
 {% endhint %}
 
+Grab your Username + Token from the **Container Registry** page once more.\
 Now enter this simple terminal command. There won't be any others, promised!
 
 ```
-docker login harbor.edgegap.net
+docker login -u YOUR_REGISTRY_USERNAME registry.edgegap.com
 ```
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 19-07-02@2x.png" alt=""><figcaption></figcaption></figure>
 
-It'll ask you for the Username and Token that we see on Edgegap.com -> Container Registry. Punch it in there, done. Docker desktop seems to remember this, so you won't need to do this again after restarting next time.
+
+<figure><img src="../.gitbook/assets/2023-11-05 - 12-18-52@2x.png" alt=""><figcaption></figcaption></figure>
+
+It'll ask you for the Password (=Token) that we see on Edgegap.com -> Container Registry. Punch it in there, done. Docker desktop seems to remember this, so you won't need to do this again after restarting next time.
 
 Alright, that's it for Docker.
 
@@ -242,20 +258,20 @@ Alright, that's it for Docker.
 
 Next, go back to the Unity plugin and press **Build and Push**:&#x20;
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 19-09-37@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-11-05 - 12-20-39@2x.png" alt=""><figcaption></figcaption></figure>
 
-You'll see a progress bar for a while. Unity will create a Linux build, then create a Docker build, then upload the whole thing to Edgegap. Note that uploading will take a while depending on your internet connection. The progress bar halts while uploading, but you can check your operating system's bandwidth usage to see if it works.
+You'll see a progress bar for a while. Unity will create a Linux build, then create a Docker build, then upload the whole thing to Edgegap. Note that uploading will take a while depending on your internet connection. The progress bar halts while uploading, but you can check your operating system's bandwidth usage to see if it's still uploading:
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 19-17-10@2x.png" alt=""><figcaption></figcaption></figure>
 
-If this all worked, then it'll simply finish without telling you.
+If this all worked, then it'll simply finish without telling you. We are working on making this more obvious.
 
 If this failed, it'll show you errors.
 
 Here are a few common issues and workarounds:
 
 * **Missing Linux Build Support**: install it in your Unity hub. Make sure you do it for the Unity version that you are using in your project. This generally works once you have the Linux Build Support installed.
-* **Incremental Build Failed**: delete your previous Unity Linux build, restart Unity, just try again. Delete your Library/ folder if you need to. This is a Unity bug that happens sometimes.
+* **Incremental Build Failed**: delete your previous Unity Linux build in the /Builds folder next to the /Assets folder, restart Unity try again. Delete your Library/ folder if you need to. This is a Unity bug that happens sometimes.
 * **Docker authorization Failed**: make sure Docker Desktop is running and make sure that you are logged in with the above Terminal command. Then this generally works.
 
 If you encounter other issues, talk in our #edgegap Discord channel. We want to find solutions for any possible issue and explain this here!
