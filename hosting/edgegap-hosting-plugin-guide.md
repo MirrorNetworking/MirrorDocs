@@ -328,26 +328,18 @@ Long story short, you may now connect your game!
 
 ## Connect your Game Client
 
-Press **Play** in Unity, find your NetworkManager's Transport component, change the port to the **External Port** from above:
+Press **Play** in Unity, enter the **Server DNS** and **External Port** from the hosting plugin (there's a **Copy** button) and press **Client** to connect:&#x20;
 
-<figure><img src="../.gitbook/assets/2023-11-05 - 13-02-51@2x.png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-Mirror will support changing the port in the NetworkManager HUD soon.
-{% endhint %}
-
-Now in the **Game** screen, enter the **Server DNS** from the hosting plugin (there's a **Copy** button) and press **Client** to connect:&#x20;
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 13-02-21@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
 
 **You should now be connected to your Deployment! 🚀**
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 It's important to understand the magic that is happening here.\
-Not only can we now launch game servers into the cloud without dealing with the cloud.\
-We can also easily scale those up to thousands of deployments on the **Edgegap** website!
+Not only can we easily launch our game server directly from within Unity.\
+We can even launch thousands of them from the Edgegap website! 🤩
 {% endhint %}
 
 ## Troubleshooting Connection Issues
