@@ -205,7 +205,7 @@ In your **Unity Hub**, select **Installs**, press the Configuration icon next to
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 18-52-53@2x.png" alt=""><figcaption></figcaption></figure>
 
-Find and install **ALL** Linux Support options. I don't know which one Edgegap requires, so we install all of them:
+Find and install **Linux Dedicated Server Build**. You may add the others too just to be safe:
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 18-54-28@2x.png" alt=""><figcaption></figcaption></figure>
 
@@ -328,27 +328,35 @@ Long story short, you may now connect your game!
 
 ## Connect your Game Client
 
-Press **Play** in Unity, enter the **Server DNS** from the hosting plugin (there's a **Copy**) button to copy it to your Clipboard. Don't connect yet!
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 13-02-21@2x.png" alt=""><figcaption></figcaption></figure>
-
-Find your **NetworkManager**, find the Transport component, enter the **External Port** from above. In this case, 31248:
+Press **Play** in Unity, find your NetworkManager's Transport component, change the port to the **External Port** from above:
 
 <figure><img src="../.gitbook/assets/2023-11-05 - 13-02-51@2x.png" alt=""><figcaption></figcaption></figure>
 
-We are working towards making this easier. For now, just assign it there at runtime. Don't save it.
+{% hint style="info" %}
+Mirror will support changing the port in the NetworkManager HUD soon.
+{% endhint %}
 
-Next, press **Client** to connect to the server on that port.
+Now in the **Game** screen, enter the **Server DNS** from the hosting plugin (there's a **Copy** button) and press **Client** to connect:&#x20;
 
-**If it works, great! 🚀**
+<figure><img src="../.gitbook/assets/2023-11-05 - 13-02-21@2x.png" alt=""><figcaption></figcaption></figure>
 
-* You can now keep testing your game this way. And once you scale, simply allocate thousands of servers on Edgegap's website!
+**You should now be connected to your Deployment! 🚀**
 
-**If it doesn't:**
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+It's important to understand the magic that is happening here.\
+Not only can we now launch game servers into the cloud without dealing with the cloud.\
+We can also easily scale those up to thousands of deployments on the **Edgegap** website!
+{% endhint %}
+
+## Troubleshooting Connection Issues
+
+If your Server Status says **Ready** but you can't seem to connect, try this:
 
 * On the Edgegap website, go to Deployments -> select your Deployment -> select **Container Logs**, check the log files to see if your game server actually launched or if there are issues.
   * If it says "exec user process caused: no such file or directory": this can happen if you are trying to build from Apple Silicon (or any other ARM machine), because Edgegap's infrastructure runs on x86. Docker supposedly supports cross compilation now, so we are working with Edgegap to fix this asap.
-* If everything seems fine but you still can't connect, please talk to an Edgegap employee  in the Mirror Discord's **#edgegap** channel.&#x20;
+* If everything seems fine but you still can't connect, please talk to an Edgegap employee in the Mirror Discord's **#edgegap** channel.&#x20;
 
 {% hint style="warning" %}
 As mentioned, this is cutting edge technology, with lots of rough edges. You'll most certainly encounter errors and headaches for now. Please report any issues so Edgegap can fix them.

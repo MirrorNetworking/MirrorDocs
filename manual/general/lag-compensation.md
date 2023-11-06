@@ -30,7 +30,7 @@ In the **100 ms** that passed, your friend has already moved two steps to the le
 As result, you'll always **miss the shot**.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Where you see your friend, and where your friend actually is. Image from <a href="https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking">Valve's Article</a>.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Where you see your friend, and where your friend actually is. Image from <a href="https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking">Valve's Article</a>.</p></figcaption></figure>
 
 This is why you need lag compensation for high paced / first person shooter games.
 
