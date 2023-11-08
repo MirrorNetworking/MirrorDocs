@@ -10,7 +10,7 @@ You can build & launch a game server into the cloud directly from your Unity Edi
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 17-31-21@2x.png" alt=""><figcaption><p>Edgegap Hosting Plugin</p></figcaption></figure>
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 This is **cutting edge**, **next gen**, **black magic** technology with a few rough edges!
 
 If you encounter issues, please report them in our Discord's **#edgegap** channel.
@@ -347,7 +347,7 @@ We can even launch thousands of them from the Edgegap website! 🤩
 If your Server Status says **Ready** but you can't seem to connect, try this:
 
 * On the Edgegap website, go to Deployments -> select your Deployment -> select **Container Logs**, check the log files to see if your game server actually launched or if there are issues.
-  * If it says "exec user process caused: no such file or directory": this can happen if you are trying to build from Apple Silicon (or any other ARM machine), because Edgegap's infrastructure runs on x86. Docker supposedly supports cross compilation now, so we are working with Edgegap to fix this asap.
+  * If it says "exec user process caused: no such file or directory": this can happen if you pushed an ARM build to Edgegap's x86 infrastructure. We already updated the plugin to properly cross compile from ARM so this generally should not happen anymore.
 * If everything seems fine but you still can't connect, please talk to an Edgegap employee in the Mirror Discord's **#edgegap** channel.&#x20;
 
 {% hint style="warning" %}
