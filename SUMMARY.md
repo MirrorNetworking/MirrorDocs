@@ -37,7 +37,7 @@
   * [WebSockets Transport](manual/transports/websockets-transport/README.md)
     * [Reverse Proxy](manual/transports/websockets-transport/reverse-proxy.md)
   * [Multiplex Transport](manual/transports/multiplex-transport.md)
-  * [Latency Simulaton Transport](manual/transports/latency-simulaton-transport.md)
+  * [Latency Simulation Transport](manual/transports/latency-simulaton-transport.md)
   * [Ignorance](manual/transports/ignorance.md)
   * [LiteNetLib Transport](manual/transports/litenetlib-transport.md)
   * [FizzySteamworks Transport](manual/transports/fizzysteamworks-transport.md)
