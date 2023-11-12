@@ -14,7 +14,7 @@ However, it is very easy to use :smile:.
 
 Here is a preview of the final result, this is a Google Cloud VM instance, running Debian with a Desktop Environment, which I log into via Google Remote Desktop from my Browser:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>A Google Cloud VM instance running with a desktop environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>A Google Cloud VM instance running with a desktop environment.</p></figcaption></figure>
 
 This allows for the same workflow as my local machine. I can easily navigate the file system, check resource usage, check on long running tasks, download files with Firefox etc. without worrying about terminal commands.
 

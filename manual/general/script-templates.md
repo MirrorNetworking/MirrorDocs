@@ -23,6 +23,10 @@ We've added Script Templates to make it easier to create derived class scripts t
 
 The **Mirror** section will appear under the **Assets > Create menu**, as well as the context menu that comes up when you right-click on any folder in your project. You'll be prompted for the file name like any other asset creation.
 
-![Script Template menu in Unity](<../../.gitbook/assets/image (27) (2).png>)
+<div align="left">
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Menu to Mirror Script Templates</p></figcaption></figure>
+
+</div>
 
 Hopefully these templates will be helpful to new users of Mirror to learn what methods are available in various classes, as well as just being more convenient for everyone.
