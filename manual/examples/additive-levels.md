@@ -2,9 +2,9 @@
 
 The Additive Levels example demonstrates the following:
 
-* Using Additive Scenes with Scene Interest Management
-* Teleporting between levels via portals and respawning
-* Custom Scene Loading with Fade In / Out transition
+* Using Additive Scenes with Scene Interest Management.
+* Teleporting between levels via portals and respawning.
+* Custom Scene Loading with Fade In / Out transition.
 
 ## Setting Up
 
