@@ -1,8 +1,12 @@
 # Script Templates
 
-{% hint style="danger" %}
-As of August 2023, Unity Asset Store does not allow us to upload ScriptTemplates anymore. If you want to use them, please download Mirror from GitHub instead.
+{% hint style="info" %}
+As of August 2023, Unity Asset Store does not allow us to upload ScriptTemplates anymore. Import this package to add them to your project.
 {% endhint %}
+
+{% file src="../../.gitbook/assets/ScriptTemplates (1).unitypackage" %}
+ScriptTemplates Unity Package
+{% endfile %}
 
 We've added Script Templates to make it easier to create derived class scripts that inherit from our base classes.
 
