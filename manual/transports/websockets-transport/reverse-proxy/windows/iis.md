@@ -1,175 +1,4 @@
-# Reverse Proxy
-
-<div align="left">
-
-<figure><img src="../../../.gitbook/assets/image (56).png" alt=""><figcaption><p>WebGL with Reverse Proxy - 500 CCU</p></figcaption></figure>
-
-</div>
-
-Using a reverse proxy performs better than doing SSL encryption within Unity as part of the game server process:
-
-* Unity is single-threaded, while the reverse proxy is a separate process that's generally engineered to enterprise class performance and is multi-threaded.
-* Encryption is computationally expensive, so better to not bog down Unity with that workload.
-* Unity / mono may not be up to date on TLS version or be able to read the latest certificates.
-
-This page has instructions for both [Linux](reverse-proxy.md#linux) and [Windows](reverse-proxy.md#windows-iis).
-
-## Linux
-
-On linux, you have a wide variety of choices in what software you can use as the reverse proxy. Common options may include [Nginx](https://nginx.org/en/), [Caddy](https://caddyserver.com), [Apache](https://httpd.apache.org/), [HAProxy](https://www.haproxy.org/) and more.
-
-We'll go into detail for a few of the common choices here, generally you likely just want to stick with whatever software you're familiar with or already using.
-
-The following guides (aside from caddy) will assume you have already set up certbot and gotten certs issued. They're also written for debian, but should be very similar (if not identical) on other distros.
-
-### NGINX
-
-NGINX is a fast and lightweight web server that can also function as a reverse proxy. It is commonly used for high traffic websites and applications.
-
-Adding a reverse proxy to NGINX is as simple as defining another server in your config. On Debian / Ubuntu this is usually done by creating a file under `/etc/nginx/sites-enabled/`, for this example we'll use `game.conf`
-
-The following config defines a reverse proxy listening on port 7777 to proxy to 127.0.0.1:27777. You will also want to change the `example.com` domain to the actual domain you're using, as well as the path to the ssl certificates.
-
-`/etc/nginx/sites-enabled/game.conf`
-
-```
-# helper map to support connection upgrading, only define this once
-map $http_upgrade $connection_upgrade {
-    default upgrade;
-    ''      close;
-}
-# the actual reverse proxy server block
-server {
-    # the server will listen on port 7777 for both ipv4 and ipv6 
-    listen 7777 ssl http2;
-    listen [::]:7777 ssl http2;
-    # here we set the domain
-    server_name example.org;
-
-    ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
-
-    location / {
-        proxy_pass 'http://127.0.0.1:27777';
-        
-        proxy_redirect off;
-        # very long timeouts to make sure long-running connections aren't interrupted
-        # you might be able to reduce these based on your use-case
-        proxy_read_timeout 7d;
-        proxy_send_timeout 7d;
-        
-        # The following headers are general settings, not directly used by SWT
-        # Tell upstream the host
-        proxy_set_header Host $host;
-        # Tell upstream real ip & forwarded for header
-        proxy_set_header X-Real-IP  $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        # tell upstream this was served via https
-        proxy_set_header X-Forwarded-Proto https;
-        
-        proxy_buffer_size 2k;
-        proxy_buffering off;
-        
-        # websocket support
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $connection_upgrade;
-
-        # 10s connect timeout
-        proxy_connect_timeout 10;
-    }
-}
-```
-
-If you want to define many reverse proxies, you can, instead of repeating the proxy definitions for every server block, extract it into an separate file and include it, like so:
-
-`/etc/nginx/sites-enabled/game.conf`:
-
-```
-map $http_upgrade $connection_upgrade {
-    default upgrade;
-    ''      close;
-}
-# server 7777 -> 27777
-server {
-    listen 7777 ssl http2;
-    listen [::]:7777 ssl http2;
-    set $gs_port 27777;
-    include /etc/nginx/reverse_proxy.conf;
-}
-
-# server 7778 -> 27778
-server {
-    listen 7778 ssl http2;
-    listen [::]:7778 ssl http2;
-    set $gs_port 27778;
-    include /etc/nginx/reverse_proxy.conf;
-}
-
-# server 7779 -> 27779
-server {
-    listen 7779 ssl http2;
-    listen [::]:7779 ssl http2;
-    set $gs_port 27779;
-    include /etc/nginx/reverse_proxy.conf;
-}
-```
-
-`/etc/nginx/reverse_proxy.conf`:
-
-```
-# here we set the domain
-server_name example.org;
-
-ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
-ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
-
-location / {
-    proxy_pass 'http://127.0.0.1:${gs_port}';
-    
-    proxy_redirect off;
-    # very long timeouts to make sure long-running connections aren't interrupted
-    # you might be able to reduce these based on your use-case
-    proxy_read_timeout 7d;
-    proxy_send_timeout 7d;
-    
-    # The following headers are general settings, not directly used by SWT
-    # Tell upstream the host
-    proxy_set_header Host $host;
-    # Tell upstream real ip & forwarded for header
-    proxy_set_header X-Real-IP  $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    # tell upstream this was served via https
-    proxy_set_header X-Forwarded-Proto https;
-    
-    proxy_buffer_size 2k;
-    proxy_buffering off;
-    
-    # websocket support
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection $connection_upgrade;
-
-    # 10s connect timeout
-    proxy_connect_timeout 10;
-}
-```
-
-### Caddy
-
-[Following the official guide](https://caddyserver.com/docs/quick-starts/reverse-proxy), it's as simple as defining a `Caddyfile`:
-
-```
-example.com:7777
-
-reverse_proxy:27777
-```
-
-Or running caddy via:
-
-```
-caddy reverse-proxy --from example.com:7777 --to :27777
-```
-
-## Windows / IIS
+# IIS
 
 Once you have your Windows Web Server up and running and RDP access to it, you'll probably need to install a couple optional modules:
 
@@ -182,7 +11,7 @@ In IIS Manager, select the server just below Start Page in the left panel, and o
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (32).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
 
 </div>
 
@@ -190,7 +19,7 @@ Change the Section selector to `system.webServer/proxy` as shown in this image a
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -205,7 +34,7 @@ Now in the left panel of IIS Manager, expand the server and Sites and select the
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption><p>Edit Site Bindings - Type your FQDN and click OK</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (21).png" alt=""><figcaption><p>Edit Site Bindings - Type your FQDN and click OK</p></figcaption></figure>
 
 </div>
 
@@ -213,7 +42,7 @@ This is what it should look like when you're done:
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (31).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
 
 </div>
 
@@ -227,7 +56,7 @@ Since all clients will be connected through IIS, which uses a "worker process" t
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (12).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
 
 </div>
 
@@ -245,7 +74,7 @@ You'll need an SSL certificate for your domain.
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (61).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
 
 </div>
 
@@ -261,7 +90,7 @@ Click Add to create one more binding for port 7777 as shown below, using the sam
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/IIS Bindings.png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/IIS Bindings.png" alt=""><figcaption><p>IIS Bindings</p></figcaption></figure>
 
 </div>
 
@@ -280,7 +109,7 @@ Make sure Simple Web Transport is set up like this:
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/SWT.png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/SWT.png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
 
 </div>
 
