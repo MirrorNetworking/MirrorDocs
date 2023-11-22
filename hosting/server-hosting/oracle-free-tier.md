@@ -86,7 +86,7 @@ Download Fillezila, and follow steps bellow to connect into your cloud machine, 
 
 In Unity, access **File** > **Build Settings** > **Select Linux** > **Mark Server Build**. Wait for build, and then upload your files with Fillezila.
 
-![](<../../.gitbook/assets/image\_11 (1).png>)
+![](../../.gitbook/assets/image\_11.png)
 
 This tutorial use a server folder, but this is optional, use the follow commands:
 

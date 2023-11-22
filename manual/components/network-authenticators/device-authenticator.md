@@ -15,13 +15,13 @@ When you're done, it should look like this:
 
 <div align="left">
 
-<img src="../../../.gitbook/assets/image (100).png" alt="Network Manager with Device Authenticator assigned">
+<img src="../../../.gitbook/assets/image (108).png" alt="Network Manager with Device Authenticator assigned">
 
 </div>
 
 <div align="left">
 
-<img src="../../../.gitbook/assets/image (101).png" alt="Device Authenticator">
+<img src="../../../.gitbook/assets/image (18).png" alt="Device Authenticator">
 
 </div>
 

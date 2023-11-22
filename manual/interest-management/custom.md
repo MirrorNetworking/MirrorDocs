@@ -85,7 +85,7 @@ In host mode, someone runs the server while also playing on it themselves, so yo
 
 This is _technically true_, but if you were fortunate enough to ever be on a **LAN** party then you'll remember it differently:
 
-![The best of days.](<../../.gitbook/assets/image (63).png>)
+![The best of days.](<../../.gitbook/assets/image (42).png>)
 
 &#x20;For example, someone on a LAN hosts a Counter-Strike or DotA game. Let's think about that case for a moment:
 

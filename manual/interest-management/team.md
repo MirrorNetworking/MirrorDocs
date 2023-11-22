@@ -12,11 +12,11 @@ Team Interest Management provides for having networked objects only visible to t
 
 Add the **Team Interest Management** component to the same object as your **Network Manager**:
 
-![](<../../.gitbook/assets/image (118).png>)
+![](<../../.gitbook/assets/image (58).png>)
 
 Add a **Network Team** component to the player prefab and any other prefabs that will belong to a team.  Set the Team ID to the same value at runtime for players / objects on the same team.
 
-![](<../../.gitbook/assets/image (123).png>)
+![](<../../.gitbook/assets/image (35).png>)
 
 Enable **Force Shown** on Player objects so they can be seen by players on other teams.
 

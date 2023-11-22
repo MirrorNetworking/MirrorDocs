@@ -11,7 +11,7 @@ Note that if you create a Network Animator component on an empty game object, Mi
 
 Normally, changes are sent to all observers of the object this component is on. Setting **Sync Mode** to Owner Only makes the changes private between the server and the client owner of the object.
 
-![](<../../.gitbook/assets/image (11).png>)
+![](<../../.gitbook/assets/image (139).png>)
 
 You can use the **Sync Interval** to specify how often it syncs (in seconds).
 

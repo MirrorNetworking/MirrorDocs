@@ -9,13 +9,13 @@ When you're done, it should look like this:
 
 <div align="left">
 
-<img src="../../../.gitbook/assets/image (31).png" alt="Network Manager with Basic Authenticator assigned">
+<img src="../../../.gitbook/assets/image (101).png" alt="Network Manager with Basic Authenticator assigned">
 
 </div>
 
 <div align="left">
 
-<img src="../../../.gitbook/assets/image (105).png" alt="Basic Authenticator">
+<img src="../../../.gitbook/assets/image (54).png" alt="Basic Authenticator">
 
 </div>
 

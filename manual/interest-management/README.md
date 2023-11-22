@@ -8,7 +8,7 @@ description: Documentation for our new global Interest Management system.
 
 When making multiplayer games, the first obvious approach is to simply broadcast the world state to every player. By default, that's what **Mirror** does when you don't use any Interest Management components.
 
-![Source: https://www.dynetisgames.com/2017/04/05/interest-management-mog/](<../../.gitbook/assets/image (57).png>)
+![Source: https://www.dynetisgames.com/2017/04/05/interest-management-mog/](<../../.gitbook/assets/image (125).png>)
 
 Instead of sending the full world state to every player, it's worth considering sending only what's around a player to the player. There are a few major reasons for interest management:
 

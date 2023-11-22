@@ -22,6 +22,6 @@ Here is what the configuration should look like:
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (30).png" alt="">
+<img src="../../.gitbook/assets/image (103).png" alt="">
 
 </div>

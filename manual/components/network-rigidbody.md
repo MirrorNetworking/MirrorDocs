@@ -8,7 +8,7 @@ A game object with a Network Rigidbody component must also have a Network Identi
 
 Network Rigidbody works best when there is also a NetworkTransform for the object to keep position as well as velocity in sync.
 
-![](<../../.gitbook/assets/image (39) (1).png>)
+![](<../../.gitbook/assets/image (39).png>)
 
 By default, Network Rigidbody is server-authoritative unless you check the box for **Client Authority**. Client Authority applies to player objects as well as non-player objects that have been specifically assigned to a client, but only for this component. With this enabled, value changes are send from the client to the server.
 

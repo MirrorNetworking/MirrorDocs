@@ -7,7 +7,7 @@ The Network Room Manager is a specialized type of [Network Manager](network-mana
 * A maximum player limit
 * Automatic start when all players are ready
 * Game is locked after start, preventing late joiners
-* Customizable ways for players to choose options while in room &#x20;
+* Customizable ways for players to choose options while in room
 
 There are two types of player objects with the Network Room Manager:
 
@@ -25,28 +25,28 @@ There are two types of player objects with the Network Room Manager:
 * One for each player
 * Created when game scene is started
 * Destroyed when leaving game scene
-* Handles commands in the game &#x20;
+* Handles commands in the game
 
-![](<../../.gitbook/assets/image (13).png>)
+![](<../../.gitbook/assets/image (99).png>)
 
 ## Properties <a href="#properties" id="properties"></a>
 
 * **Show Room GUI**\
-  &#x20;Show the default OnGUI controls for the room.
+  Show the default OnGUI controls for the room.
 * **Min Players**\
-  &#x20;Minimum number of players needed to start a game.
+  Minimum number of players needed to start a game.
 * **Room Player Prefab**\
-  &#x20;The prefab to create for players when they enter the room (requires Network Room Player component).
+  The prefab to create for players when they enter the room (requires Network Room Player component).
 * **Room Scene**\
-  &#x20;The scene to use for the room.
+  The scene to use for the room.
 * **Gameplay Scene**\
-  &#x20;The scene to use for main game play.
+  The scene to use for main game play.
 * **pendingPlayers**\
-  &#x20;List that holds players that are ready to start playing.
+  List that holds players that are ready to start playing.
 * **roomSlots**\
-  &#x20;List that manages the slots for connected clients in the room.
+  List that manages the slots for connected clients in the room.
 * **allPlayersReady**\
-  &#x20;Bool indicating if all players are ready to start playing. This value changes as players invoke `CmdChangeReadyState` indicating true or false, and will be set false when a new client connects.
+  Bool indicating if all players are ready to start playing. This value changes as players invoke `CmdChangeReadyState` indicating true or false, and will be set false when a new client connects.
 
 ## Methods <a href="#methods" id="methods"></a>
 

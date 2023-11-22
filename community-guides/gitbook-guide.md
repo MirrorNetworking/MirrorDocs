@@ -44,7 +44,7 @@ $$
 
 ### Images
 
-![Image Description (optional)](<../.gitbook/assets/image (36).png>)
+![Image Description (optional)](<../.gitbook/assets/image (55).png>)
 
 ### Tables
 

@@ -6,7 +6,7 @@ Here we will maintain a list of assets known to be compatible with Mirror. If yo
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (85).png" alt="">
+<img src="../../.gitbook/assets/image (134).png" alt="">
 
 </div>
 
@@ -14,19 +14,19 @@ Here we will maintain a list of assets known to be compatible with Mirror. If yo
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (14).png" alt="">
+<img src="../../.gitbook/assets/image (87).png" alt="">
 
 </div>
 
 ### [SmoothSync](https://assetstore.unity.com/packages/tools/network/smooth-sync-96925) <a href="#smoothsync" id="smoothsync"></a>
 
-![](<../../.gitbook/assets/image (126).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 ### [Noble Connect Free](https://assetstore.unity.com/packages/tools/network/noble-connect-free-141599) <a href="#noble-connect-free" id="noble-connect-free"></a>
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (2) (1) (1).png" alt="">
+<img src="../../.gitbook/assets/image (51).png" alt="">
 
 </div>
 
@@ -34,7 +34,7 @@ Here we will maintain a list of assets known to be compatible with Mirror. If yo
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (21).png" alt="">
+<img src="../../.gitbook/assets/image (73).png" alt="">
 
 </div>
 
@@ -42,7 +42,7 @@ Here we will maintain a list of assets known to be compatible with Mirror. If yo
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (4).png" alt="">
+<img src="../../.gitbook/assets/image (107).png" alt="">
 
 </div>
 
@@ -50,6 +50,6 @@ Here we will maintain a list of assets known to be compatible with Mirror. If yo
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (19).png" alt="">
+<img src="../../.gitbook/assets/image (93).png" alt="">
 
 </div>

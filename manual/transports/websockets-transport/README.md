@@ -2,7 +2,7 @@
 
 Transport that uses the websocket protocol. This allows this transport to be used in WebGL builds of unity.
 
-![Simple Web Transport Inspector](<../../../.gitbook/assets/image (1) (1) (1).png>)
+![Simple Web Transport Inspector](<../../../.gitbook/assets/image (7).png>)
 
 ## Logging <a href="#logging" id="logging"></a>
 

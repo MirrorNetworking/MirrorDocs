@@ -16,19 +16,19 @@ Server and connected clients always have the same main scene loaded. With additi
 
 Add the **Scene Interest Management** component to the same object as your **Network Manager**:
 
-![](<../../.gitbook/assets/image (18).png>)
+![](<../../.gitbook/assets/image (94).png>)
 
 ### Add Physics Simulator
 
 In each subscene, add an empty game object, and add a **Physics Simulator** component to that.  Since additive scenes will be loaded on the server as "[physics scenes](https://docs.unity3d.com/ScriptReference/PhysicsScene.html)" Unity doesn't simulate physics for them, so this component does that for you in each subscene.
 
-![](<../../.gitbook/assets/image (115).png>)
+![](<../../.gitbook/assets/image (24).png>)
 
 ### Environment Content
 
 Also in each subscene, create an empty game object called **Environment** with a **Network Identity** and make all static non-networked content to be children of this object.  Typically this would include scenery, such as buildings, road meshes and other non-interactive content.
 
-![](<../../.gitbook/assets/image (37) (1).png>)
+![](<../../.gitbook/assets/image (15).png>)
 
 {% hint style="warning" %}
 Do not put anything under the Environment object that will be networked and/or may be interactive by players, e.g. doors, pickups, kiosks, etc.

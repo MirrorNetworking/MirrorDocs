@@ -10,7 +10,7 @@ description: 'Deprecated: Use Match Interest Management instead.'
 
 The Network Match Checker component controls visibility of networked objects based on match id.
 
-![](<../../../.gitbook/assets/image (62).png>)
+![](<../../../.gitbook/assets/image (29).png>)
 
 Any object with this component on it will only be visible to other objects in the same match.
 

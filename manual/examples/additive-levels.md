@@ -14,17 +14,17 @@ First, add all the scenes to Build Settings:
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (79).png" alt="Build Settings">
+<img src="../../.gitbook/assets/image (128).png" alt="Build Settings">
 
 </div>
 
 Next, add a Player and Portal Layer to Project Settings under Tags and Layers:
 
-<img src="../../.gitbook/assets/image (56).png" alt="" data-size="original">
+<img src="../../.gitbook/assets/image (74).png" alt="" data-size="original">
 
 ... and in Physics settings set the matrix so that Portal only collides with Player:
 
-<img src="../../.gitbook/assets/image (46).png" alt="" data-size="original">
+<img src="../../.gitbook/assets/image (112).png" alt="" data-size="original">
 
 Finally, open the Offline scene, and click Play in the editor, and click Host in the HUD.
 

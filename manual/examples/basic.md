@@ -4,7 +4,7 @@ The Basic Example illustrates how to manage UI objects from the Player object us
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (103).png" alt="">
+<img src="../../.gitbook/assets/image (2).png" alt="">
 
 </div>
 
@@ -12,7 +12,7 @@ The scene Canvas has a `CanvasUI` script with references to its children:
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (12).png" alt="Scene Canvas">
+<img src="../../.gitbook/assets/image (4).png" alt="Scene Canvas">
 
 </div>
 
@@ -20,7 +20,7 @@ The `PlayerUI` prefab is a UI fragment that has a `PlayerUI` script with referen
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (109).png" alt="PlayerUI Prefab">
+<img src="../../.gitbook/assets/image (36).png" alt="PlayerUI Prefab">
 
 </div>
 
@@ -28,7 +28,7 @@ The Player script on the Player object has a reference to the `PlayerUI` prefab 
 
 <div align="left">
 
-<img src="../../.gitbook/assets/image (119).png" alt="Player Object">
+<img src="../../.gitbook/assets/image (19).png" alt="Player Object">
 
 </div>
 

@@ -2,7 +2,7 @@
 
 The Mirror Profiler is part of the Mirror Pro suit. As of this writing it is accessible to our [GitHub Sponsors](https://github.com/sponsors/vis2k).
 
-![](<../../.gitbook/assets/image (51).png>)
+![](<../../.gitbook/assets/image (136).png>)
 
 ## Installation <a href="#installation" id="installation"></a>
 

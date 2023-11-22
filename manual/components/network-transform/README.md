@@ -4,7 +4,7 @@ The Network Transform component synchronizes the position, rotation, and scale o
 
 <div align="center">
 
-<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption><p>Network Transform Component</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption><p>Network Transform Component</p></figcaption></figure>
 
 </div>
 

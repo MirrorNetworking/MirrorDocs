@@ -9,7 +9,7 @@ The Network Identity component is at the heart of the Unity networking high-leve
 * **Server Only**\
   &#x20;Tick this checkbox to ensure that Unity only spawns the game object on the server, and not on clients.
 
-![](<../../.gitbook/assets/image (20).png>)
+![](<../../.gitbook/assets/image (50).png>)
 
 {% hint style="danger" %}
 It is important to note that Mirror does not support Network Identities on nested GameObjects. Otherwise, Mirror will emit an error. To avoid this, ensure your parent GameObject is the only GameObject in the stack with a Network Identity. Child GameObjects can access the parents' Network Identity component via Unity's built-in GetComponentInParent scripting function.
@@ -31,8 +31,8 @@ When building your game, Unity disables all Scene-based game objects with Networ
 
 This component contains network tracking information, and displays that information in the preview pane. For example, the scene ID, network ID and asset ID the object has been assigned. This allows you to inspect the information which can be useful for investigation and debugging.
 
-![](<../../.gitbook/assets/image (87).png>)
+![](<../../.gitbook/assets/image (132).png>)
 
 At runtime there is more information to display here (a disabled NetworkBehaviour is displayed non-bold):
 
-![](<../../.gitbook/assets/image (82).png>)
+![](<../../.gitbook/assets/image (117).png>)

@@ -12,7 +12,7 @@ Mirror is focused on ease of use and iterative development and provides useful f
 
 Mirror is built from a series of layers that add functionality:
 
-![](<../../.gitbook/assets/image (125).png>)
+![](<../../.gitbook/assets/image (111).png>)
 
 ## Server and Host <a href="#server-and-host" id="server-and-host"></a>
 
@@ -34,7 +34,7 @@ The server might be either a “dedicated server”, or a “host server”.
 
 The diagram below represents three players in a multiplayer game. In this game, one client is also acting as host, which means the client itself is the “local client”. The local client connects to the host server, and both run on the same computer. The other two players are remote clients - that is, they are on different computers, connected to the host server.
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (86).png>)
 
 The host is a single instance of your game, acting as both server and client at the same time. The host uses a special kind of internal client for local client communication, while other clients are remote clients. The local client communicates with the server through direct function calls and message queues, because it is in the same process. It actually shares the Scene with the server. Remote clients communicate with the server over a regular network connection. When you use Mirror’s, this is all handled automatically for you.
 

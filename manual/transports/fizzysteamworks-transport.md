@@ -14,7 +14,7 @@ You can get the release [**Here**](https://github.com/Chykary/FizzySteamworks/re
 * Steam Nat Punching & Relay : The transport will use Steam to do Nat Punching to your destination, and if that doesn't work, steam's relay Server will be used to ensure you can always connect (latency may vary).
 * No Code Changes Needed : If you Already use Mirror, you just need to slap this transport in (maybe add your steam App ID in your build), and everything should work the same like any other Mirror Transport. "It Just Works" -Todd Howard
 
-![](<../../.gitbook/assets/image (70).png>)
+![](<../../.gitbook/assets/image (106).png>)
 
 ## Credits <a href="#credits" id="credits"></a>
 

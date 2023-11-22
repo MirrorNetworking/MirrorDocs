@@ -10,7 +10,7 @@ description: 'Deprecated: Use Scene Interest Management instead.'
 
 The Network Scene Checker component controls the visibility of game objects for network clients, based on which scene they're in.
 
-![](<../../../.gitbook/assets/image (122).png>)
+![](<../../../.gitbook/assets/image (83).png>)
 
 * **Force Hidden**\
   &#x20;Tick this checkbox to hide this object from all players.

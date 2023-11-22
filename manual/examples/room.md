@@ -52,10 +52,10 @@ You can turn off the default UI in the Network Room Manager and Network Room Pla
 
 * Suggest looking at how the [Basic example](basic.md) is done for the Player UI to see how to make a scene canvas and inject locally instantiated UI parts for each player.
 
-![](<../../.gitbook/assets/image (86).png>)
+![](<../../.gitbook/assets/image (121).png>)
 
-![](<../../.gitbook/assets/image (26).png>)
+![](<../../.gitbook/assets/image (30).png>)
 
-![](<../../.gitbook/assets/image (71).png>)
+![](<../../.gitbook/assets/image (38).png>)
 
-![](<../../.gitbook/assets/image (54).png>)
+![](<../../.gitbook/assets/image (67).png>)

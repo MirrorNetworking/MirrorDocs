@@ -6,7 +6,7 @@ To solve this problem you can use Network Discovery. When your game starts, it s
 
 Mirror comes with a simple implementation of Network Discovery you can simply use in your game. It also provides a way for you to extend it so that you can pass additional data during the discovery phase.
 
-![](<../../.gitbook/assets/image (10).png>)
+![](<../../.gitbook/assets/image (97).png>)
 
 NetworkDiscovery and NetworkDiscoveryHUD components are included, or you can make your own from a [ScriptTemplate](../general/script-templates.md).
 

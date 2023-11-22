@@ -81,16 +81,9 @@ Click Container Registry in the left menu, or follow this link:
 
 {% embed url="https://app.edgegap.com/registry-management/repositories/list" %}
 
-You'll probably see a screen where you can request access.&#x20;
-
-Do request, and then it'll look like this:
-
 <figure><img src="../.gitbook/assets/2023-11-03 - 18-23-42@2x.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="warning" %}
-It may help to join our Discord's #edgegap channel and ask an Edgegap employee directly to speed up the manual approval.\
-This step is supposedly **going to be automated** on around November 7th.
-{% endhint %}
+On that page, press **Request Access**. As of November 2023, access is now granted immediately.
 
 Once you have registry access, grab your **Project**, **Username** and **Token** from the **Container Registry** page. We'll need those in a minute:
 
@@ -330,11 +323,11 @@ Long story short, you may now connect your game!
 
 Press **Play** in Unity, enter the **Server DNS** and **External Port** from the hosting plugin (there's a **Copy** button) and press **Client** to connect:&#x20;
 
-<figure><img src="../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
 
 **You should now be connected to your Deployment! 🚀**
 
-<figure><img src="../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 It's important to understand the magic that is happening here.\

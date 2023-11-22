@@ -2,7 +2,7 @@
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>WebGL with Reverse Proxy - 500 CCU</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (56).png" alt=""><figcaption><p>WebGL with Reverse Proxy - 500 CCU</p></figcaption></figure>
 
 </div>
 
@@ -182,7 +182,7 @@ In IIS Manager, select the server just below Start Page in the left panel, and o
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (45) (2).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption><p>IIS Manager - Configuration Editor in Management section</p></figcaption></figure>
 
 </div>
 
@@ -190,7 +190,7 @@ Change the Section selector to `system.webServer/proxy` as shown in this image a
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -205,7 +205,7 @@ Now in the left panel of IIS Manager, expand the server and Sites and select the
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Edit Site Bindings - Type your FQDN and click OK</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption><p>Edit Site Bindings - Type your FQDN and click OK</p></figcaption></figure>
 
 </div>
 
@@ -213,7 +213,7 @@ This is what it should look like when you're done:
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption><p>Site Bindings with Host Name</p></figcaption></figure>
 
 </div>
 
@@ -227,7 +227,7 @@ Since all clients will be connected through IIS, which uses a "worker process" t
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption><p>Edit Application Pool Recycling Settings</p></figcaption></figure>
 
 </div>
 
@@ -245,7 +245,7 @@ You'll need an SSL certificate for your domain.
 
 <div align="left">
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption><p>WinAcme Console Application</p></figcaption></figure>
 
 </div>
 

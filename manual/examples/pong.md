@@ -2,7 +2,7 @@
 
 A simple example for "How to built a multiplayer game with Mirror" is Pong, which is included in the AssetStore package of Mirror. It illustrates the usage of NetworkManager, NetworkManagerHUD, NetworkBehaviour, NetworkIdentity, NetworkTransform, NetworkStartPosition and NetworkingAttributes.
 
-![](<../../.gitbook/assets/image (81).png>)
+![](<../../.gitbook/assets/image (78).png>)
 
 ## Setting the number of players <a href="#setting-the-number-of-players" id="setting-the-number-of-players"></a>
 
@@ -12,19 +12,19 @@ First of all, let's have a look at the NetworkManager object in the main scene. 
 
 Furthermore every player needs a racket to play with. Each player who joins the game will have his own controllable object, which represents him within the game. This gameobject is called _PlayerObject_. For spawning the _PlayerObject_ a prefab has to be created, containing at least a NetworkIdentity component with **Local Player Authority** checked. The **Local Player Authority** allows the player to control and modify the gameobjects properties (e.g. for movement). The NetworkManager needs a reference to this prefab, which is located in **Spawn Info/Player Prefab**. To have the player movement synchronized over the network, the player prefab also contains a NetworkTransform.
 
-![](<../../.gitbook/assets/image (58).png>)
+![](<../../.gitbook/assets/image (110).png>)
 
 ## Player start position <a href="#player-start-position" id="player-start-position"></a>
 
 The main scene contains 2 gameobjects with only a NetworkStartPosition component (gameobjects RacketSpawnLeft, RacketSpawnRight in the scene). These transforms will be automatically registered by the NetworkManager as spawning positions.
 
-![](<../../.gitbook/assets/image (34).png>)
+![](<../../.gitbook/assets/image (91).png>)
 
 ## Setting up the network <a href="#setting-up-the-network" id="setting-up-the-network"></a>
 
 A very convenient component for establish/testing connections is the [Network Manager HUD](../components/network-manager-hud.md). It provides basic functionality for start a game as Client, Server, or Host (Client and Server at the same time). It requires the Network Manager component.
 
-<figure><img src="../../.gitbook/assets/image (35) (1).png" alt=""><figcaption><p>Network Manager HUD</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption><p>Network Manager HUD</p></figcaption></figure>
 
 ## The ball of Pong <a href="#the-ball-of-pong" id="the-ball-of-pong"></a>
 
