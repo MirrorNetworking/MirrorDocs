@@ -2,9 +2,10 @@
 
 For the most part we recommend the high level [Commands and RPC](remote-actions.md) calls and [SyncVar](../synchronization/syncvars.md), but you can also send low level network messages. This can be useful if you want clients to send messages that are not tied to game objects, such as logging, analytics or profiling information.
 
-There is a public interface called NetworkMessage that you can extend to make serializable network message structs. This interface has Serialize and Deserialize functions that take writer and reader objects. You can implement these functions yourself, but we recommend you let Mirror generate them for you.
+There is a public interface called NetworkMessage that you can extend to make serializable network message structs. Serialize and Deserialize methods are automatically generated for network messages by Mirror, and they can efficiently handle any [supported mirror type](../data-types.md), but if you need to you can implement your own serialization methods by following our [serialization guide](../serialization.md). Some other useful tips for implementing low-level messages:
 
-The auto generated Serialize/Deserialize can efficiently deal any [supported mirror type](../data-types.md). Make your members public. If you need classes or complex containers such as List and Dictionary, you must implement the Serialize and Deserialize methods yourself.
+* Make sure all your members are public fields. Weaver doesn't serialize properties.
+* If you need classes or complex containers such as `List<T>` and `Dictionary<T,K>`, you must implement the Read and Write methods yourself.
 
 To send a message, use the `Send()` method on the NetworkClient, NetworkServer, and NetworkConnection classes, which all work the same way using a message struct that is derived from NetworkMessage. The code below demonstrates how to send and handle a message:
 
@@ -47,5 +48,3 @@ public class Scores : MonoBehaviour
     }
 }
 ```
-
-Note that there is no serialization code for the `ScoreMessage` class in this source code example. The body of the serialization functions is automatically generated for this class by Mirror.
