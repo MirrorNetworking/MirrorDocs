@@ -335,6 +335,14 @@ Not only can we easily launch our game server directly from within Unity.\
 We can even launch thousands of them from the Edgegap website! 🤩
 {% endhint %}
 
+## Optional: Grab the Server Status at Runtime
+
+If you need to grab the server status from the above screenshot from your Game, you can use:
+
+```csharp
+Edgegap.Status status = Edgegap.EdgegapServerDataManager.GetServerStatus();
+```
+
 ## Troubleshooting Connection Issues
 
 If your Server Status says **Ready** but you can't seem to connect, try this:
