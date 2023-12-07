@@ -256,6 +256,12 @@ Not only can you launch a game server with **Two Clicks** now.\
 You can even launch **thousands of servers** with another click on **Edgegap**'s website! 🤩
 {% endhint %}
 
+
+
+To reduce costs (if you are paying), you can press **Stop Server** in the plugin once you are done.
+
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-43-38@2x.png" alt=""><figcaption></figcaption></figure>
+
 ## Optional: Grab the Server Status at Runtime
 
 If you need to grab the server status from the above screenshot from your Game, you can use:
