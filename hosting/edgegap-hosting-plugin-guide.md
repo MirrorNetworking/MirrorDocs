@@ -55,158 +55,46 @@ Once you have it, check for "**Edgegap** -> **Edgegap** Hosting" in Unity's top 
 
 The next step is to **Get a Token** from the Edgegap website.
 
-Simply press the **Get a Token** button and either login or create a new account on Edgegap.com:
+Simply press the **Get a Token** button and either login to your existing Edgegap.com account, or press the **Get Started** link on the page to create a new account.
 
 <figure><img src="../.gitbook/assets/2023-12-07 - 13-21-42@2x.png" alt=""><figcaption></figcaption></figure>
 
 
 
-**TODO**
+After confirming your email address, you'll be asked about naming **Your Organization**. You can enter anything, in this case we use "**Your-Organization"**.
 
+<figure><img src="../.gitbook/assets/2023-12-07 - 13-55-40@2x.png" alt=""><figcaption></figcaption></figure>
 
+Afterwards you'll be asked to **Begin the Application Tour**. Skip it for now.
 
+Next you'll automatically see the **Token Created Successfully** screen, because we initially clicked the **Get Token** button in the Unity plugin:
 
+<figure><img src="../.gitbook/assets/2023-12-07 - 13-58-35@2x.png" alt=""><figcaption></figcaption></figure>
 
+Press the **Clipboard** icon to copy the token, then paste it back into the Unity plugin and press **Verify.**\
+_Note that the token looks like "token 123456-abcdef-00000-..."._\
+_The "token ..." part needs to remain in there._
 
+<figure><img src="../.gitbook/assets/2023-12-07 - 13-59-44@2x.png" alt=""><figcaption></figcaption></figure>
 
+After verifying successfully, enter an **Application Name** into the field and press **Create Application:**
 
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-02-43@2x.png" alt=""><figcaption></figcaption></figure>
 
+It'll say **Success** and then show you the application details.
 
+Next time you can enter your already created application name and press **Load Existing App** instead.
 
+The final configuration step: we need to enter the **Port** and **Protocol Type**.
 
+Open your scene in Unity (for example our Tanks demo), find the NetworkManager, find the Transport component, copy the Port into the plugin.\
+\=> If you are using `Kcp` then the **Protocol Type** is `UDP`.\
+\=> If you are using `Telepathy`, then it's `TCP`.
 
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-05-19@2x.png" alt=""><figcaption></figcaption></figure>
 
-
-As mentioned, Edgegap gives you 0.5 vCPU for free. In other words, 50% of a virtual CPU core in the cloud. That's enough to test simple games. We hope that this increases to 1 vCPU long term.
-
-Of course, you can always have more vCPUs if you send them money.
-
-For now, let's start by creating an account on the Edgegap website. It's free.
-
-{% embed url="https://app.edgegap.com/auth/register" %}
-
-## Get Registry Access
-
-First, we need access to Edgegap's Docker registry in order to push our server builds there.
-
-If you aren't familiar with Docker, don't worry about it.
-
-For now, let's just get access to the registry.
-
-Click Container Registry in the left menu, or follow this link:
-
-{% embed url="https://app.edgegap.com/registry-management/repositories/list" %}
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-23-42@2x.png" alt=""><figcaption></figcaption></figure>
-
-On that page, press **Request Access**. As of November 2023, access is now granted immediately.
-
-Once you have registry access, grab your **Project**, **Username** and **Token** from the **Container Registry** page. We'll need those in a minute:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-29-23@2x.png" alt=""><figcaption></figcaption></figure>
-
-## Create an Application
-
-Next, go to **Applications**:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 17-54-09@2x.png" alt=""><figcaption></figcaption></figure>
-
-Then click **Create application** in the top right and enter a **lowercase(!)** name like:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-00-37@2x.png" alt=""><figcaption></figcaption></figure>
-
-The image doesn't matter. Just click **Create Application**.
-
-Make sure to replace 'your-game' with your game name, and do that in all the following steps where it says 'your-game' as well. Continuing, fill out the application details exactly like this:
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 12-34-33@2x.png" alt=""><figcaption></figcaption></figure>
-
-* **Version name**: just use exactly **v1**, don't worry about this. (**lowercase!)**
-* **Registry**: use exactly **registry.edgegap.com** (**lowercase!)**, this is from the **Container Registry** page. You can enter a custom docker registry here, but you probably don't have one or don't even know what this even means. That's fine :)
-* **Image repository**: first enter the **Project** part from the Container Registry page, and then add "/game". For example, it may look something like: "some\_username-v23r8h5472/your-game".
-* **Tag**: 0.0.1 - use exactly this. Every new server build will automatically increase this to 0.0.2 etc.
-* **vCPU**: 0.5 vCPU is free.
-* **Memory**: 0.5 GB is free.
-* **Private Registry User**: enter the Username and Token from the previous **Container Registry** page here. Otherwise we won't have access to push our server builds there later.
-
-{% hint style="warning" %}
-Note that as of November 3, 2023, modifying an Application's **Private Registry User** after creating an Application is broken. If you accidentally entered the wrong data, please create a new Application. Edgegap is aware of this bug and working on a fix.
-{% endhint %}
-
-Next, click **Create Version**. Note it says 'Version'. You have different Versions of your game, kind of like 'Counter-Strike 1.6, Counter-Strike GO, Counter-Strike 2' etc. For now, don't worry about versions. One is enough.
-
-After clicking **Create Version**, you will see a validation error.
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-10-18@2x.png" alt=""><figcaption></figcaption></figure>
-
-This is shown because we didn't upload a docker image to the registry yet. Don't worry about it. Just click **Continue Anyway.**
-
-Next, it asks us to create a port. Use the one from your Unity Project's NetworkManager -> Transport. For example, let's do this with Mirror's **Tanks** demo:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-13-05@2x.png" alt=""><figcaption></figcaption></figure>
-
-Kcp is **UDP** with port **7777** by default.\
-If you use Telepathy, then that would be TCP with port 7777 by default.
-
-Let's enter **7777** and **UDP** in our application.
-
-We also disabled **Verifications** in order to keep things simple.
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-15-07@2x.png" alt=""><figcaption></figcaption></figure>
-
-Finally, press **Submit**. There you go, your first application.&#x20;
-
-It doesn't do anything yet, but we'll get there.
-
-To compare, this is what it looks like now. The red "!" icon is still there because validation still fails, this is fine for now.
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 12-05-09@2x.png" alt=""><figcaption></figcaption></figure>
-
-## Create a Token
-
-Last step on the website, we need a **Token** for the Unity plugin later. Since we are here, let's just create it now.
-
-On the **Edgegap** website, click your Organization on the bottom left (the head icon), click Tokens or follow this link [https://app.edgegap.com/user-settings?tab=tokens](https://app.edgegap.com/user-settings?tab=tokens) and then click **Create API Token**:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-38-00@2x.png" alt=""><figcaption></figcaption></figure>
-
-Name it **your-game-token**, enable **is Quick Start** and press **Submit**:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-41-19@2x.png" alt=""><figcaption></figcaption></figure>
-
-Afterwards click the Clipboard icon to copy it to your clipboard:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-41-52@2x.png" alt=""><figcaption></figcaption></figure>
-
-## Configuring the Edgegap Unity Plugin
-
-Alright, back to Unity. Let's punch in all the data in our Plugin. As mentioned, you can find it under **Edgegap** -> **Edgegap Hosting** in Unity's top menu. Let's configure it:
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 12-10-55@2x.png" alt=""><figcaption></figcaption></figure>
-
-* **Token**: that's the one we just copied. Put it in there. It looks like "token abcd-efgh-ijkl....". Make sure to include the "token " part. If you just paste it, then it's fine as is.
-* **API Environment**: use **Console**. We don't know why 'Staging' didn't work.
-* **App Name:** your-game, or whatever you entered in your Application before.
-* **App version**: v1 as we entered in our Application.
-
-Don't worry about the grayed out data yet. Press **Connect** - you should see 'Connected' now.
-
-Next, enter the other details from our Application:
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 12-13-08@2x.png" alt=""><figcaption></figcaption></figure>
-
-* **Container Registry**: registry.edgegap.com from the **Container Registry** page.
-* **Image Repository**: your-project/your-game or whatever you entered in your Application before. Remember that "your-project" is from the **Container Registry** page as well.
-* **Tag**: 0.0.1 for now.&#x20;
-* **Increment tag on build**: enable this. You always want to increase the tag for each new build to avoid caching issues. Seriously, don't push a new server build with an old tag, it's probably gonna launch the old build again due to caching.
-
-{% hint style="info" %}
-Note that Edgegap is working on a new plugin version which will automatically grab all the settings from your Application. This will be easier soon!
-{% endhint %}
-
-## Build and Push
-
-Next, we are going to build our project as Linux game server, and create a Docker build, then push it to Edgegap. This is actually pretty easy, just need to install a few things really quick.
+**Almost done!**\
+Before we can Build and push, we need to install the Linux build support for Unity, and Docker!
 
 ### Install Unity Linux Build Support
 
@@ -222,7 +110,7 @@ Press Continue, wait, restart Unity once, done.
 
 ### Install Docker Desktop
 
-Edgegap works with containers, which means we need to install Docker. We don't need to worry about it ever, we just need to install it once.
+**Edgegap** works with containers, which means we need to install Docker. We don't need to worry about it ever, we just need to install it once.
 
 The easiest way is to simply install **Docker Desktop**:
 
@@ -252,7 +140,7 @@ ENTRYPOINT [ "/root/build/ServerBuild", "-batchmode", "-nographics"]
 ```
 {% endhint %}
 
-Next, we need to log into Edgegap's docker registry that we previously requested access to.
+Next, we need to log into Edgegap's docker registry.
 
 We are working with Edgegap to automate this. For now you need to open a Terminal / Console:
 
@@ -264,10 +152,16 @@ We are working with Edgegap to automate this. For now you need to open a Termina
 Don't be scared of the Terminal. It's just black background and white text where we'll enter exactly one command. This will be automated soon.
 {% endhint %}
 
-Grab your Username + Token from the **Container Registry** page once more.\
+Grab your Username + Token from the **Container Registry** page on Edgegap.com:
+
+[https://app.edgegap.com/registry-management/repositories/list](https://app.edgegap.com/registry-management/repositories/list)
+
+You can find them under **Credentials:**
+
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-19-45@2x.png" alt=""><figcaption></figcaption></figure>
+
+\
 Now enter this simple terminal command. There won't be any others, promised!
-
-
 
 ```
 docker login registry.edgegap.com
@@ -285,13 +179,28 @@ Docker Desktop remembers your login, so you won't have to do this again next tim
 
 Alright, that's it for Docker.
 
-## Back to the Unity Plugin
 
-Next, go back to the Unity plugin and press **Build and Push**:&#x20;
 
-<figure><img src="../.gitbook/assets/2023-11-05 - 12-20-39@2x.png" alt=""><figcaption></figcaption></figure>
+## Build and Push
 
-You'll see a progress bar for a while. Unity will create a Linux build, then create a Docker build, then upload the whole thing to Edgegap. Note that uploading will take a while depending on your internet connection. The progress bar halts while uploading, but you can check your operating system's bandwidth usage to see if it's still uploading:
+Before we build the game server, select your `NetworkManager` and make sure that **Auto Start Server** in **Headless Mode** is enabled. Otherwise the server application may launch but not call NetworkManager.StartServer(), so no one would be able to connect.
+
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-13-06@2x.png" alt=""><figcaption></figcaption></figure>
+
+Next, press **Build and Push** in the Unity plugin:
+
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-16-59@2x.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Note that **Edgegap** does not see your game's source code. \
+They only see a finished Docker container.
+{% endhint %}
+
+You'll see a progress bar for a while:
+
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-23-56@2x.png" alt=""><figcaption></figcaption></figure>
+
+Unity will create a Linux build, then create a Docker build, then upload the whole thing to Edgegap. Note that uploading will take a while depending on your internet connection. The progress bar halts while uploading, but you can check your operating system's bandwidth usage to see if it's still uploading:
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 19-17-10@2x.png" alt=""><figcaption></figcaption></figure>
 
@@ -307,9 +216,57 @@ Here are a few common issues and workarounds:
 
 If you encounter other issues, talk in our **#edgegap** Discord channel. We want to find solutions for any possible issue and explain this here!
 
-{% hint style="info" %}
-If building failed, then the progress bar may get stuck forever. You'll have to force kill Unity with your task manager. This will be fixed very soon.
-{% endhint %}
+##
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+As mentioned, Edgegap gives you 0.5 vCPU for free. In other words, 50% of a virtual CPU core in the cloud. That's enough to test simple games. We hope that this increases to 1 vCPU long term.
+
+Of course, you can always have more vCPUs if you send them money.
+
+For now, let's start by creating an account on the Edgegap website. It's free.
+
+{% embed url="https://app.edgegap.com/auth/register" %}
 
 ## Start Server
 
