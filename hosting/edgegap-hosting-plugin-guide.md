@@ -8,42 +8,38 @@ Thanks to **Edgegap**'s hosting plugin for Unity, Mirror users get 0.5 vCPU clou
 
 You can build & launch a game server into the cloud directly from your Unity Editor, without any Linux or Cloud usage whatsoever.
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 17-31-21@2x.png" alt=""><figcaption><p>Edgegap Hosting Plugin</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-This is **cutting edge**, **next gen**, **black magic** technology with a few rough edges!
+This is an **early version.**
 
 If you encounter issues, please report them in our Discord's **#edgegap** channel.
-
-\=> Today, the plugin requires \~30 clicks and has a few issues.
-
-\=> Long term, more and more steps will be automated until it's only 1 click!
-
-\
-Enjoy a preview of the future, and please be patient with our 🇨🇦 Canadian friends!
 {% endhint %}
 
 ## Overview
 
 Setup will take only a few minutes, with 4 basic steps:
 
-1. **Edgegap.com** Account + Application setup
+1. Creating an **Edgegap.com** Account
 2. Installing Unity **Linux** Build Support & **Docker** Desktop
 3. Configuring the Unity **Plugin**
 4. **Building & Pushing** our server to Edgegap
 
 ## Open the Plugin in Unity / Mirror
 
-As of November 2023, Mirror now has Edgegap's hosting plugin included by default.\
-Originally it comes from the Unity Asset Store, but we forked it to apply a few fixes on top!
+Edgegap's Hosting plugin (version 2) is now always included in the latest Mirror version.
 
-{% embed url="https://assetstore.unity.com/packages/tools/network/edgegap-cloud-server-212563" %}
+It requires at least Unity 2023 LTS, it won't work with older versions due to using UIToolkit.
+
+The original source is on Github, but we applied a few fixes to the version in Mirror.
+
+{% embed url="https://github.com/edgegap/edgegap-unity-plugin" %}
 
 If you are on an older Mirror version, you can also download the Assets/Mirror/Hosting folder from our Github repository manually. If you see errors about missing 'Newtonsoft Json', add this package to your Package Manager:
 
 <figure><img src="../.gitbook/assets/2023-11-05 - 13-14-02@2x.png" alt=""><figcaption></figcaption></figure>
 
-You can also open Packages/manifest.json and add this line manually:
+You can also open the `Packages/manifest.json` file and add this line manually:
 
 ```json
 "com.unity.nuget.newtonsoft-json": "3.2.1"
@@ -51,15 +47,35 @@ You can also open Packages/manifest.json and add this line manually:
 
 By default, this should work out of the box though.
 
-{% hint style="info" %}
-We do not recommend to use the plugin's Asset Store version. Instead, download latest Mirror from Github, or simply download the Assets/Mirror/Hosting folder from Github and drop it into your Mirror project.
-{% endhint %}
+Once you have it, check for "**Edgegap** -> **Edgegap** Hosting" in Unity's top menu:
 
-Once you have, check for "**Edgegap** -> **Edgegap** Hosting" in Unity's top menu:
+<figure><img src="../.gitbook/assets/2023-12-07 - 13-18-23@2x.png" alt=""><figcaption><p>Edgegap Hosting Plugin V3</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/2023-11-03 - 17-49-38@2x.png" alt=""><figcaption></figcaption></figure>
+## Get a Token
 
-## Create an Edgegap Account
+The next step is to **Get a Token** from the Edgegap website.
+
+Simply press the **Get a Token** button and either login or create a new account on Edgegap.com:
+
+<figure><img src="../.gitbook/assets/2023-12-07 - 13-21-42@2x.png" alt=""><figcaption></figcaption></figure>
+
+
+
+**TODO**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 As mentioned, Edgegap gives you 0.5 vCPU for free. In other words, 50% of a virtual CPU core in the cloud. That's enough to test simple games. We hope that this increases to 1 vCPU long term.
 
