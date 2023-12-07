@@ -96,7 +96,7 @@ Open your scene in Unity (for example our Tanks demo), find the NetworkManager, 
 **Almost done!**\
 Before we can Build and push, we need to install the Linux build support for Unity, and Docker!
 
-### Install Unity Linux Build Support
+## Install Unity Linux Build Support
 
 In your **Unity Hub**, select **Installs**, press the Configuration icon next to your Unity version and click **Add Modules**:
 
@@ -108,7 +108,7 @@ Find and install **Linux Dedicated Server Build**. You may add the others too ju
 
 Press Continue, wait, restart Unity once, done.
 
-### Install Docker Desktop
+## Install Docker Desktop
 
 **Edgegap** works with containers, which means we need to install Docker. We don't need to worry about it ever, we just need to install it once.
 
@@ -204,11 +204,11 @@ Unity will create a Linux build, then create a Docker build, then upload the who
 
 <figure><img src="../.gitbook/assets/2023-11-03 - 19-17-10@2x.png" alt=""><figcaption></figcaption></figure>
 
-If this all worked, then it'll simply finish without telling you. We are working on making this more obvious.
+If this all worked, then you'll see a log message:
 
-If this failed, it'll show you errors.
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-25-05@2x.png" alt=""><figcaption></figcaption></figure>
 
-Here are a few common issues and workarounds:
+If this failed, it'll show you errors. Here are a few common issues and workarounds:
 
 * **Missing Linux Build Support**: install it in your Unity hub. Make sure you do it for the Unity version that you are using in your project. This generally works once you have the Linux Build Support installed.
 * **Incremental Build Failed**: delete your previous Unity Linux build in the /Builds folder next to the /Assets folder, restart Unity try again. Delete your Library/ folder if you need to. This is a Unity bug that happens sometimes.
@@ -216,96 +216,44 @@ Here are a few common issues and workarounds:
 
 If you encounter other issues, talk in our **#edgegap** Discord channel. We want to find solutions for any possible issue and explain this here!
 
-##
+## Deploying the Server
 
+Now that we uploaded our server build to Edgegap, we need to **Deploy** (aka launch) it.
 
+In the plugin, press **Create New Deployment:**
 
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-27-46@2x.png" alt=""><figcaption></figcaption></figure>
 
+After a few seconds you'll see your running server in the list:
 
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-29-04@2x.png" alt=""><figcaption></figcaption></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-As mentioned, Edgegap gives you 0.5 vCPU for free. In other words, 50% of a virtual CPU core in the cloud. That's enough to test simple games. We hope that this increases to 1 vCPU long term.
-
-Of course, you can always have more vCPUs if you send them money.
-
-For now, let's start by creating an account on the Edgegap website. It's free.
-
-{% embed url="https://app.edgegap.com/auth/register" %}
-
-## Start Server
-
-Once we finished building, simply press the **Start Server** button. It'll be **Deploying** for a while:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 19-21-14@2x.png" alt=""><figcaption></figcaption></figure>
-
-Eventually it'll be started:
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 13-01-05@2x.png" alt=""><figcaption></figcaption></figure>
-
-This screenshot is from my other test application which uses TCP port 5000.
-
-For you it should show you UDP port 7777, just as we configured in the Application.
-
-Edgegap will assign you a random **External Port** that maps to your configured Port.
-
-That is because they may have multiple deployments asking for the same port 7777.
-
-But there's only one port 7777.
-
-That's why they have External ports that are random.
-
-Long story short, you may now connect your game!
+{% hint style="info" %}
+Note that our original port was **7777,** but in the Deployment it says **30358**.\
+That's because one cloud server may launch multiple game servers.\
+But there's only **one** port **7777**, so it's using **Port Mapping** to find a free port for you.
+{% endhint %}
 
 ## Connect your Game Client
 
-Press **Play** in Unity, enter the **Server DNS** and **External Port** from the hosting plugin (there's a **Copy** button) and press **Client** to connect:&#x20;
+Finally, press **Play** in the Unity Editor (or launch your client build).
 
-<figure><img src="../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
+Enter the deployment's **hostname** and **port** in the NetworkManager HUD:
 
-**You should now be connected to your Deployment! 🚀**
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-30-36@2x.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
+{% hint style="warning" %}
+Enter the hostname(fa\[...].edgegap.net) and the port (30358) separately!
+{% endhint %}
 
-{% hint style="info" %}
+Press the **Client** button to connect to it, and now you are online! [🚀](https://emojipedia.org/rocket)
+
+<figure><img src="../.gitbook/assets/2023-12-07 - 14-34-37@2x.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
 It's important to understand the magic that is happening here.\
-Not only can we easily launch our game server directly from within Unity.\
-We can even launch thousands of them from the Edgegap website! 🤩
+Not only can you launch a game server with **Two Clicks** now.\
+You can even launch **thousands of servers** with another click on **Edgegap**'s website! 🤩
 {% endhint %}
 
 ## Optional: Grab the Server Status at Runtime
@@ -323,17 +271,6 @@ If your Server Status says **Ready** but you can't seem to connect, try this:
 * On the Edgegap website, go to Deployments -> select your Deployment -> select **Container Logs**, check the log files to see if your game server actually launched or if there are issues.
   * If it says "exec user process caused: no such file or directory": this can happen if you pushed an ARM build to Edgegap's x86 infrastructure. We already updated the plugin to properly cross compile from ARM so this generally should not happen anymore.
 * If everything seems fine but you still can't connect, please talk to an Edgegap employee in the Mirror Discord's **#edgegap** channel.&#x20;
-
-{% hint style="warning" %}
-As mentioned, this is cutting edge technology, with lots of rough edges. You'll most certainly encounter errors and headaches for now. Please report any issues so Edgegap can fix them.
-{% endhint %}
-
-{% hint style="info" %}
-We are aware that this guide was quite long.\
-A lot of these steps will be automated over time.
-
-Long term this will be a super easy way to host and scale your multiplayer game!
-{% endhint %}
 
 {% hint style="info" %}
 Big thanks to our Canadian 🇨🇦 friends at **Edgegap** for giving Mirror users 0.5 vCPU for free!\
