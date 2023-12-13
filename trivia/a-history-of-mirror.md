@@ -37,7 +37,7 @@ Back in 2015, there seemed to be almost monthly UNET talks and videos like [Demo
 
 Back then, it was mostly:
 
-* **Alexey Abramychev**: the friendly russian guy who worked on the low level Transport (LLAPI)
+* **Alexey Abramychev**: the friendly Russian guy who worked on the low level Transport (LLAPI)
 * **Sean Riley**: who worked on World of Warcraft, now developing the high level API (HLAPI/UNET)
 * **Erik Juhl:** the UNET team lead, who said _MMOs were his passion_
 
@@ -80,7 +80,7 @@ In 2015, there wasn't any type of MMO toolkit available as far as I could tell. 
 
 Since I was working on my own MMO code anyway, I figured might as well put it on the Asset Store and see what happens. Maybe it sells for $50/month and I can treat myself to a pizza every week or so.
 
-[uMMORPG](https://assetstore.unity.com/packages/templates/systems/ummorpg-remastered-159401) was released on the Asset Store at December 23rd, 2015. One day before christmas.
+[uMMORPG](https://assetstore.unity.com/packages/templates/systems/ummorpg-remastered-159401) was released on the Asset Store at December 23rd, 2015. One day before Christmas.
 
 ![An early version of uMMORPG](<../.gitbook/assets/2017-01-11\_10-42-44 (1).png>)
 
@@ -113,7 +113,7 @@ It was closed _by design_. Twice.
 We've built our dreams on UNET, and in my case my livelihood. I needed UNET to pay the rent and eat. Yet the people we've put our full trust in had abandoned us.
 
 * **Sean Riley** was the driving force behind UNET. As it turns out, he left the team around the beta.
-* **Alexey** tried to fill the void as best as he could. For a while, he was on the forum on sundays and even replied to my email during his vacation. At some point, he wasn't with Unity anymore either though.
+* **Alexey** tried to fill the void as best as he could. For a while, he was on the forum on Sundays and even replied to my email during his vacation. At some point, he wasn't with Unity anymore either though.
 * **Erik Juhl** (the UNET team lead) went on to work for a web development company.
 
 What's worse is that while everyone secretly left the sinking ship, there was no word from Unity. Dead silence. It took a couple of years for us to learn that the UNET core team wasn't even working for Unity anymore.
@@ -198,12 +198,12 @@ But we also learned a lot about networking since then.
 
 In the future, our [roadmap](https://trello.com/b/fgAE7Tud) is not so much about fixes anymore, but about core networking techniques.
 
-While stable, Mirror still has a long way to go and the original mission has never chagned.
+While stable, Mirror still has a long way to go and the original mission has never changed.
 
 We just need it for our games.
 
 {% hint style="success" %}
-**Mirror** requried 10,000+ man hours on top of UNET.\
+**Mirror** required 10,000+ man hours on top of UNET.\
 **UNET** was developed over several years, likely on top of Unity's **legacy** networking.\
 **Legacy** networking must have been developed for years by people we don't even know.\
 \
