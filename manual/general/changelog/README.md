@@ -13,6 +13,47 @@ For further details on versions and their specific change logs, see github relea
 [https://github.com/MirrorNetworking/Mirror/releases](https://github.com/MirrorNetworking/Mirror/releases)
 {% endhint %}
 
+## v86.13.0 -- 2023-Dec-12
+
+* Added: `NetworkDiagnosticsDebugger` to log messages sent and received.
+* Added: `NetworkPingDisplay` now shows Connection Quality.
+* Added: `PredictedRigidbody` visual interpolation object.
+* Added: LayerMask support in Network Reader / Writer
+* Added: Network Manager now has toggle to disable Auto-Start Headless Server / Client in Editor.
+* Added: Network Manager now has toggle to not disconnect client on message exceptions.
+* Added: Network Manager now has a Populate Spawnable Prefabs button.
+* Added: Utils now has `isWebGL` and `isDebug`.
+* Added: SimpleWebTransport now returns remote address from reverse proxy when available.
+* Added: Additional examples have been added.
+* Fixed: Edgegap Hosting registry, image name, and tag strings are trimmed to avoid errors from trailing whitespace.
+* Fixed: SyncVar hook invocations no longer instantiate a new Action delegate on every call.
+* Fixed: Ping messages now include scene hash to prevent high RTT after long scene load.
+* Fixed: `NetworkTransform` `OnTeleport` no longer calls `Reset`, which cause `NT Reliable` deltas to get out of sync.
+* Fixed: `NetworkBehaviour` `authority` now correctly evaluates for host client.
+* Fixed: `LatencySimulation` now correctly applies latency to both channels.
+* Fixed: Message ID hashing improved to minimize collisions.
+* Changed: EdgeGap Plugin updated to version 2.
+* Changed: Network Manager Auto-Start Headless was refactored.
+* Changed: Multiplex Transport is now a `PortTransport`.
+* Changed: Some examples now use `NetworkTransformReliable`.
+* Changed: `NetworkTransformReliable` now has toggle for rotation compression.
+* Changed: `NetworkTransformReliable` now always uses bandwidth savings.
+* Changed: Some duplicated scripts in Examples consolidated to \_Common folder.
+* Changed: `ConnectionQuality` moved to `NetworkClient`.
+* Changed: `GUIConsole` layout updated to not collide with `NetworkHUD`.
+  * Default hotkey changed to tick (`` ` ``) for safer use in WebGL builds.
+* Changed: KCP Transport `ToString` now include port.
+* Changed: Telepathy Transport `ToString` has been simplified and shortened.
+* Changed: KCP and Telepathy transports now use compiler symbols in `Available` check.
+* Changed: KCP Transport updated to version 1.39.
+* Changed: Various example have been updated.
+* Changed: [Script Templates](../script-templates.md) have been updated.
+* **Breaking Changes**
+  * SimpleWebTransport Settings and Logging have been refactored.
+    * There are now separate port fields for server and clients so you don't have to change them for building server and client.
+  * SimpleWebTransport Use of cert.json and SSL certs has been labeled as obsolete in the component inspector.
+    * This feature will be removed eventually.  Reverse Proxy should always be implemented as it performs far better and is easier to maintain.
+
 ## v81.4.0 -- 2023-Aug-03
 
 * Examples: added BenchmarkIdle demo to test with 80% idle objects
@@ -115,7 +156,7 @@ For further details on versions and their specific change logs, see github relea
 * fix: fixing use of new c# in 2020
 * feat: adding option to get Ip behind reverse proxy
 
-## v79.0.0 -- In Progress
+## v79.0.0 -- 2023-June-07
 
 * Added: Writer / Reader support for `DateTime` data type.
 * Added: `NetworkRoomManager` - `ReadyStatusChange` is now a virtual method.
