@@ -13,6 +13,14 @@ For further details on versions and their specific change logs, see github relea
 [https://github.com/MirrorNetworking/Mirror/releases](https://github.com/MirrorNetworking/Mirror/releases)
 {% endhint %}
 
+## v86.13.4 -- 2023-Dec-24
+
+* Fixed: In certain conditions, KCP would flood timeout warnings.
+* Fixed: Compress Rotation on `NetworkTransform` now correctly considers Local or World coordinates.
+* Fixed: `NetworkPingDisplay` made a bit wider so RTT wouldn't be cut off.
+* Fixed: Several updates to `PredictedRigidbody` and materials handling
+* Fixed: `PredictedRigidbody` Visual rotation interpolation now works correctly.
+
 ## v86.13.0 -- 2023-Dec-12
 
 * Added: `NetworkDiagnosticsDebugger` to log messages sent and received.
