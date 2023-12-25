@@ -1,29 +1,33 @@
 # WebSockets Transport
 
-Transport that uses the websocket protocol. This allows this transport to be used in WebGL builds of unity.
+A Mirror transport that uses the [websocket protocol](https://en.wikipedia.org/wiki/WebSocket), thus enabling multiplayer in the browser from unity webgl builds!
 
 ![Simple Web Transport Inspector](<../../../.gitbook/assets/image (7).png>)
 
 ## Logging <a href="#logging" id="logging"></a>
 
-Log levels can be set using the dropdown on the transport or or setting `Mirror.SimpleWeb.Log.level`.
+Log levels can be set using the dropdown on the transport or setting `Mirror.SimpleWeb.Log.level`.
 
 The transport applies the dropdown value in its `Awake` and `OnValidate` methods.
 
 #### Log methods <a href="#log-methods" id="log-methods"></a>
 
-Log methods in this transport use the [ConditionalAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.conditionalattribute?view=netstandard-2.0) so they are removed depending on the preprocessor defines.
+Log methods in this transport use [ConditionalAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.conditionalattribute?view=netstandard-2.0) so they are removed depending on the preprocessor defines.
 
-These preprocessor defines effect the logging
+These preprocessor defines effect the logging:
 
 * `DEBUG` allows warn/error logs
 * `SIMPLEWEB_LOG_ENABLED` allows all logs
 
-Without `SIMPLEWEB_LOG_ENABLED` info or verbose logging will never happen even if log level allows it.
+{% hint style="info" %}
+NOTE: without `SIMPLEWEB_LOG_ENABLED` set to "info" or "verbose" logging will never happen (even if log level allows it).
+{% endhint %}
 
-See the [Unity docs](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) on how set custom defines.
+See the [Unity docs](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) on how to set custom defines.
 
-## Setting Up SSL
+---
+
+## SimpleWebTransport and SSL
 
 {% hint style="info" %}
 NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally easier to set up and maintain than using cert.json and PFX files.
@@ -32,15 +36,20 @@ NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally eas
 Go to the [Reverse Proxy](reverse-proxy/) page for instructions.
 {% endhint %}
 
-If you host your webgl build on a https domain you will need to use wss which will require a ssl cert.
+If you host your webgl build on a HTTPS domain you will need to use the secure web socket protocol (`wss://`). WSS requires a SSL certificate set up on your Mirror game server for basic scenarios or on your gateway server for "reverse proxy" scenarios. You will also have to ensure the "Client Use WSS" option is set on the transport.
+
+For the following sections we will demonstrate how to obtain SSL certificates using [Let's Encrypt](https://letsencrypt.org/) for the domain `simpleweb.example.com`.
 
 ### Pre-Setup
 
-* You need a domain name
-  * With DNS record pointing at cloud server
-* Set up cloud server: [How to set up google cloud server](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/index.html)
+* You need a domain name and the ability to edit DNS records
+  * A DNS record should point to your webgl game client (normally hosted on port 443)
+  * A DNS record should point to your Mirror game server
+* Set up virtual machine in the cloud: [How to set up a Google cloud server](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/index.html)
 
-> note: You may need to open port 80 for certbot
+{% hint style="info" %}
+NOTE: you may need to open port 80 for `certbot` operations.
+{% endhint %}
 
 ### Get Cert
 
@@ -48,9 +57,9 @@ Follows guides here:
 
 [https://letsencrypt.org/getting-started/](https://letsencrypt.org/getting-started/) [https://certbot.eff.org/instructions](https://certbot.eff.org/instructions)
 
-Find the instructions for your server version, below is link for `Ubuntu 18.04 LTS (bionic)`
+Find the instructions for your server version. Below is link for `Ubuntu 18.04 LTS (bionic)`
 
-[https://certbot.eff.org/lets-encrypt/ubuntubionic-other](https://certbot.eff.org/lets-encrypt/ubuntubionic-other)
+[https://certbot.eff.org/instructions?ws=nginx&os=ubuntubionic](https://certbot.eff.org/instructions?ws=nginx&os=ubuntubionic)
 
 For instruction 7
 
@@ -86,9 +95,7 @@ To create a pfx file that SimpleWebTransport can use run this command in the `/e
 openssl pkcs12 -export -out cert.pfx -inkey privkey.pem -in cert.pem -certfile chain.pem
 ```
 
-You will be asked for a password, you can set a password or leave it blank.
-
-You might need to be super user in order to do this:
+You will be asked for a password; you can set a password or leave it blank. You might need to be superuser in order to do this.
 
 ```
 su
@@ -100,21 +107,21 @@ Note: Currently the mono version shipped with unity is unable to load pfx files 
 
 ### Using cert.pfx
 
-You can either copy the cert.pfx file to your server folder or create a symbolic link
+You can either copy the cert.pfx file to your server folder or create a symbolic link.
 
-Move
+Using Move
 
 ```
 mv /etc/letsencrypt/live/simpleweb.example.com/cert.pfx ~/path/to/server/cert.pfx
 ```
 
-Symbolic link
+Using Symbolic link
 
 ```
 ln -s /etc/letsencrypt/live/simpleweb.example.com/cert.pfx ~/path/to/server/cert.pfx
 ```
 
-#### create cert.json file
+#### Create cert.json file
 
 Create a `cert.json` that SimpleWebTransport can read
 
@@ -134,10 +141,10 @@ echo '{ "path":"./cert.pfx", "password": "yourPassword" }' > cert.json
 
 #### Run your server
 
-After the `cert.json` and `cert.pfx` are in the server folder like this
+After the `cert.json` and `cert.pfx` are in the game server folder like this
 
 ```
-ServerFolder
+GameServerFolder
 |- demo_server.x86_64
 |- cert.json
 |- cert.pfx
@@ -158,6 +165,12 @@ To run in the active terminal use
 To run in background use
 
 ```
+./demo_server.x86_64 &
+```
+
+To keep the game server running even after you close your ssh session use
+
+```
 nohup ./demo_server.x86_64 &
 ```
 
@@ -167,14 +180,14 @@ nohup ./demo_server.x86_64 &
 
 #### Connect to your game
 
-Test everything is working by connection using the editor or a build
+Test everything is working by connecting a game client to the game server using either the unity editor as a game client or using your deployed webgl build as the game client.
 
-set your domain (eg `simpleweb.example.com`) in the hostname field and then start a client
+Set your domain (eg `simpleweb.example.com`) in the hostname field and then start a client
 
-### Debugging
+#### Debugging SSL
 
-To check if your pfx file is working outside of unity you can use `pfxTestServer.js`.
+To check if your pfx file is working outside of unity you can use `pfxTestServer.js` ([src](https://github.com/James-Frowen/SimpleWebTransport/blob/master/DebugScripts~/node~/pfxTestServer.js)).
 
-To use this install `nodejs` then set the pfx path and run it with `node pfxTestServer.js`
+To use this please install `nodejs` then set the pfx path and run it with `node pfxTestServer.js`
 
 You should then be able to visit `https://simpleweb.example.com:8000` and have the server response (change port and domain to fit your needs)
