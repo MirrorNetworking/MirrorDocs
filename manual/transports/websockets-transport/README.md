@@ -2,7 +2,7 @@
 
 A Mirror transport that uses the [websocket protocol](https://en.wikipedia.org/wiki/WebSocket), thus enabling multiplayer in the browser from unity webgl builds!
 
-![Simple Web Transport Inspector](<../../../.gitbook/assets/image (7).png>)
+![Simple Web Transport Inspector](<../../../.gitbook/assets/simple-web-transport-current-inspector-view.png>)
 
 ## Logging <a href="#logging" id="logging"></a>
 
