@@ -5,7 +5,15 @@ A Mirror transport that uses the [websocket protocol](https://en.wikipedia.org/w
 ![Simple Web Transport Inspector](<../../../.gitbook/assets/simple-web-transport-current-inspector-view.png>)
 
 ## SSL Settings
-Read more about simple web transport and ssl in the [SSL guide](ssl/).
+SSL settings is obsolete and may be removed in a future release.
+{% hint style="info" %}
+NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally easier to set up and maintain than using cert.json and PFX files.
+
+\
+Go to the [Reverse Proxy](../reverse-proxy/) page for instructions.
+{% endhint %}
+
+For legacy purposes, you can read more about simple web transport and ssl in this [SSL guide](ssl/).
 
 ## Server Settings
 Specify what port the websocket based game server listens on.
