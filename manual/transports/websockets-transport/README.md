@@ -1,30 +1,11 @@
 # WebSockets Transport
 
-Transport that uses the websocket protocol. This allows this transport to be used in WebGL builds of unity.
+A Mirror transport that uses the [websocket protocol](https://en.wikipedia.org/wiki/WebSocket), thus enabling multiplayer in the browser from unity webgl builds!
 
-![Simple Web Transport Inspector](<../../../.gitbook/assets/image (7).png>)
+![Simple Web Transport Inspector](<../../../.gitbook/assets/simple-web-transport-current-inspector-view.png>)
 
-## Logging <a href="#logging" id="logging"></a>
-
-Log levels can be set using the dropdown on the transport or or setting `Mirror.SimpleWeb.Log.level`.
-
-The transport applies the dropdown value in its `Awake` and `OnValidate` methods.
-
-#### Log methods <a href="#log-methods" id="log-methods"></a>
-
-Log methods in this transport use the [ConditionalAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.conditionalattribute?view=netstandard-2.0) so they are removed depending on the preprocessor defines.
-
-These preprocessor defines effect the logging
-
-* `DEBUG` allows warn/error logs
-* `SIMPLEWEB_LOG_ENABLED` allows all logs
-
-Without `SIMPLEWEB_LOG_ENABLED` info or verbose logging will never happen even if log level allows it.
-
-See the [Unity docs](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) on how set custom defines.
-
-## Setting Up SSL
-
+## SSL Settings <a href="#ssl-settings" id="ssl-settings"></a>
+SSL settings is obsolete and may be removed in a future release.
 {% hint style="info" %}
 NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally easier to set up and maintain than using cert.json and PFX files.
 
@@ -32,149 +13,42 @@ NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally eas
 Go to the [Reverse Proxy](reverse-proxy/) page for instructions.
 {% endhint %}
 
-If you host your webgl build on a https domain you will need to use wss which will require a ssl cert.
+For legacy purposes, you can read more about simple web transport and ssl in this [SSL guide](ssl/).
 
-### Pre-Setup
+## Server Settings <a href="#server-settings" id="server-settings"></a>
+Specify what port the websocket based game server listens on.
 
-* You need a domain name
-  * With DNS record pointing at cloud server
-* Set up cloud server: [How to set up google cloud server](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/index.html)
+## Client Settings <a href="#client-settings" id="client-settings"></a>
+These settings allow for users to customize web game client behavior.
 
-> note: You may need to open port 80 for certbot
+For example, you may want to introduce a reverse proxy server, and you want to configure the web game clients to connect to the reverse proxy server instead of the game server directly. These settings enable you to do that.
 
-### Get Cert
+## Logging <a href="#logging" id="logging"></a>
 
-Follows guides here:
+Supported log levels:
+* `None`
+* `Error`
+* `Warn` (default)
+* `Info`
+* `Verbose`
+* `Flood`
 
-[https://letsencrypt.org/getting-started/](https://letsencrypt.org/getting-started/) [https://certbot.eff.org/instructions](https://certbot.eff.org/instructions)
+Log levels can be set using the dropdown on the transport or setting `Mirror.SimpleWeb.Log.level` in code directly.
 
-Find the instructions for your server version, below is link for `Ubuntu 18.04 LTS (bionic)`
+For debugging purposes it is encouraged to set the log level to `Verbose` (or `Flood` in extreme cases). For normal use `Info` or `Warn` is recommended.
 
-[https://certbot.eff.org/lets-encrypt/ubuntubionic-other](https://certbot.eff.org/lets-encrypt/ubuntubionic-other)
+Setting the log level to `None` will disable logging completely. Use this option with extreme caution.
 
-For instruction 7
+{% hint style="info" %}
+The transport applies the dropdown value in its `Awake` and `OnValidate` methods.
+{% endhint %}
 
-```
-sudo certbot certonly --standalone
-```
+#### Log methods <a href="#log-methods" id="log-methods"></a>
 
-After filling in details you will get a result like this
+Log methods in this transport use [ConditionalAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.conditionalattribute?view=netstandard-2.0), so they are removed depending on the preprocessor defines.
 
-```
-IMPORTANT NOTES:
- - Congratulations! Your certificate and chain have been saved at:
-   /etc/letsencrypt/live/simpleweb.example.com/fullchain.pem
-   Your key file has been saved at:
-   /etc/letsencrypt/live/simpleweb.example.com/privkey.pem
-   Your cert will expire on 2021-01-07. To obtain a new or tweaked
-   version of this certificate in the future, simply run certbot
-   again. To non-interactively renew *all* of your certificates, run
-   "certbot renew"
- - If you like Certbot, please consider supporting our work by:
+These preprocessor defines effect the logging:
 
-   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
-   Donating to EFF:                    https://eff.org/donate-le
-```
+* `DEBUG` allows warn/error logs
 
-`simpleweb.example.com` should be your domain
-
-### Create cert.pfx
-
-To create a pfx file that SimpleWebTransport can use run this command in the `/etc/letsencrypt/live/simpleweb.example.com/` folder
-
-```
-openssl pkcs12 -export -out cert.pfx -inkey privkey.pem -in cert.pem -certfile chain.pem
-```
-
-You will be asked for a password, you can set a password or leave it blank.
-
-You might need to be super user in order to do this:
-
-```
-su
-
-cd /etc/letsencrypt/live/simpleweb.example.com/
-```
-
-Note: Currently the mono version shipped with unity is unable to load pfx files generated by OpenSSL version 3. You will have to add the `-legacy` command line argument to the openssl command above to generate a compatible pfx file.
-
-### Using cert.pfx
-
-You can either copy the cert.pfx file to your server folder or create a symbolic link
-
-Move
-
-```
-mv /etc/letsencrypt/live/simpleweb.example.com/cert.pfx ~/path/to/server/cert.pfx
-```
-
-Symbolic link
-
-```
-ln -s /etc/letsencrypt/live/simpleweb.example.com/cert.pfx ~/path/to/server/cert.pfx
-```
-
-#### create cert.json file
-
-Create a `cert.json` that SimpleWebTransport can read
-
-Run this command in the `~/path/to/server/` folder
-
-If you left the password blank at cert creation:
-
-```
-echo '{ "path":"./cert.pfx", "password": "" }' > cert.json
-```
-
-If you set up a password "yourPassword" at cert creation:
-
-```
-echo '{ "path":"./cert.pfx", "password": "yourPassword" }' > cert.json
-```
-
-#### Run your server
-
-After the `cert.json` and `cert.pfx` are in the server folder like this
-
-```
-ServerFolder
-|- demo_server.x86_64
-|- cert.json
-|- cert.pfx
-```
-
-Then make the server file executable
-
-```
-chmod +x demo_server.x86_64
-```
-
-To run in the active terminal use
-
-```
-./demo_server.x86_64
-```
-
-To run in background use
-
-```
-nohup ./demo_server.x86_64 &
-```
-
-> `nohup` means: the executable will keep running after you close your ssh session the `&` sign means: that your server will run in background
-
-> you may need to use `sudo` to run if you created a symbolic link
-
-#### Connect to your game
-
-Test everything is working by connection using the editor or a build
-
-set your domain (eg `simpleweb.example.com`) in the hostname field and then start a client
-
-### Debugging
-
-To check if your pfx file is working outside of unity you can use `pfxTestServer.js`.
-
-To use this install `nodejs` then set the pfx path and run it with `node pfxTestServer.js`
-
-You should then be able to visit `https://simpleweb.example.com:8000` and have the server response (change port and domain to fit your needs)
+See the [Unity docs](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) on how to set custom preprocessor defines.
