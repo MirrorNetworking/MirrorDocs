@@ -15,7 +15,7 @@ NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally eas
 Go to the [Reverse Proxy](reverse-proxy/) page for instructions.
 {% endhint %}
 
-For legacy purposes, you can read more about simple web transport and SSL in this [SSL guide](ssl-info.md).
+For legacy purposes, you can read more about simple web transport and SSL in this [SSL guide](ssl.md).
 
 ## Server Settings <a href="#server-settings" id="server-settings"></a>
 
