@@ -13,7 +13,7 @@ NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally eas
 Go to the [Reverse Proxy](reverse-proxy/) page for instructions.
 {% endhint %}
 
-For legacy purposes, you can read more about simple web transport and ssl in this [SSL guide](ssl/).
+For legacy purposes, you can read more about simple web transport and ssl in this [SSL guide](reverse-proxy/ssl/).
 
 ## Server Settings <a href="#server-settings" id="server-settings"></a>
 Specify what port the websocket based game server listens on.
