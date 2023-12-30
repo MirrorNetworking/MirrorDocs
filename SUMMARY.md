@@ -44,7 +44,7 @@
         * [Caddy](manual/transports/websockets-transport/reverse-proxy/linux/caddy.md)
         * [Apache](manual/transports/websockets-transport/reverse-proxy/linux/apache.md)
         * [HA Proxy](manual/transports/websockets-transport/reverse-proxy/linux/ha-proxy.md)
-    * [SSL](manual/transports/websockets-transport/ssl-info.md)
+    * [SSL](manual/transports/websockets-transport/ssl.md)
   * [Multiplex Transport](manual/transports/multiplex-transport.md)
   * [Latency Simulation Transport](manual/transports/latency-simulaton-transport.md)
   * [Ignorance](manual/transports/ignorance.md)
