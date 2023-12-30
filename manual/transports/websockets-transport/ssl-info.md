@@ -1,10 +1,10 @@
-# SSL Info
+# SSL
 
 {% hint style="info" %}
 NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally easier to set up and maintain than using cert.json and PFX files.
 
 \
-Go to the [Reverse Proxy](../../reverse-proxy/) page for instructions.
+Go to the [Reverse Proxy](reverse-proxy/) page for instructions.
 {% endhint %}
 
 If you host your webgl build on a HTTPS domain you will need to use the secure web socket protocol (`wss://`). WSS requires a SSL certificate set up on your Mirror game server for basic scenarios or on your gateway server for "reverse proxy" scenarios. You will also have to ensure the "Client Use WSS" option is set on the transport.
@@ -14,8 +14,8 @@ For the following sections we will demonstrate how to obtain SSL certificates us
 ### Pre-Setup
 
 * You need a domain name and the ability to edit DNS records
-    * A DNS record should point to your webgl game client (normally hosted on port 443)
-    * A DNS record should point to your Mirror game server
+  * A DNS record should point to your webgl game client (normally hosted on port 443)
+  * A DNS record should point to your Mirror game server
 * Set up virtual machine in the cloud: [How to set up a Google cloud server](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/index.html)
 
 {% hint style="info" %}
@@ -30,7 +30,7 @@ Follows guides here:
 
 Find the instructions for your server version. Below is link for `Ubuntu 18.04 LTS (bionic)`
 
-[https://certbot.eff.org/instructions?ws=nginx&os=ubuntubionic](https://certbot.eff.org/instructions?ws=nginx&os=ubuntubionic)
+[https://certbot.eff.org/instructions?ws=nginx\&os=ubuntubionic](https://certbot.eff.org/instructions?ws=nginx\&os=ubuntubionic)
 
 For instruction 7
 
@@ -157,4 +157,4 @@ Set your domain (eg `simpleweb.example.com`) in the hostname field and then star
 
 #### Debugging SSL
 
-To check if your pfx file is working outside of unity you can use `pfxTestServer.js` ([src](https://github.com/James-Frowen/SimpleWebTransport/blob/master/DebugScripts~/node~/pfxTestServer.js)).
+To check if your pfx file is working outside of unity you can use `pfxTestServer.js` ([src](https://github.com/James-Frowen/SimpleWebTransport/blob/master/DebugScripts\~/node\~/pfxTestServer.js)).
