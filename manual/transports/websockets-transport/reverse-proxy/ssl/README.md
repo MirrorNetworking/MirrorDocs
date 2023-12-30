@@ -4,7 +4,7 @@
 NOTE: WebGL performs a lot better with a Reverse Proxy, and that's generally easier to set up and maintain than using cert.json and PFX files.
 
 \
-Go to the [Reverse Proxy](../reverse-proxy/) page for instructions.
+Go to the [Reverse Proxy](../../reverse-proxy/) page for instructions.
 {% endhint %}
 
 If you host your webgl build on a HTTPS domain you will need to use the secure web socket protocol (`wss://`). WSS requires a SSL certificate set up on your Mirror game server for basic scenarios or on your gateway server for "reverse proxy" scenarios. You will also have to ensure the "Client Use WSS" option is set on the transport.
