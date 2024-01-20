@@ -25,7 +25,7 @@ These transports are maintained by third parties and use relay infrastructure to
 * [Steam - FizzySteamworks](fizzysteamworks-transport.md) - Transport utilizing Steam P2P network, building on Steamworks.NET.
 * [Steam - FizzyFacepunch](fizzyfacepunch-transport.md) - Transport utilizing Steam P2P network, building on Facepunch.Steamworks.
 * [Epic - Epic Online Services](https://github.com/FakeByte/EpicOnlineTransport) - Relay transport utilizing Epic's free relay service.
-* [LRM - Light Reflective Mirror](https://github.com/Derek-R-S/Light-Reflective-Mirror) - Relay transport for WebGL clients.
+* [LRM - Light Reflective Mirror](https://github.com/Speidy674/Light-Reflective-Mirror) - Relay transport for WebGL clients.
 * [OculusP2P - Oculus Platform](https://github.com/hyferg/MirrorOculusP2P) - Relay Transport for Oculus Quest 1 & 2.
 
 ## Changing Transports
