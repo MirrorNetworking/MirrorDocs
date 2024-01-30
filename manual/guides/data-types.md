@@ -4,24 +4,28 @@ The client and server can pass data to each other via [Remote Actions](communica
 
 Mirror supports a number of data types you can use with these, including:
 
-* Basic C# types (byte, int, char, uint, UInt64, float, string, etc.)
-* Built-in Unity math type (Vector3, Quaternion, Rect, Plane, Vector3Int, etc.)
+* Basic C# types (byte, short, int, long, uint, ushort, ulong, float, double, char, string, etc.)
+* Built-in Unity math types (Vector3, Quaternion, Rect, Plane, etc.)
 * Built-in Unity types that are structs under the hood (Color, Sprite, Texture2D, Ray, etc.)
 * URI
 * `NetworkIdentity`, `NetworkBehaviour`
+  * **These should not be used in SyncVars or Sync\* Collections or Rpc's because they'll be null on the client if the corresponding object hasn't already been spawned.**
 * Game object with a `NetworkIdentity` component that have been network spawned
   * **Not** prefabs!
-  * See important details in [GameObjects](gameobjects/) section.
+  * See important details in [GameObjects](gameobjects/) section below.
 * Structures with any of the above
+  * You must replace the whole struct value, not just change its properties
   * It's recommended to implement IEquatable to avoid boxing, and to have the struct readonly because modifying one of properties does **not** cause a resync
 * Classes as long as each field has a supported data type
-  * These will allocate garbage and will be instantiated new on the receiver every time they're sent.
+  * You must replace the whole class value, not just change its properties
+  * **These will allocate garbage** and will be instantiated new on the receiver every time they're sent.
 * ScriptableObject as long as each field has a supported data type
-  * These will allocate garbage and will be instantiated new on the receiver every time they're sent.
+  * **These will allocate garbage** and will be instantiated new on the receiver every time they're sent.
+  * See details in the [ScriptableObjects](data-types.md#scriptable-objects) section below.
 * Arrays of any of the above
-  * Not supported with [SyncVars or Sync\* collections](synchronization/)
+  * Not supported with [Sync\* collections](synchronization/)
 * ArraySegments of any of the above
-  * Not supported with [SyncVars or Sync\* collections](synchronization/)
+  * Not supported with [Sync\* collections](synchronization/)
 
 ## Game Objects <a href="#game-objects" id="game-objects"></a>
 
