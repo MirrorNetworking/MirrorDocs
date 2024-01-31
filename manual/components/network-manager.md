@@ -53,7 +53,7 @@ Once you have assigned a Player Prefab, you can start the game as a host and see
 
 In addition to the Player Prefab, you must also register other prefabs that you want to dynamically spawn during game play with the Network Manager.
 
-You can add prefabs to the list shown in the inspector labelled Registered Spawnable Prefabs. You can also register prefabs via code, with the `ClientScene.RegisterPrefab` method.
+You can add prefabs to the list shown in the inspector labelled Registered Spawnable Prefabs. You can also register prefabs via code, with the `NetworkClient.RegisterPrefab` method.
 
 If you have one Network Manager that is persisted through scenes via Don't Destroy On Load (DDOL), you need to register all prefabs to it which might be spawned in any scene. If you have a separate Network Manager in each scene, you only need to register the prefabs relevant for that scene.
 
