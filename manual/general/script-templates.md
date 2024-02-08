@@ -27,7 +27,7 @@ The **Mirror** section will appear under the **Assets > Create menu**, as well a
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Menu to Mirror Script Templates</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Menu to Mirror Script Templates</p></figcaption></figure>
 
 </div>
 
