@@ -93,11 +93,8 @@ void FireWeapon()
 [Command]
 void CmdFiredWeapon(Player target, Vector3 originPoint, Vector3 hitPoint)
 {
-    // enough ammo?
-    if (this.ammo == 0) return;
-    
-    // reduce our since the player fired a shot
-    this.ammo -= 1;
+    // check ammo etc.
+    // ...
     
     // 'this' fired at 'target'.
     // we need to grab 'target's LagCompensator to find out where it was.
