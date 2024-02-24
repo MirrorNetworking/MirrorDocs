@@ -45,37 +45,92 @@ The difference between lag compensation turned on / off is very noticeable to ev
 
 For a more in-depth understand, please read through [Valve's Source Multiplayer Networking article](https://developer.valvesoftware.com/wiki/Source\_Multiplayer\_Networking). It's a good read, and worth the time even if you don't understand all of it yet.
 
-## Mirror's Lag Compensation Algorithm
+## Lag Compensation with Mirror
 
-We implemented Lag Compensation as a standalone C# algorithm, independent of Unity and Mirror. As result, it's very easy to reason about, modify, test and experiment with. It can be used on any data / component by implementing the `Capture` interface and calling the `LagCompensation<T: Capture>` algorithms.
+Our Lag Compensation is split into two parts.
 
-The algorithm can be found in `Mirror/Core/LagCompensation.cs`:
+#### LagCompensation.cs standalone Algorithm
+
+First, there's the standalone, Unity independent,  C# LagCompensation.cs algorithm with full test coverage:
 
 <figure><img src="../../.gitbook/assets/2023-07-05 - 14-26-07@2x.png" alt="" width="344"><figcaption></figcaption></figure>
 
-To ensure stability, it comes with full test coverage around all the edge cases:
-
 <figure><img src="../../.gitbook/assets/2023-07-05 - 14-28-43@2x.png" alt=""><figcaption></figcaption></figure>
 
-Here is a basic overview on how to use it:
+The algorithm can record and sample any History of type \<T>.\
+In other words, you can custom fit it to your needs if you want to.\
+Keep in mind that this is very low level, and it's easier to use the high level component instead!
 
-* Create a `Capture` of the player or world state every interval. For example, you may have a struct `PlayerCapture : Capture`which contains the player's position and rotation at that time.
-* Define a `Queue<KeyValuePair<time, capture>>`.
-* Every capture interval, call `LagCompensation.Insert<T>()` to insert a new capture. The Insert function automatically removes older captures beyond the size limit, and takes care of all the edge cases for you.
-* In your `CmdFire()` function, you need to:
-  * Estimate how far behind the client is. We don't want to trust the client to tell us that time. Instead, use `LagCompensation.EstimateTime()` for a server authoritative estimation.
-  * Then call `LagCompensation.Sample(buffer, time)` to get the capture at that time. Note that your estimated time is most certainly between two captures. That's why it always returns '`before`' and '`after`', which you can then use to interpolate between to find the player's position at that exact time.
-  * Now that you have the interpolated capture, you can check if it was where the player fired at. For example, you may want to use simplified raycasts, or rollback the physics engine.
+#### Lag Compensator Component
+
+The second part: our `Lag Compensator` component:
+
+<figure><img src="../../.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
+
+This hides all the magic in one component which automatically records a history of Collider snapshots in 3D. Simply add this to your Player object, and it'll handle everything for you!
+
+Next, find the place where your player is firing a weapon locally. There should be a \[Command] like CmdFireWeapon() that sends the input to the server. This is where instead of checking if a player hit another player, we first ask Lag Compensation for the other player's position at the time when the player shot it.
+
+You can check our Shooter example to see this in action, it's as simple as:
+
+```csharp
+[Client]
+void FireWeapon()
+{
+    // show muzzle flash, play sound etc. locally
+    // ...
+    
+    // check if anything was hit
+    if (Physics.Raycast(camera.position, camera.position + camera.forward, out RaycastHit hit))
+    {
+        Player target = hit.collider.GetComponent<Player>();
+        
+        // notify the server
+        CmdFiredWeapon(target, camera.position, hit.position);
+    }
+}
+
+[Command]
+void CmdFiredWeapon(Player target, Vector3 originPoint, Vector3 hitPoint)
+{
+    // enough ammo?
+    if (this.ammo == 0) return;
+    
+    // reduce our since the player fired a shot
+    this.ammo -= 1;
+    
+    // 'this' fired at 'target'.
+    // we need to grab 'target's LagCompensator to find out where it was.
+    LagCompensator compensator = target.GetComponent<LagCompensator>();
+    
+    // next, we can use either of the compensator's 'Check...' functions.
+    // viewer is the one who fired, so it's 'this' object.
+    // Lag Compensator checks 'this' object's latency and then rewinds 'target's history by that time.
+    if (compensator.RaycastCheck(this.connectionToClient, originPoint, hitPoint))
+    {
+         // valid hit!
+    }
+}
+```
+
+Note the above code is slightly simplified, but that's really all there's to it other than a few more optional configuration parameters in the LagCompensator's 'Check' functions.
+
+
 
 {% hint style="info" %}
-Traditionally, Lag Compensation algorithms would pick either the '**before**' or '**after**' result from the Sample() function. If your performance budget allows for it, feel free to **Interpolate(before, after, t)** to get a more precise capture to test against. This is commonly referred to as "**sub-tick**" interpolation (see our demo).
+Our Lag Compensator is super easy to use, and you can still add more complex checks to if if needed. What matter is that our standalone LagCompensation.cs algorithm is generic \<T>, working with anything you need (2D, 3D, custom physics, etc.).
 {% endhint %}
 
-To summarize, you need to: `Capture`, `Insert`, `EstimateTime`, `Sample`.
+{% hint style="success" %}
+Our Mirror Shooter demo uses the Lag Compensator.\
+As of February 2024, it is almost complete and soon to be released!
+{% endhint %}
 
-We intentionally kept the implementation as simple as possible, while giving you full freedom about the details about what you capture, how you interpolate, and how you check the sample's collision.
+#### Note: Algorithm Minimal Example
 
-For a minimal example, please try our Lag Compensation Example in the Examples folder:
+If you prefer to not use the convenience LagCompensator component, then you can check our 'Lag Compensation' demo in the Examples folder. It's super simple, not even networked, and shows only the algorithm without the component.
+
+In other words: ignore this example if you are using the component!
 
 <figure><img src="../../.gitbook/assets/2023-06-29 - lag compensation estimated time accurate by 6ms.png" alt=""><figcaption><p>Mirror's Lag Compensation Example</p></figcaption></figure>
 
@@ -94,12 +149,3 @@ You can use this in games _today_, you just need to adapt the demo to your needs
 
 You also need to worry about rolling back the physics world, we don't have a demo for this _yet_.
 
-## Demo: Shooter with Lag Compensation
-
-{% hint style="info" %}
-We wanted to ship the Lag Compensation algorithm as early as possible.
-
-A complete **FPS game demo** is on our [roadmap](https://discord.com/channels/343440455738064897/468084877338869791/756431342627061770) for later this year!
-
-**For now,** please read the Valve article, check our algorithm and try the simple demo!
-{% endhint %}
