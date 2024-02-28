@@ -26,7 +26,7 @@ Start by creating and configuring a new Compute Engine instance.
 
 If this is your first instance you will see a dialog prompting you to create a new virtual machine
 
-![create new](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/01-vm-instances.jpg)
+![create new](../../.gitbook/assets/01-vm-instances.jpg)
 
 1. Click Create to get started.
 2. On the Create an instance page, configure your instance as follows:
@@ -38,25 +38,25 @@ If this is your first instance you will see a dialog prompting you to create a n
    * In the Boot disk section, click Change. The Boot disk dialog will pop up.
    * Change the disk type to SSD Persistent Disk.
 
-![create instance with name and region](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/02-create-instance-name-region.jpg)
+![create instance with name and region](../../.gitbook/assets/02-create-instance-name-region.jpg)
 
 1. Boot disk can be left as default `10gb standard persistent disk` with `Debian GNU/Linux 9 (stretch)` for this tutorial.
 
 You may want to change it to best fit your needs. You can instead use an ssd or increase its size, however this will increase the monthly cost.
 
-![Boot disk](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/03-boot-disk.jpg)
+![03Boot disk](../../.gitbook/assets/03-boot-disk.jpg)
 
 > Note: The monthly estimate should be shown at the top right next to `Name`
 
 1. To configure Network settings first example the `Management, security, disks, networking, solo tenancy` section, then click on the `Networking` tab.
 
-![expand network settings](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/04-expand-network-settings.jpg)
+![expand network settings](../../.gitbook/assets/04-expand-network-settings.jpg)
 
 1. Set a Network tag, this will allow you to set up firewall rules later on.
 
 This tutorial use `mirror-demo` as the tag
 
-![set network tag](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/05-network-tag.jpg)
+![set network tag](../../.gitbook/assets/05-network-tag.jpg)
 
 1.  Set up a static IP address for your instance
 
@@ -66,7 +66,7 @@ This tutorial use `mirror-demo` as the tag
 
     c) Enter a name for this ip and press **Reserve**. For this tutorial we will use `mirror-demo-ip`
 
-![reserve ip address](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/06-ip-address.jpg)
+![reserve ip address](../../.gitbook/assets/06-ip-address.jpg)
 
 1. Create your instance.
 
@@ -92,7 +92,7 @@ This will allow other people to connect to your server using its IP and port
 >
 > If KCP is on your NetworkManager, unblock UDP, not TCP.
 
-![Create network rule](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/07-create-network-rule.jpg)
+![Create network rule](../../.gitbook/assets/07-create-network-rule.jpg)
 
 1. Press **Create** to confirm setting and create the rule.
 
@@ -100,7 +100,7 @@ This will allow other people to connect to your server using its IP and port
 
 Once your instance has finished being created you can press the **SSH** button to connect to your instance in your web browser
 
-![connect to instance](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/08-connect-to-instance.jpg)
+![connect to instance](../../.gitbook/assets/08-connect-to-instance.jpg)
 
 ### Setting up the linux instance <a href="#setting-up-the-linux-instance" id="setting-up-the-linux-instance"></a>
 
@@ -122,13 +122,13 @@ sudo apt-get install -y screen unzip
 
 `unzip` unzips can be used to extract files from a ZIP file after you upload it to the instance
 
-![update and install packages](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/09-update-and-install.jpg)
+![09update and install packages](../../.gitbook/assets/09-update-and-install.jpg)
 
 ### Build your game <a href="#build-your-game" id="build-your-game"></a>
 
 Build your game with Target Platform `Linux` and **Server Build** ticked
 
-![Server build](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/10-server-build.jpg)
+![Server build](../../.gitbook/assets/10-server-build.jpg)
 
 ### Upload and extract your game <a href="#upload-and-extract-your-game" id="upload-and-extract-your-game"></a>
 
@@ -136,7 +136,7 @@ Once you have built your game zip the folder so that you can upload it to your s
 
 In the SSH connection window click on the settings cogwheel and select **Upload File** then find and select your zipped build folder.
 
-![Upload a file](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/11-upload-a-file.jpg)
+![Upload a file](../../.gitbook/assets/12-uploading.jpg)
 
 This should upload the game folder to the home directory.
 
@@ -148,7 +148,7 @@ cd ~
 
 > Note: the destination will be `/home/username` where username should be the cloud account you are logged into.
 
-![Uploading](https://mirror-networking.com/docs/Articles/Guides/DevServer/gcloud/12-uploading.jpg)
+![Uploading](../../.gitbook/assets/11-upload-a-file.jpg)
 
 Once your file has finished upload you can extract the files
 
