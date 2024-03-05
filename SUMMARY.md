@@ -51,6 +51,7 @@
   * [LiteNetLib Transport](manual/transports/litenetlib-transport.md)
   * [FizzySteamworks Transport](manual/transports/fizzysteamworks-transport.md)
   * [FizzyFacepunch Transport](manual/transports/fizzyfacepunch-transport.md)
+  * [Encryption Transport](manual/transports/encryption-transport.md)
 * [Components](manual/components/README.md)
   * [Network Animator](manual/components/network-animator.md)
   * [Network Authenticators](manual/components/network-authenticators/README.md)

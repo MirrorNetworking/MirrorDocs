@@ -9,6 +9,7 @@ These transports are included with Mirror.
 * [Simple Web Sockets](websockets-transport/) - WebGL transport layer for Mirror that target browser clients.
 * [Multiplexer](multiplex-transport.md) - Bridging transport to allow a server to handle clients on different transports concurrently, for example desktop clients using Telepathy together with WebGL clients using Websockets.
 * [Latency Simulation](latency-simulaton-transport.md) - Middleman transport to test non-ideal network conditions
+* [Encryption](encryption-transport.md) - Middleman transport to encrypt a different transport
 
 ## Additional Transports
 
