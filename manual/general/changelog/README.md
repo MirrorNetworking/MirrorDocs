@@ -18,7 +18,7 @@ For further details on versions and their specific change logs, see github relea
 * Added: `ReadOnly` Attribute for diagnostic inspector fields.
 * Added: `GetFunctionMethodName` added to `RemoteProcedureCalls`.
 * Added: `NetworkClient` `RegisterHandler` now takes `ChannelId` parameter.
-* Added: `NetworkServer` and `NetworkClient` now have `ReplaceHandler` with `ChannelID` param.
+* Added: `NetworkServer` and `NetworkClient` now have `ReplaceHandler` with `ChannelID` parameter.
 * Added: SyncVar now supports arrays.
 * Added: `NetworkTime.SendPing` method for `NetworkClient` to call from `OnTransportConnected`.
 * Added: NetworkTransform-Unreliable only send changed data for improved bandwidth usage.
