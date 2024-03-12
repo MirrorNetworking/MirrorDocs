@@ -24,7 +24,6 @@ For further details on versions and their specific change logs, see github relea
 * Added: NetworkTransform-Unreliable only send changed data for improved bandwidth usage.
 * Added: [Lag Compensator](../lag-compensation.md) as convenience component that wraps all the Lag Compensation logic.
 * Added: [Encryption Transport](../../transports/encryption-transport.md) as chained transport.
-* Fixed: KCP Null Ref Exceptions.
 * Fixed: `NetworkServer.RemovePlayerForConnection` now uses `NetworkConnectionToClient`.
 * Fixed: `NotReadyMessage` no longer requires authenticated client.
 * Fixed: `InterestManagementBase` `OnEnable` no longer shows error when called multiple times.
@@ -40,7 +39,8 @@ For further details on versions and their specific change logs, see github relea
 * Fixed: NetworkServer and NetworkClient respect exceptionDisconnect.
 * Fixed: Now uses `FindAnyObjectByType` for later Unity versions.
 * Fixed: `NetworkServer.Destroy` refactored.
-* Fixed: `NetworkServer.Spawn` now activates inactive GameObjects (in case Unspawned)
+* Fixed: `NetworkServer.Spawn` now activates inactive GameObjects (in case Unspawned).
+* Changed: KCP Transport updated to version 1.40.
 * Changed: `InterestManagement` now has separate `ResetState` from `Reset`.
 * Changed: `NetworkTransform` now has separate `ResetStat`e from `Reset`.
 * Changed: `NetworkTransform` Sync Direction now defaults to Client To Server.
