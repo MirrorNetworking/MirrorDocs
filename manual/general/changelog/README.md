@@ -16,9 +16,9 @@ For further details on versions and their specific change logs, see github relea
 ## v89.0.0 -- 2024-Mar-05
 
 * Added: `ReadOnly` Attribute for diagnostic inspector fields.
-* Added: `NetworkClient` `RegisterHandler` now takes `ChannelId` parameter.
 * Added: `GetFunctionMethodName` added to `RemoteProcedureCalls`.
-* Added: `NetworkServer` and `NetworkClient` now have ReplaceHandler with ChannelID param.
+* Added: `NetworkClient` `RegisterHandler` now takes `ChannelId` parameter.
+* Added: `NetworkServer` and `NetworkClient` now have `ReplaceHandler` with `ChannelID` param.
 * Added: SyncVar now supports arrays.
 * Added: `NetworkTime.SendPing` method for `NetworkClient` to call from `OnTransportConnected`.
 * Added: NetworkTransform-Unreliable only send changed data for improved bandwidth usage.
@@ -41,11 +41,11 @@ For further details on versions and their specific change logs, see github relea
 * Fixed: Now uses `FindAnyObjectByType` for later Unity versions.
 * Fixed: `NetworkServer.Destroy` refactored.
 * Fixed: `NetworkServer.Spawn` now activates inactive GameObjects (in case Unspawned)
+* Changed: `InterestManagement` now has separate `ResetState` from `Reset`.
 * Changed: `NetworkTransform` now has separate `ResetStat`e from `Reset`.
 * Changed: `NetworkTransform` Sync Direction now defaults to Client To Server.
 * Changed: `NetworkAnimator` Sync Direction now defaults to Client To Server.
 * Changed: `NetworkRigidbody` Sync Direction now defaults to Client To Server.
-* Changed: `InterestManagement` now has separate `ResetStat`e from `Reset`.
 * Changed: `onlySyncOnChange` and `compressRotation` moved to `NetworkTransformBase`.
 * Changed: Extensive improvements to `Prediction` and `PredictedRigidbody`...still experimental.
 * Changed: Examples Updated.
