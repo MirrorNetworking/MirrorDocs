@@ -102,14 +102,16 @@ Deploy your server build to a folder under `c:\` and start it on port `27777`. M
 
 Make sure Simple Web Transport is set up like this:
 
-* Port `7777`
-* Client Use Wss checked
-* Ssl Enabled **not** checked
-* Ssl Protocols set to Tls 12.
+* Ssl Enabled: **not checked**
+* Ssl Protocols: **Tls 12**
+* Server Port: **27777**
+* Client Use Wss: **checked**
+* Client Port Option: **Specify Port**
+* Custom Client Port: **7777**
 
-<div align="left">
+<div align="left" data-full-width="false">
 
-<figure><img src="../../../../../.gitbook/assets/SWT.png" alt=""><figcaption><p>Simple Web Transport Client Settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (153).png" alt=""><figcaption><p>Simple Web Transport with Reverse Proxy Settings</p></figcaption></figure>
 
 </div>
 
