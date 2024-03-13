@@ -2,8 +2,6 @@
 
 ## Server Roles
 
-Make sure you have the correct Server Roles installed, especially **WebSocket Protocol**, as shown below:
+Make sure you have the correct Server Roles installed, especially **WebSocket Protocol**, as shown below. Once you have this part done, move on to [IIS](iis.md).
 
 <figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption><p>Server Roles</p></figcaption></figure>
-
-Brief content needed here, with link to [IIS](iis.md).
