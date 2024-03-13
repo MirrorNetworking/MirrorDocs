@@ -10,6 +10,7 @@ These transports are included with Mirror.
 * [Multiplexer](multiplex-transport.md) - Bridging transport to allow a server to handle clients on different transports concurrently, for example desktop clients using Telepathy together with WebGL clients using Websockets.
 * [Latency Simulation](latency-simulaton-transport.md) - Middleman transport to test non-ideal network conditions
 * [Encryption](encryption-transport.md) - Middleman transport to encrypt a different transport
+* [Edgegap Relay Transports](edgegap-relay-transport.md) - Transports to utilize [Edgegaps Destributed Relay](https://edgegap.com/en/platform/distributed-relay) Service
 
 ## Additional Transports
 

@@ -52,6 +52,7 @@
   * [FizzySteamworks Transport](manual/transports/fizzysteamworks-transport.md)
   * [FizzyFacepunch Transport](manual/transports/fizzyfacepunch-transport.md)
   * [Encryption Transport](manual/transports/encryption-transport.md)
+  * [Edgegap Relay Transport](manual/transports/edgegap-relay-transport.md)
 * [Components](manual/components/README.md)
   * [Network Animator](manual/components/network-animator.md)
   * [Network Authenticators](manual/components/network-authenticators/README.md)
@@ -120,6 +121,7 @@
   * [Pong](manual/examples/pong.md)
   * [Room](manual/examples/room.md)
   * [Tanks](manual/examples/tanks.md)
+  * [EdgegapLobby](manual/examples/tanks-1.md)
 
 ## Server Hosting <a href="#hosting" id="hosting"></a>
 
