@@ -15,7 +15,8 @@ For further details on versions and their specific change logs, see github relea
 
 ## v89.0.0 -- 2024-Mar-05
 
-* Added: `ReadOnly` Attribute for diagnostic inspector fields.
+### Added
+
 * Added: `GetFunctionMethodName` added to `RemoteProcedureCalls`.
 * Added: `NetworkClient` `RegisterHandler` now takes `ChannelId` parameter.
 * Added: `NetworkServer` and `NetworkClient` now have `ReplaceHandler` with `ChannelID` parameter.
@@ -24,6 +25,9 @@ For further details on versions and their specific change logs, see github relea
 * Added: NetworkTransform-Unreliable only send changed data for improved bandwidth usage.
 * Added: [Lag Compensator](../lag-compensation.md) as convenience component that wraps all the Lag Compensation logic.
 * Added: [Encryption Transport](../../transports/encryption-transport.md) as chained transport.
+
+### Fixed
+
 * Fixed: `NetworkServer.RemovePlayerForConnection` now uses `NetworkConnectionToClient`.
 * Fixed: `NotReadyMessage` no longer requires authenticated client.
 * Fixed: `InterestManagementBase` `OnEnable` no longer shows error when called multiple times.
@@ -40,6 +44,9 @@ For further details on versions and their specific change logs, see github relea
 * Fixed: Now uses `FindAnyObjectByType` for later Unity versions.
 * Fixed: `NetworkServer.Destroy` refactored.
 * Fixed: `NetworkServer.Spawn` now activates inactive GameObjects (in case Unspawned).
+
+### Changed
+
 * Changed: KCP Transport updated to version 1.40.
 * Changed: `InterestManagement` now has separate `ResetState` from `Reset`.
 * Changed: `NetworkTransform` now has separate `ResetStat`e from `Reset`.
