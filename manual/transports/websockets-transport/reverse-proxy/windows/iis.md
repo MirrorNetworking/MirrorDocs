@@ -94,11 +94,7 @@ Click Add to create one more binding for port 7777 as shown below, using the sam
 
 </div>
 
-### WebGL Server
-
-Deploy your server build to a folder under `c:\` and start it on port `27777`. Make sure you set that correctly in Simple Web Transport when building the server or add code to your Network Manager to force that when running headless mode.
-
-### WebGL Client
+### Simple Web Transport
 
 Make sure Simple Web Transport is set up like this:
 
@@ -114,6 +110,13 @@ Make sure Simple Web Transport is set up like this:
 <figure><img src="../../../../../.gitbook/assets/image (153).png" alt=""><figcaption><p>Simple Web Transport with Reverse Proxy Settings</p></figcaption></figure>
 
 </div>
+
+### Build and Deploy
+
+In Unity, Network Manager, change Network Address to the same name as you used in Bindings above, e.g. game.example.com.
+
+* Select Dedicated Server platform in Build Settings, build and deploy your server to a folder on the server.  Mirror will start the server on the Port specified (27777 from the image above).
+* Change the platform in Build Settings to WebGL, and build the client, and upload that to the folder on your server that your Default website is pointed to in IIS.
 
 ### web.config for IIS
 
