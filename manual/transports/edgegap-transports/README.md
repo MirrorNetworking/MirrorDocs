@@ -6,6 +6,6 @@ In order to use the relay service, you will need to either [set up your own back
 
 Mirror offers the following transports to interact with the relay service:
 
-* [Edgegap Kcp Transport](kcp.md): Barebones relay transport using KCP
-* [Edgegap Lobby Kcp Transport](kcp-lobby.md): Simple to use relay transport using Edgegap's Lobby Service
+* [Edgegap Relay](edgegap-relay.md): Barebones relay transport using KCP
+* [Edgegap Lobby](edgegap-lobby.md): Simple to use relay transport using Edgegap's Lobby Service
 
