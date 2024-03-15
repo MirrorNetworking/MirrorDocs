@@ -12,7 +12,7 @@ It is by far the easiest way to use relays, if all you need is peer-to-peer/play
 
 The lobby transport allows you to create/join lobbies and list available lobbies for players to select.
 
-We provide a [simple lobby UI example to let you hit the ground running](../examples/tanks-1.md)
+We provide a [simple lobby UI example to let you hit the ground running](../examples/edgegap-lobby.md)
 
 ### Setup
 
