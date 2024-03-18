@@ -13,6 +13,26 @@ For further details on versions and their specific change logs, see github relea
 [https://github.com/MirrorNetworking/Mirror/releases](https://github.com/MirrorNetworking/Mirror/releases)
 {% endhint %}
 
+## v90.x.x -- In Progress
+
+### Added
+
+* Added: Transport: `IsEncrypted` and `EncryptionCypher` virtual methods.
+* Added: Encryption Transport implements`IsEncrypted` & `EncryptionCypher` .
+* Added: Simple Web Transport implements`IsEncrypted` & `EncryptionCypher` .
+* Added: Edgegap Lobby Transport & Demo.
+
+### Fixed
+
+* Fixed: Weaver Custom Read / Write methods for Serialization now works across assembly definitions.
+* Fixed: EdgegapKcp StopHost() null reference exception.
+* Fixed: ILPostProcessorAssemblyResolver now ignores Bee.BeeDriver better.
+* Fixed: Simple Web Transport now locally scopes `websocket` and `Runtime`.
+
+### Changed
+
+* Changed: Continued improvements to `Prediction` and `PredictedRigidbody`...still experimental.
+
 ## v89.0.0 -- 2024-Mar-05
 
 ### Added
