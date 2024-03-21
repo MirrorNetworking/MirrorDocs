@@ -52,12 +52,16 @@ Our approach is **intentionally different** from the usual solution, and **works
 Over time we will expand this to more use cases and make it even easier to use.
 {% endhint %}
 
-## Why Prediction?
+## How it works
 
 
 
-## How Mirror's Prediction works
+## Mirror's custom Implementation
 
 
 
 ## What Mirror's Prediction can do
+
+
+
+## What's Next
