@@ -306,13 +306,13 @@ As mentioned, our two major upcoming goals for prediction are:
 * Support more complex physics like stacked objects
 * Support predicted player movement
 
-We are working on predicted stacked objects right now. As of March 2024, they generally sync well, but don't properly come to rest just yet.
+We are working on predicted stacked objects right now. As of March 2024, they generally sync well, but don't properly come to rest just yet. Once they work well, we will release a demo for this too!
 
 <figure><img src="../../.gitbook/assets/2024-03-21 - predicting stacked objects.png" alt=""><figcaption><p>Testing stacked predicted Rigidbodies with our custom algorithm</p></figcaption></figure>
 
-As for predicted player movement: this will be super useful to avoid both latency and cheating for movement in many game types. The prediction algorithm will be the same - we simply didn't have time to do any tests on this yet - which is why we don't want to recommend doing it just yet.
+As for predicted player movement: this will be super useful to avoid both latency and cheating for movement in many game types. The prediction algorithm will be the same - we simply didn't have time to do any tests on this yet - which is why we don't want to recommend doing it just yet.&#x20;
 
-We will most likely need to add some kind of prediction tolerance to give players 10% more authority instead of correcting every single miss-prediction.
+We will most likely need to add some kind of prediction tolerance to give players 10% more authority instead of correcting every single miss-prediction. Once it works well, we will release a demo!
 
 {% hint style="info" %}
 Prediction will remain our focus for the rest of the year 2024.
