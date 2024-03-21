@@ -294,7 +294,7 @@ At first we thought: there is no way to scale prediction to that many objects. B
 
 While there are games where interacting with thousands of Rigidbodies is necessary (i.e. destruction type games), this was not the case here. So we thought: why don't we try to manually resimulate individual Rigidbodies without using PhysX!
 
-While we didn't believe it was going to work, we didn't have a choice. So we set out to try it anyway.&#x20;
+While we didn't believe it was going to work, we didn't have a choice. So, we set out to try it anyway.&#x20;
 
 ## History
 
