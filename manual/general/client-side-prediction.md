@@ -239,7 +239,22 @@ void OnCollisionEnter(Collider collider)
 
 Just check the **PredictedBilliards** example's code - it's not actually too difficult!
 
-## Custom Prediction for Large Physics Scenes
+## Predicting other Types
+
+This article focuses on `PredictedRigidbody` - which is a complete component that just works - but only for Rigidbodies.
+
+If you want to predict other types like CharacterControllers, there's good news and bad news:
+
+* The **Good News** is that the underlying Prediction & Correction algorithms are kept generic. You can find them in Prediction.cs and use them for other types easily.
+* The **Bad News** is that they are just standalone algorithms. If you want to make an easy to use component like PredictedCharacterController, then it's still a bit of work on top of it.&#x20;
+
+We recommend you to check out the code in PredictedRigidbody.cs to get a feeling for the separation between high level component and low level algorithm, and to see how much extra work is needed to predict a specific type like Rigidbody.
+
+To summarize: you _can_ use Mirror's prediction for other types, but you _will_ have to do some work.
+
+For what it's worth, the hard part (the algorithm) works and comes with heavy test coverage!
+
+## Mirror's Prediction for Large Physics Scenes
 
 Now there's one last detail that you absolutely must understand about Mirror's prediction.
 
@@ -308,6 +323,14 @@ Our algorithm **sacrifices accuracy for performance!**
 In other words: it works great for the games that we developed it for.
 
 It may or may not work for your game, because we still need to test it with more complex physics!
+
+## Worst Case Benchmark
+
+Mirror's prediction is optimized for large physics scenes where the player only interacts with a few objects at a time. However, we still built a worst-case benchmark where you can spawn a few hundred (or thousands of) objects that are predicted all the time.&#x20;
+
+We are using this benchmark for profiling and performance optimizations. Feel free to check it out, it's probably the easiest prediction example that you'll find!
+
+<figure><img src="../../.gitbook/assets/2024-03-21 - 19-03-23@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## What's Next
 
