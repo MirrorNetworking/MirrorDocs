@@ -328,7 +328,7 @@ It may or may not work for your game, because we still need to test it with more
 
 Mirror's prediction is optimized for large physics scenes where the player only interacts with a few objects at a time. However, we still built a worst-case benchmark where you can spawn a few hundred (or thousands of) objects that are predicted all the time.&#x20;
 
-We are using this benchmark for profiling and performance optimizations. Feel free to check it out, it's probably the easiest prediction example that you'll find!
+We are using this benchmark for profiling and performance optimizations. Feel free to check it out in **Examples/BenchmarkPrediction**, it's probably the easiest prediction example that you'll find!
 
 <figure><img src="../../.gitbook/assets/2024-03-21 - 19-03-23@2x.png" alt=""><figcaption></figcaption></figure>
 
