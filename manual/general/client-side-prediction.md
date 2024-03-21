@@ -1,5 +1,7 @@
 ---
-description: Everything you need to know about Prediction.
+description: >-
+  Everything you need to know about Mirror's production ready Prediction
+  algorithm!
 ---
 
 # Client Side Prediction
