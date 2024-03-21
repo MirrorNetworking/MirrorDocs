@@ -239,12 +239,83 @@ Just check the **PredictedBilliards** example's code - it's not actually too dif
 
 ## Mirror's High Performance Prediction under the Hood
 
+Now there's one last detail that you absolutely must understand about Mirror's prediction.
 
+Traditionally, Prediction algorithms always roll back and resimulate **the whole physics scene.**\
+Because if we want to resimulate a `Rigidbody`, obviously we need `Physics.Simulate()`:
 
+```csharp
+// grab simulation 100 ms ago
+WorldSnapshot state = history[-100ms];
 
+// compare with server state
+if (state != serverState)
+{
+    // resimulate everything
+    state = serverState;
+    Physics.Simulate();
+    
+    // ... do this again for 50ms ago, 25ms ago, 0ms ago etc.
+}
+```
 
-## What Mirror's Prediction can do
+While this is the most **correct** solution for prediction, there is a downside: performance.
 
+Resimulating large physics scenes multiple times per correction is super expensive!
 
+While this gives the best results, it's very CPU heavy and doesn't scale well to large scenes.
+
+This is **not** what Mirror does!
+
+{% hint style="success" %}
+Mirror's prediction runs without **`Physics.Simulate()`**.
+{% endhint %}
+
+Huh? Yes, you read that right!
+
+During 2023, a major game studio contacted us about implementing prediction for large physics scenes with thousands of predicted Rigidbodies where Physics.Simulate() is just not an option.&#x20;
+
+Their setup is as follows: there are thousands of interactable networked Rigidbodies which need to be predicted, but the player only ever interacts with a handful of them at a time.
+
+If you remember, Prediction traditionally calls Physics.Simulate() to resimulate the whole physics scene - in this case, with thousands of Rigidbodies. This was simply not an option for this game, so we had to improvise.
+
+We thought: what if we were to resimulate **only** the objects which the player is currently interacting with?
+
+This would reduce resimulations from 'thousands of objects' to 'a handful of objects'. Of course, without Physics.Simulate() we would never get a 100% accurate resimulation.&#x20;
+
+But how well would it work? Would it be worth the significant performance saving?
+
+...
+
+And so we set out to build Mirror's Prediction with a different mindset: we trade off 10% accuracy vs. 10x performance by not using Physics.Simulate(). We weren't sure if this was going to work - in fact, we didn't think it would. But we wanted to help the studio ship their game, and so our journey began.
+
+At first, we've focused on a super simple demo: predicted Billiards - the one that you've seen above. The early results were pretty bad, but we kept at it. About 5 months later, after countless of iterations and improvements it eventually got better. Today, predicted Billiards looks really good. If you look closely, you can occasionally spot some unrealistic simulations - but for us the 10x performance gain was worth it.
+
+Next, we set out to integrate **PredictedRigidbody** into their game, which is full on 3D with much more complex physics than just Billiards. Once again, it looked pretty bad at first. After more iterations, we got this to work very decently as well - unfortunately we can't show any video of the game here.
+
+{% hint style="success" %}
+Long story short, Mirror's prediction is 10x faster, 10% less accurate, and ideal for scenes where only a few physics objects interact with each other at a time.
+{% endhint %}
+
+Please understand that we are taking a huge risk with this implementation. While it works for the mentioned game studio, it may not end up working well for scenes with super complex physics interactions, or for predicted players. If you bet your game on our prediction, please be aware of this.
 
 ## What's Next
+
+As mentioned, our two major upcoming goals for prediction are:
+
+* Support more complex physics like stacked objects
+* Support predicted player movement
+
+We are working on predicted stacked objects right now. As of March 2024, they generally sync well, but don't properly come to rest just yet.
+
+<figure><img src="../../.gitbook/assets/2024-03-21 - predicting stacked objects.png" alt=""><figcaption><p>Testing stacked predicted Rigidbodies with our custom algorithm</p></figcaption></figure>
+
+As for predicted player movement: this will be super useful to avoid both latency and cheating for movement in many game types. The prediction algorithm will be the same - we simply didn't have time to do any tests on this yet - which is why we don't want to recommend doing it just yet.
+
+We will most likely need to add some kind of prediction tolerance to give players 10% more authority instead of correcting every single miss-prediction.
+
+{% hint style="info" %}
+Prediction will remain our focus for the rest of the year 2024.
+
+Let's see where it goes, please try it and report back! :rocket:
+{% endhint %}
