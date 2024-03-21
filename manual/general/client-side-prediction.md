@@ -30,23 +30,23 @@ Emphasis here is on _"**should feel"**_: if this is not a problem in your game, 
 
 For example, there were many popular MMOs in the 2000s where you simply had to wait for inputs and that was okay. The same is true for card games, strategy games and perhaps even most games in general - it's often okay to wait 50ms.
 
-However - for fast paced games like shooters, VR, or even simple physics games like Billiards - having a noticeable delay can completely unacceptable. As you may have guessed - there is a solution and it's called Prediction!
+However - for fast paced games like shooters, VR, or even simple physics games like Billiards - having a noticeable delay can be completely unacceptable. As you may have guessed, there is a solution and it's called Prediction!
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Prediction means simulating actions on the client immediately in order to avoid delay.\
 Once the server state comes back, we compare the prediction and correct it if necessary!
 {% endhint %}
 
 If that definition confuses you, let's explain it again in more detail.
 
-Usually, this is what happens when the client wants to apply force to a the billiards ball:
+Usually, this is what happens when the client wants to apply force to a billiards ball:
 
 * Client sends `[Command] CmdApplyForce(force)` to server (... this takes 50 ms)
 * Server executes `Rigidbody.AddForce(force)`
 * Server syncs new Rigidbody positions to client (... this takes 50 ms)
 * Client sees the result, in this case 50ms + 50ms = 100 ms later
 
-Now we might think: okay, let's just apply the force on the client immediately:
+Now we might think, okay, let's just apply the force on the client immediately:
 
 * Client executes `Rigidbody.AddForce(force)`
 * This happens locally, neither the server nor other clients see it :sob:
@@ -58,11 +58,11 @@ Okay so, what if we apply the force locally AND sync it to server:
 * Server executes `Rigidbody.AddForce(force)` as well
 * Everyone is happy... right? Wrong! :disappointed\_relieved:
 
-Unfortunately, most Physics engines (including Unity's PhysX) are **not deterministic**. Which means that applying force on client will give slightly different results on the server. And those difference very quickly add up to the point where the balls are completely out of sync about half a second later. Yep, this sucks. The reason for it is that 'floating point' operations aren't deterministic. If we calculate `Rigidbody.position += Vector2.up` on two different machines, we get every so slightly different results. This difference adds up to massive desync in just under a second.
+Unfortunately, most Physics engines (including Unity's PhysX) are **not deterministic**. Which means that applying force on client will give slightly different results on the server. And those difference very quickly add up to the point where the balls are completely out of sync about half a second later. Yep, this sucks. The reason for it is that 'floating-point' operations aren't deterministic. If we calculate `Rigidbody.position += Vector2.up` on two different machines, we get ever so slightly different results. This difference adds up to massive desync in just under a second.
 
-Now you may think: why don't we use **deterministic Physics** engines then? Well for one, because Unity just doesn't have one. And secondly, it's a lot of work to build one. And third, it's slower than regular physics since instead of floating point numbers, we need fixed point numbers - which effectively need twice as many operations.
+Now you may think: why don't we use **deterministic Physics** engines then? Well for one, because Unity just doesn't have one. And secondly, it's a lot of work to build one. And third, it's slower than regular physics since instead of floating-point numbers, we need fixed-point numbers which effectively need twice as many operations.
 
-So the next question is: what's the solution then? If client should simulate immediately but client and server always drift apart, then what can we do?
+So, the next question is, what's the solution then? If client should simulate immediately but client and server always drift apart, then what can we do?
 
 Well, the easiest solution would be this:
 
@@ -77,7 +77,7 @@ Notice how there's two "... it takes 50 ms" in there! The client has already mov
 1. The state is from 100 ms ago. The client's current state would pretty much always be elsewhere already, causing corrections all the time.
 2. The corrections would set it to where it was 100 ms ago, meaning the balls would always jump noticeably backwards every time.
 
-So what's the solution then... ?
+So, what's the solution then?
 
 Well, it's actually quite simple in theory. The client just needs to store a history of positions:
 
@@ -90,23 +90,23 @@ Well, it's actually quite simple in theory. The client just needs to store a his
   * If there's a mismatch, then do the corrections.
 
 As result, it doesn't matter if we got the server state 50ms, 100ms or 150 ms later.\
-The client just checks in history\[- 100 ms] and compares!
+The client just checks in history \[- 100 ms] and compares!
 
-Visualized it may look like this, where the white boxes are the history of positions:
+Visualized, it may look like this, where the white boxes are the history of positions:
 
 <figure><img src="../../.gitbook/assets/2024-03-21 - 13-15-30@2x.png" alt=""><figcaption></figcaption></figure>
 
-_Okay now, we are almost there._
+Okay now, we are almost there.
 
-_**The last question is: how do we apply corrections?**_
+**The last question is: how do we apply corrections?**
 
-Currently we change the position where it was 100 ms ago. But how do we make it have an affect on where the billiards ball is **right now**?
+Currently we change the position where it was 100 ms ago. But how do we make it have an effect on where the billiards ball is **right now**?
 
 Well, how about this: we apply the deltas. If the ball was at (1,2,0) before, and has since moved a bit forward and a bit to the right - then correct it to something like (1.1, 2, 0) and then move it 'a bit forward' and 'a bit to the right' on top of it again.
 
 To summarize:
 
-{% hint style="warning" %}
+{% hint style="success" %}
 Prediction works by **keeping** a history, **correcting** the past and **rewinding** the deltas on top.
 {% endhint %}
 
@@ -120,12 +120,12 @@ Anyway, let's try it in action then!
 
 Now that we understand what Prediction is and how it works, let's actually try it right now!
 
-* Open the Examples/**BilliardsPredicted** example from latest Mirror on **Github**.
-  * The Asset Store Mirror version may have this demo, but it's not up to date yet as of March 2024. Please grab it from Github: [https://github.com/MirrorNetworking/Mirror/](https://github.com/MirrorNetworking/Mirror/)
+* Open the Examples/**BilliardsPredicted** example from latest Mirror on **GitHub**.
+  * The Asset Store Mirror version may have this demo, but it's not up to date yet as of March 2024. Please grab it from [GitHub Releases](https://github.com/MirrorNetworking/Mirror/releases).
 * Build it, select **Server Only** in the build, and **Login** the client in your Unity Editor.
 * Click and drag the white ball to apply a shot to it.
 * Notice how physics react **instantly** without any latency.
-* Try increasing the latency in NetworkManager's LatencySimulation component to 50ms.
+* Try increasing the latency in our [Latency Simulation](../transports/latency-simulaton-transport.md) component to 50ms.
 * Build and try again - even with latency, reactions are instant!
 
 <figure><img src="../../.gitbook/assets/2024-03-21 - Predicted Billiards Release.png" alt=""><figcaption></figcaption></figure>
@@ -134,7 +134,7 @@ Did you notice the transparent ghost objects? When using PredictedRigidbody, the
 
 * **The (transparent) predicted physics object:** this is the Rigidbody which predicts ahead and has corrections applied to it.
 * The **(rendered)** original object: this is 'your' original object without physics. This is what the player sees. It automatically follows the physics object but with some smoothing applied.
-* The **(transparent)** remote state object: this is for debugging, it shows you the latest server state of the object.
+* The **(transparent)** remote state object: this is for debugging. It shows you the latest server state of the object.
 
 ## Adding PredictedRigidbody to your game
 
@@ -175,7 +175,7 @@ But wait, there's _one more thing_...
 
 Remember how PredictedRigidbody moves your Rigidbody+Colliders onto a ghost object temporarily?
 
-That means GetComponent\<Rigidbody>() wouldn't actually work all the time :sob:.
+That means GetComponent\<Rigidbody>() wouldn't actually work all the time. :sob:
 
 But no worries, just grab the Rigidbody from our PredictedRigidbody component instead:
 
@@ -201,8 +201,6 @@ void CmdAddForce(Vector3 force)
 
 Yep, this is actually it. Everything you need are 4 lines of code and 1 component!
 
-
-
 Just to repeat this one more time:
 
 It's important to understand that once you add PredictedRigidbody to an object, it will automatically separate the Rigidbody & Colliders into a Ghost object while predicting!
@@ -218,7 +216,7 @@ Please keep this in mind.&#x20;
 
 `OnCollisionEnter/Exit()` won't always be called while predicting.
 
-`OnTriggerEnter/Exit()` won't always be called while predicting
+`OnTriggerEnter/Exit()` won't always be called while predicting.
 {% endhint %}
 
 You probably won't need this yet, but for the future if you want to get OnCollision callbacks to work:
@@ -246,9 +244,9 @@ This article focuses on `PredictedRigidbody` - which is a complete component tha
 If you want to predict other types like CharacterControllers, there's good news and bad news:
 
 * The **Good News** is that the underlying Prediction & Correction algorithms are kept generic. You can find them in Prediction.cs and use them for other types easily.
-* The **Bad News** is that they are just standalone algorithms. If you want to make an easy to use component like PredictedCharacterController, then it's still a bit of work on top of it.&#x20;
+* The **Bad News** is that they are just standalone algorithms. If you want to make an easy-to-use component like PredictedCharacterController, then it's still a bit of work on top of it.&#x20;
 
-We recommend you to check out the code in PredictedRigidbody.cs to get a feeling for the separation between high level component and low level algorithm, and to see how much extra work is needed to predict a specific type like Rigidbody.
+We recommend you check out the code in PredictedRigidbody.cs to get a feeling for the separation between high level component and low-level algorithm, and to see how much extra work is needed to predict a specific type like Rigidbody.
 
 To summarize: you _can_ use Mirror's prediction for other types, but you _will_ have to do some work.
 
@@ -298,7 +296,7 @@ While there are games where interacting with thousands of Rigidbodies is necessa
 
 While we didn't believe it was going to work, we didn't have a choice. So we set out to try it anyway.&#x20;
 
-...
+## History
 
 We started with a very simplified example that's mostly in 2D: predicted Billiards - the example that you can find in your Mirror folder today.
 
