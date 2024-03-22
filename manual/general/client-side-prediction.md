@@ -339,7 +339,9 @@ After supporting interactable objects, our two major upcoming goals are:
 
 We are working on predicted stacked objects right now. As of March 2024, they generally sync well, but don't properly come to rest just yet. Just like with the early billiards demos, they don't look good enough for production games just yet! Once they work well, we will release a demo for this too.
 
-<figure><img src="../../.gitbook/assets/2024-03-21 - predicting stacked objects.png" alt=""><figcaption><p>Testing stacked predicted Rigidbodies with our custom algorithm</p></figcaption></figure>
+
+
+{% embed url="https://www.youtube.com/watch?v=WI0oV8ZSbUo" %}
 
 Predicted player movement has not yet been tested whatsoever. It may or may not work, and we will most likely need to add a 10% tolerance to say: accept 10% of mispredictions instead of hard correcting them always. This is because for players, smoothness while letting them mispredict a little bit should be a worth tradeoff over correcting all the time.
 
