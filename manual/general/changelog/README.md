@@ -31,7 +31,10 @@ For further details on versions and their specific change logs, see github relea
 
 ### Changed
 
-* Changed: Continued improvements to `Prediction` and `PredictedRigidbody`...still experimental.
+* Changed: Continued improvements to `Prediction` and `PredictedRigidbody`. This is still considered as experimental features.
+* Changed: SyncDictionary, SyncList, and SyncSet all now call their Clear operations **after** invoking the Callback, so users can iterate the collection in the callback hander.
+* Changed: SyncDictionary, SyncList, and SyncSet all now have individual Actions that users can subscribe to directly.
+  * **NOTE:** Some Actions pass the **OLD** values where appropriate, so be careful with your implementations. Also note that these new actions replace the generic Callback Action that is now obsolete and will be removed later in the year.
 
 ## v89.0.0 -- 2024-Mar-05
 
