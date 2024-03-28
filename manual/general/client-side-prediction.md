@@ -170,14 +170,25 @@ void CmdAddForce(Vector3 force)
 And that's all! `PredictedRigidbody` takes care of all the magic for you!
 
 {% hint style="danger" %}
-But wait, there's _one more thing_...
+But wait, there's _one more thing... we need to understand **Prediction Mode**!_
 {% endhint %}
 
-Remember how PredictedRigidbody moves your Rigidbody+Colliders onto a ghost object temporarily?
+## Smoothing Mode
 
-That means GetComponent\<Rigidbody>() wouldn't actually work all the time. :sob:
+<figure><img src="../../.gitbook/assets/2024-03-28 - 22-14-15@2x.png" alt=""><figcaption></figcaption></figure>
 
-But no worries, just grab the Rigidbody from our PredictedRigidbody component instead:
+Prediction & corrections are always hard applied to the Rigidbody. In order to smooth out results & jitter, there are two different ways for motion smoothing:
+
+* **Smooth**: once the Rigidbody starts moving, all the physics components (Rigidbody+Colliders) are automatically moved onto an invisible Ghost object. The Renderer stays on the original object and smoothly interpolates behind the Ghost object. This gives very smooth results, but there's the extra cost of creating & destroying ghosts and smooth following them.
+* **Fast**: here everything remains on the original GameObject. Renderers are always where physics are. This looks snappier, a bit harsher, less smooth. However, it's also significantly faster.
+
+{% hint style="success" %}
+We are still evaluating both modes for different demos & game projects. The goal is to settle with one mode eventually. The best way to get a feeling for both modes is to try them in our **BilliardsPredicted** demo yourself. Just change them on both prefabs and see the differences.
+{% endhint %}
+
+If you choose **Smooth** mode, then the rest of your game needs to prepare for the fact that the object's Rigidbody+Colliders are moved out of and back into the object all the time. Do what we explain below to make this work seemlessly - in fact, if you do it all the time then you can easily switch modes without breaking things. If you don't want to do any of these changes, then just stick with **Fast** mode.
+
+Alright so the solution is to just grab the Rigidbody from our PredictedRigidbody component all the time:
 
 ```csharp
 // PROPERLY handle inputs on client
@@ -203,7 +214,7 @@ Yep, this is actually it. Everything you need are 4 lines of code and 1 componen
 
 Just to repeat this one more time:
 
-It's important to understand that once you add PredictedRigidbody to an object, it will automatically separate the Rigidbody & Colliders into a Ghost object while predicting!
+It's important to understand that once you add PredictedRigidbody with **Smooth Mode** to an object, it will automatically separate the Rigidbody & Colliders into a Ghost object while predicting!
 
 {% hint style="danger" %}
 Please keep this in mind.&#x20;
