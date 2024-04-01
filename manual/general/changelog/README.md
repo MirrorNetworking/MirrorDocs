@@ -31,6 +31,8 @@ For further details on versions and their specific change logs, see github relea
 
 ### Changed
 
+* `Changed: LagCompensator` attributes updated and custom inspector added.
+* Changed: Remote Statistics default hotkey changed to backtick ( `` ` `` ).
 * Changed: Continued improvements to `Prediction` and `PredictedRigidbody`. This is still considered as experimental features.
 * Changed: SyncDictionary, SyncList, and SyncSet all now call their Clear operations **after** invoking the Callback, so users can iterate the collection in the callback hander.
 * Changed: SyncDictionary, SyncList, and SyncSet all now have individual Actions that users can subscribe to directly.
