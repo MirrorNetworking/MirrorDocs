@@ -26,6 +26,7 @@ For further details on versions and their specific change logs, see github relea
 
 * Fixed: Weaver Custom Read / Write methods for Serialization now works across assembly definitions.
 * Fixed: EdgegapKcp StopHost() null reference exception.
+* Fixed: EdgegapHosting now only includes enabled scenes in builds.
 * Fixed: ILPostProcessorAssemblyResolver now ignores Bee.BeeDriver better.
 * Fixed: Simple Web Transport now locally scopes `websocket` and `Runtime`.
 
