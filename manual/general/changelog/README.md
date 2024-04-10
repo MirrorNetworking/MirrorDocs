@@ -31,6 +31,7 @@ For further details on versions and their specific change logs, see github relea
 * Fixed: Simple Web Transport now locally scopes `websocket` and `Runtime`.
 * Fixed: Latency Simulation now sends unreliable data over the correct channel.
 * Fixed: Missing overrides added to Network Rigidbody components.
+* Fixed: Network Animator now defaults animatorSpeed to 1 so SyncVar works correctly.
 
 ### Changed
 
