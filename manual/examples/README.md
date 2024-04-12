@@ -62,4 +62,4 @@ Only a select few have documentation pages, check the Mirror/Examples directory 
 * Tanks Co-Op\
   &#x20;Take control of tank Vehicles, spawn as regular player prefab, interact with tank to enter, drive and shoot, exit to continue being regular player.
 * VR\
-  &#x20;A selectoin of multiplayer-ready virtual reality examples that use Unitys XR toolkit, allows the use of multiple VR headsets with one setup.&#x20;
+  &#x20;A selection of multiplayer-ready virtual reality examples that use Unitys XR toolkit, allows the use of multiple VR headsets with one setup.&#x20;
