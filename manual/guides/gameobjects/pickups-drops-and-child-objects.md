@@ -16,7 +16,7 @@ In the image below, Kyle has an empty game object, `RightHand`, added to the wri
 **NOTE**: The item prefabs are _art only_...they have no scripts, and they _must not_ have networking components. They can have monobehaviour-based scripts, of course, which can be referenced and called from ClientRpc's on the player prefab.
 {% endhint %}
 
-The inspector shows `RightHand` assigned in 2 places, the Player Equip script, as well as the target of the Network Transform Child component, so we could adjust the relative position of the attachment point (not the art) for all clients as needed.
+The inspector shows `RightHand` assigned in 2 places, the Player Equip script, as well as the target of the 2nd Network Transform component, so we could adjust the relative position of the attachment point (not the art) for all clients as needed.
 
 ![](<../../../.gitbook/assets/image (16).png>)
 
