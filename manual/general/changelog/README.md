@@ -32,12 +32,13 @@ For further details on versions and their specific change logs, see github relea
 * Fixed: Latency Simulation now sends unreliable data over the correct channel.
 * Fixed: Missing overrides added to Network Rigidbody components.
 * Fixed: Network Animator now defaults animatorSpeed to 1 so SyncVar works correctly.
+* Fixed: version file is now included in release packages with correct version.
 
 ### Changed
 
 * Changed: `LagCompensator` attributes updated and custom inspector added.
 * Changed: Remote Statistics default hotkey changed to backtick ( `` ` `` ).
-* Changed: Continued improvements to `Prediction` and `PredictedRigidbody`. This is still considered as experimental features.
+* Changed: Continued improvements to `Prediction` and `PredictedRigidbody`. These are still considered as experimental features.
 * Changed: SyncDictionary, SyncList, and SyncSet all now call their Clear operations **after** invoking the Callback, so users can iterate the collection in the callback hander.
 * Changed: SyncDictionary, SyncList, and SyncSet all now have individual Actions that users can subscribe to directly.
   * **NOTE:** Some Actions pass the **OLD** values where appropriate, so be careful with your implementations. Also note that these new actions replace the generic Callback Action that is now obsolete and will be removed later in the year.
