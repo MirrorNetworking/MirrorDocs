@@ -146,3 +146,5 @@ server {
 Before deploying the changes, test the config files with `nginx -t`.
 
 If the tests are ok, redploy the nginx server with `sudo systemctl restart nginx`.
+
+Now, the client should be able to connect to `{domain}:7777`.
