@@ -6,11 +6,11 @@ Adding a reverse proxy to NGINX is as simple as defining a `server` directive de
 
 For this document we're going to explore writing NGINX configuration for WebGL game clients and Mirror game servers.
 
----
+***
 
 It is worth noting that a the main `/etc/nginx/nginx.conf` file includes files from `/etc/nginx/sites-enabled/` into its `http` directive. The instruction to do this looks something like the following:
 
-```nginx configuration
+```nginx
 # ...
 http {
     # ...
@@ -25,7 +25,7 @@ This is relevant if you are trying to follow online guides as sometimes content 
 
 If you wanted to set up an NGINX server to reverse proxy UDP connections (for example if you are using KcpTransport) then you'd want to add a `stream` directive. Furthermore, if you wanted to set up a similar mechanism as `sites-enabled` but for the `stream` directive you can update the `nginx.conf` file as follows:
 
-```nginx configuration
+```nginx
 # ...
 http {
     # ...
@@ -48,7 +48,8 @@ You can follow [Unity's Server Configuration Documentation](https://docs.unity3d
 Note: the `server_name` is set to `localhost` instead of your domain; this NGINX server will be used later.
 
 `/etc/nginx/sites-enabled/webgl-game-client.conf`
-```nginx configuration
+
+```nginx
 map $request_uri $gzip_encoding {
     ~*\.gz$  "gzip";
 }
@@ -69,9 +70,13 @@ server {
     # server_name example.org;
     server_name localhost;
     
-    http2 on;
-    listen 8080;
-    listen [::]:8080;
+    # nginx 1.25.1 and above:
+    #   http2 on;
+    #   listen 8080;
+    #   listen [::]:8080;
+    # nginx below 1.25.1:
+    listen 8080 http2;
+    listen [::]:8080 http2;
 
     root /usr/share/nginx/html;
 
@@ -95,7 +100,7 @@ server {
 
 ### NGINX Configuration for a Mirror Game Server
 
-Now that we have accounted for the WebGL game client we can focus on appropriate NGINX configuration for the Mirror Game Server. The expectation is that you will produce a "Dedicated Server" with the _Target Platform_ of "Linux" as your Mirror Game Server. Starting the Mirror game server should be as simple as executing your produced x86_64 binary (e.g. `./mirror-game-server.x86_64` assuming a build name of `mirror-game-server`) after uploading all game server files. The expectation is that the Mirror game server is run on the same server as NGINX; thus requests are proxied locally (`127.0.0.1`).
+Now that we have accounted for the WebGL game client we can focus on appropriate NGINX configuration for the Mirror Game Server. The expectation is that you will produce a "Dedicated Server" with the _Target Platform_ of "Linux" as your Mirror Game Server. Starting the Mirror game server should be as simple as executing your produced x86\_64 binary (e.g. `./mirror-game-server.x86_64` assuming a build name of `mirror-game-server`) after uploading all game server files. The expectation is that the Mirror game server is run on the same server as NGINX; thus requests are proxied locally (`127.0.0.1`).
 
 The Mirror Game Server exposes an HTTP endpoint to allow client websocket connections (`ws://` protocol) or secure websocket connections (`wss://`) to use. When you start the Mirror Game Server with Simple Web Transport it will listen for these connections on the port defined by SWT.
 
@@ -105,19 +110,21 @@ The following config defines a reverse proxy listening on port 27778 to proxy to
 
 `/etc/nginx/sites-enabled/mirror-game-server-single.conf`
 
-```nginx configuration
-# helper map to support connection upgrading, only define this once
+<pre class="language-nginx"><code class="lang-nginx"># helper map to support connection upgrading, only define this once
 map $http_upgrade $connection_upgrade {
     default upgrade;
     ''      close;
 }
 # the actual reverse proxy server block
 server {
-    http2 on;
-    # the server will listen on port 27778 for both ipv4 and ipv6 
-    listen 27778;
-    listen [::]:27778;
-    
+<strong>    # the server will listen on port 27778 for both ipv4 and ipv6 
+</strong>    # nginx version 1.25.1 and above:
+    #  http2 on;
+    #  listen 27778;
+    #  listen [::]:27778;
+    # nginx below version 1.25.1
+    listen 27778 http2;
+    listen [::]:27778 http2;
     server_name localhost;
     
     location / {
@@ -132,7 +139,7 @@ server {
         # The following headers are general settings, not directly used by SWT
         # Tell upstream the host
         proxy_set_header Host $host;
-        # Tell upstream real ip & forwarded for header
+        # Tell upstream real ip &#x26; forwarded for header
         proxy_set_header X-Real-IP  $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         # tell upstream this was served via https
@@ -149,7 +156,7 @@ server {
         proxy_connect_timeout 10;
     }
 }
-```
+</code></pre>
 
 ### Reverse Proxy for Mirror Game Server(s) and a WebGL Game Client (SSL Enabled & SSL Termination)
 
@@ -158,7 +165,8 @@ The following config defined a reverse proxy listening on port 8443 to serve Web
 SSL termination is the concept that a player interacts over HTTPS or WSS with a server configured to handle those requests (meaning certificates are configured with the server) but then the server proxies the requests to other servers over HTTP or WS. This configuration is common though to achieve "encryption in transit" SSL termination should not be used.
 
 `/etc/nginx/sites-enabled/reverse-proxy.conf`
-```nginx configuration
+
+```nginx
 # define an upstream server to proxy websocket connection requests to local (aka 127.0.0.1) game server(s)
 upstream mirror_game_server {
     server 127.0.0.1:7778; # 7778 is the default port for Mirror Game Server's Simple Web Transport -- adjust accordingly
@@ -178,10 +186,14 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
     
     # the server will listen on port 8443 for both ipv4 and ipv6 
-    http2 on;
-    listen 8443 ssl;
-    listen [::]:8443 ssl;
     
+    # nginx version 1.25.1 and above:
+    #    http2 on;
+    #    listen 8443 ssl;
+    #    listen [::]:8443 ssl;
+    # nginx below version 1.25.1
+    listen 8443 ssl http2;
+    listen [::]:8443 ssl http2;
     # webgl game client served at /client (cannot be served at / as currently the / path is reserved for websocket connection)
     location ~* ^/client(/.*)$ {
         # remove /client from the request path before proxying to the web game client
