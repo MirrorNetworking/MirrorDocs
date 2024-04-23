@@ -9,7 +9,7 @@ The Spawn / Unspawn delegates will look something like this:
 **Spawn Handler**
 
 ```csharp
-GameObject SpawnDelegate(Vector3 position, System.Guid assetId) 
+GameObject SpawnDelegate(Vector3 position, uint assetId) 
 {
     // do stuff here
 }
@@ -39,7 +39,8 @@ When a prefab is saved its `assetId` field will be automatically set. If you wan
 
 ```csharp
 // generate a new unique assetId 
-System.Guid creatureAssetId = System.Guid.NewGuid();
+System.Guid creatureAssetGuid = System.Guid.NewGuid();
+uint creatureAssetId = NetworkIdentity.AssetGuidToUint(creatureAssetGuid);
 
 // register handlers for the new assetId
 NetworkClient.RegisterSpawnHandler(creatureAssetId, SpawnCreature, UnSpawnCreature);
