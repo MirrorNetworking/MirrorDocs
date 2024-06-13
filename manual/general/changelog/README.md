@@ -15,12 +15,17 @@ For further details on versions and their specific change logs, see github relea
 
 ## v90.x.x -- In Progress
 
+## v89.80 - 2024-Jun-13
+
 ### Added
 
 * Added: Transport: `IsEncrypted` and `EncryptionCypher` virtual methods.
 * Added: Encryption Transport implements`IsEncrypted` & `EncryptionCypher` .
 * Added: Simple Web Transport implements`IsEncrypted` & `EncryptionCypher` .
 * Added: Edgegap Lobby Transport & Demo.
+* Added: Transport Exception Actions have been reimplemented.
+* Added: SpatialHashing3D for XYZ to include vertical axis in checks.
+* Added: Implement PortTransport for LatencySimulation since almost all underlying Transports are PortTransports.
 
 ### Fixed
 
@@ -29,9 +34,16 @@ For further details on versions and their specific change logs, see github relea
 * Fixed: EdgegapHosting now only includes enabled scenes in builds.
 * Fixed: ILPostProcessorAssemblyResolver now ignores Bee.BeeDriver better.
 * Fixed: Simple Web Transport now locally scopes `websocket` and `Runtime`.
-* Fixed: Latency Simulation now sends unreliable data over the correct channel.
+* Fixed: Latency Simulation had a bunch of minor bugs.
 * Fixed: Missing overrides added to Network Rigidbody components.
+* Fixed: Network Manager's OnGUI now wrapped in `DEBUG` compiler symbol.
+* Fixed: NetworkServer now correctly spawns player for owner client when Visibility is Force Hidden.
 * Fixed: Network Animator now defaults animatorSpeed to 1 so SyncVar works correctly.
+* Fixed: NetworkTransform components auto-assign their own GO if target is unassigned.
+* Fixed: Pool now checks for nulls when returning and discards.
+* Fixed: Batches are now properly returned to NetworkWriterPool before destroying the connection
+* Fixed: GetSyncVarNetworkBehaviour now validates componentIndex and logs detailed error instead of IndexOutofRangeException.
+* Fixed: Sync\* Collections now have pretty names in inspector.
 * Fixed: version file is now included in release packages with correct version.
 
 ### Changed
@@ -42,6 +54,9 @@ For further details on versions and their specific change logs, see github relea
 * Changed: SyncDictionary, SyncList, and SyncSet all now call their Clear operations **after** invoking the Callback, so users can iterate the collection in the callback hander.
 * Changed: SyncDictionary, SyncList, and SyncSet all now have individual Actions that users can subscribe to directly.
   * **NOTE:** Some Actions pass the **OLD** values where appropriate, so be careful with your implementations. Also note that these new actions replace the generic Callback Action that is now obsolete and will be removed later in the year.
+* Changed: KCP Transport updated to version 1.41.
+* Changed: Moved GetClientAddress exception handling from Transport into Telepathy itself.
+* Changed: NetworkServer.RemovePlayerForConnection now has RemovePlayerOptions.
 
 ## v89.0.0 -- 2024-Mar-05
 
