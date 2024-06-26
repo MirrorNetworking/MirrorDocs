@@ -106,7 +106,7 @@ The Mirror Game Server exposes an HTTP endpoint to allow client websocket connec
 
 Our goal with the NGINX configuration is to expose an endpoint on a different port than SWT and proxy requests to the Mirror Game Server HTTP endpoint.
 
-The following config defines a reverse proxy listening on port 27778 to proxy to 127.0.0.1:7778.
+The following config defines a reverse proxy listening on port 7778 to proxy to 127.0.0.1:27778.
 
 `/etc/nginx/sites-enabled/mirror-game-server-single.conf`
 
@@ -117,18 +117,18 @@ map $http_upgrade $connection_upgrade {
 }
 # the actual reverse proxy server block
 server {
-<strong>    # the server will listen on port 27778 for both ipv4 and ipv6 
+<strong>    # the server will listen on port 7778 for both ipv4 and ipv6 
 </strong>    # nginx version 1.25.1 and above:
     #  http2 on;
-    #  listen 27778;
-    #  listen [::]:27778;
+    #  listen 7778;
+    #  listen [::]:7778;
     # nginx below version 1.25.1
-    listen 27778 http2;
-    listen [::]:27778 http2;
+    listen 7778 http2;
+    listen [::]:7778 http2;
     server_name localhost;
     
     location / {
-        proxy_pass 'http://127.0.0.1:7778';
+        proxy_pass 'http://127.0.0.1:27778';
         
         proxy_redirect off;
         # very long timeouts to make sure long-running connections aren't interrupted
@@ -169,13 +169,15 @@ SSL termination is the concept that a player interacts over HTTPS or WSS with a 
 ```nginx
 # define an upstream server to proxy websocket connection requests to local (aka 127.0.0.1) game server(s)
 upstream mirror_game_server {
-    server 127.0.0.1:7778; # 7778 is the default port for Mirror Game Server's Simple Web Transport -- adjust accordingly
-    # if you produce more Mirror Game Server builds with different SWT ports you may do something like...
-    # server 127.0.0.1:7779;
-    # server 127.0.0.1:7780;
-    # server 127.0.0.1:7781;
+    server 127.0.0.1:27778;
+    # 27778 is the default port for Mirror Game Server's Simple Web Transport -- adjust accordingly
+    # If you produce more Mirror Game Server builds with different SWT ports you may do something like...
+    # server 127.0.0.1:27779;
+    # server 127.0.0.1:27780;
+    # server 127.0.0.1:27781;
 }
-# the webgl game client uses the server defined by web-game-client.conf; an alternative setup has this reverse proxy simple serve client files
+# the webgl game client uses the server defined by web-game-client.conf
+# an alternative setup has this reverse proxy simple serve client files
 upstream webgl_game_client {
     server 127.0.0.1:8080;
 }
