@@ -97,9 +97,9 @@ Replace `{domain}` with your domain.
 upstream mirror_game_server {
     server 127.0.0.1:27777; # We will use port 27777 for hosting the server
     # if you produce more Mirror Game Server builds with different SWT ports you may do something like...
-    # server 127.0.0.1:7778;
-    # server 127.0.0.1:7779;
-    # server 127.0.0.1:7780;
+    # server 127.0.0.1:27778;
+    # server 127.0.0.1:27779;
+    # server 127.0.0.1:27780;
 }
 server {
     # here we set the domain (example.org)
