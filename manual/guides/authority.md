@@ -31,6 +31,10 @@ GameObject go = Instantiate(prefab);
 NetworkServer.Spawn(go, connectionToClient);
 ```
 
+{% hint style="info" %}
+Note: A change of NetworkServer.Spawn hierarchy is not automatically synced.
+{% endhint %}
+
 #### Using identity.AssignClientAuthority <a href="#using-identityassignclientauthority" id="using-identityassignclientauthority"></a>
 
 You can give authority to a client any time using `AssignClientAuthority`. This can be done by calling `AssignClientAuthority` on the object you want to give authority to.
