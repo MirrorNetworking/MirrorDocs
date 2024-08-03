@@ -8,7 +8,7 @@ If you are not familiar with the term: **Snapshot Interpolation** interpolates t
 
 When developing the new `NetworkTransform` component, we've had two goals:
 
-* **Make it stable**: We needed something that can be used by thousands of projects without _any_ surprises. Major hits already use Mirror and production, so we needed to be extremely careful to get this right.
+* **Make it stable**: We needed something that can be used by thousands of projects without _any_ surprises. Major hits already use Mirror in production, so we needed to be extremely careful to get this right.
 * **Make it reusable**: NetworkTransform is one of many components that need Snapshot Interpolation. Someone might need it for 3D / 2D Rigidbodies, Character Controllers and more. The algorithm however is always the same.
 
 In order to achieve both goals, we decided to split the **Snapshot Interpolation** algorithm into a standalone class that can be used by anyone. It's raw C#, completely independent from Mirror & Unity. You can use it in Mirror, or in standalone servers or in different game engines.
@@ -24,7 +24,7 @@ The approach is comparable to **kcp**, which is merely a reliability algorithm t
 **Snapshot Interpolation** is quite difficult to get right. Not only do we operate on two timelines (local & remote), we also have to deal with adverse network conditions like latency spikes, packet loss and scramble. To make matters worse, servers & clients might also be under heavy load and update on significantly different frequencies at times.
 
 {% hint style="info" %}
-To put things into perspective: the Snapshot Interpolation algorithm took us **4 months** of work to get it work. More than half the time was spent on tests & simulations to guarantee stability.
+To put things into perspective: the Snapshot Interpolation algorithm took us **4 months** of work to get it to work. More than half the time was spent on tests & simulations to guarantee stability.
 {% endhint %}
 
 Developing Snapshot Interpolation as a standalone algorithm allows us to **simulate** the different scenarios without even running latency simulation or Mirror:
