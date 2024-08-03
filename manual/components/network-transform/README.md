@@ -33,9 +33,9 @@ You can use the **Sync Interval** to specify how often it syncs (in seconds).
 
 Network conditions are never ideal, so those updates may come in out of order, delayed or get dropped somewhere on the way.
 
-Smooth movement over non ideal network conditions is one of the more difficult problems in game networking. Our `NetworkTransform` component solves it by using [Snapshot Interpolation](snapshot-interpolation.md). We recommend reading through the linked chapter to understand it in detail.
+Smooth movement over non-ideal network conditions is one of the more difficult problems in game networking. Our `NetworkTransform` component solves it by using [Snapshot Interpolation](snapshot-interpolation.md). We recommend reading through the linked chapter to understand it in detail.
 
-In short, smooth movement over non ideal conditions is achieved through buffering. The worse the conditions, the higher the **Buffer Time Multiplier** needs to be. However, the higher it is the longer it buffers too.&#x20;
+In short, smooth movement over non-ideal conditions is achieved through buffering. The worse the conditions, the higher the **Buffer Time Multiplier** needs to be. However, the higher it is the longer it buffers too.&#x20;
 
 The total buffer time is calculated by `sendInterval * Buffer Time Multiplier`. It's usually recommended to use a factor of '3'.&#x20;
 
