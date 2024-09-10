@@ -31,6 +31,7 @@
   * [Client Side Prediction](manual/general/client-side-prediction.md)
   * [History Bounds](manual/general/history-bounds.md)
   * [Tests](manual/general/tests.md)
+  * [NetGraph](manual/general/netgraph.md)
 * [FAQ](manual/faq/README.md)
   * [Execution Order](manual/faq/execution-order.md)
 * [Transports](manual/transports/README.md)
