@@ -158,3 +158,4 @@
 * [Gitbook Guide](community-guides/gitbook-guide.md)
 * [Mirror Branding](community-guides/mirror-branding.md)
 * [Contributors Agreement](community-guides/contributors-agreement.md)
+* [Documentation License](community-guides/documentation-license.md)
