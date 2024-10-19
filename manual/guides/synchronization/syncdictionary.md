@@ -61,9 +61,12 @@ public class ExamplePlayer : NetworkBehaviour
                 break;
             case SyncIDictionary<string, Item>.Operation.OP_SET:
                 // entry changed
+                // "Item item" is the OLD value
+                // Get the new value from 'Equipment[key]'
                 break;
             case SyncIDictionary<string, Item>.Operation.OP_REMOVE:
                 // entry removed
+                // "Item item" is the OLD value
                 break;
             case SyncIDictionary<string, Item>.Operation.OP_CLEAR:
                 // Dictionary was cleared
