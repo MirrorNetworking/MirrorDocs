@@ -45,8 +45,8 @@ For further details on versions and their specific change logs, see github relea
 * Unity 6 Compatibility.
 * PlayerContollers have been overhauled and examples updated.
 * ServerTeleport added to NetworkTransform.
-* Ping/Traffic/FPS Graphs
-* PickupsDropsChilds example with Robot Kyle created
+* Ping/Traffic/FPS Graphs.
+* PickupsDropsChilds example with Robot Kyle created.
 
 ### Fixes
 
