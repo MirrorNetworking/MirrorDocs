@@ -30,11 +30,11 @@ For further details on versions and their specific change logs, see github relea
 * Examples updated.
 * Edgegap Plugin updated to 2.3.1.
 * Encryption Transport now implements Port Transport.
-* Network Server `dontListen` renamed to `listen` to eliminate double negative bool.
 * Network Server now checks `listen` and rejects connections if not listening.
 
 ### Changes
 
+* Network Server `dontListen` renamed to `listen` to eliminate double negative bool.
 * Deprecated Snapshot interpolation settings in Network Client in favor of SnapShotSettings.
 * Bouncy Castle moved to Encryption Transport folder.
 
