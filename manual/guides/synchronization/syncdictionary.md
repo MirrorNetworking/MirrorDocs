@@ -23,6 +23,13 @@ public struct Item
     public int hitPoints;
     public int durability;
 
+    public Item(string name, int hitPoints, int durability)
+    {
+        this.name = name;
+        this.hitPoints = hitPoints;
+        this.durability = durability;
+    }
+
     public override string ToString()
     {
         return $"name={name} hitPoints={hitPoints} durability={durability}";
@@ -35,10 +42,10 @@ public class SyncDictionaryExample : NetworkBehaviour
 
     public override void OnStartServer()
     {
-        Equipment.Add("head", new Item { name = "Helmet", hitPoints = 10, durability = 20 });
-        Equipment.Add("body", new Item { name = "Epic Armor", hitPoints = 50, durability = 50 });
-        Equipment.Add("feet", new Item { name = "Sneakers", hitPoints = 3, durability = 40 });
-        Equipment.Add("hands", new Item { name = "Sword", hitPoints = 30, durability = 15 });
+        Equipment["head"] = new Item("Helmet", 10, 20);
+        Equipment["body"] = new Item("Epic Armor", 50, 50);
+        Equipment["feet"] = new Item("Sneakers", 3, 40);
+        Equipment["hands"] = new Item("Sword", 30, 15);
     }
 
     public override void OnStartClient()
