@@ -10,66 +10,74 @@ A SyncHashSet can contain any [supported mirror type](../data-types.md)
 SyncHashSet must be declared **readonly** and initialized in the constructor.
 {% endhint %}
 
-Add a SyncHashSet field to your NetworkBehaviour class. For example:
-
 ```csharp
-public class Player : NetworkBehaviour
+public class SyncHashSetExample : NetworkBehaviour
 {
-    [SerializeField]
-    public readonly SyncHashSet<string> skills = new SyncHashSet<string>();
+    public readonly SyncHashSet<string> namesHashSet = new SyncHashSet<string>();
 
-    int skillPoints = 10;
-
-    [Command]
-    public void CmdLearnSkill(string skillName)
-    {
-        if (skillPoints > 1)
-        {
-            skillPoints--;
-            skills.Add(skillName);
-        }
-    }
-}
-```
-
-You can also detect when a SyncHashSet changes. This is useful for refreshing your character in the client or determining when you need to update your database.
-
-Subscribe to the Callback event typically during `Start`, `OnClientStart` or `OnServerStart` for that.
-
-{% hint style="warning" %}
-Note that by the time you subscribe, the set will already be populated, so you will not get a call for the initial data, only updates.
-{% endhint %}
-
-```csharp
-public class Player : NetworkBehaviour
-{
-    [SerializeField]
-    public readonly SyncHashSet<string> buffs = new SyncHashSet<string>();
-
-    // this will add the delegate on the client.
-    // Use OnStartServer instead if you want it on the server
     public override void OnStartClient()
     {
-        buffs.Callback += OnBuffsChanged;
+        // Add handlers for SyncHashSet Actions
+        namesHashSet.OnAdd += OnItemAdded;
+        namesHashSet.OnRemove += OnItemRemoved;
+        namesHashSet.OnClear += OnHashSetCleared;
 
-        // Process initial SyncHashSet payload
-        foreach (string buff in buffs)
-            OnBuffsChanged(SyncSet<string>.Operation.OP_ADD, buff);
+        // OnChange is a catch-all event that is called for any change
+        // to the hashset. It is called after the specific events above.
+        // Strongly recommended to use the specific events above instead!
+        namesHashSet.OnChange += OnHashSetChanged;
+
+        // Hashset is populated before handlers are wired up so we
+        // need to manually invoke OnAdd for each element.
+        foreach (string buff in namesHashSet)
+            namesHashSet.OnAdd.Invoke(buff);
     }
 
-    // SyncHashSet inherits from SyncSet so use SyncSet here
-    void OnBuffsChanged(SyncSet<string>.Operation op, string buff)
+    void OnItemAdded(string buff)
+    {
+        Debug.Log($"Element added {buff}");
+    }
+
+    void OnItemRemoved(string buff)
+    {
+        Debug.Log($"Element removed {buff}");
+    }
+
+    void OnHashSetCleared()
+    {
+        // OnHashSetCleared is called before the hashset is actually cleared
+        // so we can iterate the hashset to get the elements if needed.
+        foreach (string buff in namesHashSet)
+            Debug.Log($"Element cleared {buff}");
+    }
+
+    // OnHashSetChanged is a catch-all event that is called for any change
+    // to the hashset. It is called after the specific events above.
+    //
+    // NOTE: It's strongly recommended to use the specific events above instead!
+    //
+    // For OP_ADD, the value param is the NEW entry.
+    // For OP_REMOVE, the value param is the OLD entry.
+    // For OP_CLEAR, the value param is null / default.
+    void OnHashSetChanged(SyncHashSet<string>.Operation op, string value)
     {
         switch (op)
         {
-            case SyncSet<string>.Operation.OP_ADD:
-                // Added a buff to the character
+            case SyncHashSet<string>.Operation.OP_ADD:
+                // value is the new entry
+                Debug.Log($"Element added {value}");
                 break;
-            case SyncSet<string>.Operation.OP_REMOVE:
-                // Removed a buff from the character
+
+            case SyncHashSet<string>.Operation.OP_REMOVE:
+                // value is the old entry
+                Debug.Log($"Element removed {value}");
                 break;
-            case SyncSet<string>.Operation.OP_CLEAR:
-                // Cleared all buffs from the character
+
+            case SyncHashSet<string>.Operation.OP_CLEAR:
+                // value is null / default
+                // we can iterate the hashset to get the elements if needed.
+                foreach (string buff in namesHashSet)
+                    Debug.Log($"Element cleared {buff}");
                 break;
         }
     }
