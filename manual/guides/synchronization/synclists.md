@@ -70,36 +70,36 @@ public class SyncListExample : NetworkBehaviour
     //
     // NOTE: It's strongly recommended to use the specific events above instead!
     //
-    // For OP_ADD and OP_INSERT, the value param is the NEW value of the entry.
-    // For OP_SET and OP_REMOVEAT, the value param is the OLD value of the entry.
-    // For OP_CLEAR, the param is null / default.
+    // For OP_ADD and OP_INSERT, the value param is the NEW entry.
+    // For OP_SET and OP_REMOVEAT, the value param is the OLD entry.
+    // For OP_CLEAR, the param is null / default but you can iterate the list.
     void OnListChanged(SyncList<string>.Operation op, int index, string value)
     {
         switch (op)
         {
             case SyncList<string>.Operation.OP_ADD:
-                // value is the new value of the entry
+                // value is the NEW value of the entry
                 Debug.Log($"Element added at index {index} {value}");
                 break;
 
             case SyncList<string>.Operation.OP_INSERT:
-                // value is the new value of the entry
+                // value is the NEW value of the entry
                 Debug.Log($"Element inserted at index {index} {value}");
                 break;
 
             case SyncList<string>.Operation.OP_SET:
-                // value is the old value of the entry
+                // value is the OLD value of the entry
                 Debug.Log($"Element changed at index {index} from {value} to {namesList[index]}");
                 break;
 
             case SyncList<string>.Operation.OP_REMOVEAT:
-                // value is the old value of the entry
+                // value is the OLD value of the entry
                 Debug.Log($"Element removed at index {index} was {value}");
                 break;
 
             case SyncList<string>.Operation.OP_CLEAR:
-                // called before the list is actually cleared
-                // so we can iterate the list to get the elements if needed.
+                // value is null / default
+                // we can iterate the list to get the elements if needed.
                 foreach (string name in namesList)
                     Debug.Log($"Element cleared {name}");
                 break;
