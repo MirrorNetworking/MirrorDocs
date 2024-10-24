@@ -10,6 +10,10 @@ A SyncList can contain any [supported mirror type](../data-types.md).
 SyncList must be declared **readonly** and initialized in the constructor.
 {% endhint %}
 
+{% hint style="warning" %}
+Note that by the time you wire up the Action handlers, the list will already be initialized, so they will not get invoked for the initial data, only updates.
+{% endhint %}
+
 ```csharp
 public class SyncListExample : NetworkBehaviour
 {
