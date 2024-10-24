@@ -6,8 +6,6 @@ A SyncList can contain any [supported mirror type](../data-types.md).
 
 ## Usage <a href="#usage" id="usage"></a>
 
-Add a SyncList field to your NetworkBehaviour class.
-
 {% hint style="info" %}
 SyncList must be declared **readonly** and initialized in the constructor.
 {% endhint %}
