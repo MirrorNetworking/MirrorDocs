@@ -11,7 +11,7 @@ SyncDictionary works much like [SyncLists](synclists.md): when you make a change
 {% endhint %}
 
 {% hint style="warning" %}
-Note that by the time you subscribe to the callback, the dictionary will already be initialized, so you will not get a call for the initial data, only updates.
+Note that by the time you wire up the Action handlers, the dictionary will already be initialized, so they will not get invoked for the initial data, only updates.
 {% endhint %}
 
 ## Simple Example <a href="#simple-example" id="simple-example"></a>
