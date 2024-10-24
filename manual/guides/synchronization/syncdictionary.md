@@ -45,7 +45,7 @@ public class SyncDictionaryExample : NetworkBehaviour
     {
         // Add handlers for SyncDictionary Actions
         Equipment.OnAdd += OnItemAdded;
-        Equipment.OnSet += OnItemSet;
+        Equipment.OnSet += OnItemChanged;
         Equipment.OnRemove += OnItemRemoved;
         Equipment.OnClear += OnDictionaryCleared;
 
@@ -65,9 +65,9 @@ public class SyncDictionaryExample : NetworkBehaviour
         Debug.Log($"Element added {key} {Equipment[key]}");
     }
 
-    void OnItemSet(string key, Item oldValue)
+    void OnItemChanged(string key, Item oldValue)
     {
-        Debug.Log($"Element set {key} from {oldValue} to {Equipment[key]}");
+        Debug.Log($"Element changed {key} from {oldValue} to {Equipment[key]}");
     }
 
     void OnItemRemoved(string key, Item oldValue)
