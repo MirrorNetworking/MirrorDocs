@@ -79,8 +79,8 @@ public class SyncDictionaryExample : NetworkBehaviour
     {
         // OnDictionaryCleared is called before the dictionary is actually cleared
         // so we can iterate the dictionary to get the elements if needed.
-        foreach (string key in Equipment.Keys)
-            Equipment.OnAdd.Invoke(key);
+        foreach (KeyValuePair<string, Item> kvp in Equipment)
+            Debug.Log($"Element cleared {kvp.Key} {kvp.Value}");
     }
 
     // OnDictionaryChanged is a catch-all event that is called for any change
