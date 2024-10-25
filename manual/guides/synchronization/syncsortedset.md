@@ -13,7 +13,7 @@ SyncSortedSet must be declared **readonly** and initialized in the constructor.
 {% endhint %}
 
 {% hint style="warning" %}
-Note that by the time you subscribe, the set will already be initialized, so you will not get a call for the initial data, only updates.
+Note that by the time you wire up the Action handlers, the sorted set will already be initialized, so they will not get invoked for the initial data, only updates.
 {% endhint %}
 
 ```csharp
