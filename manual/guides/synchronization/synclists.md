@@ -39,6 +39,17 @@ public class SyncListExample : NetworkBehaviour
             namesList.OnAdd.Invoke(i);
     }
 
+    public override void OnStopClient()
+    {
+        // Remove handlers when client stops
+        namesList.OnAdd -= OnItemAdded;
+        namesList.OnInsert -= OnItemInserted;
+        namesList.OnSet -= OnItemChanged;
+        namesList.OnRemove -= OnItemRemoved;
+        namesList.OnClear -= OnListCleared;
+        namesList.OnChange -= OnListChanged;
+    }
+
     void OnItemAdded(int index)
     {
         Debug.Log($"Element added at index {index} {namesList[index]}");

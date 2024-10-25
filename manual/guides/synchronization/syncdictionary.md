@@ -67,6 +67,16 @@ public class SyncDictionaryExample : NetworkBehaviour
             Equipment.OnAdd.Invoke(key);
     }
 
+    public override void OnStopClient()
+    {
+        // Remove handlers when client stops
+        Equipment.OnAdd -= OnItemAdded;
+        Equipment.OnSet -= OnItemChanged;
+        Equipment.OnRemove -= OnItemRemoved;
+        Equipment.OnClear -= OnDictionaryCleared;
+        Equipment.OnChange -= OnDictionaryChanged;
+    }
+
     void OnItemAdded(string key)
     {
         Debug.Log($"Element added {key} {Equipment[key]}");

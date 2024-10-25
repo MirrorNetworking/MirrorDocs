@@ -37,6 +37,15 @@ public class SyncHashSetExample : NetworkBehaviour
             namesHashSet.OnAdd.Invoke(buff);
     }
 
+    public override void OnStopClient()
+    {
+        // Remove handlers when client stops
+        namesHashSet.OnAdd -= OnItemAdded;
+        namesHashSet.OnRemove -= OnItemRemoved;
+        namesHashSet.OnClear -= OnHashSetCleared;
+        namesHashSet.OnChange -= OnHashSetChanged;
+    }
+
     void OnItemAdded(string buff)
     {
         Debug.Log($"Element added {buff}");
