@@ -33,8 +33,8 @@ public class SyncHashSetExample : NetworkBehaviour
 
         // Hashset is populated before handlers are wired up so we
         // need to manually invoke OnAdd for each element.
-        foreach (string buff in namesHashSet)
-            namesHashSet.OnAdd.Invoke(buff);
+        foreach (string value in namesHashSet)
+            namesHashSet.OnAdd.Invoke(value);
     }
 
     public override void OnStopClient()
@@ -46,22 +46,22 @@ public class SyncHashSetExample : NetworkBehaviour
         namesHashSet.OnChange -= OnHashSetChanged;
     }
 
-    void OnItemAdded(string buff)
+    void OnItemAdded(string value)
     {
-        Debug.Log($"Element added {buff}");
+        Debug.Log($"Element added {value}");
     }
 
-    void OnItemRemoved(string buff)
+    void OnItemRemoved(string value)
     {
-        Debug.Log($"Element removed {buff}");
+        Debug.Log($"Element removed {value}");
     }
 
     void OnHashSetCleared()
     {
         // OnHashSetCleared is called before the hashset is actually cleared
         // so we can iterate the hashset to get the elements if needed.
-        foreach (string buff in namesHashSet)
-            Debug.Log($"Element cleared {buff}");
+        foreach (string value in namesHashSet)
+            Debug.Log($"Element cleared {value}");
     }
 
     // OnHashSetChanged is a catch-all event that is called for any change
@@ -89,8 +89,8 @@ public class SyncHashSetExample : NetworkBehaviour
             case SyncHashSet<string>.Operation.OP_CLEAR:
                 // value is null / default
                 // we can iterate the hashset to get the elements if needed.
-                foreach (string buff in namesHashSet)
-                    Debug.Log($"Element cleared {buff}");
+                foreach (string name in namesHashSet)
+                    Debug.Log($"Element cleared {name}");
                 break;
         }
     }

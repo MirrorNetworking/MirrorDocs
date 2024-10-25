@@ -12,62 +12,87 @@ A SyncSortedSet can contain any [supported mirror type](../data-types.md)
 SyncSortedSet must be declared **readonly** and initialized in the constructor.
 {% endhint %}
 
-Add a SyncSortedSet field to your NetworkBehaviour class. For example:
-
-```csharp
-class Player : NetworkBehaviour
-{
-    public readonly SyncSortedSet<string> skills = new SyncSortedSet<string>();
-    int skillPoints = 10;
-
-    [Command]
-    public void CmdLearnSkill(string skillName)
-    {
-        if (skillPoints > 1)
-        {
-            skillPoints--;
-            skills.Add(skillName);
-        }
-    }
-}
-```
-
-You can also detect when a SyncSortedSet changes. This is useful for refreshing your character in the client or determining when you need to update your database. Subscribe to the Callback event typically during `Start`, `OnClientStart` or `OnServerStart` for that.
-
 {% hint style="warning" %}
 Note that by the time you subscribe, the set will already be initialized, so you will not get a call for the initial data, only updates.
 {% endhint %}
 
 ```csharp
-class Player : NetworkBehaviour
+public class SyncSortedSetExample : NetworkBehaviour
 {
-    [SerializeField]
-    public readonly SyncSortedSet<string> buffs = new SyncSortedSet<string>();
+    public readonly SyncSortedSet<string> namesSortedSet = new SyncSortedSet<string>();
 
-    // this will add the delegate on the client.
-    // Use OnStartServer instead if you want it on the server
     public override void OnStartClient()
     {
-        buffs.Callback += OnBuffsChanged;
+        // Add handlers for SyncSortedSet Actions
+        namesSortedSet.OnAdd += OnItemAdded;
+        namesSortedSet.OnRemove += OnItemRemoved;
+        namesSortedSet.OnClear += OnSortedSetCleared;
 
-        // Process initial SyncSortedSet payload
-        foreach (string buff in buffs)
-            OnBuffsChanged(SyncSortedSet<string>.Operation.OP_ADD, buff);
+        // OnChange is a catch-all event that is called for any change
+        // to the SortedSet. It is called after the specific events above.
+        // Strongly recommended to use the specific events above instead!
+        namesSortedSet.OnChange += OnSortedSetChanged;
+
+        // SortedSet is populated before handlers are wired up so we
+        // need to manually invoke OnAdd for each element.
+        foreach (string value in namesSortedSet)
+            namesSortedSet.OnAdd.Invoke(value);
     }
 
-    // SyncSortedSet inherits from SyncSet so use SyncSet here
-    void OnBuffsChanged(SyncSortedSet<string>.Operation op, string buff)
+    public override void OnStopClient()
+    {
+        // Remove handlers when client stops
+        namesSortedSet.OnAdd -= OnItemAdded;
+        namesSortedSet.OnRemove -= OnItemRemoved;
+        namesSortedSet.OnClear -= OnSortedSetCleared;
+        namesSortedSet.OnChange -= OnSortedSetChanged;
+    }
+
+    void OnItemAdded(string value)
+    {
+        Debug.Log($"Element added {value}");
+    }
+
+    void OnItemRemoved(string value)
+    {
+        Debug.Log($"Element removed {value}");
+    }
+
+    void OnSortedSetCleared()
+    {
+        // OnSortedSetCleared is called before the SortedSet is actually cleared
+        // so we can iterate the SortedSet to get the elements if needed.
+        foreach (string value in namesSortedSet)
+            Debug.Log($"Element cleared {value}");
+    }
+
+    // OnSortedSetChanged is a catch-all event that is called for any change
+    // to the SortedSet. It is called after the specific events above.
+    //
+    // NOTE: It's strongly recommended to use the specific events above instead!
+    //
+    // For OP_ADD, the value param is the NEW entry.
+    // For OP_REMOVE, the value param is the OLD entry.
+    // For OP_CLEAR, the value param is null / default.
+    void OnSortedSetChanged(SyncSortedSet<string>.Operation op, string value)
     {
         switch (op)
         {
             case SyncSortedSet<string>.Operation.OP_ADD:
-                // Added a buff to the character
+                // value is the new entry
+                Debug.Log($"Element added {value}");
                 break;
+
             case SyncSortedSet<string>.Operation.OP_REMOVE:
-                // Removed a buff from the character
+                // value is the old entry
+                Debug.Log($"Element removed {value}");
                 break;
+
             case SyncSortedSet<string>.Operation.OP_CLEAR:
-                // cleared all buffs from the character
+                // value is null / default
+                // we can iterate the SortedSet to get the elements if needed.
+                foreach (string name in namesSortedSet)
+                    Debug.Log($"Element cleared {name}");
                 break;
         }
     }
