@@ -1,9 +1,5 @@
 # Script Templates
 
-{% hint style="info" %}
-You must **restart Unity** after importing this package for Unity to wire up the menus.
-{% endhint %}
-
 {% hint style="warning" %}
 **Root Folder Required:** ScriptTemplates is a special folder to Unity and must remain in the Assets folder.
 {% endhint %}
