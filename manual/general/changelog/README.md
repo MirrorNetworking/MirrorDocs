@@ -17,10 +17,10 @@ For further details on versions and their specific change logs, see github relea
 
 ### Added
 
-* Vector4Long implemented for quarternions delta compression
 * Network Manager now has a Clear button for spawnable prefabs.
 * Encryption Transport now logs hardware accelleration status.
 * PlayerControllerRB in example controllers: uses non-kinematic rigidbody instead of Character Controller.
+* Vector4Long implemented for quarternions delta compression
 * Half Floats for Quaternion compression.
 
 ### Fixes
