@@ -17,6 +17,12 @@ Note that by the time you wire up the Action handlers, the dictionary will alrea
 ## Simple Example <a href="#simple-example" id="simple-example"></a>
 
 ```csharp
+using System.Collections.Generic;
+using UnityEngine;
+using Mirror;
+
+public enum Slots : byte { head, body, feet, hands }
+
 public struct Item
 {
     public string name;
@@ -38,14 +44,14 @@ public struct Item
 
 public class SyncDictionaryExample : NetworkBehaviour
 {
-    public readonly SyncDictionary<string, Item> Equipment = new SyncDictionary<string, Item>();
+    public readonly SyncDictionary<Slots, Item> Equipment = new SyncDictionary<Slots, Item>();
 
     public override void OnStartServer()
     {
-        Equipment["head"] = new Item("Helmet", 10, 20);
-        Equipment["body"] = new Item("Epic Armor", 50, 50);
-        Equipment["feet"] = new Item("Sneakers", 3, 40);
-        Equipment["hands"] = new Item("Sword", 30, 15);
+        Equipment[Slots.head] = new Item("Helmet", 10, 20);
+        Equipment[Slots.body] = new Item("Epic Armor", 50, 50);
+        Equipment[Slots.feet] = new Item("Sneakers", 3, 40);
+        Equipment[Slots.hands] = new Item("Sword", 30, 15);
     }
 
     public override void OnStartClient()
@@ -63,7 +69,7 @@ public class SyncDictionaryExample : NetworkBehaviour
 
         // Dictionary is populated before handlers are wired up so we
         // need to manually invoke OnAdd for each element.
-        foreach (string key in Equipment.Keys)
+        foreach (Slots key in Equipment.Keys)
             Equipment.OnAdd.Invoke(key);
     }
 
@@ -77,17 +83,17 @@ public class SyncDictionaryExample : NetworkBehaviour
         Equipment.OnChange -= OnDictionaryChanged;
     }
 
-    void OnItemAdded(string key)
+    void OnItemAdded(Slots key)
     {
         Debug.Log($"Element added {key} {Equipment[key]}");
     }
 
-    void OnItemChanged(string key, Item oldValue)
+    void OnItemChanged(Slots key, Item oldValue)
     {
         Debug.Log($"Element changed {key} from {oldValue} to {Equipment[key]}");
     }
 
-    void OnItemRemoved(string key, Item oldValue)
+    void OnItemRemoved(Slots key, Item oldValue)
     {
         Debug.Log($"Element removed {key} {oldValue}");
     }
@@ -96,7 +102,7 @@ public class SyncDictionaryExample : NetworkBehaviour
     {
         // OnDictionaryCleared is called before the dictionary is actually cleared
         // so we can iterate the dictionary to get the elements if needed.
-        foreach (KeyValuePair<string, Item> kvp in Equipment)
+        foreach (KeyValuePair<Slots, Item> kvp in Equipment)
             Debug.Log($"Element cleared {kvp.Key} {kvp.Value}");
     }
 
@@ -109,29 +115,29 @@ public class SyncDictionaryExample : NetworkBehaviour
     // For OP_SET, the value param is the OLD entry.
     // For OP_REMOVE, the value param is the OLD entry.
     // For OP_CLEAR, the value param is null / default.
-    void OnDictionaryChanged(SyncDictionary<string, Item>.Operation op, string key, Item value)
+    void OnDictionaryChanged(SyncDictionary<Slots, Item>.Operation op, Slots key, Item value)
     {
         switch (op)
         {
-            case SyncDictionary<string, Item>.Operation.OP_ADD:
+            case SyncDictionary<Slots, Item>.Operation.OP_ADD:
                 // value is the new entry
                 Debug.Log($"Element added {key} {value}");
                 break;
 
-            case SyncDictionary<string, Item>.Operation.OP_SET:
+            case SyncDictionary<Slots, Item>.Operation.OP_SET:
                 // value is the old entry
                 Debug.Log($"Element set {key} from {value} to {Equipment[key]}");
                 break;
 
-            case SyncDictionary<string, Item>.Operation.OP_REMOVE:
+            case SyncDictionary<Slots, Item>.Operation.OP_REMOVE:
                 // value is the old entry
                 Debug.Log($"Element removed {key} {value}");
                 break;
 
-            case SyncDictionary<string, Item>.Operation.OP_CLEAR:
+            case SyncDictionary<Slots, Item>.Operation.OP_CLEAR:
                 // value is null / default
                 // we can iterate the dictionary to get the elements if needed.
-                foreach (KeyValuePair<string, Item> kvp in Equipment)
+                foreach (KeyValuePair<Slots, Item> kvp in Equipment)
                     Debug.Log($"Element cleared {kvp.Key} {kvp.Value}");
                 break;
         }
