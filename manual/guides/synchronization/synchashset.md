@@ -15,6 +15,9 @@ Note that by the time you wire up the Action handlers, the hashset will already 
 {% endhint %}
 
 ```csharp
+using UnityEngine;
+using Mirror;
+
 public class SyncHashSetExample : NetworkBehaviour
 {
     public readonly SyncHashSet<string> namesHashSet = new SyncHashSet<string>();

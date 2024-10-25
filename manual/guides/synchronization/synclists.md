@@ -15,6 +15,9 @@ Note that by the time you wire up the Action handlers, the list will already be 
 {% endhint %}
 
 ```csharp
+using UnityEngine;
+using Mirror;
+
 public class SyncListExample : NetworkBehaviour
 {
     public readonly SyncList<string> namesList = new SyncList<string>();

@@ -17,6 +17,9 @@ Note that by the time you wire up the Action handlers, the sorted set will alrea
 {% endhint %}
 
 ```csharp
+using UnityEngine;
+using Mirror;
+
 public class SyncSortedSetExample : NetworkBehaviour
 {
     public readonly SyncSortedSet<string> namesSortedSet = new SyncSortedSet<string>();
