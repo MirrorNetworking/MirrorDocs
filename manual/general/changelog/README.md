@@ -22,6 +22,9 @@ For further details on versions and their specific change logs, see github relea
 * PlayerControllerRB in example controllers: uses non-kinematic rigidbody instead of Character Controller.
 * Vector4Long implemented for quarternions delta compression
 * Half Floats for Quaternion compression.
+* Entering play mode while in prefab edit mode works now.
+* HashSet is now supported in SyncVar / Command / ClientRpc / TargetRpc / NetworkMessage.
+* NetworkIdentity.OnDestroy verifies spawned[netId] before removing
 
 ### Fixes
 
@@ -33,10 +36,12 @@ For further details on versions and their specific change logs, see github relea
 * Edgegap Plugin updated to 2.3.1.
 * Encryption Transport now implements Port Transport.
 * Network Server now checks `listen` and rejects connections if not listening.
+* KCP handles nulls in OnClientError during shutdown better now.
 
 ### Changes
 
 * Network Server `dontListen` renamed to `listen` to eliminate double negative bool.
+* Deprecated Network Manager's virtual OnApplicationQuit - Use OnDestroy instead.
 * Deprecated Snapshot interpolation settings in Network Client in favor of SnapShotSettings.
 * Bouncy Castle moved to Encryption Transport folder.
 
