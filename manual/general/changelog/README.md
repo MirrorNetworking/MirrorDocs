@@ -42,6 +42,7 @@ For further details on versions and their specific change logs, see github relea
 
 * Network Server `dontListen` renamed to `listen` to eliminate double negative bool.
 * Deprecated Network Manager's virtual OnApplicationQuit - Use OnDestroy instead.
+* Deprecated Transport's virtual OnApplicationQuit - Use OnDestroy instead.
 * Deprecated Snapshot interpolation settings in Network Client in favor of SnapShotSettings.
 * Bouncy Castle moved to Encryption Transport folder.
 
