@@ -1,8 +1,14 @@
 # Script Templates
 
 {% hint style="info" %}
-You must **restart Unity** after importing this package for Unity to wire up the menus.
+As of August 2023, Unity Asset Store does not allow us to upload ScriptTemplates anymore. Import this package to add them to your project.
+
+* You must **restart Unity** after importing this package for Unity to wire up the menus.
 {% endhint %}
+
+{% file src="../../.gitbook/assets/ScriptTemplates.unitypackage" %}
+ScriptTemplates Unity Package
+{% endfile %}
 
 {% hint style="warning" %}
 **Root Folder Required:** ScriptTemplates is a special folder to Unity and must remain in the Assets folder.
