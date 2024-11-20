@@ -25,7 +25,7 @@ These transports are maintained by third parties outside of Mirror.
 These transports are maintained by third parties and use relay infrastructure to connect clients to servers behind firewalls / NAT.
 
 * [Steam - FizzySteamworks](fizzysteamworks-transport.md) - Transport utilizing Steam P2P network, building on [Steamworks.NET](https://github.com/rlabrecque/Steamworks.NET).
-* [Epic - Epic Online Services](https://github.com/FakeByte/EpicOnlineTransport) - Relay transport utilizing Epic's free relay service.
+* [Epic - Epic Online Services](https://github.com/Ludogram/EpicOnlineTransport) - Relay transport utilizing Epic's free relay service.
 * [LRM - Light Reflective Mirror](https://github.com/Speidy674/Light-Reflective-Mirror) - Relay transport for WebGL clients.
 
 ## Changing Transports
