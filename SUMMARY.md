@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Mirror Networking](README.md)
-* [API Reference](https://storage.googleapis.com/mirror-api-docs/html/df/d6f/class\_mirror\_1\_1\_network\_client.html)
+* [API Reference](https://storage.googleapis.com/mirror-api-docs/html/df/d6f/class_mirror_1_1_network_client.html)
 
 ## Development Blog <a href="#trivia" id="trivia"></a>
 
@@ -13,6 +13,7 @@
   * [Getting Started](manual/general/getting-started.md)
   * [Script Templates](manual/general/script-templates.md)
   * [Change Log](manual/general/changelog/README.md)
+    * [2024 Change Log](manual/general/changelog/2024-change-log.md)
     * [2023 Change Log](manual/general/changelog/2023-change-log.md)
     * [2022 Change Log](manual/general/changelog/2022-change-log.md)
     * [2021 Change Log](manual/general/changelog/2021-change-log.md)
