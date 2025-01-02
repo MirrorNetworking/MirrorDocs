@@ -13,7 +13,7 @@ For further details on versions and their specific change logs, see github relea
 [https://github.com/MirrorNetworking/Mirror/releases](https://github.com/MirrorNetworking/Mirror/releases)
 {% endhint %}
 
-## v93.0.0 - 2024-Oct-5
+## [v93.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v93.0.0) - 2024-Oct-5
 
 ### Added
 
@@ -37,7 +37,7 @@ For further details on versions and their specific change logs, see github relea
 * NetworkTransform sendIntervalMultiplier replaced by syncInterval math.
 * Older obsoletes removed.
 
-## v90.0.0 - 2024-Aug-2
+## [v90.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v90.0.0) - 2024-Aug-2
 
 ### Added
 
@@ -63,7 +63,7 @@ For further details on versions and their specific change logs, see github relea
 * Simple Web Transport default setup now assumes reverse proxy will be used.
 * OnServerConnected has been deprecated in favor of OnTransportConnectedWithAddress.
 
-## v89.80 - 2024-Jun-13
+## [v89.80](https://github.com/MirrorNetworking/Mirror/releases/tag/v89.8.0) - 2024-Jun-13
 
 ### Added
 
@@ -106,7 +106,7 @@ For further details on versions and their specific change logs, see github relea
 * Moved GetClientAddress exception handling from Transport into Telepathy itself.
 * NetworkServer.RemovePlayerForConnection now has RemovePlayerOptions.
 
-## v89.0.0 -- 2024-Mar-05
+## [v89.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v89.0.0) -- 2024-Mar-05
 
 ### Added
 

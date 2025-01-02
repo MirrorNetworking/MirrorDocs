@@ -8,7 +8,7 @@ Mirror is published to the [Asset Store](https://assetstore.unity.com/packages/t
 Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.
 {% endhint %}
 
-## v71.0.0 -- 2022-Dec-31
+## [v71.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v71.0.0) -- 2022-Dec-31
 
 * Added: `NetworkClient.activeHost` added as static.
 * Added: Sync\* collections now support Client-to-Server Sync Direction.
@@ -38,7 +38,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Obsolete: `NetworkServer.localClientActive` renamed to `activeHost`.
 * **BREAKING**: `NetworkTransform` and `NetworkTransformReliable` now inherit from a new `NetworkTransformBase`.
 
-## v70.0.0 -- 2022-Dec-09
+## [v70.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v70.0.0) -- 2022-Dec-09
 
 * Added: Support for Unity 2019 LTS was restored
   * No promises as how long this will last. Unity no longer supports it, and code debt adds up.
@@ -63,7 +63,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 Support for Unity 2019 LTS was restored in this release, but we cannot promise how long we'll be able to maintain compatibility as code debt adds up.
 {% endhint %}
 
-## v69.0.0 -- 2022-Nov-10
+## [v69.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v69.0.0) -- 2022-Nov-10
 
 {% hint style="info" %}
 This version was published to the Asset Store as 2022-10.
@@ -76,7 +76,7 @@ This version was published to the Asset Store as 2022-10.
 * Fixed: `NetworkWriter.WriteString()` now ensures capacity before writing.
 * Changed: Tools folder created and some rearrangement was done.
 
-## v68.0.0 -- 2022-Oct-21
+## [v68.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v68.0.0) -- 2022-Oct-21
 
 {% hint style="info" %}
 This version was published to the Asset Store as 2022-09.
@@ -121,7 +121,7 @@ This version was published to the Asset Store as 2022-09.
 * **Obsolete**: `NetworkBehavior.hasAuthority` renamed to **isOwned** for clarity.
 * **Obsolete**: `NetworkConnection.clientOwnedObjects` renamed to `owned` for clarity.
 
-## v67.1.0 -- 2022-May-05
+## [v67.1.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v67.1.0) -- 2022-May-05
 
 * Fixed: KCP updated to version 1.19.
 * Fixed: Team Interest Mgmt `OnDestroyed` logic was improved.
@@ -134,7 +134,7 @@ This version was published to the Asset Store as 2022-09.
 * **Changed**: `NetworkClient` / `NetworkServer` `OnError` renamed to `OnTransportError` for clarity.
 * **Breaking**: Obsoletes were removed.
 
-## v66.0.9 -- 2022-Apr-17
+## [v66.0.9](https://github.com/MirrorNetworking/Mirror/releases/tag/v66.0.9) -- 2022-Apr-17
 
 {% hint style="warning" %}
 **NOTE:** This was to be the last Mirror release to support Unity 2019 LTS, as it has reached end of life by Unity.  Support was restored in Mirror 70.0.0 above.
@@ -156,7 +156,7 @@ This version was published to the Asset Store as 2022-09.
 * **Changed:** `PooledNetworkReader` / `PooledNetworkWriter` renamed to `NetworkReaderPooled` / `NetworkWriterPooled`.
 * **Changed:** Transport base class moved to Runtime folder, Transport folder renamed to Transports
 
-## v65.0.0 -- 2022-Mar-09
+## [v65.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v65.0.0) -- 2022-Mar-09
 
 * Added: Command / ClientRpc / TargetRpc can now be overloaded.
 * Added: Network Behaviour now has `OnStopLocalPlayer` virtual method, invoked right before `OnStopClient`. Script Template has also been updated.
@@ -176,13 +176,13 @@ This version was published to the Asset Store as 2022-09.
 * **Obsolete**: `NetworkTransform` now has overloads for `CmdTeleport` / `RpcTeleport`  with Quaternion rotation, deprecating separate `CmdTeleportAndRotate` / `RpcTeleportAndRotate` methods, made possible by implementing Command / ClientRpc overloads mentioned above.
 * **Obsolete:** Experimental Network Transform components.  Use the regular ones instead.
 
-## v57.0.0 -- 2022-Jan-12
+## [v57.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v57.0.0) -- 2022-Jan-12
 
 * Fixed: KCP updated to version 1.17.
 * Fixed: Use Read/Write blittable for performance improvement.
 * **Removed**: Obsolete Network Visibility.
 
-## v55.3.8 -- 2022-Jan-05
+## [v55.3.8](https://github.com/MirrorNetworking/Mirror/releases/tag/v55.3.8) -- 2022-Jan-05
 
 * Added: [Team Interest Management](../../interest-management/team.md) and Network Team components.
 * Added: [Device Authenticator](../../components/network-authenticators/device-authenticator.md).

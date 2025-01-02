@@ -13,7 +13,7 @@ For further details on versions and their specific change logs, see github relea
 [https://github.com/MirrorNetworking/Mirror/releases](https://github.com/MirrorNetworking/Mirror/releases)
 {% endhint %}
 
-## v86.13.4 -- 2023-Dec-24
+## [v86.13.4](https://github.com/MirrorNetworking/Mirror/releases/tag/v86.13.4) -- 2023-Dec-24
 
 * Fixed: In certain conditions, KCP would flood timeout warnings.
 * Fixed: Compress Rotation on `NetworkTransform` now correctly considers Local or World coordinates.
@@ -21,7 +21,7 @@ For further details on versions and their specific change logs, see github relea
 * Fixed: Several updates to `PredictedRigidbody` and materials handling
 * Fixed: `PredictedRigidbody` Visual rotation interpolation now works correctly.
 
-## v86.13.0 -- 2023-Dec-12
+## [v86.13.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v86.13.0) -- 2023-Dec-12
 
 * Added: `NetworkDiagnosticsDebugger` to log messages sent and received.
 * Added: `NetworkPingDisplay` now shows Connection Quality.
@@ -62,7 +62,7 @@ For further details on versions and their specific change logs, see github relea
   * SimpleWebTransport Use of cert.json and SSL certs has been labeled as obsolete in the component inspector.
     * This feature will be removed eventually.  Reverse Proxy should always be implemented as it performs far better and is easier to maintain.
 
-## v81.4.0 -- 2023-Aug-03
+## [v81.4.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v81.4.0) -- 2023-Aug-03
 
 * Examples: added BenchmarkIdle demo to test with 80% idle objects
 * feature: NetworkTransform WorldScale option
@@ -164,7 +164,7 @@ For further details on versions and their specific change logs, see github relea
 * fix: fixing use of new c# in 2020
 * feat: adding option to get Ip behind reverse proxy
 
-## v79.0.0 -- 2023-June-07
+## [v79.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v79.0.0) -- 2023-June-07
 
 * Added: Writer / Reader support for `DateTime` data type.
 * Added: `NetworkRoomManager` - `ReadyStatusChange` is now a virtual method.
@@ -191,7 +191,7 @@ For further details on versions and their specific change logs, see github relea
   * Remove NetworkClient.serverIp.
   * AsmDef files updated and simplified.
 
-## v73.0.0 -- 2023-Feb-09
+## [v73.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v73.0.0) -- 2023-Feb-09
 
 * Added: `NetworkClient.OnGUI` now includes BTM for `bufferTimeMultiplier`.
 * Fixed: Client objects are now cleared before spawn handlers.

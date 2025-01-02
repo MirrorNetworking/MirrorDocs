@@ -4,7 +4,7 @@
 Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.
 {% endhint %}
 
-## v53.0.0 -- 2021-Oct-20
+## [v53.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v53.0.0) -- 2021-Oct-20
 
 * Added: `ChangeOwnerMessage`. `NetworkIdentity.AssignClientAuthority` and `RemoveClientAuthority` now send this message instead of a `SpawnMessage`, so transform data is no longer reset to server values, so no more snap-back of moving objects.
 * Added: `SyncDictionary` can now be declared and initialized from an existing List.
@@ -35,7 +35,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Removed**: Various obsolete methods that were at least 3 months old.
 * **Removed**: Fallback transport -- no longer included or supported.
 
-## v46.0.4 - 2021-Sep-03
+## [v46.0.4](https://github.com/MirrorNetworking/Mirror/releases/tag/v46.0.4) - 2021-Sep-03
 
 * Added: Tanks example now has `GUIConsole` for easier debugging.
 * Fixed: `UnpackAndInvoke` now throws error and disconnects in case of missing handlers.
@@ -51,7 +51,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Obsolete**: `NetworkIdentity.spawned` has been split into `NetworkServer.spawned` and `NetworkClient.spawned`.
 * **Removed**: Network Observer template.
 
-## v44.0.2 -- 2021-Aug-08
+## [v44.0.2](https://github.com/MirrorNetworking/Mirror/releases/tag/v44.0.2) -- 2021-Aug-08
 
 * Added: Scene Interest Management.  Put this on Network Manager and remove all Network Scene Checker components.
 * Added: Match Interest Management.  Put this on Network Manager and replace Network Match Checker with new Network Match component.
@@ -76,7 +76,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Changed: `NetworkManager.isNetworkActive` is now a readonly bool.
 * Changed: `NetworkManager.ConfigureServerFrameRate` renamed to `ConfigureHeadlessFrameRate`.
 
-## v42.2.12 -- 2021-Jul-12
+## [v42.2.12](https://github.com/MirrorNetworking/Mirror/releases/tag/v42.2.12) -- 2021-Jul-12
 
 * Added: Timestamp-based batching. Batching is always on now and is bidirectional.
 * Added: `NetworkServer` / `NetworkClient` `OnConnected` / `OnDisconnected` events now public so custom Network Managers can hook into them.
@@ -97,7 +97,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Fixed: `clientAuthority` is now public in `NetworkRigidbody` / `NetworkRigidbody2D`.
 * Changed: Transports are no longer paused (disabled) during scene loading. Message processor handles this correctly now, so transports can be simplified.
 
-## v40.0.9 -- 2021-Jun-08
+## [v40.0.9](https://github.com/MirrorNetworking/Mirror/releases/tag/v40.0.9) -- 2021-Jun-08
 
 * Added: `ServerAuthFailed` bool to Basic Authenticator.
 * Added: Discovery HUD now has a Stop Button.
@@ -122,7 +122,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Removed: Cloud API and examples.
 * **Obsolete**: Fallback Transport will be removed in a later release.
 
-## v35.1.0 -- 2021-Mar-29
+## [v35.1.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v35.1.0) -- 2021-Mar-29
 
 * Added: Network Discovery now has a bool to disable automatic active discovery.
 * Added: `PersistNetworkManagerToOfflineScene` to Network Manager...see tooltip.
@@ -149,7 +149,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Breaking**: `ClientScene.onLocalPlayerChanged` removed.
 * **Breaking**: Compiler symbols culled to Mirror 17 and later versions.
 
-## v32.1.4 -- 2021-Mar-08
+## [v32.1.4](https://github.com/MirrorNetworking/Mirror/releases/tag/v32.1.4) -- 2021-Mar-08
 
 * Added: `NetworkIdentity` now has `isServer` / `isClientOnly`.
 * Added: Global Interest Management. This may eventually lead to replacement of Scene Checker, Match Checker, and Owner Checker components.
@@ -173,7 +173,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Breaking**: `ClientRpc` `excludeOwner` parameter renamed to `includeOwner`, default true.
 * **Breaking**: `ClientScene.spawnableObjects` is no longer public.
 
-## v30.5.3 -- 2021-Feb-15 <a href="#version-3053----2021-feb-15" id="version-3053----2021-feb-15"></a>
+## [v30.5.3](https://github.com/MirrorNetworking/Mirror/releases/tag/v30.5.3) -- 2021-Feb-15 <a href="#version-3053----2021-feb-15" id="version-3053----2021-feb-15"></a>
 
 * Fixed: Fixed a bug in batching for messages larger than MTU.
 * Fixed: Telepathy 1.6 fixes data races and improves stability.
@@ -183,7 +183,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Breaking**: `OnServerError` / `OnClientError` removed since no transport ever implemented them.
 * **Breaking** Removed `NetworkConnection.InvokeHandler` as no longer needed.
 
-## v30.5.0 -- 2021-Feb-05 <a href="#version-3050----2021-feb-05" id="version-3050----2021-feb-05"></a>
+## [v30.5.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v30.5.0) -- 2021-Feb-05 <a href="#version-3050----2021-feb-05" id="version-3050----2021-feb-05"></a>
 
 * Added: [KCP Transport](https://mirror-networking.com/docs/Articles/Transports/KCPTransport.html) updated to version 1.7.
 * Added: Batching support for server messages - See Network Manager to enable.
