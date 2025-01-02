@@ -52,6 +52,7 @@ For further details on versions and their specific change logs, see github relea
 
 ### Changes
 
+* NetworkClient, for initial spawning, now defers applying spawn payload until after instantiating all networked objects and adding them into the `spawned` dictionary. This means SyncVars and Sync\* collections that cross-reference other networked objects should be much more robust, as the long-standing race condition should now be eliminated.
 * Network Server `dontListen` renamed to `listen` to eliminate double negative bool.
 * Deprecated Network Manager's virtual OnApplicationQuit - Use OnDestroy instead.
 * Deprecated Transport's virtual OnApplicationQuit - Use OnDestroy instead.
