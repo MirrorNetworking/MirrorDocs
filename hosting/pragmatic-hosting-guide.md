@@ -33,7 +33,7 @@ After building your game, you could technically host it on your own machine, or 
 
 {% hint style="warning" %}
 This method is not recommended.\
-_... except for LAN parties, if you still remember those._&#x20;
+&#xNAN;_... except for LAN parties, if you still remember those._&#x20;
 {% endhint %}
 
 ### **2.) Player Hosted + Relay / NAT Punchthrough**
@@ -118,7 +118,7 @@ Again, I don't want to worry about hosting. I want to upload my server image, an
 
 {% hint style="success" %}
 **Multiplay**, **Edgegap** and **AWS Gamelift** are popular choices.\
-We use EdgeGap because it's the [easiest to use](https://docs.edgegap.com/docs/sample-projects/mirror-on-edgegap) with the most [advanced network](https://en.wikipedia.org/wiki/Edge\_computing).
+We use EdgeGap because it's the [easiest to use](https://docs.edgegap.com/docs/sample-projects/mirror-on-edgegap) with the most [advanced network](https://en.wikipedia.org/wiki/Edge_computing).
 {% endhint %}
 
 ## Update: Edgegap Unity Plugin 🇨🇦

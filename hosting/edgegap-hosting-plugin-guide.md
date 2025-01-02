@@ -72,7 +72,7 @@ Next you'll automatically see the **Token Created Successfully** screen, because
 <figure><img src="../.gitbook/assets/2023-12-07 - 13-58-35@2x.png" alt=""><figcaption></figcaption></figure>
 
 Press the **Clipboard** icon to copy the token, then paste it back into the Unity plugin and press **Verify.**\
-_Note that the token looks like "token 123456-abcdef-00000-..."._\
+&#xNAN;_&#x4E;ote that the token looks like "token 123456-abcdef-00000-..."._\
 _The "token ..." part needs to remain in there._
 
 <figure><img src="../.gitbook/assets/2023-12-07 - 13-59-44@2x.png" alt=""><figcaption></figcaption></figure>

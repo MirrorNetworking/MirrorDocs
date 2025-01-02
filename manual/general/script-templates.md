@@ -6,7 +6,7 @@ As of August 2023, Unity Asset Store does not allow us to upload ScriptTemplates
 * You must **restart Unity** after importing this package for Unity to wire up the menus.
 {% endhint %}
 
-{% file src="../../.gitbook/assets/ScriptTemplates.unitypackage" %}
+{% file src="../../.gitbook/assets/ScriptTemplates.zip" %}
 ScriptTemplates Unity Package
 {% endfile %}
 
@@ -23,10 +23,6 @@ We've added Script Templates to make it easier to create derived class scripts t
 
 The **Mirror** section will appear under the **Assets > Create menu**, as well as the context menu that comes up when you right-click on any folder in your project. You'll be prompted for the file name like any other asset creation.
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Menu to Mirror Script Templates</p></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Menu to Mirror Script Templates</p></figcaption></figure></div>
 
 Hopefully these templates will be helpful to new users of Mirror to learn what methods are available in various classes, as well as just being more convenient for everyone.

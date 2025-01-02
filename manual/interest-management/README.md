@@ -25,6 +25,7 @@ Select the **Network Manager** and add one of the built in Interest Management c
 * [**Spatial Hashing**](spatial-hashing.md) is the reason why we moved from the legacy **per-Network Identity** system to a **global** system and uses one global **Vis Range** setting that is the same for everything in the scene.&#x20;
 * [**Distance**](distance.md) is a parity replacement for Network Proximity Checker.
 * [**Scene**](scene.md) allows for visual and physics isolation across additive scenes.
+* [Scene Distance](scene-+-distance.md) is a combination of Scene and Distance above.
 * [**Match**](match.md) isolates players for non-physics card, board, arcade games.
 * [**Team**](team.md) provides for restricting visibility of networked objects to members of a team. This can also be used for owner-only items, replacing **Network Owner Checker**.
 * [**Custom**](custom.md) Interest Management provides a template that you can use to create your own system.

@@ -87,6 +87,7 @@
   * [Spatial Hashing](manual/interest-management/spatial-hashing.md)
   * [Distance](manual/interest-management/distance.md)
   * [Scene](manual/interest-management/scene.md)
+  * [Scene + Distance](manual/interest-management/scene-+-distance.md)
   * [Match](manual/interest-management/match.md)
   * [Team](manual/interest-management/team.md)
   * [Custom](manual/interest-management/custom.md)
