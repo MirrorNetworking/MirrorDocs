@@ -1,16 +1,11 @@
 # 2024 Change Log
 
 {% hint style="info" %}
-causes a delay.
+Mirror is published to the [Asset Store](https://assetstore.unity.com/packages/tools/network/mirror-129321) at the start of every month, unless some critical issue causes a delay.
 {% endhint %}
 
 {% hint style="info" %}
 Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.
-{% endhint %}
-
-{% hint style="info" %}
-For further details on versions and their specific change logs, see github release page:\
-[https://github.com/MirrorNetworking/Mirror/releases](https://github.com/MirrorNetworking/Mirror/releases)
 {% endhint %}
 
 ## [v93.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v93.0.0) - 2024-Oct-5

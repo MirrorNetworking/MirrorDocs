@@ -8,11 +8,6 @@ Mirror is published to the [Asset Store](https://assetstore.unity.com/packages/t
 Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.
 {% endhint %}
 
-{% hint style="info" %}
-For further details on versions and their specific change logs, see github release page:\
-[https://github.com/MirrorNetworking/Mirror/releases](https://github.com/MirrorNetworking/Mirror/releases)
-{% endhint %}
-
 ## [v86.13.4](https://github.com/MirrorNetworking/Mirror/releases/tag/v86.13.4) -- 2023-Dec-24
 
 * Fixed: In certain conditions, KCP would flood timeout warnings.
