@@ -4,7 +4,7 @@
 Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.
 {% endhint %}
 
-## v30.2.2 -- 2020-Dec-17 <a href="#version-3022----2020-dec-17" id="version-3022----2020-dec-17"></a>
+## [v30.2.2](https://github.com/MirrorNetworking/Mirror/releases/tag/v30.2.2) -- 2020-Dec-17 <a href="#version-3022----2020-dec-17" id="version-3022----2020-dec-17"></a>
 
 * Added: Network Reader/Writer now does `ReadBlittable` / `WriteBlittable` for better performance.
 * Added: KCP Transport updated to version 1.4.
@@ -33,7 +33,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Breaking:** Removed `ReadPacked` / `WritePacked` functions - Use Read and Write variants instead.
 * **Breaking:** LLAPI has been removed.
 
-## v26.2.2 -- 2020-Nov-20 <a href="#version-2622----2020-nov-20" id="version-2622----2020-nov-20"></a>
+## [v26.2.2](https://github.com/MirrorNetworking/Mirror/releases/tag/v26.2.2) -- 2020-Nov-20 <a href="#version-2622----2020-nov-20" id="version-2622----2020-nov-20"></a>
 
 * Added: [KCP Transport](https://mirror-networking.com/docs/Articles/Transports/KCPTransport.html).
 * Added: [Libuv2k Transport](https://mirror-networking.com/docs/Articles/Transports/Libuv2k.html).
@@ -55,7 +55,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Breaking:** Removed older obsolete methods and tests.
 * **Breaking:** Transports no longer support sending to a List of connectionIds.
 
-## v23.0.3 -- 2020-Oct-24 <a href="#version-2303----2020-oct-24" id="version-2303----2020-oct-24"></a>
+## [v23.0.3](https://github.com/MirrorNetworking/Mirror/releases/tag/v23.0.3) -- 2020-Oct-24 <a href="#version-2303----2020-oct-24" id="version-2303----2020-oct-24"></a>
 
 * Added: Support null when serializing classes.
 * Added: Support recursive data types.
@@ -79,7 +79,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Removed**: Removing auto initialize for SyncLists/SyncSet/SyncDictionary, see [Pull Request 2330](https://github.com/vis2k/Mirror/pull/2330).
 * **Removed**: Replacing [Ninja.WebSockets](https://github.com/MirrorNetworking/NinjaWebSocketsTransport) with [SimpleWebTransport](https://github.com/MirrorNetworking/SimpleWebTransport).
 
-## v17.3.0 -- 2020-Sep-04 <a href="#version-1730----2020-sep-04" id="version-1730----2020-sep-04"></a>
+## [v17.3.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v17.3.0) -- 2020-Sep-04 <a href="#version-1730----2020-sep-04" id="version-1730----2020-sep-04"></a>
 
 * Added: NetworkAnimator now syncs Layer Weight.
 * Added: Lists can now be sent in Command/Rpc/Message/etc.
@@ -97,7 +97,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Changed: SyncEvent are now obsolete and will be removed in the next version.
 * **Removed**: isHeadless is now obsolete, Use preprocessor directive `#if UNITY_SERVER` instead.
 
-## v16.9.0 -- 2020-Aug-01 <a href="#version-1690----2020-aug-01" id="version-1690----2020-aug-01"></a>
+## [v16.9.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v16.9.0) -- 2020-Aug-01 <a href="#version-1690----2020-aug-01" id="version-1690----2020-aug-01"></a>
 
 * Added: [NetworkHeadlessLogger](https://mirror-networking.com/docs/Articles/Components/NetworkHeadlessLogger.html) log handler that sets console color.
 * Added: New Mirror List Server, see [Cloud folder](https://github.com/vis2k/Mirror/tree/master/Assets/Mirror/Cloud).
@@ -117,7 +117,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Changed: TargetRpc no longer need Target prefix.
 * Changed: NetworkManager.networkSceneName is now protected set as it should not be set directly.
 
-## v16.1.1 -- 2020-Jun-13 <a href="#version-1611----2020-jun-13" id="version-1611----2020-jun-13"></a>
+## [v16.1.1](https://github.com/MirrorNetworking/Mirror/releases/tag/v16.1.1) -- 2020-Jun-13 <a href="#version-1611----2020-jun-13" id="version-1611----2020-jun-13"></a>
 
 * Added: \[Command] now has an `ignoreAuthority` option for invoking Commands on objects the client doesn't have authority over, and Command methods can have an optional `NetworkConnectionToClient sender` parameter.
 * Added: \[ClientRpc] now has an `excludeOwner` option to prevent messages from going to the client that owns the object.
@@ -144,7 +144,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Breaking:** Websockets Transport now requires full path to PFX Certificate file.
 * **Removed**: Discord Transport
 
-## v13.0.1 -- 2020-May-06 <a href="#version-1301----2020-may-06" id="version-1301----2020-may-06"></a>
+## [v13.0.1](https://github.com/MirrorNetworking/Mirror/releases/tag/v13.0.1) -- 2020-May-06 <a href="#version-1301----2020-may-06" id="version-1301----2020-may-06"></a>
 
 * Added: [Multiple Concurrent Additive Scenes Example](https://mirror-networking.com/docs/Articles/Examples/MultipleAdditiveScenes/index.html).
 * Added: [Network Match Checker](https://mirror-networking.com/docs/Articles/Components/NetworkMatchChecker.html) component. Use this component to create many concurrent isolated matches within a single game server.
@@ -164,7 +164,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * **Breaking:** RemovePlayerMessage has been removed as a potential security risk. Use `NetworkServer.RemovePlayerForConnection` instead.
 * **Breaking:** Network Behaviour: `OnRebuildObservers`, `OnCheckObserver`, and `OnSetHostVisibility` were moved to a separate class called `NetworkVisibility`.
 
-## v11.4.2 - 2020-Apr-03 <a href="#version-1142---2020-apr-03" id="version-1142---2020-apr-03"></a>
+## [v11.4.2](https://github.com/MirrorNetworking/Mirror/releases/tag/v11.4.2) - 2020-Apr-03 <a href="#version-1142---2020-apr-03" id="version-1142---2020-apr-03"></a>
 
 * Added: SyncVar hooks can be virtual now, and overridden in a derived class.
 * Added: Virtual `OnRoomStopServer` added to Network Room Manager and Script Template.
@@ -188,7 +188,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Changed: Network Manager will no longer lose references to scenes if they aren't in the Build Settings scene list, however moving or renaming scenes may cause references to be lost.
 * **Removed:** Many obsolete methods and properties. Use [version 10](https://github.com/vis2k/Mirror/releases/tag/v10.4.7) first if upgrading from UNet or older Mirror. See [Deprecations](https://mirror-networking.com/docs/Articles/General/Deprecations.html) for complete list.
 
-## v10.4.7 - 2020-Mar-03 <a href="#version-1047---2020-mar-03" id="version-1047---2020-mar-03"></a>
+## [v10.4.7](https://github.com/MirrorNetworking/Mirror/releases/tag/v10.4.7) - 2020-Mar-03 <a href="#version-1047---2020-mar-03" id="version-1047---2020-mar-03"></a>
 
 * Added: Weaver will now block play mode and builds if there are weaver errors and show them in the console again.
 * Added: `PooledNetworkReader` and `PooledNetworkWriter`, both Disposable.
@@ -210,7 +210,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Changed: Network Scene Checker now works from OnEnable instead of Awake, and uses Scene instead of scene name.
 * Changed: Renamed NeworkWriter.Write to WriteMessage for consistency.
 
-## v9.0.2 - 2020-Feb-04 <a href="#version-902---2020-feb-04" id="version-902---2020-feb-04"></a>
+## [v9.0.2](https://github.com/MirrorNetworking/Mirror/releases/tag/v9.0.2) - 2020-Feb-04 <a href="#version-902---2020-feb-04" id="version-902---2020-feb-04"></a>
 
 * Added: Network Animator now has a ResetTrigger function and server / client authority warnings.
 * Added: Network Transform now has 3 new floats for Sensitivity to quiet down message traffic from micro changes.
@@ -243,7 +243,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Changed: OnApplicationQuit virtual method added to Transport class and `Transport.activeTransport.Shutdown()` is no longer called from Network Manager.
 * **Breaking:** SyncVar Hooks now require **two** parameters, one each for the old and new value, and the property value is now set **before** the hook is called.
 
-## v6.7.7 - 2020-Jan-01 <a href="#version-677---2020-jan-01" id="version-677---2020-jan-01"></a>
+## [v6.7.7](https://github.com/MirrorNetworking/Mirror/releases/tag/v6.7.7) - 2020-Jan-01 <a href="#version-677---2020-jan-01" id="version-677---2020-jan-01"></a>
 
 * Added: [Script Templates](https://mirror-networking.com/docs/Articles/General/ScriptTemplates.html) -- See the new Mirror section in the Assets > Create menu.
 * Added: Full Text Search added to docs.
