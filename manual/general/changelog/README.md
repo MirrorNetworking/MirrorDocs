@@ -8,7 +8,7 @@ Mirror is published to the [Asset Store](https://assetstore.unity.com/packages/t
 Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.
 {% endhint %}
 
-## [v96.0.0](https://assetstore.unity.com/packages/tools/network/mirror-129321) -- 2025-Feb-26
+## [v96.0.1](https://assetstore.unity.com/packages/tools/network/mirror-129321) -- 2025-Feb-27
 
 ### Added
 
@@ -33,6 +33,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 ### Fixes
 
 * NetworkClient now defers spawn payload until after all objects have been created, eliminating many common race conditions.
+  * Fixed bug in 96.0.1 for missing message.payload.count check.
 * Reader / Writer Processor now works across assemblies.
 * Simple Web Transport jslib improved to support more platforms.
 * Network Manager StopClient no longer calls OnClientDisconnectInternal (Transport calls it).
