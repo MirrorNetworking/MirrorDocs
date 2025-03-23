@@ -17,6 +17,10 @@ Follow the Xcode instructions to get the multicast networking permission from Ap
 
 Add it to the app provisioning, then add the capability to the app itself, making sure you've properly added the entitlement to your app in Xcode.
 
-This should get Network Discovery features working, Kudos to overmatch-iman for reporting back the working steps.
+Latest versions may need this: Add NSLocalNetworkUsageDescription to the info.plist.
 
+\
 Note: If LAN Broadcasting does not work, try another address, for example, change 0.0.0.0 to 255.255.255.255  (remember to rebuild after changing)
+
+This should get Network Discovery features working, Kudos to overmatch-iman, Sylvain and other Discord users for reporting back the working steps.
+
