@@ -76,7 +76,7 @@
   * [Network Room Player](manual/components/network-room-player.md)
   * [Network Start Position](manual/components/network-start-position.md)
   * [Network Statistics](manual/components/network-statistics.md)
-  * [Remote Statistics](manual/components/network-statistics-1.md)
+  * [Remote Statistics](manual/components/remote-statistics.md)
   * [Network Transform](manual/components/network-transform/README.md)
     * [Snapshot Interpolation](manual/components/network-transform/snapshot-interpolation.md)
   * [Deprecated](manual/components/deprecated/README.md)
