@@ -22,9 +22,8 @@ public class Enemy : NetworkBehaviour
 
     void OnMouseUp()
     {
-        NetworkIdentity ni = NetworkClient.connection.identity;
-        PlayerController pc = ni.GetComponent<PlayerController>();
-        pc.currentTarget = gameObject;
+        if (NetworkClient.localPlayer.TryGetComponent(out PlayerController pc))
+            pc.currentTarget = gameObject;
     }
 }
 ```
@@ -39,7 +38,7 @@ public class PlayerController : NetworkBehaviour
     void Update()
     {
         if (isLocalPlayer)
-            if (currentTarget != null &&currentTarget.tag == "Enemy")
+            if (currentTarget != null && currentTarget.tag == "Enemy")
                 if (Input.GetKeyDown(KeyCode.X))
                     CmdShoot(currentTarget);
     }
