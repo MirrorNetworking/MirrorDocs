@@ -17,7 +17,7 @@ using Mirror;
 
 public class PlayerController : NetworkBehaviour
 {
-    [SyncVar(hook = nameof(SetColor))]
+    [SyncVar(hook = nameof(OnColorChanged))]
     Color playerColor = Color.black;
 
     // Unity makes a clone of the Material every time GetComponent().material is used.
@@ -26,11 +26,10 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartServer()
     {
-        base.OnStartServer();
         playerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
     }
 
-    void SetColor(Color oldColor, Color newColor)
+    void OnColorChanged(Color oldColor, Color newColor)
     {
         if (cachedMaterial == null)
             cachedMaterial = GetComponent().material;
