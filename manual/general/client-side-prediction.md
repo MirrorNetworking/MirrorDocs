@@ -6,7 +6,11 @@ description: Everything you need to know about Mirror's new Prediction algorithm
 
 <figure><img src="../../.gitbook/assets/2024-03-21 - 12-13-11@2x.png" alt=""><figcaption><p>Billiards is the perfect example to learn about Prediction.</p></figcaption></figure>
 
-_**Good news:**_ after 8 months of full time work in collaboration with a game studio, Mirror now has a production ready **Prediction** algorithm!
+{% hint style="warning" %}
+Mirror is currently experimenting with various Prediction algorithms. This is all purely experimental, we don't recommend using this just yet.
+{% endhint %}
+
+
 
 Let's walk through why we even need prediction, how it works, how we implemented it and what you can use it for in your game **today**.&#x20;
 
