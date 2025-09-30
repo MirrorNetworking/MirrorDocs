@@ -21,6 +21,16 @@ This guide will give you a basic overview. The next chapters serve as in-depth g
 
 Here is a brief overview of different hosting technologies, which games they are for, and which providers you could choose from.
 
+## Update: Edgegap Unity Plugin 🇨🇦
+
+This is the new, modern way to host game servers. The Edgegap Hosting plugin is already in your Mirror folder and allows you to host to the cloud directly from Unity Editor. We wouldn't mention it here if it wouldn't make life easier.&#x20;
+
+{% hint style="success" %}
+**Edgegap** allows for ultra low latency hosting, managed directly from the Unity Editor.
+{% endhint %}
+
+Check out our step by step guide to get started: [edgegap-hosting-plugin-guide.md](edgegap-hosting-plugin-guide.md "mention")
+
 ### **1.) Hosting on your own Computer**
 
 After building your game, you could technically host it on your own machine, or let players host it on their machines. However, this comes with several major issues:
@@ -111,19 +121,4 @@ Well, good news: orchestration is the future of multiplayer game hosting. In sim
 1. You **create a lightweight Docker** image: configure a text file (".Dockerfile") with your Linux distribution, packages, open ports, etc. and then compile your whole project into a "Docker Image". If you aren't familiar with Docker, fear not. It makes your life a **lot** easier. Just learn it once, you'll wind up using it for all your hosting afterwards. No more manually setting up Linux servers, no more apt-get, no more maintenance etc.
 2. **Upload your image** to the Orchestration Service.
 3. **Configure** your orchestration in a web UI. They will ask you how many servers you want to spawn, when to spawn more, when to remove old servers, etc.
-
-This is the new, modern way to host game servers. Docker & Orchestration may sound complicated at first, but we wouldn't mention it here if it wouldn't make our life easier.&#x20;
-
-Again, I don't want to worry about hosting. I want to upload my server image, and let the orchestration service worry about all the scaling, maintenance, etc. **Convenience is key.**
-
-{% hint style="success" %}
-**Multiplay**, **Edgegap** and **AWS Gamelift** are popular choices.\
-We use EdgeGap because it's the [easiest to use](https://docs.edgegap.com/docs/sample-projects/mirror-on-edgegap) with the most [advanced network](https://en.wikipedia.org/wiki/Edge_computing).
-{% endhint %}
-
-## Update: Edgegap Unity Plugin 🇨🇦
-
-Great news, Mirror now has Edgegap's Hosting / Orchestration plugin built in!
-
-Check out our step by step guide to get started: [edgegap-hosting-plugin-guide.md](edgegap-hosting-plugin-guide.md "mention")
 
