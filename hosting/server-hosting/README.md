@@ -31,6 +31,10 @@ In the upcoming sections we will go through setting up a provider with the free 
 Always double check that you do not select a paid feature as this is purely meant as a short term period to test out basic functionality during development of your project.
 {% endhint %}
 
+### Edgegap <a href="#microsoft-azure" id="microsoft-azure"></a>
+
+We recommend checking our [Edgegap Hosting Guide](../edgegap-hosting-plugin-guide.md) for the most convenient way to host your game in the cloud. It doesn't require much setup since the plugin already ships with Mirror.
+
 ### Microsoft Azure <a href="#microsoft-azure" id="microsoft-azure"></a>
 
 Microsoft Azure (as of time of writing) allows setting up a windows instance during the free trial without an active payment method.
