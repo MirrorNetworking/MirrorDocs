@@ -23,6 +23,8 @@ Here is a brief overview of different hosting technologies, which games they are
 
 ## Update: Edgegap Unity Plugin 🇨🇦
 
+<figure><img src="../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
+
 This is the new, modern way to host game servers. The Edgegap Hosting plugin is already in your Mirror folder and allows you to host to the cloud directly from Unity Editor. We wouldn't mention it here if it wouldn't make life easier.&#x20;
 
 {% hint style="success" %}
