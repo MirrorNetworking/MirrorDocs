@@ -138,7 +138,7 @@
   * [Google Cloud](hosting/server-hosting/google-cloud.md)
   * [Oracle Free Tier](hosting/server-hosting/oracle-free-tier.md)
 * [Hosting with a Remote Desktop](hosting/hosting-with-a-remote-desktop.md)
-* [Edgegap Server Hosting Guide](hosting/edgegap-hosting-plugin-guide.md)
+* [Edgegap’s Dedicated Game Server Hosting – Plugin Guide](hosting/edgegap-hosting-plugin-guide.md)
 
 ## Security
 
