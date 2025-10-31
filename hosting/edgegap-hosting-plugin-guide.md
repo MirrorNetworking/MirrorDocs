@@ -1,284 +1,249 @@
 ---
-description: Mirror's inofficial Edgegap Hosting Plugin documentation.
+description: Mirror's unofficial Edgegap Hosting Plugin documentation.
 ---
 
-# Edgegap Hosting Plugin Guide
+# Edgegap’s Dedicated Game Server Hosting – Plugin Guide
 
-Thanks to **Edgegap**'s hosting plugin for Unity, Mirror users get 0.5 vCPU cloud hosting for free!
+Edgegap helps you build and launch a dedicated game server in the cloud directly from Unity’s editor, without almost any coding or Linux/Cloud usage whatsoever. Which helps make game server hosting easy!
 
-You can build & launch a game server into the cloud directly from your Unity Editor, without any Linux or Cloud usage whatsoever.
-
-<figure><img src="../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="warning" %}
-This is an **early version.**
-
-If you encounter issues, please report them in our Discord's **#edgegap** channel.
-{% endhint %}
+_Thanks to Edgegap’s dedicated game server hosting plugin for Unity, Mirror users get 1.5 vCPU of cloud hosting for free with Edgegap’s free trial!_&#x20;
 
 ## Overview
 
-Setup will take only a few minutes, with 4 basic steps:
+Integration of Edgegap is simple and takes a few minutes with 3 basics steps:
 
-1. Creating an **Edgegap.com** Account
-2. Installing Unity **Linux** Build Support & **Docker** Desktop
-3. Configuring the Unity **Plugin**
-4. **Building & Pushing** our server to Edgegap
+1. Installing Unity dependencies & Docker
+2. Installing the Unity plugin & creating a free account on [Edgegap](https://app.edgegap.com/)
+3. Configuring, building & pushing the server to Edgegap
 
-## Open the Plugin in Unity / Mirror
+Edgegap’s plugin walks you, step-by-step, making it the easiest way to add dedicated game server in Unity.
 
-Edgegap's Hosting plugin (version 2) is now always included in the latest Mirror version.
+<div align="left"><figure><img src="../.gitbook/assets/00 - Mirror Documentation - Plugin Overview copy.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-It requires at least Unity 2023 LTS, it won't work with older versions due to using UIToolkit.
-
-The original source is on Github, but we applied a few fixes to the version in Mirror.
-
-{% embed url="https://github.com/edgegap/edgegap-unity-plugin" %}
-
-If you are on an older Mirror version, you can also download the Assets/Mirror/Hosting folder from our Github repository manually. If you see errors about missing 'Newtonsoft Json', add this package to your Package Manager:
-
-<figure><img src="../.gitbook/assets/2023-11-05 - 13-14-02@2x.png" alt=""><figcaption></figcaption></figure>
-
-You can also open the `Packages/manifest.json` file and add this line manually:
-
-```json
-"com.unity.nuget.newtonsoft-json": "3.2.1"
-```
-
-By default, this should work out of the box though.
-
-Once you have it, check for "**Edgegap** -> **Edgegap** Hosting" in Unity's top menu:
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 13-18-23@2x.png" alt=""><figcaption><p>Edgegap Hosting Plugin V3</p></figcaption></figure>
-
-## Get a Token
-
-The next step is to **Get a Token** from the Edgegap website.
-
-Simply press the **Get a Token** button and either login to your existing Edgegap.com account, or press the **Get Started** link on the page to create a new account.
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 13-21-42@2x.png" alt=""><figcaption></figcaption></figure>
-
-
-
-After confirming your email address, you'll be asked about naming **Your Organization**. You can enter anything, in this case we use "**Your-Organization"**.
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 13-55-40@2x.png" alt=""><figcaption></figcaption></figure>
-
-Afterwards you'll be asked to **Begin the Application Tour**. Skip it for now.
-
-Next you'll automatically see the **Token Created Successfully** screen, because we initially clicked the **Get Token** button in the Unity plugin:
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 13-58-35@2x.png" alt=""><figcaption></figcaption></figure>
-
-Press the **Clipboard** icon to copy the token, then paste it back into the Unity plugin and press **Verify.**\
-&#xNAN;_&#x4E;ote that the token looks like "token 123456-abcdef-00000-..."._\
-_The "token ..." part needs to remain in there._
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 13-59-44@2x.png" alt=""><figcaption></figcaption></figure>
-
-After verifying successfully, enter an **Application Name** into the field and press **Create Application:**
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-02-43@2x.png" alt=""><figcaption></figcaption></figure>
-
-It'll say **Success** and then show you the application details.
-
-Next time you can enter your already created application name and press **Load Existing App** instead.
-
-The final configuration step: we need to enter the **Port** and **Protocol Type**.
-
-Open your scene in Unity (for example our Tanks demo), find the NetworkManager, find the Transport component, copy the Port into the plugin.\
-\=> If you are using `Kcp` then the **Protocol Type** is `UDP`.\
-\=> If you are using `Telepathy`, then it's `TCP`.
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-05-19@2x.png" alt=""><figcaption></figcaption></figure>
-
-**Almost done!**\
-Before we can Build and push, we need to install the Linux build support for Unity, and Docker!
-
-## Install Unity Linux Build Support
-
-In your **Unity Hub**, select **Installs**, press the Configuration icon next to your Unity version and click **Add Modules**:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-52-53@2x.png" alt=""><figcaption></figcaption></figure>
-
-Find and install **Linux Dedicated Server Build**. You may add the others too just to be safe:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 18-54-28@2x.png" alt=""><figcaption></figcaption></figure>
-
-Press Continue, wait, restart Unity once, done.
-
-## Install Docker Desktop
-
-**Edgegap** works with containers, which means we need to install Docker. We don't need to worry about it ever, we just need to install it once.
-
-The easiest way is to simply install **Docker Desktop**:
-
-{% embed url="https://www.docker.com/products/docker-desktop/" %}
-
-Download it, install it, open it and leave it running. You can pretty much auto start it with your operating system each time.
+## Setting Up your Project
 
 {% hint style="warning" %}
-Some users reported that they had to restart their computer once before they could use Docker. To be safe, consider restarting once!
+If you are installing a new project, rather than installing the latest version, we strongly recommend using the “LTS” (Long Term Service) version of Unity for your project, i.e., Unity 6.0 (6000.0.60f1) as of writing. This ensures compatibility with tools & services, and long-term support of Unity’s version for your projects.
 {% endhint %}
+
+**1. Installing Linux Build Support**
+
+From your **Unity Hub**, select **Installs**, select the **Manage** icon next to the Unity version you intend to use in your project and click **Add Modules**:
+
+<div align="left"><figure><img src="../.gitbook/assets/01 - Mirror Documentation - Install Linux Build Support - Unity Hub.png" alt=""><figcaption></figcaption></figure></div>
+
+Make sure to install all three of Unity’s Linux Build Support Modules. Namely:&#x20;
+
+* Linux Build Support (IL2CPP), Linux Build Support (Mono), Linux Dedicated Server Build Support,
+
+Additionally, depending on your target platform OS, you will need to add:
+
+* **Windows**: Windows Build Support (Mono)
+* **Mac**: Mac Dedicated Build Support (IL2CPP) and Mac Dedicated Server Build Support
+* **WebGL**: Web Build Support
+
+<div align="left"><figure><img src="../.gitbook/assets/03 - Mirror Documentation - Install Linux Build Support - Modules.png" alt=""><figcaption></figcaption></figure></div>
 
 {% hint style="info" %}
-Quick explanation about Docker if you care. You don't need to know this, so feel free to skip.
-
-Basically Docker is a super easy way to configure a virtual machine for your game server build. Previously you would manually create a VM in say Google Cloud, configure a hard disk, open ports, install a Linux version, run apt-update, install dependencies, ...
-
-With docker, we just have a text file. It says 'install ubuntu, copy our build into the VM, navigate to the folder, run unity. Again, you DO NOT need to worry about this. The plugin creates this automatically, something like this (again, don't worry about it):
-
-```
-FROM ubuntu:bionic
-ARG DEBIAN_FRONTEND=noninteractive
-COPY Builds/EdgegapServer /root/build/
-WORKDIR /root/
-RUN chmod +x /root/build/ServerBuild
-ENTRYPOINT [ "/root/build/ServerBuild", "-batchmode", "-nographics"]
-
-```
+For users with new projects, which modules to add will be prompted when selecting which version to install. Make sure to add it there. However, you can return at any time to add them as shown above.
 {% endhint %}
 
-Next, we need to log into Edgegap's docker registry.
+**2. Installing Docker**
 
-We are working with Edgegap to automate this. For now you need to open a Terminal / Console:
+Edgegap uses containers, which is a virtualization that ensures to can run on any hardware, anywhere in the world.&#x20;
 
-* On Windows, hit CTRL+R, enter CMD, hit enter to open it.
-* On Mac, open Finder, go to Applications -> Utilities -> Terminal.
-* On Linux, you probably know how to do it.
+Any containerization tool should work, but the easiest is to use Docker Desktop:
 
-{% hint style="info" %}
-Don't be scared of the Terminal. It's just black background and white text where we'll enter exactly one command. This will be automated soon.
-{% endhint %}
+[https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
-Grab your Username + Token from the **Container Registry** page on Edgegap.com:
+Simply download it, install it, restart the dev machine, then open it (if it doesn’t open automatically at boot time. Then run it in the background.
 
-[https://app.edgegap.com/registry-management/repositories/list](https://app.edgegap.com/registry-management/repositories/list)
+## Installing the Unity plugin
 
-You can find them under **Credentials:**
+From the top navigation menu in Unity, select **Window**, then **Package Manager**.
 
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-19-45@2x.png" alt=""><figcaption></figcaption></figure>
+<div align="left"><figure><img src="../.gitbook/assets/04 - Mirror Documentation - Install Plugin - Window.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-\
-Now enter this simple terminal command. There won't be any others, promised!
+Within the Package Manager, click on the "+" icon, then select **Add Project from Git**.
 
-```
-docker login registry.edgegap.com
-```
+<div align="left"><figure><img src="../.gitbook/assets/05 - Mirror Documentation - Install Plugin - Install Package from git URL.png" alt="" width="462"><figcaption></figcaption></figure></div>
 
-Then enter your Username and Token (as password) that you see on the Edgegap.com -> **Container Registry** page.
+Paste Edgegap's Unity plugin URL:&#x20;
 
-If you can't seem to login, you can also try this command instead:
+<[https://github.com/edgegap/edgegap-unity-plugin.git#partner/mirror-source](https://github.com/edgegap/edgegap-unity-plugin.git#partner/mirror-source)>
 
-```
-docker login -u "YOUR_USERNAME" registry.edgegap.com
-```
+<div align="left"><figure><img src="../.gitbook/assets/06 - Mirror Documentation - Install Plugin - Git URL.png" alt=""><figcaption></figcaption></figure></div>
 
-Docker Desktop remembers your login, so you won't have to do this again next time.
+Select **Install**.
 
-Alright, that's it for Docker.
+That’s it!
 
+From the top navigation bar, select **Tools** and then open the plugin by clicking on **Edgegap Server Hosting**.
 
+<div align="left"><figure><img src="../.gitbook/assets/07 - Mirror Documentation - Open the Plugin.png" alt="" width="264"><figcaption></figcaption></figure></div>
 
-## Build and Push
+The plugin automatically opens up. Select **Sign in with Edgegap** to start the process of creating an account (or sign-in to sync with the platform, for users with active accounts).
 
-Before we build the game server, select your `NetworkManager` and make sure that **Auto Start Server** in **Headless Mode** is enabled. Otherwise the server application may launch but not call NetworkManager.StartServer(), so no one would be able to connect.
+<div align="left"><figure><img src="../.gitbook/assets/08 - Mirror Documentation - Sign in with Edgegap.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-13-06@2x.png" alt=""><figcaption></figcaption></figure>
+## Create a Free Account on Edgegap
 
-Next, press **Build and Push** in the Unity plugin:
+Signing up to Edgegap is easy and free. Use your own **Google** or **GitHub** account, or sign-up with an **email**.&#x20;
 
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-16-59@2x.png" alt=""><figcaption></figcaption></figure>
+<div align="left"><figure><img src="../.gitbook/assets/09 - Mirror Documentation - Sign in Screen.png" alt="" width="320"><figcaption></figcaption></figure></div>
 
-{% hint style="info" %}
-Note that **Edgegap** does not see your game's source code. \
-They only see a finished Docker container.
-{% endhint %}
+You are now asked to name **Your Organization**.
 
-You'll see a progress bar for a while:
+<div align="left"><figure><img src="../.gitbook/assets/10 - Mirror Documentation - Your Organization Screen.png" alt="" width="321"><figcaption></figcaption></figure></div>
 
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-23-56@2x.png" alt=""><figcaption></figcaption></figure>
-
-Unity will create a Linux build, then create a Docker build, then upload the whole thing to Edgegap. Note that uploading will take a while depending on your internet connection. The progress bar halts while uploading, but you can check your operating system's bandwidth usage to see if it's still uploading:
-
-<figure><img src="../.gitbook/assets/2023-11-03 - 19-17-10@2x.png" alt=""><figcaption></figcaption></figure>
-
-If this all worked, then you'll see a log message:
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-25-05@2x.png" alt=""><figcaption></figcaption></figure>
-
-If this failed, it'll show you errors. Here are a few common issues and workarounds:
-
-* **Missing Linux Build Support**: install it in your Unity hub. Make sure you do it for the Unity version that you are using in your project. This generally works once you have the Linux Build Support installed.
-* **Incremental Build Failed**: delete your previous Unity Linux build in the /Builds folder next to the /Assets folder, restart Unity try again. Delete your Library/ folder if you need to. This is a Unity bug that happens sometimes.
-* **Docker authorization Failed**: make sure Docker Desktop is running and make sure that you are logged in with the above Terminal command. Also make sure that image registry consists of the **Container Registry**'s 'Project' + "/" + "your-game".
-
-If you encounter other issues, talk in our **#edgegap** Discord channel. We want to find solutions for any possible issue and explain this here!
-
-## Deploying the Server
-
-Now that we uploaded our server build to Edgegap, we need to **Deploy** (aka launch) it.
-
-In the plugin, press **Create New Deployment:**
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-27-46@2x.png" alt=""><figcaption></figcaption></figure>
-
-After a few seconds you'll see your running server in the list:
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-29-04@2x.png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-Note that our original port was **7777,** but in the Deployment it says **30358**.\
-That's because one cloud server may launch multiple game servers.\
-But there's only **one** port **7777**, so it's using **Port Mapping** to find a free port for you.
-{% endhint %}
-
-## Connect your Game Client
-
-Finally, press **Play** in the Unity Editor (or launch your client build).
-
-Enter the deployment's **hostname** and **port** in the NetworkManager HUD:
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-30-36@2x.png" alt=""><figcaption></figcaption></figure>
+Automatically, the **OneClick Token Create Successfully** screen appears. This is your token (blurred here). Simply copy it by clicking on the clipboard icon.
 
 {% hint style="warning" %}
-Enter the hostname(fa\[...].edgegap.net) and the port (30358) separately!
+Do not share your token with anyone or on public channels like Discord, as they could deploy game servers on your behalf!
 {% endhint %}
 
-Press the **Client** button to connect to it, and now you are online! [🚀](https://emojipedia.org/rocket)
+<div align="left"><figure><img src="../.gitbook/assets/11 - Mirror Documentation - OneClick Token.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-34-37@2x.png" alt=""><figcaption></figcaption></figure>
+## Configuring, building & pushing the server to Edgegap
+
+**1. Validate your Token**
+
+Return to Unity and paste the token in the field under **1. Connect your Edgegap Account**. Then, select **Validate Token**.
+
+<div align="left"><figure><img src="../.gitbook/assets/12 - Mirror Documentation - Plugin - Validate Token.png" alt=""><figcaption></figcaption></figure></div>
+
+**2. Building your Game Server**
+
+After verifying successfully, you optionally can make sure that you have the Linux Server dependencies by clicking on **Install**.&#x20;
+
+Then, select **Edit Settings** to make sure the game scenes you want to include are included.
+
+<div align="left"><figure><img src="../.gitbook/assets/04 - Mirror Documentation - Plugin - Build your Game Server.png" alt=""><figcaption></figcaption></figure></div>
+
+Under **Linux Server**, make sure the scenes are listed. If not, select **Open Scene List** and add them manually.
+
+<div align="left"><figure><img src="../.gitbook/assets/14.A - Mirror Documentation - Plugin - Build Profile.png" alt=""><figcaption></figcaption></figure></div>
+
+Additionally, doublecheck that your build set up. Specifically, select **Network Manager** from your project’s hierarchy, and the under **Network Manager**, ensure&#x20;
+
+1. Under **Configuration**, that **Don’t Destroy on Load** is selected (i.e., the ✔)&#x20;
+2. **Headless Start Mode** is set to **Auto Start Server**
+
+<div align="left"><figure><img src="../.gitbook/assets/14.B - Mirror Documentation - Plugin - Network Manager - Copy.png" alt="" width="273"><figcaption></figcaption></figure></div>
+
+<div align="left"><figure><img src="../.gitbook/assets/14.C - Mirror Documentation - Auto Start Server.png" alt="" width="308"><figcaption></figcaption></figure></div>
+
+Return to the plugin and select **Build Server** to start the build process. You should see “Build succeeded” in green when complete.&#x20;
+
+**3. Containerize your Game Server**
+
+First, make sure Docker is running by selecting **Validate**.  You should see “Docker is running” in green.
+
+While you may want to change the image name, build path, and tags in the future, we recommend skipping this entirely and select **Containerize with Docker** button to start the containerization process.&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/15 - Mirror Documentation - Plugin - Containerize.png" alt=""><figcaption></figcaption></figure></div>
+
+After a short wait, you should see “Containerization succeeded” in green.&#x20;
+
+**4. (Optional) Test your Server Locally**
+
+Optionally, you can test your container locally by selecting **Deploy Local Container**. You may configure the server image tag, and Docker run parameters, but we recommend skipping this initially.&#x20;
+
+If it succeeds, you should see “Container deployed successfully” in green.&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/16 - Mirror Documentation - Plugin - Test Locally.png" alt=""><figcaption></figcaption></figure></div>
+
+The container should be visible within the “Container” tab in Docker Desktop.&#x20;
+
+**5. Upload to Edgegap**
+
+Now we’ll upload the game server to Edgegap’s registry so they can deploy it to their cloud network.&#x20;
+
+Application name, server image name and server image tag are all pre-filled. While all can be edited, we suggest to keep things as-is for now.&#x20;
+
+Select **Upload Image and Create App Version** button, which automatically uploads the build to Edgegap’s platform.
+
+{% hint style="info" %}
+Older images on your dev machine can be uploaded. Find the docker image name and tag in Docker Desktop under images tab.
+{% endhint %}
+
+<div align="left"><figure><img src="../.gitbook/assets/17 - Mirror Documentation - Plugin - Upload to Edgegap.png" alt=""><figcaption></figcaption></figure></div>
+
+After a bit of loading, a new web browser will open. This is your application’s **Version** parameters. You can customize the version’s name, resources parameters, and more.&#x20;
+
+For now, click on **Submit** to create your version.&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/18 - Mirror Documentation - Plugin - App Version.png" alt=""><figcaption></figcaption></figure></div>
+
+{% hint style="info" %}
+Resources optimization is key to limit overall cloud usage. Edgegap offers vCPU fractioning, which means you can reduce your game server down to ¼ of a vCPU. When ready, make sure to check out Edgegap’s [analytics](https://app.edgegap.com/analytics/dashboards/list) and recommended [server builds optimization](https://docs.edgegap.com/learn/unity-games/getting-started-with-servers#optimize-server-builds) strategy
+{% endhint %}
+
+Then, the **Create Port** screen appears. Here you can change the **port**, and the **protocol type**. If you use KCPTransport the default port of 7777 and UDP.
+
+{% hint style="info" %}
+If you are working on a WebGL project, then use 7778 and WS protocol. For other transports, select the corresponding protocol an port configured in Network Manager in your server build.
+{% endhint %}
+
+Select **Submit** to create your deployment.
+
+<div align="left"><figure><img src="../.gitbook/assets/19 - Mirror Documentation - Plugin - Create Port.png" alt="" width="375"><figcaption></figcaption></figure></div>
+
+**6. Deploy to Cloud**
+
+The final step is to select which version to deploy to Edgegap’s cloud network. Here, your latest application will be preset but can be changed. You must manually select **Application Version** by simply clicking on the drop down (the ▼ on the right) and the latest versions will be shown, here in the image highlighted in green:
+
+<div align="left"><figure><img src="../.gitbook/assets/20 - Mirror Documentation - Plugin - Deploy to Cloud.png" alt=""><figcaption></figcaption></figure></div>
+
+Once selected, simply select **Deploy to Cloud**.&#x20;
+
+This automatically opens your deployments’ page on the Edgegap’s platform. After a few seconds, the deployment will change from “deploying” to “ready”.&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/21 - Mirror Documentation - Plugin - Deployment Dashboard.png" alt=""><figcaption></figcaption></figure></div>
+
+Once that’s done, click on the deployment. This opens up the **Deployment Details** page. Scroll down and make sure to note the **Host URL** alongside the **External Port**.&#x20;
+
+Copy the Host URL using the clipboard.
+
+<div align="left"><figure><img src="../.gitbook/assets/22 - Mirror Documentation - Plugin - Deployment Host URL &#x26; External Port.png" alt="" width="361"><figcaption></figcaption></figure></div>
+
+{% hint style="info" %}
+While internal ports for the server process are defined as part of app version, external ports are assigned at random once a deployment is created, so that a potential malicious party (hacker) is slowed down and detected before they can cause damage.
+{% endhint %}
+
+Back in Unity, select the **Network Manager** from your project’s hierarchy.
+
+<div align="left"><figure><img src="../.gitbook/assets/23 - Mirror Documentation - Plugin - Network Manager.png" alt="" width="409"><figcaption></figcaption></figure></div>
+
+Within the **Inspect Tab**, make sure to set:
+
+1. Paste the **Host’s URL** from the deployment to the **Network Address**&#x20;
+2. Replace the default **Port** (usually 7777) to the **External Port** from the deployment
+
+<div align="left"><figure><img src="../.gitbook/assets/24 - Mirror Documentation - Plugin - Network Manager Inspector.png" alt="" width="450"><figcaption></figcaption></figure></div>
+
+Then launch the scene in Unity Editor, and test the project:
+
+<div align="left"><figure><img src="../.gitbook/assets/25 - Mirror Documentation - Plugin - Test Scene.png" alt=""><figcaption></figcaption></figure></div>
 
 {% hint style="success" %}
-It's important to understand the magic that is happening here.\
-Not only can you launch a game server with **Two Clicks** now.\
-You can even launch **thousands of servers** with another click on **Edgegap**'s website! 🤩
+It's important to understand the magic that is happening here.
+
+Not only can you launch a game server with Two Clicks now.
+
+You can even launch thousands of servers with another click on Edgegap's website! 🤩
 {% endhint %}
 
+To reduce costs (if you are paying), you can press **Stop Last Deployment** in the plugin once you are done.
+
+<div align="left"><figure><img src="../.gitbook/assets/26 - Mirror Documentation - Plugin - Stop Last Deployment.png" alt=""><figcaption></figcaption></figure></div>
 
 
-To reduce costs (if you are paying), you can press **Stop Server** in the plugin once you are done.
-
-<figure><img src="../.gitbook/assets/2023-12-07 - 14-43-38@2x.png" alt=""><figcaption></figcaption></figure>
-
-## Optional: Grab the Server Status at Runtime
-
-If you need to grab the server status from the above screenshot from your Game, you can use:
-
-```csharp
-Edgegap.Status status = Edgegap.EdgegapServerDataManager.GetServerStatus();
-```
 
 ## Troubleshooting Connection Issues
 
 If your Server Status says **Ready** but you can't seem to connect, try this:
 
-* On the Edgegap website, go to Deployments -> select your Deployment -> select **Container Logs**, check the log files to see if your game server actually launched or if there are issues.
-  * If it says "exec user process caused: no such file or directory": this can happen if you pushed an ARM build to Edgegap's x86 infrastructure. We already updated the plugin to properly cross compile from ARM so this generally should not happen anymore.
-* If everything seems fine but you still can't connect, please talk to an Edgegap employee in the Mirror Discord's **#edgegap** channel.&#x20;
-
-{% hint style="info" %}
-Big thanks to our Canadian 🇨🇦 friends at **Edgegap** for giving Mirror users 0.5 vCPU for free!\
-While we hope for a larger free tier in the future, please keep in mind that they are the ones who are paying for the infrastructure. If you have the means, please pay them for more vCPUs!
-{% endhint %}
+* On the Edgegap website, go to Deployments -> select your Deployment -> select **Container Logs**, check the log files to see if your game server launched or if there are issues.
+* If it says "exec user process caused: no such file or directory": this can happen if you pushed an ARM build to Edgegap's x86 infrastructure. We already updated the plugin to properly cross compile from ARM so this generally should not happen anymore.
+* If everything seems fine but you still can't connect, please talk to an Edgegap employee in the Mirror Discord's **#edgegap** channel.
