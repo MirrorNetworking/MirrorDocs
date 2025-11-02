@@ -25,7 +25,7 @@ We needed a networking library that allows us to [**launch our games**](https://
 
 ## Unity Versions
 
-We will follow Unity's support for **LTS releases**.  Any version beyond those may work, but you're on your own, especially with regard to preview / beta versions.
+We will follow Unity's support for **LTS releases**. Any version beyond those may work, but you're on your own, especially with regard to preview / beta versions.
 
 At the moment, we recommend using Unity 2020 or 2021 LTS releases.
 
