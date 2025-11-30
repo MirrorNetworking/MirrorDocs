@@ -37,12 +37,12 @@ public class DistanceInterestManagement : InterestManagement
     public float rebuildInterval = 1;
     double lastRebuildTime;
 
-    public override bool OnCheckObserver(NetworkIdentity identity, NetworkConnection newObserver)
+    public override bool OnCheckObserver(NetworkIdentity identity, NetworkConnectionToClient newObserver)
     {
         return Vector3.Distance(identity.transform.position, newObserver.identity.transform.position) <= visRange;
     }
 
-    public override void OnRebuildObservers(NetworkIdentity identity, HashSet<NetworkConnection> newObservers, bool initialize)
+    public override void OnRebuildObservers(NetworkIdentity identity, HashSet<NetworkConnectionToClient> newObservers, bool initialize)
     {
         Vector3 position = identity.transform.position;
         
