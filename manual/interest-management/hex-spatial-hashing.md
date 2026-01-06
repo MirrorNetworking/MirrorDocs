@@ -1,6 +1,6 @@
 # Hex Spatial Hashing
 
-Hex Spatial Hashing comes in both 2D and 3D versions, the latter handling hex-shaped volumetric space. Performance is improved over the original Spatial Hashing in part by only having 7 cells to consider instead of 9 (or 21 instead of 27), and separate interval updates for static objects since they don't move, and reduced update workload by considering a minimum move distance to trigger rebuilds.
+Hex Spatial Hashing comes in both 2D and 3D versions, the latter handling hex-shaped volumetric space. Performance is improved over the original Spatial Hashing in part by only having 7 cells to consider instead of 9 (or 21 instead of 27 in 3D), and separate interval updates for static objects since they don't move, and reduced update workload by considering a minimum move distance to trigger rebuilds.
 
 ### Setting Up
 
