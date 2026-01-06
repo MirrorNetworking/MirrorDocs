@@ -12,7 +12,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 
 ### Added
 
-* Hex Spatial Hash Interest Management 2D and 3D (docs coming soon).
+* [Hex Spatial Hash Interest Management](../../interest-management/hex-spatial-hashing.md) 2D and 3D with additional optimizations.
 * Network Manager now has a Clear button for spawnable prefabs.
 * Scene Distance Interest Management (combines Scene and Distance IM's).
 * Interest Management SetHostVisibility now handles terrains with tree details, lights, audio sources, and particle systems correctly.
