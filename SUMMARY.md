@@ -87,6 +87,7 @@
     * [Network Owner Checker](manual/components/deprecated/network-owner-checker.md)
 * [Interest Management](manual/interest-management/README.md)
   * [Spatial Hashing](manual/interest-management/spatial-hashing.md)
+  * [Hex Spatial Hashing](manual/interest-management/hex-spatial-hashing.md)
   * [Distance](manual/interest-management/distance.md)
   * [Scene](manual/interest-management/scene.md)
   * [Scene + Distance](manual/interest-management/scene-+-distance.md)

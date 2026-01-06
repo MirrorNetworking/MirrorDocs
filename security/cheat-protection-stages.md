@@ -46,8 +46,7 @@ It gets so bad that some popular games need to move their anti cheat software ou
 This is a very broad topic and there are lots of things you can do that I haven't mentioned, like obfuscation, virtualization, etc. But as mentioned, it would be wise to start with server authority & minimizing information sent to the client ![:)](https://forum.unity.com/styles/default/xenforo/clear.png)\
 \
 On a side note, imho attempting to protect client sided hacks isn't ideal.\
-Instead you should try to silently detect hacks, and then ban hackers after random amounts of time. This way a hacker would not know which particular action was detected.\
-
+Instead you should try to silently detect hacks, and then ban hackers after random amounts of time. This way a hacker would not know which particular action was detected.<br>
 
 ### &#x20;**Anti Cheat with Mirror**
 

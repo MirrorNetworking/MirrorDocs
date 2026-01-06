@@ -8,8 +8,6 @@ description: Documentation for our new global Interest Management system.
 
 When making multiplayer games, the first obvious approach is to simply broadcast the world state to every player. By default, that's what **Mirror** does when you don't use any Interest Management components.
 
-![Source: https://www.dynetisgames.com/2017/04/05/interest-management-mog/](<../../.gitbook/assets/image (125).png>)
-
 Instead of sending the full world state to every player, it's worth considering sending only what's around a player to the player. There are a few major reasons for interest management:
 
 * **Scale**: imagine World of Warcraft. Sending the whole world to every single player would be insane. In order to scale to thousands of connections, we need to only send what's relevant to any given player.
@@ -22,7 +20,8 @@ In other words, interest management is almost always a good idea.
 
 Select the **Network Manager** and add one of the built in Interest Management components.
 
-* [**Spatial Hashing**](spatial-hashing.md) is the reason why we moved from the legacy **per-Network Identity** system to a **global** system and uses one global **Vis Range** setting that is the same for everything in the scene.&#x20;
+* [**Spatial Hashing**](spatial-hashing.md) is the reason why we moved from the legacy **per-Network Identity** system to a **global** system and uses one global **Vis Range** setting that is the same for everything in the scene.
+* [Hex Spatial Hashing](hex-spatial-hashing.md) is the newer, highly optimized version of the older Spatial Hashing.&#x20;
 * [**Distance**](distance.md) is a parity replacement for Network Proximity Checker.
 * [**Scene**](scene.md) allows for visual and physics isolation across additive scenes.
 * [**Scene Distance**](scene-+-distance.md) is a combination of Scene and Distance above.

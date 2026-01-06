@@ -20,17 +20,14 @@ With 6x more time to update, you can probably have 2-3x more CCU.\
 \
 This is how many early MMOs achieved 500+ CCU already 15 years ago.\
 Many of them ran at 10 Hz or less.\
-The downside is extra latency. But hey, 500 CCU :smile:.\
-
+The downside is extra latency. But hey, 500 CCU :smile:.<br>
 
 Keep in mind that Unity is not a great choice for game servers if you care about robustness, stability, scale.\
 C# standalone projects (outside of Unity) can run on netcore, which is significantly faster and more stable.\
 \
-Outside of Unity you also have more choices for programming languages which may be better suited for high scale / high performance servers.\
+Outside of Unity you also have more choices for programming languages which may be better suited for high scale / high performance servers.<br>
 
-
-* Go is worth learning. A concurrent language developed by google for scalable systems. Much easier to do multithreading than with C#, due to go-routines. Also garbage collected, like C#.\
-
+* Go is worth learning. A concurrent language developed by google for scalable systems. Much easier to do multithreading than with C#, due to go-routines. Also garbage collected, like C#.<br>
 * Rust is great too. Bare metal C/C++ performance, but with memory safety. Multithreading is great too, because Rust protects you from data races (unlike Go and C#). Not garbage collected, so there won't be GC pauses to worry about.
 * C# is still great choice. However, some of the low level networking defaults aren't great. For example, there's an ongoing discussion about C# UDP socket allocations [here](https://github.com/dotnet/runtime/issues/30797). Allocations require garbage collection, which introduces GC pauses, which introduces performance issues in high scale servers.
 

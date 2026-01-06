@@ -6,6 +6,10 @@ description: Spatial Hash Interest Management
 
 ## **Spatial Hashing Interest Management**
 
+{% hint style="warning" %}
+For better performance try [Hex Spatial Hashing](hex-spatial-hashing.md) instead.
+{% endhint %}
+
 First things first: **"Spatial Hashing"** sounds complicated so that we network programmers can stroke our egos. The technique is actually pretty simple, and if you used uMMORPG before then you probably remember this as **"Grid Checker"**. We go with "Spatial Hashing" anyway since that's the industry term.
 
 ### Setting Up
