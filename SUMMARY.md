@@ -13,6 +13,7 @@
   * [Getting Started](manual/general/getting-started.md)
   * [Script Templates](manual/general/script-templates.md)
   * [Change Log](manual/general/changelog/README.md)
+    * [2025 Change Log](manual/general/changelog/2025-change-log.md)
     * [2024 Change Log](manual/general/changelog/2024-change-log.md)
     * [2023 Change Log](manual/general/changelog/2023-change-log.md)
     * [2022 Change Log](manual/general/changelog/2022-change-log.md)
