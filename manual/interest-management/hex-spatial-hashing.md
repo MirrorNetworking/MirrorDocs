@@ -18,7 +18,7 @@ Note that the Static Rebuild Interval for static objects is much slower than the
 
 ### 3D Hex Volumes
 
-By setting the hex cell radius (Vis Range) and the Cell Height, you determine the size of the hex volume size around the player:
+By setting the hex cell radius (Vis Range) and the Cell Height, you determine the size of the hex volume around the player:
 
 <div align="left"><figure><img src="../../.gitbook/assets/image (159).png" alt="Screenshot of Player in 3D Hex Volume"><figcaption><p>Screenshot of Player in 3D Hex Volume</p></figcaption></figure></div>
 
