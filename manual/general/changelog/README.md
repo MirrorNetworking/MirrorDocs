@@ -37,10 +37,14 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * SimpleWebTransport general improvements in logging
 * SimpleWebTransport minimized calls to conn.Dispose
 * InterestManagement now hides Canvas in SetHostVisibility
+* Host client now respects AOI when invoking SyncVar hooks
 * OnGUI now properly excluded from Dedicated Server builds
 * ReadOnly attribute now supports TextArea fields
 * NetworkIdentity::AssignClientAuthority now ensures owner data is included
 * CecilX updated with missing namespaces and build fixes
+* ThreadLog now only captures logging from Mirror threads
+* Transport base class now has a `TryBuildValidUri` helper method to protect against unvalid characters in host names, and our transports have been updated to use it from `ServerUri` overrides.
+* NetworkManager no longer throws NRE from StopHost after StartHost failed
 * Many examples have been updated, especially PlayerTest prefabs and controllers
 
 ### Changes
