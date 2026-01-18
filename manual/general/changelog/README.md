@@ -36,8 +36,10 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * SimpleWebTransport now includes timestamps in log outputs
 * SimpleWebTransport general improvements in logging
 * SimpleWebTransport minimized calls to conn.Dispose
-* InterestManagement now hides Canvas in SetHostVisibility
-* Host client now respects AOI when invoking SyncVar hooks
+* InterestManagement now hides WorldSpace Canvas in SetHostVisibility
+* Host client now respects AOI when invoking SyncVar hooks and SyncCollection Actions
+* SyncVar hooks and SyncCollection Actions are now deferred on clients until end of initial spawn
+  * This should eliminate race conditions when attempting to cross-reference other networked objects from the hooks and Action handlers.
 * OnGUI now properly excluded from Dedicated Server builds
 * ReadOnly attribute now supports TextArea fields
 * NetworkIdentity::AssignClientAuthority now ensures owner data is included
