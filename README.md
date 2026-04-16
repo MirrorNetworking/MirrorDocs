@@ -21,7 +21,7 @@ We needed a networking library that allows us to [**launch our games**](https://
 * Support for [**Additive Scenes**](manual/examples/) with Physics Isolation (battle instances, levels, etc.)
 * Several complete [**Examples**](manual/examples/) included.
 * Constant improvements and enhancements [**every month**](manual/general/changelog/).
-* Full time support available on our [**Discord**](https://discord.gg/2BvnM4R).
+* Full time support available in our [**Discord**](https://discord.gg/2BvnM4R).
 
 ## Unity Versions
 
