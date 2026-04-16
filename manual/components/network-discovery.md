@@ -96,7 +96,7 @@ public class NewNetworkDiscovery: NetworkDiscoveryBase
 
     protected override DiscoveryResponse ProcessRequest(DiscoveryRequest request, IPEndPoint endpoint) 
     {
-        // TODO: Create your response and return it   
+        // TODO: Create your response and return it
         return new DiscoveryResponse();
     }
 
@@ -111,7 +111,7 @@ public class NewNetworkDiscovery: NetworkDiscoveryBase
 
     protected override void ProcessResponse(DiscoveryResponse response, IPEndPoint endpoint)
     {
-        // TODO: a server replied,  do something with the response such as invoking a unityevent
+        // TODO: a server replied, do something with the response such as invoking a unityevent
     }
 
     #endregion

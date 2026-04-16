@@ -12,7 +12,7 @@ When you have a multiplayer game, often you need to store information about your
 
 ## Encryption Notice <a href="#encryption-notice" id="encryption-notice"></a>
 
-Few of the available transports support encryption, so if you want to do authentication through Mirror, we highly recommend you use a transport that does, e.g. [SimpleWebSocket ](https://mirror-networking.gitbook.io/docs/transports/websockets-transport)Transport, or carry out your exchange of sensitive data using UnityWebRequest with a service over HTTPS.  This can be done inside an Authenticator, or before calling `StartClient`.
+Few of the available transports support encryption, so if you want to do authentication through Mirror, we highly recommend you use a transport that does, e.g. [SimpleWebSocket ](https://mirror-networking.gitbook.io/docs/transports/websockets-transport)Transport, or carry out your exchange of sensitive data using UnityWebRequest with a service over HTTPS. This can be done inside an Authenticator, or before calling `StartClient`.
 
 ## Offline / Online Scenes
 
@@ -20,7 +20,7 @@ Authentication takes place in the Offline scene, and messages are exchanged with
 
 ## Persisting Data
 
-`NetworkConnection` has an **`authenticationData`** property of type `Object` that can be set to pretty much anything you need, such as account id's, tokens, character selection, etc., including a struct of data, on the server and/or client during the authentication process.  That data is available everywhere else in Mirror where you have the client's `NetworkConnection`...just cast it back to whatever type you put into it.
+`NetworkConnection` has an **`authenticationData`** property of type `Object` that can be set to pretty much anything you need, such as account id's, tokens, character selection, etc., including a struct of data, on the server and/or client during the authentication process. That data is available everywhere else in Mirror where you have the client's `NetworkConnection`...just cast it back to whatever type you put into it.
 
 ## Built-in Authenticators <a href="#basic-authenticator" id="basic-authenticator"></a>
 

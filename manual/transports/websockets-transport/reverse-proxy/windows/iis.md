@@ -63,7 +63,7 @@ Since all clients will be connected through IIS, which uses a "worker process" t
 ### SSL Certificate
 
 {% hint style="warning" %}
-NOTE: DNS records pointing to this server need to be done before this step, and propagated to the world DNS servers.  If you can't reach this site with a browser, setting up SSL using WinAcme won't work.
+NOTE: DNS records pointing to this server need to be done before this step, and propagated to the world DNS servers. If you can't reach this site with a browser, setting up SSL using WinAcme won't work.
 {% endhint %}
 
 You'll need an SSL certificate for your domain.
@@ -86,7 +86,7 @@ You'll see that WinAcme has added a binding for port 443 with the same host name
 
 You can double click the port 443 binding to see how it is set up with the SSL certificate selected.
 
-Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443.  This will be for the client to connect to the Reverse Proxy that will be set up later in this document. If you're running multiple game server instances on the same server, just add a binding for each port you're using. Make sure your firewall has all of the ports open.
+Click Add to create one more binding for port 7777 as shown below, using the same SSL certificate as was used for port 443. This will be for the client to connect to the Reverse Proxy that will be set up later in this document. If you're running multiple game server instances on the same server, just add a binding for each port you're using. Make sure your firewall has all of the ports open.
 
 <div align="left">
 
@@ -115,7 +115,7 @@ Make sure Simple Web Transport is set up like this:
 
 In Unity, Network Manager, change Network Address to the same name as you used in Bindings above, e.g. game.example.com.
 
-* Select Dedicated Server platform in Build Settings, build and deploy your server to a folder on the server.  Mirror will start the server on the Port specified (27777 from the image above).
+* Select Dedicated Server platform in Build Settings, build and deploy your server to a folder on the server. Mirror will start the server on the Port specified (27777 from the image above).
 * Change the platform in Build Settings to WebGL, and build the client, and upload that to the folder on your server that your Default website is pointed to in IIS.
 
 ### web.config for IIS

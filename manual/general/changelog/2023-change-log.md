@@ -55,7 +55,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
   * SimpleWebTransport Settings and Logging have been refactored.
     * There are now separate port fields for server and clients so you don't have to change them for building server and client.
   * SimpleWebTransport Use of cert.json and SSL certs has been labeled as obsolete in the component inspector.
-    * This feature will be removed eventually.  Reverse Proxy should always be implemented as it performs far better and is easier to maintain.
+    * This feature will be removed eventually. Reverse Proxy should always be implemented as it performs far better and is easier to maintain.
 
 ## [v81.4.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v81.4.0) -- 2023-Aug-03
 

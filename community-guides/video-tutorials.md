@@ -20,4 +20,4 @@
 * [**Recreating 'Among Us' by Lignus**](https://www.youtube.com/watch?v=j5ja-pKz05A) **-** A tutorial using Unity and Mirror to recreate the famous game.
 
 \
-(Tip:   Do not speak these Languages?   Set Youtube captions to on, and Auto Translate -> Your Language)
+(Tip: Do not speak these Languages? Set Youtube captions to on, and Auto Translate -> Your Language)

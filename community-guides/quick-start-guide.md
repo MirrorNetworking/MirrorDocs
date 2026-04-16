@@ -684,7 +684,7 @@ void CmdShootRay()
 [ClientRpc]
 void RpcFireWeapon()
 {
-    //bulletAudio.Play(); muzzleflash  etc
+    //bulletAudio.Play(); muzzleflash etc.
     GameObject bullet = Instantiate(activeWeapon.weaponBullet, activeWeapon.weaponFirePosition.position, activeWeapon.weaponFirePosition.rotation);
     bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * activeWeapon.weaponSpeed;
     Destroy(bullet, activeWeapon.weaponLife);

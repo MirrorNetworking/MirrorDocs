@@ -23,7 +23,7 @@ The orange Collider shows the Tank's red Collider over the last second.
 * Make sure your NetworkIdentity has a collider, drag it into the component's `actualCollider` field
 * Add a child GameObject with a BoxCollider and isTrigger enabled. Drag it into the component's `boundsCollider`.
 * Press play, enable Gizmos, notice the orange HistoryCollider.
-*   The component automatically adjusts the child trigger collider to match the orange box, which means that you can use Physics.Raycast against all the history colliders very easily.
+* The component automatically adjusts the child trigger collider to match the orange box, which means that you can use Physics.Raycast against all the history colliders very easily.
 
 
 

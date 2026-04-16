@@ -18,9 +18,9 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Fixed: `NetworkManager.StopClient` no longer fires twice in certain cases.
 * Fixed: `NetworkMatch` was missing attributes.
 * Changed: `NetworkLoop` static class is now public.
-*   Changed: `NetworkConnection.observing` is now public.
+* Changed: `NetworkConnection.observing` is now public.
 
-    Changed: `NetworkTransformV2` default values updated. `interpolateScale` also defaults to `false` now.
+* Changed: `NetworkTransformV2` default values updated. `interpolateScale` also defaults to `false` now.
 * Changed: `NetworkTransformV2` `isClientAuthority` now `protected` instead of `private`.
 * Changed: Examples using `NetworkTransformV2` now using default values.
 * Changed: Updated `NetworkManager` Script Template.
@@ -53,11 +53,11 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 
 ## [v44.0.2](https://github.com/MirrorNetworking/Mirror/releases/tag/v44.0.2) -- 2021-Aug-08
 
-* Added: Scene Interest Management.  Put this on Network Manager and remove all Network Scene Checker components.
-* Added: Match Interest Management.  Put this on Network Manager and replace Network Match Checker with new Network Match component.
+* Added: Scene Interest Management. Put this on Network Manager and remove all Network Scene Checker components.
+* Added: Match Interest Management. Put this on Network Manager and replace Network Match Checker with new Network Match component.
 * Added: Interest Management now has `OnSpawned` / `OnDestroyed` events.
 * Added: Network Transform V2 with Snapshot Interpolation.
-* Added: Network Transport exception events that transports can raise to Network Manager's `OnServerError` and `OnClientError` overrides.  Transports still need to implement their part.
+* Added: Network Transport exception events that transports can raise to Network Manager's `OnServerError` and `OnClientError` overrides. Transports still need to implement their part.
 * Added: `ZigZag VarInt` added back to Compression module.
 * Fixed: Network Discovery HUD now calls `StopDiscovery` when stopping server/host/client.
 * Fixed: `NetworkTime.lastPingTime` is now reset properly.
@@ -141,10 +141,10 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Fixed: Client Shutdown is no longer run twice via user code calling `StopClient`.
 * Fixed: `SyncVar` field label not shown in Unity 2020 versions (Unity bug).
 * Changed: Network Manager `OnServerAddPlayer` now adds the connection id to the object name (on the server only, not synced to clients).
-* Changed: Several fields in `NetworkTime` were renamed.  The previous field names are still there and **obsolete** and will be removed in a later version.
-* Changed: Most of `ClientScene` is now **obsolete**, use same or similar properties in `NetworkClient` instead.  `ClientScene` will be fully deprecated and removed in a later version.
-* Changed: `NetworkClient.RegisterHandler` overload that included a `NetworkConnection` is now **obsolete** and will be removed in a later version.  Handlers can use `NetworkClient.connection` directly.
-* Changed: Channel constants names were shortened.  The original constants are still there and **obsolete**, and will be removed in a later version.
+* Changed: Several fields in `NetworkTime` were renamed. The previous field names are still there and **obsolete** and will be removed in a later version.
+* Changed: Most of `ClientScene` is now **obsolete**, use same or similar properties in `NetworkClient` instead. `ClientScene` will be fully deprecated and removed in a later version.
+* Changed: `NetworkClient.RegisterHandler` overload that included a `NetworkConnection` is now **obsolete** and will be removed in a later version. Handlers can use `NetworkClient.connection` directly.
+* Changed: Channel constants names were shortened. The original constants are still there and **obsolete**, and will be removed in a later version.
 * **Breaking**: Minimum supported Unity version is now 2019.4.x LTS.
 * **Breaking**: `ClientScene.onLocalPlayerChanged` removed.
 * **Breaking**: Compiler symbols culled to Mirror 17 and later versions.
@@ -155,7 +155,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Added: Global Interest Management. This may eventually lead to replacement of Scene Checker, Match Checker, and Owner Checker components.
 * Added: GUI Console ported from uMMORPG (F12 to show/hide).
 * Added: Network Manager now takes itself out of DDOL in `StopServer` / `StopClient` when offline scene is defined to avoid singleton collision.
-* Added: Message batching.  Enable in Network Manager.
+* Added: Message batching. Enable in Network Manager.
 * Added: Custom Player Loop:
   * `NetworkEarlyUpdate` (before any Update/FixedUpdate)
   * `NetworkLateUpdate` (after any Update/FixedUpdate/LateUpdate) loops
@@ -179,7 +179,7 @@ Mirror uses semantic versioning, and the versions shown here are those that were
 * Fixed: Telepathy 1.6 fixes data races and improves stability.
 * Fixed: KCP 1.8 fixes empty message sending / receiving undefined behaviour and fixes IPv6 on Nintendo Switch.
 * Changed: Network Manager default max connections is now 100.
-* **Breaking**: `NetworkServer` / `NetworkClient` don't use Connect/Disconnect messages any more.  Connect/Disconnect events are raised by the transport instead.
+* **Breaking**: `NetworkServer` / `NetworkClient` don't use Connect/Disconnect messages any more. Connect/Disconnect events are raised by the transport instead.
 * **Breaking**: `OnServerError` / `OnClientError` removed since no transport ever implemented them.
 * **Breaking** Removed `NetworkConnection.InvokeHandler` as no longer needed.
 

@@ -14,7 +14,7 @@ Add the **Team Interest Management** component to the same object as your **Netw
 
 ![](<../../.gitbook/assets/image (58).png>)
 
-Add a **Network Team** component to the player prefab and any other prefabs that will belong to a team.  Set the Team ID to the same value at runtime for players / objects on the same team.
+Add a **Network Team** component to the player prefab and any other prefabs that will belong to a team. Set the Team ID to the same value at runtime for players / objects on the same team.
 
 ![](<../../.gitbook/assets/image (35).png>)
 

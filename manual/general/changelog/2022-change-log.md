@@ -137,7 +137,7 @@ This version was published to the Asset Store as 2022-09.
 ## [v66.0.9](https://github.com/MirrorNetworking/Mirror/releases/tag/v66.0.9) -- 2022-Apr-17
 
 {% hint style="warning" %}
-**NOTE:** This was to be the last Mirror release to support Unity 2019 LTS, as it has reached end of life by Unity.  Support was restored in Mirror 70.0.0 above.
+**NOTE:** This was to be the last Mirror release to support Unity 2019 LTS, as it has reached end of life by Unity. Support was restored in Mirror 70.0.0 above.
 {% endhint %}
 
 * Added: [Network Statistics](../../components/network-statistics.md) component, showing messages & packets sent & received per second.
@@ -173,8 +173,8 @@ This version was published to the Asset Store as 2022-09.
 * **Changed**: `CmdDelegate` renamed to `RemoteCallDelegate`.
 * **Changed**: `MirrorInvokeType` renamed to `RemoteCallType`.
 * **Changed:** `NetworkManager.clientLoadedScene` is now `protected`.
-* **Obsolete**: `NetworkTransform` now has overloads for `CmdTeleport` / `RpcTeleport`  with Quaternion rotation, deprecating separate `CmdTeleportAndRotate` / `RpcTeleportAndRotate` methods, made possible by implementing Command / ClientRpc overloads mentioned above.
-* **Obsolete:** Experimental Network Transform components.  Use the regular ones instead.
+* **Obsolete**: `NetworkTransform` now has overloads for `CmdTeleport` / `RpcTeleport` with Quaternion rotation, deprecating separate `CmdTeleportAndRotate` / `RpcTeleportAndRotate` methods, made possible by implementing Command / ClientRpc overloads mentioned above.
+* **Obsolete:** Experimental Network Transform components. Use the regular ones instead.
 
 ## [v57.0.0](https://github.com/MirrorNetworking/Mirror/releases/tag/v57.0.0) -- 2022-Jan-12
 
@@ -212,4 +212,4 @@ This version was published to the Asset Store as 2022-09.
 * **Breaking**: Removed obsolete `PersistNetworkManagerToOfflineScene`.
 * **Breaking**: `NetworkAuthenticator` `OnClientAuthenticated` event no longer needs a NetworkConnection parameter.
 * **Obsolete**: OnClient\* virtual methods in Network Manager no longer take a `NetworkConnection` parameter.
-* **Obsolete**: Network Room Manager client overrides no longer have `NetworkConnection` parameter.  Use `NetworkClient.connection` in your overrides instead.
+* **Obsolete**: Network Room Manager client overrides no longer have `NetworkConnection` parameter. Use `NetworkClient.connection` in your overrides instead.
