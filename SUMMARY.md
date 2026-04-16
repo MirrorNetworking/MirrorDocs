@@ -58,7 +58,6 @@
   * [Encryption Transport](manual/transports/encryption-transport.md)
   * [Edgegap Transports](manual/transports/edgegap-transports/README.md)
     * [Edgegap Relay](manual/transports/edgegap-transports/edgegap-relay.md)
-    * [Edgegap Lobby](manual/transports/edgegap-transports/edgegap-lobby.md)
 * [Components](manual/components/README.md)
   * [Network Animator](manual/components/network-animator.md)
   * [Network Authenticators](manual/components/network-authenticators/README.md)
