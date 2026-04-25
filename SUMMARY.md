@@ -129,7 +129,6 @@
   * [Pong](manual/examples/pong.md)
   * [Room](manual/examples/room.md)
   * [Tanks](manual/examples/tanks.md)
-  * [EdgegapLobby](manual/examples/edgegap-lobby.md)
 
 ## Server Hosting <a href="#hosting" id="hosting"></a>
 
