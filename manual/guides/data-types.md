@@ -12,7 +12,7 @@ Mirror supports a number of data types you can use with these, including:
   * **These should not be used in SyncVars or Sync\* Collections or Rpc's because they'll be null on the client if the corresponding object hasn't already been spawned.**
 * Game object with a `NetworkIdentity` component that have been network spawned
   * **Not** prefabs!
-  * See important details in [GameObjects](gameobjects/) section below.
+  * See important details in [GameObjects](data-types.md#game-objects/) section below.
 * Structures with any of the above
   * You must replace the whole struct value, not just change its properties
   * It's recommended to implement IEquatable to avoid boxing, and to have the struct readonly because modifying one of properties does **not** cause a resync
