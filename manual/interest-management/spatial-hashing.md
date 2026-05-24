@@ -20,7 +20,7 @@ Add the **Spatial Hashing Interest Management** component to the same object as 
 
 ### **How It Works**
 
-Previously we **Vector3.Distance** checked each spawned entity against each connection. Instead, we put each spawned entity into a **Grid** and for each connection, we send all **8-neighbor** grid entries to it.  This is extremely fast. In early uMMORPG tests, it was 30x faster than distance checking. The algorithm is less complex, so it scales well to large amounts of entities.
+Previously we **Vector3.Distance** checked each spawned entity against each connection. Instead, we put each spawned entity into a **Grid** and for each connection, we send all **8-neighbor** grid entries to it. This is extremely fast. In early uMMORPG tests, it was 30x faster than distance checking. The algorithm is less complex, so it scales well to large amounts of entities.
 
 ![Source: https://www.dynetisgames.com/2017/04/05/interest-management-mog/](<../../.gitbook/assets/image (27).png>)
 

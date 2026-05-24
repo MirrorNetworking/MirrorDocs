@@ -40,7 +40,7 @@ To make life easier, Mirror includes _an 8 byte_ `double` _precision_ `timestamp
 
 For any message handler in Mirror, you can get the timestamp from the batch it arrived with via `NetworkConnection.remoteTimeStamp`.
 
-* On the **client**, all object data arrives in messages/batches from the server. So at any given time, you can find out when an object's `Rpc`/`OnDeserialize`/`OnMessage` handler was sent by the server via  `NetworkClient.connection.remoteTimeStamp`.
+* On the **client**, all object data arrives in messages/batches from the server. So at any given time, you can find out when an object's `Rpc`/`OnDeserialize`/`OnMessage` handler was sent by the server via `NetworkClient.connection.remoteTimeStamp`.
   * Note that on the client, we don't use an object's `connectionToServer` because only the player owned objects have connections to the server. Instead we use the client's `NetworkClient.connection` to server, which is always guaranteed to be there.
 * On the **server**, only player owned objects get messages from player connections. So at any given time, you can find otu when object's `Cmd`/`OnDeserialize`/`OnMessage` handler was sent by the client via `connectionToClient.remoteTimeStamp`.
 

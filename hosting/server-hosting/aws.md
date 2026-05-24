@@ -73,7 +73,7 @@ Nothing has to be changed. Keep it default. Click on **"Next: Configure Security
 Create a new security group and you can give it your own name and description. Add the following rules:
 
 * RDP with source "Anywhere", Description can be whatever but put it as Remote Desktop Program.
-* Custom TCP Rule with port 7777 and source "Anywhere", Description can be whatever but put it as Mirror.  (If KCP is on your NetworkManager, unblock UDP, not TCP)
+* Custom TCP Rule with port 7777 and source "Anywhere", Description can be whatever but put it as Mirror. (If KCP is on your NetworkManager, unblock UDP, not TCP)
 * SSH with source "Anywhere", Description can be whatever but put it as SSH.
 
 SSH is not strictly necessary but can be used to remote connect to it through other means than the RDP.

@@ -132,7 +132,7 @@ For example, if you have this code:
 using UnityEngine;
 using UnityEngine.Networking;
 
-public  class MyBehaviour : NetworkBehaviour
+public class MyBehaviour : NetworkBehaviour
 {
     public SyncListInt m_ints = new SyncListInt();
 
@@ -154,7 +154,7 @@ replace it with:
 using UnityEngine;
 using Mirror;
 
-public  class MyBehaviour : NetworkBehaviour
+public class MyBehaviour : NetworkBehaviour
 {
     public SyncListInt m_ints = new SyncListInt();
 
@@ -224,7 +224,7 @@ See for yourself how uMMORPG was migrated to Mirror:
 
 * TypeLoadException: A type load exception has occurred. - happens if you still have SyncListStruct instead of SyncListSTRUCT in your project.
 * NullPointerException: The most likely cause is that you replaced NetworkIdentities or other components but you had them assigned somewhere. Reassign those references.
-*   `error CS0246: The type or namespace name 'UnityWebRequest' could not be found. Are you missing 'UnityEngine.Networking' using directive?`
+* `error CS0246: The type or namespace name 'UnityWebRequest' could not be found. Are you missing 'UnityEngine.Networking' using directive?`
 
     Add this to the top of your script:
 

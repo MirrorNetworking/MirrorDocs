@@ -69,7 +69,7 @@ server {
         # Tell upstream the host
         proxy_set_header Host $host;
         # Tell upstream real ip & forwarded for header
-        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         # tell upstream this was served via https
         proxy_set_header X-Forwarded-Proto https;
@@ -127,7 +127,7 @@ server {
         # Tell upstream the host
         proxy_set_header Host $host;
         # Tell upstream real ip & forwarded for header
-        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";

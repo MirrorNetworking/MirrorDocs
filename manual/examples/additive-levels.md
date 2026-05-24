@@ -29,7 +29,7 @@ Next, add a Player and Portal Layer to Project Settings under Tags and Layers:
 Finally, open the Offline scene, and click Play in the editor, and click Host in the HUD.
 
 * Player controls are WASD+QE to move and turn.
-* Move into the Portal in the corner with a scene label over it.  Your player will be changed to the other level scene.
+* Move into the Portal in the corner with a scene label over it. Your player will be changed to the other level scene.
 * Move into the Portal in the corner of the 2nd scene, and your player will be changed back to the first scene
 
 If you make a build and start two or more instances (one as Host or Server, the other(s) as clients, and move each one, you'll see that only players in the same level can see and collide with each other.

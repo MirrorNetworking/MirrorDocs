@@ -137,7 +137,7 @@ Return to the plugin and select **Build Server** to start the build process. You
 
 **3. Containerize your Game Server**
 
-First, make sure Docker is running by selecting **Validate**.  You should see “Docker is running” in green.
+First, make sure Docker is running by selecting **Validate**. You should see “Docker is running” in green.
 
 While you may want to change the image name, build path, and tags in the future, we recommend skipping this entirely and select **Containerize with Docker** button to start the containerization process.&#x20;
 

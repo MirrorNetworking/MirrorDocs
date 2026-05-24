@@ -1,6 +1,6 @@
 # Network Manager
 
-The Network Manager is a component for managing the networking aspects of a multiplayer game.  It wraps up a lot of useful functionality into a single place, and makes creating, running and debugging multiplayer games as simple as possible.
+The Network Manager is a component for managing the networking aspects of a multiplayer game. It wraps up a lot of useful functionality into a single place, and makes creating, running and debugging multiplayer games as simple as possible.
 
 The Network Manager features include:
 

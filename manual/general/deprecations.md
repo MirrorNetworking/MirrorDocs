@@ -218,7 +218,7 @@ The currently defined channels are:
   &#x20;Use `Spawn(GameObject obj, Guid assetId, NetworkConnection ownerConnection)` instead.
 * `disconnectInactiveConnections` and `disconnectInactiveTimeout` were removed.
 * `NoConnections` was renamed to `NoExternalConnections`.
-*   `DisconnectAllExternalConnections`  / `DisconnectAllConnections`
+*   `DisconnectAllExternalConnections` / `DisconnectAllConnections`
 
     Use `DisconnectAll` instead.
 * `OnError` renamed to `OnTransportError` for clarity.

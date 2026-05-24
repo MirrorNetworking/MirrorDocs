@@ -51,7 +51,7 @@ Our Lag Compensation is split into two parts.
 
 #### LagCompensation.cs standalone Algorithm
 
-First, there's the standalone, Unity independent,  C# LagCompensation.cs algorithm with full test coverage:
+First, there's the standalone, Unity independent, C# LagCompensation.cs algorithm with full test coverage:
 
 <figure><img src="../../.gitbook/assets/2023-07-05 - 14-26-07@2x.png" alt="" width="344"><figcaption></figcaption></figure>
 

@@ -6,7 +6,7 @@ description: Distance Interest Management
 
 ## Distance Interest Management
 
-The straight forward, brute force solution for Interest Management is to simply send all entities to all connections within range.  This is what **Network Proximity Checker** did:
+The straight forward, brute force solution for Interest Management is to simply send all entities to all connections within range. This is what **Network Proximity Checker** did:
 
 ```csharp
 foreach spawned entity:
@@ -19,7 +19,7 @@ The only downside is that it's relatively expensive to check every entity agains
 
 ### Setting Up
 
-Add the **Distance Interest Management** component  to the same object as your **Network Manager**:
+Add the **Distance Interest Management** component to the same object as your **Network Manager**:
 
 ![](<../../.gitbook/assets/image (122).png>)
 

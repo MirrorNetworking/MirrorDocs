@@ -222,7 +222,7 @@ public static class ArmorSerializer
 
     public static Armor ReadArmor(this NetworkReader reader)
     {
-        // load the same armor by name.  The data will come from the asset in Resources folder
+        // load the same armor by name. The data will come from the asset in Resources folder
         return Resources.Load(reader.ReadString());
     }
 }

@@ -15,7 +15,7 @@ All of the above custom solutions are possible in Mirror. To understand how inte
 
 ### Script Template
 
-Mirror includes a [**Script Template**](../general/script-templates.md) for custom interest management.  It is fully commented with all the virtual method overrides already stubbed out for you. If you used our legacy Interest Management system before, then these should look familiar.
+Mirror includes a [**Script Template**](../general/script-templates.md) for custom interest management. It is fully commented with all the virtual method overrides already stubbed out for you. If you used our legacy Interest Management system before, then these should look familiar.
 
 * **OnCheckObserver** is called when someone spawns. Returns true if 'identity' can be seen by 'newObserver'
 * **OnRebuildObservers** rebuilds observers for the given **Network Identity**. The result is stored in **newObservers**.&#x20;
@@ -97,4 +97,4 @@ The idea is for the **host player** to be a regular player in the game. LAN part
 **Obviously, the host can cheat.** If you cheat on LAN then you need professional help.
 {% endhint %}
 
-Mirror has a virtual method `SetHostVisibility(NetworkIdentity, bool)` that enables / disables renderers in host mode. In other words, the world state is still there - the host player just doesn't see it.  You can override this in your custom system to suit your needs.
+Mirror has a virtual method `SetHostVisibility(NetworkIdentity, bool)` that enables / disables renderers in host mode. In other words, the world state is still there - the host player just doesn't see it. You can override this in your custom system to suit your needs.

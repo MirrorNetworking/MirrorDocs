@@ -213,7 +213,7 @@ void Awake()
 public override void OnStartLocalPlayer()
 {
     // local player sets reference to scene scripts variable, so they can communicate with each other
-    // you could also use regular Start() and if( isLocalPlayer ) { } instead of  OnStartLocalPlayer()
+    // you could also use regular Start() and if( isLocalPlayer ) { } instead of OnStartLocalPlayer()
     sceneScript.playerScript = this;
     sceneScript.SetupScene();
 }
